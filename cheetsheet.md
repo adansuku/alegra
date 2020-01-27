@@ -5,14 +5,14 @@ docker-compose up -d nginx phpmyadmin mysql
 ### worksacpe
 docker-compose exec workspace bash
 
-# scaffold
+# Scaffold
 ### Create
     artisan infyom:scaffold Patient_spapd --fieldsFile=resources/json/Patient_spapd.json
     
 ### Roolback
 php artisan infyom:rollback Patient_spapd scaffold
 
-### estructura
+# Estructura server
 /laravel
 /laradock
 
