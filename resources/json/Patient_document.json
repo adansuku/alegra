@@ -1,0 +1,59 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "cat_documentos",
+    "dbType": "string",
+    "htmlType": "select,Admisión,Cambio Demandas y Bajas,Salidas Externas,Informes de Salud,Informes ACUFADE,Ley Dependencia (certificados, escritos,etc.),Otras",
+    "searchable": true
+},
+{
+    "name": "nombre_doc",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "url",
+    "dbType": "string",
+    "htmlType": "file",
+    "validations": "required",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "patient_id",
+    "dbType": "integer:unsigned:foreign,patients,id",
+    "htmlType": "text",
+    "relation": "mt1,Patient"
+}
+]

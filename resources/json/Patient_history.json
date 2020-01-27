@@ -1,0 +1,83 @@
+[
+{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "accion",
+    "dbType": "string",
+    "htmlType": "Solicitud Demandas,Formalización Demandas,Tipo Sesiones Centro,Tipo Sesiones Domicilio,PIA Inicial,Seguimiento Diario,PIA Seguimiento",
+    "searchable": true
+},
+{
+    "name": "tipo_accion",
+    "dbType": "string",
+    "htmlType": "Alta, Cambio, Suspensión, Baja, Alta, Cambio, Suspensión, Baja, Valoración Trab.Social, Visita Centro, Acogida 1er Día, Entrega PIA, Apoyo Emocional, Intervención/Mediación Familiar, Asesoramiento Individual,Valoración Trab.Social, Valoración Inicial Equipo, Entrega PIA, Intervención/Mediación Familiar, Asesoramiento Individual,Elaborado y firmado, Entregado,Elaborado y firmado, Entregado",
+    "searchable": true
+},
+{
+    "name": "des_accion",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "reg_accion",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "rea_accion",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "woker_accion",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "observaciones",
+    "dbType": "string",
+    "htmlType": "textarea",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "patient_id",
+    "dbType": "integer:unsigned:foreign,patients,id",
+    "htmlType": "text",
+    "relation": "mt1,Patient"
+}
+]

@@ -1,0 +1,90 @@
+[{
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "fecha",
+        "dbType": "date",
+        "htmlType": "date",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "incontinencia",
+        "dbType": "string",
+        "htmlType": "select, Ninguna, Riesgo Incontinencia Leve, Riesgo de Incontinencia Moderado, Riesgo de Incontinencia Elevado",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "riesgo_caidas",
+        "dbType": "string",
+        "htmlType": "select, Ninguna, Leve, Moderado, Grave",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "higiene_personal",
+        "dbType": "string",
+        "htmlType": "select, Dependencia Leve, Dependencia Moderada, Dependencia Grave",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "hidratacion",
+        "dbType": "string",
+        "htmlType": "select, Hidratación Según Pauta General Servicio, Hidratación Extra (5 vasos de agua en la mañana), Hidratación 1,5L/día, Hidratación Normal, Hidratación Sonda Nasogástrica 1,5L/día, Hidratación Sonda Nasogástrica",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "ulcera_X_presion",
+        "dbType": "string",
+        "htmlType": "select, Sin Riesgo Úlcera Presión, Medidas Preventivas Para Úlcera Presión, Medidas Cuidado de Úlceras Presión, Cambio Postural Por Úlceras Presión",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "deambulacion",
+        "dbType": "string",
+        "htmlType": "select, Si, No",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "telefono_centro",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    }, 
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }, 
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

@@ -1,0 +1,47 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "cat_documentos",
+    "dbType": "string",
+    "htmlType": "select, Admisión, Cambio Demandas y Bajas, Salidas Externas, Informes de Salud, Informes ACUFADE, Ley Dependencia (certificados, escritos,etc.), Otras",
+    "searchable": true
+},
+{
+    "name": "url",
+    "dbType": "string",
+    "htmlType": "file",
+    "validations": "required",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+}
+]

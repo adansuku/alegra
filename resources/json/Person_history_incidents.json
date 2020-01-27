@@ -1,0 +1,82 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "inc_registro",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "inc_realizacion",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "inc_descripcion",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "inc_posibles_causas",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "inc_acciones",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "inc_profesional",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "inc_cierre",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "inc_observaciones",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+}
+]

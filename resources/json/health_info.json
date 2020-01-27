@@ -1,0 +1,84 @@
+[{
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "regimen_asistencia",
+        "dbType": "string",
+        "htmlType": "select, Pública, Privada",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "nom_asist_privada",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "num_afiliacion",
+        "dbType": "string",
+        "validations": "unique, required",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "nom_med_cabecera",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "fecha_ultimo_inf_cab",
+        "dbType": "date",
+        "htmlType": "date",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "centro_referencia",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "telefono_centro",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    }, 
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }, 
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

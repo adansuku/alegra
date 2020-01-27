@@ -1,0 +1,76 @@
+[{
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "nom_servicio",
+        "dbType": "string",
+        "htmlType": "select,SPAP,UEC,CD,SPAPD",
+        "searchable": true
+    },
+    {
+        "name": "municipio_serv",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "tipo_plaza_serv",
+        "dbType": "date",
+        "htmlType": "select,PRIVADA,PÚBLICA,SUBVENCIONADA",
+        "searchable": true
+    },
+    {
+        "name": "plaza_privada_serv",
+        "dbType": "string",
+        "htmlType": "select,Socixs,No Socixs,PEVS",
+        "searchable": true
+    },
+    {
+        "name": "plaza_sub_serv",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "fecha_form_serv",
+        "dbType": "date",
+        "htmlType": "date",
+        "searchable": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "patient_id",
+        "dbType": "integer:unsigned:foreign,patients,id",
+        "htmlType": "text",
+        "relation": "mt1,Patient"
+    }
+]

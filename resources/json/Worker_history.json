@@ -1,0 +1,64 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "his_categoria",
+    "dbType": "string",
+    "htmlType": "select, Administrativas, Recursos",
+    "searchable": true
+},
+{
+    "name": "his_tipo",
+    "dbType": "string",
+    "htmlType": "select, Contratos, Nóminas, Vacaciones, Ausencias, Permisos, Horas Extra, Informes Mensuales SPAPD",
+    "searchable": true
+},
+{
+    "name": "his_respuesta",
+    "dbType": "mediumText",
+    "htmlType": "textarea",
+    "searchable": true
+},
+{
+    "name": "his_observaciones",
+    "dbType": "string",
+    "htmlType": "textarea",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "worker_id",
+    "dbType": "integer:unsigned:default,0:foreign,workers,id",
+    "htmlType": "text",
+    "relation": "mt1,Workers,worker_id,id"
+}
+]

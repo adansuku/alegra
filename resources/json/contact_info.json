@@ -1,0 +1,104 @@
+[{
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "unique",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "calle",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "num_calle",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "puerta_piso",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "cp",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "ciudad",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "isla",
+        "dbType": "string",
+        "htmlType": "select, Tenerife, El Hierro, La Palma, La Gomera, Gran Canaria, Fuerteventura, Lanzarote",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "email",
+        "dbType": "string",
+        "htmlType": "email",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "whatsapp",
+        "dbType": "string",
+        "htmlType": "select, Si, No",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "telefono_domi",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "movil",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

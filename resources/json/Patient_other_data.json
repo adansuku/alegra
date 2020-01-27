@@ -1,0 +1,106 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "fecha_trans",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "transporte",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "cesion_imagen",
+    "dbType": "string",
+    "htmlType": "select,Sí,No",
+    "searchable": true
+},
+{
+    "name": "salir_centro",
+    "dbType": "string",
+    "htmlType": "select,Sí,No",
+    "searchable": true
+},
+{
+    "name": "riesgo_caidas",
+    "dbType": "string",
+    "htmlType": "select,Sin Riesgo,Leve,Moderado,Grave",
+    "searchable": true
+},
+{
+    "name": "salida_externa",
+    "dbType": "string",
+    "htmlType": "select,Sí,No",
+    "searchable": true
+},
+{
+    "name": "socio",
+    "dbType": "string",
+    "htmlType": "select,Sí,No",
+    "searchable": true
+},
+{
+    "name": "no_socio",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "pevs",
+    "dbType": "string",
+    "htmlType": "select,Si,No",
+    "searchable": true
+},
+{
+    "name": "tipo_sub",
+    "dbType": "string",
+    "htmlType": "select,Ayuntamiento,Cabildo,Anillo Insular,Otras",
+    "searchable": true
+},
+{
+    "name": "forma_pago",
+    "dbType": "string",
+    "htmlType": "select,Efectivo,Transferencia,Domiciliación,Subvencionada",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "patient_id",
+    "dbType": "integer:unsigned:foreign,patients,id",
+    "htmlType": "text",
+    "relation": "1t1,Patient"
+}
+]

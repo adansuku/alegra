@@ -1,0 +1,117 @@
+[{
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "antecedentes",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "reg_sanitario",
+        "dbType": "string",
+        "htmlType": "select,Pública,Privada",
+        "searchable": true
+    },
+    {
+        "name": "regimen_priv",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "num_afiliado",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "med_cabecera",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "centro_salud",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "tel_centro_salud",
+        "dbType": "integer",
+        "htmlType": "num",
+        "searchable": true
+    },
+    {
+        "name": "med_centro",
+        "dbType": "string",
+        "htmlType": "select,Si,No",
+        "searchable": true
+    },
+    {
+        "name": "incontinencia",
+        "dbType": "string",
+        "htmlType": "select,Ninguna,Riesgo Incontinencia Leve,Riesgo Incontinencia Moderado,Riesgo Incontinencia Grave",
+        "searchable": true
+    },
+    {
+        "name": "caida",
+        "dbType": "string",
+        "htmlType": "select,Riesgo Caída Leve,Riesgo Caída Moderado,Riesgo Caída Grave",
+        "searchable": true
+    },
+    {
+        "name": "higiene",
+        "dbType": "string",
+        "htmlType": "select,Hidratación Según Pauta General Servicio,Hidratación Extra (5 vasos de agua en la mañana),Hidratación 1, 5 Litros/día,Hidratación Normal,Hidratación Sonda Nasogástrica 1,5L/día,Hidratación Sonda Nasogástrica",
+        "searchable": true
+    },
+    {
+        "name": "ulcera",
+        "dbType": "string",
+        "htmlType": "select,Sin Riesgo Úlcera Presión,Medidas Preventivas Para Úlcera Presión,Medidas Cuidado de Úlceras Presión,Cambio Postural Por Úlceras Presión",
+        "searchable": true
+    },
+    {
+        "name": "deambulacion",
+        "dbType": "string",
+        "htmlType": "select,Sí,No",
+        "searchable": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "patient_id",
+        "dbType": "integer:unsigned:foreign,patients,id",
+        "relation": "1t1,Patient"
+    }
+]

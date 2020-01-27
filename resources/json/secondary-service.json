@@ -1,0 +1,84 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "nombre_servicio",
+    "dbType": "string",
+    "htmlType": "select, SPAP, UEC, CD, SPAPD",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "municipio",
+    "dbType": "string",
+    "htmlType": "select, La Matanza, Granadilla Abona, La Orotava, Tegueste, Güimar",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "tipo_plaza",
+    "dbType": "string",
+    "htmlType": "checkbox, Privada, Pública, Subvencionada",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "fecha_formalizacion",
+    "dbType": "date",
+    "htmlType": "date",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "dias",
+    "dbType": "string",
+    "htmlType": "checkbox, Lunes, Martes, Miércoles, Jueves, Viernes",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "horarios",
+    "dbType": "string",
+    "htmlType": "text",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "type": "relation",
+    "relation": "1t1, Current_demand, secondary_service_id"
+},
+{
+    "type": "relation",
+    "relation": "1tm, Spapd, secondary_service_id"
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+}
+]

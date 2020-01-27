@@ -1,0 +1,58 @@
+[{
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "dia_servicio",
+        "dbType": "string",
+        "htmlType": "select,Lunes,Martes,Miércoles,Jueves,Viernes",
+        "searchable": true
+    },
+    {
+        "name": "horario_servicio",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "obs_servicio",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "service_id",
+        "dbType": "integer:unsigned:foreign,patient_services,id",
+        "htmlType": "text",
+        "relation": "mt1,Patient_services"
+    }
+]

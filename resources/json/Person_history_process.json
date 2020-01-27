@@ -1,0 +1,76 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "hisp_tipo_accion",
+    "dbType": "string",
+    "htmlType": "select, Solicitud Demandas, Formalización Demandas, Tipo Sesiones Centro, Tipo Sesiones domicilio, PIA Inicial, Seguimiento Diario, PIA Seguimiento",
+    "searchable": true
+},
+{
+    "name": "hisp_subtipo",
+    "dbType": "string",
+    "htmlType": "select, Alta, Cambio, Suspensión, Baja, Valoración Trab.Social, Visita Centro, Acogida 1er Día, Entrega PIA, Apoyo Emocional, Intervención/Mediación Familiar, Asesoramiento Individual,Elaborado y firmado, Entregado",
+    "searchable": true
+},
+{
+    "name": "hisp_descripcion",
+    "dbType": "string",
+    "htmlType": "textarea",
+    "searchable": true
+},
+{
+    "name": "hisp_registro",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "hisp_realización",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "hisp_profesional",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "hisp_observaciones",
+    "dbType": "string",
+    "htmlType": "textarea",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+}
+]

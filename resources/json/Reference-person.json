@@ -1,0 +1,80 @@
+[{
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "nombre_completo",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "parentezco",
+        "dbType": "string",
+        "htmlType": "select, Abuelo/a, Padre, Madre, Hijo/a, Hermano/a, Nuera, Yerno, Cuidador/a, Profesional, Nieto/a, Sobrino/a",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "tutor_legal",
+        "dbType": "string",
+        "htmlType": "select, Si, No",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "tutor_nombre",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "tel_emerg_1",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "tel_emerg_2",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "type": "relation",
+        "relation": "1t1, Contact_info, ref_person_id"
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

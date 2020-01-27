@@ -1,0 +1,53 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "cat_documentos",
+    "dbType": "string",
+    "htmlType": "select,Contrato Trabajo:ct,Contrato Mercantil Autónomo:cm,ContratoFGULL:cfgull,Modelo 145:mod145,Declaración Jurada No Tener Delitos Penales:nopenal,DNI:dni,Tarjeta Sanitaria:tssgg,Título/Certificado Principal:titulo,Cursos Complementarios:cursos,Habiltación Sanitaria:hab_san,Colegiación:col,Nª Cuenta:cuenta,Informe Vida Laboral:vida_lab,DARDE:darde",
+    "searchable": true
+},
+{
+    "name": "url",
+    "dbType": "string",
+    "htmlType": "file",
+    "validations": "required",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "worker_id",
+    "dbType": "integer:unsigned:default,0:foreign,workers,id",
+    "htmlType": "text",
+    "relation": "mt1,Workers,worker_id,id"
+}
+]

@@ -1,0 +1,73 @@
+[{
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "fecha_limite",
+        "dbType": "date",
+        "htmlType": "date",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "fecha_real",
+        "dbType": "date",
+        "htmlType": "date",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "tipo_pia",
+        "dbType": "string",
+        "htmlType": "select, Inicial, Seguimiento",
+        "searchable": true
+    },
+    {
+        "name": "url_pia",
+        "dbType": "string",
+        "htmlType": "file",
+        "searchable": true
+    },
+    {
+        "name": "obs_pia",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }, 
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "patient_id",
+        "dbType": "integer:unsigned:foreign,patients,id",
+        "htmlType": "text",
+        "relation": "mt1,Patient"
+    }
+]

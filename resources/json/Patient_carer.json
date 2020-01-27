@@ -1,0 +1,144 @@
+[
+    {
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "nombre",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "apellido",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "parentesco",
+        "dbType": "string",
+        "htmlType": "select,Hija/o,Hermana/o,Nuera,Yerno,Cuidador/a profesional,Nieta/o,Sobrina/o",
+        "searchable": true
+    },
+    {
+        "name": "dni",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "fecha_nac_care",
+        "dbType": "date",
+        "htmlType": "date",
+        "searchable": true
+    },
+    {
+        "name": "direccion_care",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "tel_care",
+        "dbType": "integer",
+        "htmlType": "number",
+        "searchable": true
+    },
+    {
+        "name": "movil_care",
+        "dbType": "integer",
+        "htmlType": "number",
+        "searchable": true
+    },
+    {
+        "name": "email_care",
+        "dbType": "string",
+        "htmlType": "email",
+        "searchable": true
+    },
+    {
+        "name": "whatsapp",
+        "dbType": "string",
+        "htmlType": "select,Si,No",
+        "searchable": true
+    },
+    {
+        "name": "sit_laboral",
+        "dbType": "string",
+        "htmlType": "select,Jubilación,Ocupada,Desempleada",
+        "searchable": true
+    },
+    {
+        "name": "trabajo_care",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "ano_care",
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "sit_apoyo",
+        "dbType": "string",
+        "htmlType": "select,Apoyo Emocional,Grupo Cuidadores,Respiro Familiar",
+        "searchable": true
+    },
+    {
+        "name": "cesion_care",
+        "dbType": "string",
+        "htmlType": "select,Si,No",
+        "searchable": true
+    },
+    {
+        "name": "contactar_para",
+        "dbType": "string",
+        "htmlType": "select,URGENCIAS,Seguimiento diario,contabilidad",
+        "searchable": true
+    },
+    {
+        "name": "es_referencia",
+        "dbType": "string",
+        "htmlType": "select,Si,No",
+        "searchable": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "patient_id",
+        "dbType": "integer:unsigned:foreign,patients,id",
+        "htmlType": "text",
+        "relation": "mt1,Patient"
+    }
+    ]
+    

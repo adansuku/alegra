@@ -1,0 +1,172 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "nivel_educativo",
+    "dbType": "string",
+    "htmlType": "select,No sabe leer y escribir, Sabe leer y escribir, Graduado Escolar, Bachillerato, Formación Profesional grado medio, Formación Profesional grado superior, Estudios Superiores",
+    "searchable": true
+},
+{
+    "name": "estudios_end",
+    "dbType": "string",
+    "htmlType": "select,Si, No",
+    "searchable": true
+},
+{
+    "name": "ocupacion",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "intereses",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "lee_escribe",
+    "dbType": "string",
+    "htmlType": "select,Si, No",
+    "searchable": true
+},
+{
+    "name": "situacion_dep",
+    "dbType": "string",
+    "htmlType": "select,No Solicitud, Solicitud, Espera Grado, Espera PEVS, Recibe PEVS",
+    "searchable": true
+},
+{
+    "name": "grado_dep",
+    "dbType": "string",
+    "htmlType": "select,I, II, III, Espera Revisión",
+    "searchable": true
+},
+{
+    "name": "nivel_dep",
+    "dbType": "string",
+    "htmlType": "select,Nivel 1, Nivel 2, Nivel 3",
+    "searchable": true
+},
+{
+    "name": "ayuda_dep",
+    "dbType": "string",
+    "htmlType": "select,PEVS, Cuidados Entorno, Otras",
+    "searchable": true
+},
+{
+    "name": "sol_grado",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "reso_grado",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "reso_presta",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "rev_grado",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "cuantia",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "tec_dependencia",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "guarda_hecho",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "ayuda_soc",
+    "dbType": "string",
+    "htmlType": "select,Teleasistencia, SAD, Servicio Domicilio, Fisioterapia Externa, Estimulación Cognitiva Externa, Apoyo Emocional Externa, Centro Atención Residencial, Centro Estancia Diurna, AFATE, Otros",
+    "searchable": true
+},
+{
+    "name": "cert_disc",
+    "dbType": "string",
+    "htmlType": "select,Sí, No",
+    "searchable": true
+},
+{
+    "name": "grado_disc",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "fecha_res_disc",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "tipo_disc",
+    "dbType": "string",
+    "htmlType": "select,Intelectual, Física, Sensorial, Psíquica",
+    "searchable": true
+},
+{
+    "name": "sit_legal",
+    "dbType": "string",
+    "htmlType": "select,Autónoma/o, Tutela, Curatela, Guarda de Hecho",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "patient_id",
+    "dbType": "integer:unsigned:foreign,patients,id",
+    "htmlType": "text",
+    "relation": "1t1,Patient"
+}
+]

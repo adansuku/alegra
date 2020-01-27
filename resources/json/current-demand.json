@@ -1,0 +1,55 @@
+[{
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "pevs_acufade",
+        "dbType": "string",
+        "htmlType": "select, Si, No",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "tipo_subvencion",
+        "dbType": "string",
+        "htmlType": "select, Ayuntamiento, Cabildo, Anillo Insular, Otras",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "forma_pago",
+        "dbType": "string",
+        "htmlType": "select, Efectivo, Transferencia, Domiciliación, Subvencionada",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

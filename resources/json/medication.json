@@ -1,0 +1,62 @@
+[{
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "med_en_centro",
+        "dbType": "string",
+        "htmlType": "select, Si, No",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "fecha_inicio_admin",
+        "dbType": "date",
+        "htmlType": "date",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "nombre_meds",
+        "dbType": "string",
+        "htmlType": "text",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "pauta",
+        "dbType": "text",
+        "htmlType": "textarea",
+        "fillable": true,
+        "searchable": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    }
+]

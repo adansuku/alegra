@@ -1,0 +1,9 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/customJs/custom.js": "/js/customJs/custom.js",
+    "/vendor/datatable/js/datatables-class.js": "/vendor/datatable/js/datatables-class.js",
+    "/vendor/datatable/js/datatables-init.js": "/vendor/datatable/js/datatables-init.js",
+    "/vendor/datatable/js/datatable.js": "/vendor/datatable/js/datatable.js",
+    "/vendor/datatable/css/datatable.css": "/vendor/datatable/css/datatable.css"
+}

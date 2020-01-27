@@ -1,0 +1,194 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "nombre",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required",
+    "searchable": true
+},
+{
+    "name": "apellido",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "fecha_nacimiento",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "dni",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "direccion",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "telefono",
+    "dbType": "integer",
+    "htmlType": "number",
+    "searchable": true
+},
+{
+    "name": "telefono_movil",
+    "dbType": "integer",
+    "htmlType": "number",
+    "searchable": true
+},
+{
+    "name": "email",
+    "dbType": "string",
+    "htmlType": "email",
+    "searchable": true
+},
+{
+    "name": "cat_profesional",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "titulacion",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "centro_acufade",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "titulacion_curso",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "tutor_academico",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "tutor_telefono",
+    "dbType": "integer",
+    "htmlType": "number",
+    "searchable": true
+},
+{
+    "name": "tutor_email",
+    "dbType": "string",
+    "htmlType": "email",
+    "searchable": true
+},
+{
+    "name": "persona_ref_Acufade",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "cesion_imagen",
+    "dbType": "string",
+    "htmlType": "toggle-switch"
+},
+{
+    "name": "alergias",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "otras_alergias",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "urg_nom_ape",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "urg_parentesco",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "urg_telefono",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "fecha_alta",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "fecha_baja",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "email_corporativo",
+    "dbType": "string",
+    "htmlType": "email",
+    "searchable": true
+},
+{
+    "name": "numero_horas",
+    "dbType": "integer",
+    "htmlType": "number",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "type": "relation",
+    "relation": "1tm,worker_documents"
+}
+]

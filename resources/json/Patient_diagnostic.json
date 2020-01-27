@@ -1,0 +1,47 @@
+[
+{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "diagnostico",
+    "dbType": "string",
+    "htmlType": "select,Envejecimiento Activo,Alzheimer,Demencia Cuerpos Lewy,Mixta,Ictus,Parkinson,Otra Enfermedad Neurológica,Discapacidad Física,Discapacidad Sensorial,Discapacidad Psíquica",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "patient_id",
+    "dbType": "integer:unsigned:foreign,patients,id",
+    "htmlType": "text",
+    "relation": "1tm,Patient"
+}
+]

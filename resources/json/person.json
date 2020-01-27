@@ -1,0 +1,339 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "n_expediente",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required, unique",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "fecha_alta_acufade",
+    "dbType": "date",
+    "htmlType": "date",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "foto",
+    "dbType": "string",
+    "htmlType": "file",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "nombre_completo",
+    "dbType": "string",
+    "htmlType": "text",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "alias",
+    "dbType": "string",
+    "htmlType": "text",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "genero",
+    "dbType": "string",
+    "htmlType": "select, Hombre, Mujer",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "fecha_naci",
+    "dbType": "date",
+    "htmlType": "date",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "edad",
+    "dbType": "string",
+    "htmlType": "text",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "dni",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required, unique",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "est_civil",
+    "dbType": "string",
+    "htmlType": "select, Soltero/a, Viudo/a, Casado/a, Divorciado/a",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "grado_dependencia",
+    "dbType": "string",
+    "htmlType": "select, No valorado, Grado I, Grado II, Grado III",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "transporte",
+    "dbType": "string",
+    "htmlType": "select, Si, No",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "transp_dias",
+    "dbType": "string",
+    "htmlType": "select, Lunes, Martes, Miércoles, Jueves, Viernes",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "trayecto",
+    "dbType": "string",
+    "htmlType": "select, Ida, Vuelta",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "transp_fecha_init",
+    "dbType": "date",
+    "htmlType": "date",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "transp_dir_recogida",
+    "dbType": "string",
+    "htmlType": "text",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "cesion_imagen",
+    "dbType": "string",
+    "htmlType": "select, Si, No",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "autoriz_salida_ext",
+    "dbType": "string",
+    "htmlType": "select, Si, No",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "autoriz_salir_centro",
+    "dbType": "string",
+    "htmlType": "select, Si, No",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "socio",
+    "dbType": "string",
+    "htmlType": "select, Si, No",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "num_socio",
+    "dbType": "string",
+    "htmlType": "text",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "nivel_educativo",
+    "dbType": "string",
+    "htmlType": "select, Lee y escribe, No lee ni escribe, Graduado Escolar, Bachillerato, FPGM, FPGS, Estudios Superiores",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "estudios_terminados",
+    "dbType": "string",
+    "htmlType": "select, Si, No",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "ocupacion_anterior",
+    "dbType": "string",
+    "htmlType": "text",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "inter_actuales",
+    "dbType": "string",
+    "htmlType": "text",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "lee_escribe_ahora",
+    "dbType": "string",
+    "htmlType": "select, Si, No",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "sit_dependencia",
+    "dbType": "string",
+    "htmlType": "select, No solicitud, Solicitud, Espera Grado, Espera PEVS, Recibe PEVS",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "lp_grados_dependencia",
+    "dbType": "string",
+    "htmlType": "select, I, II, III, Espera Revisión",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "nivel",
+    "dbType": "string",
+    "htmlType": "select, Nivel I, Nivel II, Nivel III",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "tipo_ayuda_depend",
+    "dbType": "string",
+    "htmlType": "select, PEVS, Cuidados, Entornos, Otras",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "fecha_solic_grado",
+    "dbType": "date",
+    "htmlType": "date",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "fecha_resol_grado",
+    "dbType": "date",
+    "htmlType": "date",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "fecha_resol_prest",
+    "dbType": "date",
+    "htmlType": "date",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "fecha_revision_grado",
+    "dbType": "date",
+    "htmlType": "date",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "cuantia_resol",
+    "dbType": "double",
+    "htmlType": "text",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "tipo_ayuda_sociosani",
+    "dbType": "string",
+    "htmlType": "select, Teleasistencia, SAD, Servicio Domicilio, Fisioterapia Externa, Estimulación Cognitiva Externa, Apoyo Emocional Externo, Centro Atención Residencial, Centro Estancia Diurna, AFATE, Otros",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "certi_discapacidad",
+    "dbType": "string",
+    "htmlType": "select, Si, No",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "grado_discapacidad",
+    "dbType": "string",
+    "htmlType": "text",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "fecha_resol_discapacidad",
+    "dbType": "date",
+    "htmlType": "date",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "tipo_discapacidad",
+    "dbType": "string",
+    "htmlType": "select, Intelectual, Física, Sensorial, Psíquica",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "name": "sit_legal",
+    "dbType": "string",
+    "htmlType": "select, Autónomo/a, Tutela, Curatela, Guarda de hecho",
+    "fillable": true,
+    "searchable": true
+},
+{
+    "type": "relation",
+    "relation": "1t1, Contact_info, person_id"
+},
+{
+    "type": "relation",
+    "relation": "1t1, Reference_person, person_id"
+},
+{
+    "type": "relation",
+    "relation": "1tm, Keeper, person_id"
+},
+{
+    "type": "relation",
+    "relation": "1tm, Current_demand, person_id"
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+}
+]

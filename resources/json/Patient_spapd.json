@@ -1,0 +1,76 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "prog_spapd",
+    "dbType": "string",
+    "htmlType": "select,Estimulación Cognitiva (EC), Fisioterapia, Apoyo Emocional, Terapia Ocupacional, Logopedia, Otros",
+    "searchable": true
+},
+{
+    "name": "otros_programa",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "num_sesiones",
+    "dbType": "integer",
+    "htmlType": "number",
+    "searchable": true
+},
+{
+    "name": "otras_sesiones",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "dur_spapd",
+    "dbType": "string",
+    "htmlType": "select,50,60,75,100,150,otra",
+    "searchable": true
+},
+{
+    "name": "worker_id",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "patient_id",
+    "dbType": "integer:unsigned:foreign,patients,id",
+    "htmlType": "text",
+    "relation": "mt1,Patient"
+}
+]

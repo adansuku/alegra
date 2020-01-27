@@ -1,0 +1,145 @@
+[{
+    "name": "id",
+    "dbType": "increments",
+    "htmlType": "",
+    "validations": "",
+    "searchable": true,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "numero_expediente",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required",
+    "searchable": true
+},
+{
+    "name": "foto_paciente",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "fecha_alta_paciente",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "nombre",
+    "dbType": "string",
+    "htmlType": "text",
+    "validations": "required",
+    "searchable": true
+},
+{
+    "name": "apellido",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "alias",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "genero",
+    "dbType": "string",
+    "htmlType": "select,Hombre,Mujer",
+    "searchable": true
+},
+{
+    "name": "fecha_nacimiento",
+    "dbType": "date",
+    "htmlType": "date",
+    "searchable": true
+},
+{
+    "name": "dni",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "estado_civil",
+    "dbType": "string",
+    "htmlType": "select, Soltera/o, Viuda/o, Casada/o, Divorciada/o",
+    "searchable": true
+},
+{
+    "name": "direccion",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "codigo_postal",
+    "dbType": "integer",
+    "htmlType": "num",
+    "searchable": true
+},
+{
+    "name": "Municipio",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "Isla",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "telefono",
+    "dbType": "integer",
+    "htmlType": "number",
+    "searchable": true
+},
+{
+    "name": "telefono_movil",
+    "dbType": "integer",
+    "htmlType": "number",
+    "searchable": true
+},
+{
+    "name": "convive_con",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "grado_dependencia",
+    "dbType": "string",
+    "htmlType": "text",
+    "searchable": true
+},
+{
+    "name": "created_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+},
+{
+    "name": "updated_at",
+    "dbType": "timestamp",
+    "htmlType": "",
+    "validations": "",
+    "searchable": false,
+    "fillable": false,
+    "primary": false,
+    "inForm": false,
+    "inIndex": false
+}
+
+]
