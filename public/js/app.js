@@ -45563,8 +45563,8 @@ __webpack_require__(/*! select2 */ "./node_modules/select2/dist/js/select2.js");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/mbm/Documents/PROYECTOS/WEBS/laravelApps/allegra/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/mbm/Documents/PROYECTOS/WEBS/laravelApps/allegra/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /vagrant/alegra/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /vagrant/alegra/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

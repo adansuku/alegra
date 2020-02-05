@@ -67,4 +67,7 @@
 <li class="{{ Request::is('workerTimes*') ? 'active' : '' }} nav-item">
     <a class="nav-link" href="{!! route('workerTimes.index') !!}"><i class="fas fa-fw fa-table"></i><span>Worker Times</span></a>
 </li>
-
+<hr class="sidebar-divider">
+<li class="{{ Request::is('workerSessions*') ? 'active' : '' }} nav-item">
+    <a class="nav-link" href="{!! route('workerSessions.index') !!}"><i class="fas fa-fw fa-table"></i><span>Mi área personal</span></a>
+</li>

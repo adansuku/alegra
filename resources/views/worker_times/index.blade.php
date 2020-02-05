@@ -52,11 +52,11 @@
             <div class="clearfix"></div>
             @include('flash::message')
         </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            @include('worker_times.table')
+        <div class="card-body">
+            <div class="table-responsive">
+                @include('worker_times.table')
+            </div>
         </div>
-    </div>
     </div>
 </div>
 @endsection
