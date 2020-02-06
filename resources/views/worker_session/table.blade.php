@@ -11,10 +11,9 @@
     </thead>
     <tfoot>
         <tr>
-            <th>Fecha Entrada</th>
+            <th>Fecha</th>
+            <th>Hora</th>
             <th>Registro</th>
-            <th>Latitud</th>
-            <th>Longitud</th>
             <th>Dirección</th>
             <th>Action</th>
         </tr>
@@ -22,11 +21,10 @@
     <tbody>
     @foreach($workerSessions as $workerSession)
         <tr>
-            <td>{!! $workerSession->created_at !!}</td>
+            <td>{!! $workerSession->created_at->format('d-m-Y') !!}</td>
+            <td>{!! $workerSession->created_at->format('H:i:s') !!}</td>
             <td>@if($workerSession->action == 'in') Entrada @else Salida @endif</td>
-            <td>{!! $workerSession->latitud !!}</td>
-            <td>{!! $workerSession->longitud !!}</td>
-            <td>{!! $workerSession->direccion !!}</td>
+            <td><a href="https://www.google.com/maps/search/?api=1&query={{ $workerSession->direccion }}" target="_blank">{!! $workerSession->direccion !!}</a></td>
             <td>
                 {!! Form::open(['route' => ['workerSessions.destroy', $workerSession->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

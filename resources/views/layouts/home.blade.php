@@ -57,12 +57,21 @@
                             </div>
                         </div>
                     </form>
-                    <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
-                        Entrada 
-                    </button>
-                    <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;">
-                        Salida 
-                    </button>
+                    @if(Auth::user()->workerSession->count() > 0)
+                        @if(Auth::user()->workerSession->last()->action == 'out')
+                            <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
+                                Entrada 
+                            </button>
+                        @else
+                            <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;">
+                                Salida 
+                            </button>
+                        @endif
+                    @else
+                        <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
+                            Entrada 
+                        </button>
+                    @endif
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
