@@ -16,9 +16,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <link href="{{mix('css/app.css')}}" rel="stylesheet">
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" rel="stylesheet" />
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <!-- Datatable styles -->
     @stack('css')
 </head>
@@ -56,7 +57,21 @@
                             </div>
                         </div>
                     </form>
-
+                    @if(Auth::user()->workerSession->count() > 0)
+                        @if(Auth::user()->workerSession->last()->action == 'out')
+                            <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
+                                Entrada 
+                            </button>
+                        @else
+                            <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;">
+                                Salida 
+                            </button>
+                        @endif
+                    @else
+                        <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
+                            Entrada 
+                        </button>
+                    @endif
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -79,6 +94,7 @@
                                 </form>
                             </div>
                         </li>
+
 
 
                         <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
@@ -210,27 +226,82 @@
     </script>
 
 
-    <!-- Custom scripts for all pages-->
+    <!-- Custom scripts for all pages -->
     <script src="{{mix('js/customJs/custom.js')}}"></script>
+    
 
     <!-- Bootstrap core JavaScript, Core plugin JavaScript, Page level plugins -->
     <script src="{{mix('js/app.js')}}"></script>
+    
 
     <!-- datatable 2 -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!--scripts-->
     @stack('scripts')
 
     <!--reset view for datatables-->
     <script>
+        var lat,lng;
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+        } else {
+            alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+        }
+
+        function successFunction(position){
+            lat = position.coords.latitude;
+            lng = position.coords.longitude;
+        }
+
+        function errorFunction(){
+            console.log("Error cannot get location");
+        }
+        
         $("#myTab a").click(function(e) {
             console.log('click en tab');
             setTimeout(function() {
                 recalculateDataTableResponsiveSize();
             }, 0);
+        });
+
+        function store(action){
+            $("#saveIn").prop('disabled',true);
+            $("#saveOut").prop('disabled',true);
+            var token =  $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                url: "{{ url('workerSessions') }}",
+                method : 'POST',
+                data:{action: action, latitud:lat,longitud:lng},
+                headers: {
+                    'X-CSRF-Token': token 
+               },
+                success: function (data) {
+                    $("#saveIn").prop('disabled',false);
+                    $("#saveOut").prop('disabled',false);
+                    if(action=='in'){
+                        toastr.success("Entrada registrada");
+                    }else{
+                        toastr.success("Salida registrada");
+                    }
+                },
+                error: function (data) {
+                    $("#saveIn").prop('disabled',false);
+                    $("#saveOut").prop('disabled',false);                    
+                    toastr.error("No se pudo procesar su petición");
+                }
+            });
+        }
+
+        $("#saveIn").click(function(){
+            store("in");
+        });
+
+        $("#saveOut").click(function(){
+            store("out");
         });
     </script>
 

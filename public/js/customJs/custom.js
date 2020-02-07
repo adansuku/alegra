@@ -191,7 +191,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/mbm/Documents/PROYECTOS/WEBS/laravelApps/allegra/resources/js/adminJs/sb-admin-2.js */"./resources/js/adminJs/sb-admin-2.js");
+module.exports = __webpack_require__(/*! /vagrant/alegra/resources/js/adminJs/sb-admin-2.js */"./resources/js/adminJs/sb-admin-2.js");
 
 
 /***/ })

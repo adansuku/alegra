@@ -104,7 +104,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/mbm/Documents/PROYECTOS/WEBS/laravelApps/allegra/resources/js/datatables-class.js */"./resources/js/datatables-class.js");
+module.exports = __webpack_require__(/*! /vagrant/alegra/resources/js/datatables-class.js */"./resources/js/datatables-class.js");
 
 
 /***/ })

@@ -81,3 +81,5 @@ Route::resource('patientServicesDates', 'Patient_Services_DateController');
 Route::resource('patientMedications', 'Patient_medicationController');
 
 Route::resource('workerTimes', 'Worker_timeController');
+
+Route::resource('workerSessions', 'Worker_sessionController');

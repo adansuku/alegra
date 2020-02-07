@@ -172,4 +172,9 @@ class Worker extends Authenticatable
     {
         return $this->hasMany(\App\Models\Patient::class);
     }
+
+    public function workerSession()
+    {
+        return $this->hasMany('App\Models\Worker_session');
+    }
 }
