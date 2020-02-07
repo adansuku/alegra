@@ -6,7 +6,8 @@
 
     <div class="col-md-6">
         <h5>Diagnósticos Principales</h5>
-        <button type="button" class="btn btn-secondary  float-right mb-3" data-toggle="modal" data-target="#diagnostic_modal">
+        <button type="button" class="btn btn-secondary  float-right mb-3" data-toggle="modal"
+            data-target="#diagnostic_modal">
             Añadir Diagnóstico <i class="fas fa-file-upload"></i>
         </button>
         @include('patients.show.show_diagnostic')
@@ -16,7 +17,8 @@
 
     <div class="col-md-6">
         <h5>Alergia e intolerancia</h5>
-        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal" data-target="#allergy_modal">
+        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal"
+            data-target="#allergy_modal">
             Añadir Alergia <i class="fas fa-file-upload"></i>
         </button>
         @include('patients.show.show_allergy')
@@ -24,9 +26,10 @@
 
 
     <div class="col-md-6">
-    <hr class="pb_4">
+        <hr class="pb_4">
         <h5>Otras patología/s Importantes</h5>
-        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal" data-target="#patology_modal">
+        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal"
+            data-target="#patology_modal">
             Añadir Patología <i class="fas fa-file-upload"></i>
         </button>
         @include('patients.show.show_patology')
@@ -35,7 +38,7 @@
 
 
     <div class="col-md-6">
-    <hr class="pb_4">
+        <hr class="pb_4">
         <h5>Observaciones Importantes</h5>
     </div>
 </div>
@@ -74,7 +77,7 @@
 
         <!-- Regimen Priv Field -->
         <div class="form-group bg-secondary p-3" id="centro_privado" style="display: none">
-            {!! Form::label('regimen_priv', 'Centro Privado:') !!}
+            {!! Form::label('regimen_priv', 'Nombre de Cobertura:') !!}
             {!! Form::text('regimen_priv', $patient->patientHealth->regimen_priv, ['class' => 'form-control']) !!}
         </div>
 
@@ -122,7 +125,8 @@
 <div class="row">
     <div class="col-md-12">
         <h4>Doctores Especialistas</h4>
-        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal" data-target="#doctor_modal">
+        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal"
+            data-target="#doctor_modal">
             Añadir nuevo especiali <i class="fas fa-file-upload"></i>
         </button>
         @include('patients.show.show_doctor')
@@ -145,7 +149,8 @@
     </div>
 
     <div class="col-sm-12 text-right">
-        <button type="button" class=" btn btn-secondary my-3 float-right " data-toggle="modal" data-target="#medication_modal"> Añadir medicación <i class="fas fa-file-upload"></i></button>
+        <button type="button" class=" btn btn-secondary my-3 float-right " data-toggle="modal"
+            data-target="#medication_modal"> Añadir medicación <i class="fas fa-file-upload"></i></button>
     </div>
     <div class="col-sm-12">
         @include('patients.show.show_medication')
@@ -175,11 +180,11 @@
         </select>
 
         @if (!$patient->patientHealth->incontinencia == "")
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#incontinencia_multi_content').removeAttr('hidden');
                         });
-            </script>
+        </script>
         @endif
 
         <!-- Opciones multiples de incontinencia -->
@@ -211,11 +216,11 @@
         </select>
 
         @if (!$patient->patientHealth->caida == "")
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#riesgo_caida_multi_content').removeAttr('hidden');
                         });
-            </script>
+        </script>
         @endif
 
         <!-- Opciones multiples de Riesgo caí­da -->
@@ -235,7 +240,7 @@
     <!-- Dieta Field -->
     <div class="form-group col-md-4">
         {!! Form::label('dieta', 'Dieta:') !!}
-       
+
         <select class="form-control" id="dieta" name="dieta" onchange="indicadores_multi(this.value, this.id);">
             <option value="">Selecciona una opcion</option>
             <option {{ $patient->patientHealth->dieta == 'Basal' ? 'selected':'' }}>Basal</option>
@@ -245,12 +250,12 @@
         </select>
 
         @if (!$patient->patientHealth->dieta == "")
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#dieta_textura_content').removeAttr('hidden');
                     $('#dieta_observ_cont').removeAttr('hidden');
                         });
-            </script>
+        </script>
         @endif
 
         <!-- Opciones multiples de dieta -->
@@ -278,7 +283,7 @@
         {!! Form::label('higiene', 'Higiene personal:') !!}
         <select class="form-control" id="higiene" name="higiene" onchange="indicadores_multi(this.value, this.id);">
             <option value="">Selecciona una opcion</option>
-            <option {{ $patient->patientHealth->higiene == 'Autónoma' ? 'selected':'' }}>Autónoma</option>
+            <option {{ $patient->patientHealth->higiene == 'Autónoma/o' ? 'selected':'' }}>Autónoma/o</option>
             <option {{ $patient->patientHealth->higiene == 'Dependencia Leve' ? 'selected':'' }}>Dependencia Leve
             </option>
             <option {{ $patient->patientHealth->higiene == 'Dependencia Moderada' ? 'selected':'' }}>Dependencia
@@ -289,11 +294,11 @@
 
 
         @if (!$patient->patientHealth->higiene == "")
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#higiene_multi_content').removeAttr('hidden');
                         });
-            </script>
+        </script>
         @endif
 
         <!-- Opciones multiples de higiene -->
@@ -346,14 +351,14 @@
         </select>
 
         @if (!$patient->patientHealth->hidratacion == "")
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#hidratacion_observ_cont').removeAttr('hidden');
                         });
-            </script>
+        </script>
         @endif
 
-        
+
         <!-- Observaciones Hidratación -->
         <div class="form-group pt-3" id="hidratacion_observ_cont" hidden="hidden">
             {!! Form::label('hidratacion_observ', 'Observaciones:') !!}

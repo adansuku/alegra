@@ -1,27 +1,21 @@
 <div class="row p-3 m-0">
     <!-- Fecha Paciente Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('fecha_paciente', 'Fecha Paciente:') !!}
-        {!! Form::date('fecha_paciente', null, ['class' => 'form-control','id'=>'fecha_paciente', 'required' => 'required']) !!}
+        {!! Form::label('fecha_paciente', 'Fecha:') !!}
+        {!! Form::date('fecha_paciente', null, ['class' => 'form-control','id'=>'fecha_paciente', 'required' =>
+        'required']) !!}
     </div>
 
-    @section('scripts')
-    <script type="text/javascript">
-        $('#fecha_paciente').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: false
-        })
-    </script>
-    @endsection
+
 
     <div class="form-group col-sm-6">
         {!! Form::label('documento_fecha_paciente', 'Documento:') !!}
-        {!! Form::select('documento_fecha_paciente', 
-            [
-                null => '',
-                'Si' => 'Si',
-                'No' => 'No',
-            ], null, ['class' => 'form-control',
+        {!! Form::select('documento_fecha_paciente',
+        [
+        null => '',
+        'Si' => 'Si',
+        'No' => 'No',
+        ], null, ['class' => 'form-control',
         'required' => 'required',
         ]) !!}
     </div>
@@ -30,14 +24,15 @@
     <!-- Desc Fecha Paciente Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('desc_fecha_paciente', 'Motivo de la fecha:') !!}
-        {!! Form::select('desc_fecha_paciente', 
-            [
-                null => '',
-                'Neurología' => 'Neurología',
-                'Psiquiatría' => 'Psiquiatría',
-                'Cardiología' => 'Cardiología',
-                'Otros' => 'Otros',
-            ], null, ['class' => 'form-control',
+        {!! Form::select('desc_fecha_paciente',
+        [
+        null => '',
+        'Solicitud grado' => 'Solicitud Grado',
+        'Resolución grado' => 'Resolución Grado',
+        'Resolución PIA' => 'Resolución PIA',
+        'solicitud revisión grado' => 'Solicitud Revisión Grado',
+        'Otros' => 'Otros',
+        ], null, ['class' => 'form-control',
         'required' => 'required',
         'id' => 'fecha_paciente_id',
         ]) !!}
@@ -60,16 +55,16 @@
                  
             });
         </script>
-        
-        
-           
+
+
+
         {!! Form::text('desc_fecha_paciente', null,
-        ['class' => 'form-control bg-secondary p-3', 
+        ['class' => 'form-control bg-secondary p-3',
         'style' => 'display: none',
         'id' => 'fecha_otros_pacientes',
         'placeholder' => 'Otros (especificar)']
         ) !!}
-       
+
 
 
     </div>

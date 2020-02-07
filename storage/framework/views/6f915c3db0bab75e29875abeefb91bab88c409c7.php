@@ -6,10 +6,13 @@
 
 
   <div class="row">
-  <div class="col-lg-12">
-  <h1 class="text-center my-5 text-dark">Bienvenida a alegra | Open source software </h1>
+    <div class="col-lg-12">
+      <h1 class="text-center my-5 text-dark">Bienvenida a alegra | Open source software </h1>
+    </div>
   </div>
-    
+  
+  <div class="row">
+
     <div class="col-lg-3 my-2">
        <a href="/workers" class="btn btn-sq-lg btn-light p-5 w-100">
           <i class="fas fa-user fa-2x"></i><br />

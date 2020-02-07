@@ -12,16 +12,16 @@
     </thead>
 
     <tbody>
-    @foreach($patient->patientHistory as $item)
+        @foreach($patient->patientHistory as $item)
         <tr>
-            <td>{!! $item->acc_fecha_reg !!}</td>
-            <td>{!! $item->acc_fecha_realiz !!}</td>
+            <td>{{ date('d / m / Y', strtotime($item->acc_fecha_reg )) }}</td>
+            <td>{{ date('d / m / Y', strtotime($item->acc_fecha_realiz )) }}</td>
             <td>{!! $item->acc_tipo_accion !!}</td>
             <td>{!! $item->acc_subtipo_accion !!}</td>
             <td>{!! $item->acc_woker_accion !!}</td>
             <td>{!! $item->acc_descrip !!}</td>
             <td>{!! $item->acc_observaciones !!}</td>
         </tr>
-    @endforeach
+        @endforeach
     </tbody>
 </table>

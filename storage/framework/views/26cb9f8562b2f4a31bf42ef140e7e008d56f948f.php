@@ -41,5 +41,8 @@
 <li class="<?php echo e(Request::is('workerTimes*') ? 'active' : ''); ?> nav-item">
     <a class="nav-link" href="<?php echo route('workerTimes.index'); ?>"><i class="fas fa-fw fa-table"></i><span>Worker Times</span></a>
 </li>
-
+<hr class="sidebar-divider">
+<li class="<?php echo e(Request::is('workerSessions*') ? 'active' : ''); ?> nav-item">
+    <a class="nav-link" href="<?php echo route('workerSessions.index'); ?>"><i class="fas fa-fw fa-table"></i><span>Mi área personal</span></a>
+</li>
 <?php /**PATH /var/www/resources/views/layouts/menu.blade.php ENDPATH**/ ?>

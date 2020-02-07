@@ -30,6 +30,35 @@
 
 
 
+        <table class="table dark" width="100%" cellspacing="0">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Pia en Vigor</th>
+                    <th>Fecha máx. Elaboración y Entrega</th>
+                </tr>
+            </thead>
+
+
+
+
+            <?php $__currentLoopData = $patient->patientPia->slice(0, 2); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patientPia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <tr>
+                <td>
+                    <?php echo $patientPia->tipo_pia; ?>
+
+                </td>
+
+                <td>
+                    <?php echo e(date('d/m/Y', strtotime($patientPia->fecha_limite))); ?>
+
+                </td>
+            </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+        </table>
+
+
+
     </div>
 </div>
 
@@ -343,23 +372,100 @@
 
                 <div class="col-lg-12">
                     <h5><strong>Antecedentes Salud Importantes</strong></h5>
-                    <table class="table datatables dark" width="100%" cellspacing="0">
-                        <thead class="thead-dark">
+                    <table class="table datatables" width="100%" cellspacing="0">
+                        <thead class="thead-light">
                             <tr>
-                                <th>Antecedentes</th>
-                                <th>Año</th>
+                                <th>Tipo Pia</th>
+                                <th>Fecha máx. Elaboración y Entrega</th>
+                                <th>Fecha Real Elaboración Completa</th>
+                                <th>Fecha Real Entrega</th>
+                                <th>Éxito PIA</th>
+                                <th>Informe PIA</th>
+                                <th>Documento Recepción PIA</th>
                                 <th>Observaciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php $__currentLoopData = $patient->patientPasts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patientPast): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr>
-                                <td><?php echo $patientPast->antecedentes; ?></td>
-                                <td>
-                                    <?php echo e(date('d/m/Y', strtotime($patientPast->antecedentes_anio))); ?>
 
-                                </td>
-                                <td><?php echo $patientPast->antecedentes_obs; ?></td>
+                        <tbody>
+
+                            <?php $__currentLoopData = $patient->patientPia; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patientPia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                            <td>
+                                <?php echo $patientPia->tipo_pia; ?>
+
+
+                            </td>
+
+                            <?php
+                            $fecha_limite = strtotime($patientPia->fecha_limite);
+                            $newformat = date('d/m/Y',$fecha_limite);
+                            echo ' <td data-sort="'. $fecha_limite .'">'.$newformat .'</td>';
+                            ?>
+
+                            <td>
+                                <?php if($patientPia->fecha_real != null ): ?>
+                                <?php echo e(date('d/m/yy', strtotime($patientPia->fecha_real))); ?>
+
+                                <?php endif; ?>
+                            </td>
+
+                            <td>
+
+                                <?php if($patientPia->fecha_real != null ): ?>
+                                <?php echo e(date('d/m/yy', strtotime($patientPia->fecha_real_entrega))); ?>
+
+                                <?php endif; ?>
+                            </td>
+
+
+                            <td>
+                                <?php if($patientPia->fecha_real != null): ?>
+                                <?php if($patientPia->fecha_limite > $patientPia->fecha_real): ?>
+                                <div style="background: green;text-align: center; color: white">Éxito</div>
+                                <?php else: ?>
+                                <div style="background: red; text-align: center; color: white">Fracaso</div>
+                                <?php endif; ?>
+                                <?php endif; ?>
+                            </td>
+
+                            <td>
+                                <?php if($patientPia->url_pia == null ): ?>
+                                Pia no disponible
+                                <?php else: ?>
+
+                                <a href="<?php echo e(asset("storage/$patientPia->url_pia")); ?>" target="_blank">
+                                    <i class="fas fa-download"></i> Ver documento
+                                </a>
+                                <?php endif; ?>
+                            </td>
+
+
+                            <td>
+                                <?php if($patientPia->url_recepcion == null ): ?>
+                                Pia recepción no disponible
+                                <?php else: ?>
+
+                                <a href="<?php echo e(asset("storage/$patientPia->url_recepcion")); ?>" target="_blank">
+                                    <i class="fas fa-download"></i> Ver documento
+                                </a>
+                                <?php endif; ?>
+                            </td>
+
+
+                            <td>
+
+                                <?php
+                                $today = Carbon\Carbon::now();
+                                if ($today < $patientPia->fecha_limite){
+                                    echo '<div class="bg-secondary p-1">Pia en vigor</div>';
+                                    }
+                                    ?>
+
+                                    <?php echo $patientPia->obs_pia; ?>
+
+                            </td>
+
+
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>

@@ -61,12 +61,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#history" role="tab">Historia</a>
+                    <a class="nav-link" data-toggle="tab" href="#documents" role="tab">Documentación</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#documents" role="tab">Documentación</a>
+                    <a class="nav-link" data-toggle="tab" href="#history" role="tab">Historial</a>
                 </li>
+
+
             </ul><!-- Tab panes -->
 
 
@@ -98,7 +100,8 @@
                 <div class="tab-pane" id="carer" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12 float-right mb-3">
-                            <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#carer_modal">
+                            <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
+                                data-target="#carer_modal">
                                 Añadir Persona de Referencia <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
@@ -113,7 +116,8 @@
 
                     <ul class="nav nav-tabs bg-light mb-3" id="myTab" role="tablist" style="margin-top:-24px;">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#tipos_servicio" role="tab" aria-controls="home" aria-selected="true">Tipo de servicio</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#tipos_servicio" role="tab"
+                                aria-controls="home" aria-selected="true">Tipo de servicio</a>
                         </li>
 
                         <?php
@@ -131,27 +135,32 @@
 
                         <?php if(in_array($spapd, $array)): ?>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#especificaciones" role="tab" aria-controls="profile" aria-selected="false">Especificaciones SPAPD</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#especificaciones" role="tab"
+                                aria-controls="profile" aria-selected="false">Especificaciones SPAPD</a>
                         </li>
                         <?php endif; ?>
 
 
 
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#transporte" role="tab" aria-controls="contact" aria-selected="false">Transporte</a>
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#transporte" role="tab"
+                                aria-controls="contact" aria-selected="false">Transporte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#economicos" role="tab" aria-controls="contact" aria-selected="false">Datos económicos</a>
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#economicos" role="tab"
+                                aria-controls="contact" aria-selected="false">Datos económicos</a>
                         </li>
                     </ul>
 
 
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="tipos_servicio" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade show active" id="tipos_servicio" role="tabpanel"
+                            aria-labelledby="home-tab">
                             <div class="row">
 
                                 <div class="col-lg-12">
-                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#service_modal">
+                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                        data-target="#service_modal">
                                         Añadir Servicio <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
@@ -165,7 +174,8 @@
                         <div class="tab-pane fade" id="especificaciones" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#spapd_modal">
+                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                        data-target="#spapd_modal">
                                         Añadir SPAPD <i class="fas fa-file-upload"></i>
                                     </button>
                                 </div>
@@ -202,17 +212,21 @@
 
                                 <br>
                                 <?php if($patient->patientOther->transporte == 'Si'): ?>
-                                    <div class="col-md-12 transporte_ficha pt-4">
-                                        <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#transport_modal">Añadir transporte <i class="fas fa-file-upload"></i>
-                                        </button>
-                                    </div>
+                                <div class="col-md-12 transporte_ficha pt-4">
+                                    <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
+                                        data-target="#transport_modal">Añadir transporte <i
+                                            class="fas fa-file-upload"></i>
+                                    </button>
+                                </div>
 
-                                    <div class="col-md-12 transporte_ficha mt-3">
-                                        <?php echo $__env->make('patients.show.show_transport', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                                    </div>
+                                <div class="col-md-12 transporte_ficha mt-3">
+                                    <?php echo $__env->make('patients.show.show_transport', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                                </div>
                                 <?php else: ?>
                                 <div class="col-md-12 transporte_ficha pt-4" style="display: none">
-                                    <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#transport_modal">Añadir transporte <i class="fas fa-file-upload"></i>
+                                    <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
+                                        data-target="#transport_modal">Añadir transporte <i
+                                            class="fas fa-file-upload"></i>
                                     </button>
                                 </div>
                                 <div class="col-md-12 transporte_ficha mt-3" style="display: none">
@@ -246,8 +260,9 @@
                 <div class="tab-pane" id="history" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#history_modal" data-id=<?php echo e($patient->id); ?>>
-                                Añadir historia <i class="fas fa-file-upload"></i>
+                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                data-target="#history_modal" data-id=<?php echo e($patient->id); ?>>
+                                Añadir historial <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
 
@@ -258,7 +273,8 @@
                 <div class="tab-pane" id="documents" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#documents_modal" data-id=<?php echo e($patient->id); ?>>
+                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                data-target="#documents_modal" data-id=<?php echo e($patient->id); ?>>
                                 Añadir documento <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
@@ -269,7 +285,8 @@
                 <div class="tab-pane" id="pias" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#pias_modal" data-id=<?php echo e($patient->id); ?>>
+                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                data-target="#pias_modal" data-id=<?php echo e($patient->id); ?>>
                                 Añadir pia <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
@@ -677,5 +694,4 @@ element7.addEventListener('change', (e) => {
 </script>
 
 <?php $__env->stopPush(); ?>
-
 <?php echo $__env->make('layouts.home', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/resources/views/patients/edit.blade.php ENDPATH**/ ?>

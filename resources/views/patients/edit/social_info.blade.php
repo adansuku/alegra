@@ -10,7 +10,8 @@
     <div class="form-group col-sm-4">
         <!-- Miembros unidad familiar -->
         {!! Form::label('miem_familia', 'Miembros Unidad Familiar:') !!}
-        {!! Form::number('miem_familia', $patient->patientInfo->miem_familia, ['class' => 'form-control']) !!}
+        {!! Form::number('miem_familia', $patient->patientInfo->miem_familia, ['class' => 'form-control', 'max' =>
+        '20']) !!}
     </div>
 
     <!-- Hijos -->
@@ -31,23 +32,24 @@
             </option>
         </select>
 
-       
+
 
         @if ($patient->patientInfo->vivienda == "Otros (especificar)")
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#tipo_vivienda_cont').removeAttr('hidden');
                         });
-            </script>
+        </script>
         @endif
 
         <div class="form-group col-sm-12 bg-secondary py-3" id="tipo_vivienda_cont" hidden="hidden">
             {!! Form::label('vivienda_otros', 'Especifica cual:') !!}
-            {!! Form::text('vivienda_otros', $patient->patientInfo->vivienda_otros, ['class' => 'form-control', 'placeholder' => 'Qué otros?']) !!}
+            {!! Form::text('vivienda_otros', $patient->patientInfo->vivienda_otros, ['class' => 'form-control',
+            'placeholder' => 'Qué otros?']) !!}
         </div>
     </div>
 
-    
+
 
     <!-- nivel educativo -->
     <div class="form-group col-sm-4">
@@ -58,34 +60,41 @@
         <select class="form-control" id="nivel_educativo" name="nivel_educativo"
             onchange="showInput(this.value, this.id);">
 
-            <option {{ $patient->patientInfo->nivel_educativo == 'No sabe leer y escribir' ? 'selected':'' }}>No sabe leer y escribir</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Sabe leer y escribir' ? 'selected':'' }}>Sabe leer y escribir </option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Graduado Escolar' ? 'selected':'' }}>Graduado Escolar </option>
+            <option {{ $patient->patientInfo->nivel_educativo == 'No sabe leer y escribir' ? 'selected':'' }}>No sabe
+                leer y escribir</option>
+            <option {{ $patient->patientInfo->nivel_educativo == 'Sabe leer y escribir' ? 'selected':'' }}>Sabe leer y
+                escribir </option>
+            <option {{ $patient->patientInfo->nivel_educativo == 'Graduado Escolar' ? 'selected':'' }}>Graduado Escolar
+            </option>
             <option {{ $patient->patientInfo->nivel_educativo == 'Bachillerato' ? 'selected':'' }}>Bachillerato</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Formación Profesional grado medio' ? 'selected':'' }}>Formación Profesional grado medio</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Formación Profesional grado superior' ? 'selected':'' }}>Formación Profesional grado superior</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Estudios Universitarios' ? 'selected':'' }}>Estudios Universitarios</option>
+            <option {{ $patient->patientInfo->nivel_educativo == 'Formación Profesional grado medio' ? 'selected':'' }}>
+                Formación Profesional grado medio</option>
+            <option
+                {{ $patient->patientInfo->nivel_educativo == 'Formación Profesional grado superior' ? 'selected':'' }}>
+                Formación Profesional grado superior</option>
+            <option {{ $patient->patientInfo->nivel_educativo == 'Estudios Universitarios' ? 'selected':'' }}>Estudios
+                Universitarios</option>
             <option {{ $patient->patientInfo->nivel_educativo == 'Otros' ? 'selected':''}}>Otros</option>
         </select>
 
         @if (
-            $patient->patientInfo->nivel_educativo != "No sabe leer y escribir" ||
-            $patient->patientInfo->nivel_educativo != "Sabe leer y escribir" ||
-            $patient->patientInfo->nivel_educativo != "Graduado Escolar" ||
-            $patient->patientInfo->nivel_educativo != "Bachillerato" ||
-            $patient->patientInfo->nivel_educativo != "Formación Profesional grado medio" ||
-            $patient->patientInfo->nivel_educativo != "Formación Profesional grado superior" ||
-            $patient->patientInfo->nivel_educativo != "Estudios Universitarios" 
+        $patient->patientInfo->nivel_educativo != "No sabe leer y escribir" ||
+        $patient->patientInfo->nivel_educativo != "Sabe leer y escribir" ||
+        $patient->patientInfo->nivel_educativo != "Graduado Escolar" ||
+        $patient->patientInfo->nivel_educativo != "Bachillerato" ||
+        $patient->patientInfo->nivel_educativo != "Formación Profesional grado medio" ||
+        $patient->patientInfo->nivel_educativo != "Formación Profesional grado superior" ||
+        $patient->patientInfo->nivel_educativo != "Estudios Universitarios"
         )
-            <script>
-                $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#nivel_educativo_cont').removeAttr('hidden');
                     $("#nivel_educativo option").each(function(){
                         if ($(this).text() == "Otros")
                         $(this).attr("selected","selected");
                     });
                 });
-            </script>
+        </script>
         @endif
 
         <div class="pt-3" id="nivel_educativo_cont" hidden="hidden">
@@ -97,7 +106,7 @@
     </div>
 
 
-    
+
 
     <!-- Estudios End Field -->
     <div class="form-group col-sm-4">
@@ -139,21 +148,24 @@
         {!! Form::label('ingresos_proced', 'Procedencia Ingresos:') !!}
         {{ $patient->patientInfo->ingresos_proced}}
 
-        <select class="form-control" id="ingresos_proced" name="ingresos_proced" onchange="showInput(this.value, this.id);">
-            <option {{ $patient->patientInfo->ingresos_proced == 'Selecciona una opción' ? 'selected':'' }}>Selecciona una opción</option>
+        <select class="form-control" id="ingresos_proced" name="ingresos_proced"
+            onchange="showInput(this.value, this.id);">
+            <option {{ $patient->patientInfo->ingresos_proced == 'Selecciona una opción' ? 'selected':'' }}>Selecciona
+                una opción</option>
             <option {{ $patient->patientInfo->ingresos_proced == 'Salario' ? 'selected':'' }}>Salario</option>
             <option {{ $patient->patientInfo->ingresos_proced == 'Jubilacion,' ? 'selected':'' }}>Jubilacion</option>
             <option {{ $patient->patientInfo->ingresos_proced == 'Viudedad,' ? 'selected':'' }}>Viudedad</option>
             <option {{ $patient->patientInfo->ingresos_proced == 'PNC,' ? 'selected':'' }}>PNC</option>
-            <option {{ $patient->patientInfo->ingresos_proced == 'Otros (especificar)' ? 'selected':'' }}>Otros(especificar)</option>
+            <option {{ $patient->patientInfo->ingresos_proced == 'Otros (especificar)' ? 'selected':'' }}>
+                Otros(especificar)</option>
         </select>
 
         @if ($patient->patientInfo->ingresos_proced == "Otros (especificar)")
-            <script>
-                $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#ingresos_proced_cont').removeAttr('hidden');
                 });
-            </script>
+        </script>
         @endif
 
 
@@ -196,7 +208,7 @@
 
 
     <div class="col-sm-12 my-3">
-        <h4><i class="fas fa-file-medical"></i> Información ley dependencia</h4>
+        <h4><i class="fas fa-file-medical"></i> Información Ley Dependencia</h4>
     </div>
 
 
@@ -235,29 +247,29 @@
     </div>
 
     <!-- Nivel Dep Field -->
-    <div class="form-group col-sm-4">
+    <!--<div class="form-group col-sm-4">
         {!! Form::label('nivel_dep', 'Nivel Dependencia:') !!}
         <select class="form-control" id="type" name="nivel_dep">
             <option {{ $patient->patientInfo->nivel_dep == 'Nivel 1' ? 'selected':'' }}>Nivel 1</option>
             <option {{ $patient->patientInfo->nivel_dep == 'Nivel 2' ? 'selected':'' }}>Nivel 2</option>
             <option {{ $patient->patientInfo->nivel_dep == 'Nivel 3' ? 'selected':'' }}>Nivel 3</option>
         </select>
-    </div>
+    </div>-->
 
     <!-- Ayuda Dep Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('ayuda_dep', 'Tipo de Ayuda:') !!}
         {!! Form::select('ayuda_dep', ['PEVS' => 'PEVS', 'PECEF' => 'PECEF', 'PEAE' => 'PEAE', 'Otras' => '
         Otras'], null, ['class' => 'form-control', 'onchange' =>'showInput(this.value, this.id);']) !!}
-        
+
         @if ($patient->patientInfo->ayuda_dep == "Otras")
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#ayuda_dep_cont').removeAttr('hidden');
                         });
-            </script>
+        </script>
         @endif
-        
+
         <div class="pt-3" id="ayuda_dep_cont" hidden="hidden">
             {!! Form::label('ayudaDep', 'Especifica cual:') !!}
             {!! Form::text('ayudaDep', $patient->patientInfo->ayuda_dep, ['class' => 'form-control', 'name'
@@ -286,19 +298,21 @@
 
 
 
-     <div class="col-sm-12 my-3">
+    <div class="col-sm-12 my-3">
         <div class="row">
-            <div class="col-lg-6"><h4><i class="fas fa-file-medical">
-                </i> Fechas dependencia</h4>
+            <div class="col-lg-6">
+                <h4><i class="fas fa-file-medical">
+                    </i> Fechas Dependencia</h4>
             </div>
             <div class="col-lg-6">
-                <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#dates_modal">
+                <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
+                    data-target="#dates_modal">
                     Añadir nueva fecha <i class="fas fa-file-upload"></i>
                 </button>
             </div>
         </div>
-        
-        
+
+
     </div>
     <div class="col-sm-12 my-3">
         <table class="table datatables" width="100%" cellspacing="0">
@@ -319,7 +333,7 @@
                 @endforeach
             </tbody>
         </table>
-    </div> 
+    </div>
 
 
     <hr width="100%">
@@ -340,49 +354,54 @@
 
     <!-- Ayuda Soc Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('ayuda_soc', 'Tipo Ayuda:') !!}
+        {!! Form::label('ayuda_soc', 'Tipo Ayudas:') !!}
         <select class="form-control" id="ayuda_soc" name="ayuda_soc" onchange="showInput(this.value, this.id);">
             <option {{ $patient->patientInfo->ayuda_soc == '' ? 'selected':'' }}>Selecciona una opción</option>
             <option {{ $patient->patientInfo->ayuda_soc == 'Teleasistencia' ? 'selected':'' }}>Teleasistencia</option>
             <option {{ $patient->patientInfo->ayuda_soc == 'SAD' ? 'selected':'' }}>SAD</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Empleada de Hogar,' ? 'selected':'' }}>Empleada de Hogar</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Cuidadora interna' ? 'selected':'' }}>Cuidadora interna</option>
+            <option {{ $patient->patientInfo->ayuda_soc == 'Empleada de Hogar,' ? 'selected':'' }}>Empleada de Hogar
+            </option>
+            <option {{ $patient->patientInfo->ayuda_soc == 'Cuidadora interna' ? 'selected':'' }}>Cuidadora interna
+            </option>
             <option {{ $patient->patientInfo->ayuda_soc == 'Fisioterapia' ? 'selected':'' }}>Fisioterapia</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Estimulación Cognitiva' ? 'selected':'' }}>Estimulación Cognitiva</option>
+            <option {{ $patient->patientInfo->ayuda_soc == 'Estimulación Cognitiva' ? 'selected':'' }}>Estimulación
+                Cognitiva</option>
             <option {{ $patient->patientInfo->ayuda_soc == 'Apoyo Emocional' ? 'selected':'' }}>Apoyo Emocional</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Centro Atención Residencial' ? 'selected':'' }}> Centro Atención Residencial</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Centro Estancia Diurna' ? 'selected':'' }}>Centro Estancia Diurna</option>
+            <option {{ $patient->patientInfo->ayuda_soc == 'Centro Atención Residencial' ? 'selected':'' }}> Centro
+                Atención Residencial</option>
+            <option {{ $patient->patientInfo->ayuda_soc == 'Centro Estancia Diurna' ? 'selected':'' }}>Centro Estancia
+                Diurna</option>
             <option {{ $patient->patientInfo->ayuda_soc == 'Otros' ? 'selected':'' }}>Otros</option>
         </select>
 
 
         @if (
-            $patient->patientInfo->ayuda_soc != "Teleasistencia" ||
-            $patient->patientInfo->ayuda_soc != "SAD" ||
-            $patient->patientInfo->ayuda_soc != "Empleada de Hogar" ||
-            $patient->patientInfo->ayuda_soc != "Cuidadora interna" ||
-            $patient->patientInfo->ayuda_soc != "Fisioterapia" ||
-            $patient->patientInfo->ayuda_soc != "Apoyo Emocional" ||
-            $patient->patientInfo->ayuda_soc != "Estimulación Cognitiva" ||
-            $patient->patientInfo->ayuda_soc != "Centro Atención Residencial" ||
-            $patient->patientInfo->ayuda_soc != "Centro Estancia Diurna" 
+        $patient->patientInfo->ayuda_soc != "Teleasistencia" ||
+        $patient->patientInfo->ayuda_soc != "SAD" ||
+        $patient->patientInfo->ayuda_soc != "Empleada de Hogar" ||
+        $patient->patientInfo->ayuda_soc != "Cuidadora interna" ||
+        $patient->patientInfo->ayuda_soc != "Fisioterapia" ||
+        $patient->patientInfo->ayuda_soc != "Apoyo Emocional" ||
+        $patient->patientInfo->ayuda_soc != "Estimulación Cognitiva" ||
+        $patient->patientInfo->ayuda_soc != "Centro Atención Residencial" ||
+        $patient->patientInfo->ayuda_soc != "Centro Estancia Diurna"
         )
-            <script>
-                $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#ayuda_soc_cont').removeAttr('hidden');
                     $("#nivel_educativo option").each(function(){
                         if ($(this).text() == "Otros")
                         $(this).attr("selected","selected");
                     });
                 });
-            </script>
+        </script>
         @else
-            <script>
-                $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#ayuda_soc_cont').attr('hidden', 'hidden');
                     
                 });
-            </script>
+        </script>
         @endif
 
 
@@ -394,7 +413,7 @@
     </div>
 
 
-   
+
 
 
 
@@ -413,7 +432,7 @@
 
 
     <!-- Tipo Disc Field -->
-    <div class="form-group col-sm-4 discapacidad bg-secondary py-3"" style="display: none;">
+    <div class="form-group col-sm-4 discapacidad bg-secondary py-3"" style=" display: none;">
         {!! Form::label('tipo_disc', 'Tipo Discapacidad:') !!}
         <select class="form-control" id="type" name="tipo_disc">
             <option {{ $patient->patientInfo->tipo_disc == 'Intelectual' ? 'selected':'' }}>Intelectual</option>
@@ -424,13 +443,13 @@
     </div>
 
     <!-- Grado Disc Field -->
-    <div class="form-group col-sm-4 discapacidad bg-secondary py-3"" style="display: none;">
+    <div class="form-group col-sm-4 discapacidad bg-secondary py-3"" style=" display: none;">
         {!! Form::label('grado_disc', 'Porcentaje Discapacidad:') !!}
         {!! Form::text('grado_disc', $patient->patientInfo->grado_disc, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Fecha Res Disc Field -->
-    <div class="form-group col-sm-4 discapacidad bg-secondary py-3"" style="display: none;">
+    <div class="form-group col-sm-4 discapacidad bg-secondary py-3"" style=" display: none;">
         {!! Form::label('fecha_res_disc', 'Fecha Resolución Grado Discapacidad:') !!}
         {!! Form::date('fecha_res_disc', $patient->patientInfo->fecha_res_disc, ['class' =>
         'form-control','id'=>'fecha_res_disc']) !!}

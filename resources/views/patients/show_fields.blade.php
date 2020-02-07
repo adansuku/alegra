@@ -30,6 +30,33 @@
 
 
 
+        <table class="table dark" width="100%" cellspacing="0">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Pia en Vigor</th>
+                    <th>Fecha máx. Elaboración y Entrega</th>
+                </tr>
+            </thead>
+
+
+
+
+            @foreach($patient->patientPia->slice(0, 2) as $patientPia)
+            <tr>
+                <td>
+                    {!! $patientPia->tipo_pia !!}
+                </td>
+
+                <td>
+                    {{ date('d/m/Y', strtotime($patientPia->fecha_limite)) }}
+                </td>
+            </tr>
+            @endforeach
+
+        </table>
+
+
+
     </div>
 </div>
 
@@ -61,11 +88,13 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#historia" role="tab">Historia</a>
-    </li>
-    <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#documentacion" role="tab">Documentación</a>
     </li>
+
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#historia" role="tab">Historial</a>
+    </li>
+
 
 </ul><!-- Tab panes -->
 
@@ -333,22 +362,96 @@
 
                 <div class="col-lg-12">
                     <h5><strong>Antecedentes Salud Importantes</strong></h5>
-                    <table class="table datatables dark" width="100%" cellspacing="0">
-                        <thead class="thead-dark">
+                    <table class="table datatables" width="100%" cellspacing="0">
+                        <thead class="thead-light">
                             <tr>
-                                <th>Antecedentes</th>
-                                <th>Año</th>
+                                <th>Tipo Pia</th>
+                                <th>Fecha máx. Elaboración y Entrega</th>
+                                <th>Fecha Real Elaboración Completa</th>
+                                <th>Fecha Real Entrega</th>
+                                <th>Éxito PIA</th>
+                                <th>Informe PIA</th>
+                                <th>Documento Recepción PIA</th>
                                 <th>Observaciones</th>
                             </tr>
                         </thead>
+
                         <tbody>
-                            @foreach($patient->patientPasts as $patientPast)
-                            <tr>
-                                <td>{!! $patientPast->antecedentes !!}</td>
-                                <td>
-                                    {{ date('d/m/Y', strtotime($patientPast->antecedentes_anio)) }}
-                                </td>
-                                <td>{!! $patientPast->antecedentes_obs !!}</td>
+
+                            @foreach($patient->patientPia as $patientPia)
+
+                            <td>
+                                {!! $patientPia->tipo_pia !!}
+
+                            </td>
+
+                            @php
+                            $fecha_limite = strtotime($patientPia->fecha_limite);
+                            $newformat = date('d/m/Y',$fecha_limite);
+                            echo ' <td data-sort="'. $fecha_limite .'">'.$newformat .'</td>';
+                            @endphp
+
+                            <td>
+                                @if($patientPia->fecha_real != null )
+                                {{ date('d/m/yy', strtotime($patientPia->fecha_real)) }}
+                                @endif
+                            </td>
+
+                            <td>
+
+                                @if($patientPia->fecha_real != null )
+                                {{ date('d/m/yy', strtotime($patientPia->fecha_real_entrega)) }}
+                                @endif
+                            </td>
+
+
+                            <td>
+                                @if ($patientPia->fecha_real != null)
+                                @if ($patientPia->fecha_limite > $patientPia->fecha_real)
+                                <div style="background: green;text-align: center; color: white">Éxito</div>
+                                @else
+                                <div style="background: red; text-align: center; color: white">Fracaso</div>
+                                @endif
+                                @endif
+                            </td>
+
+                            <td>
+                                @if($patientPia->url_pia == null )
+                                Pia no disponible
+                                @else
+
+                                <a href="{{ asset("storage/$patientPia->url_pia") }}" target="_blank">
+                                    <i class="fas fa-download"></i> Ver documento
+                                </a>
+                                @endif
+                            </td>
+
+
+                            <td>
+                                @if($patientPia->url_recepcion == null )
+                                Pia recepción no disponible
+                                @else
+
+                                <a href="{{ asset("storage/$patientPia->url_recepcion") }}" target="_blank">
+                                    <i class="fas fa-download"></i> Ver documento
+                                </a>
+                                @endif
+                            </td>
+
+
+                            <td>
+
+                                @php
+                                $today = Carbon\Carbon::now();
+                                if ($today < $patientPia->fecha_limite){
+                                    echo '<div class="bg-secondary p-1">Pia en vigor</div>';
+                                    }
+                                    @endphp
+
+                                    {!! $patientPia->obs_pia !!}
+                            </td>
+
+
                             </tr>
                             @endforeach
                         </tbody>
@@ -594,7 +697,7 @@
                     <h5><strong>OTRAS AYUDAS SOCIOSANITARIAS</strong></h5>
                     <hr>
 
-                    <small>Tipo Ayuda:</small>
+                    <small>Tipo Ayudas:</small>
                     <h6><strong>{!! $patient->patientInfo->ayuda_soc !!}</strong></h6>
 
                     <small>Certificado Discapacidad:</small>
@@ -1040,8 +1143,8 @@
                         <tbody>
                             @foreach($patient->patientHistory as $item)
                             <tr>
-                                <td>{!! $item->acc_fecha_reg !!}</td>
-                                <td>{!! $item->acc_fecha_realiz !!}</td>
+                                <td>{{ date('d / m / Y', strtotime($item->acc_fecha_reg )) }}</td>
+                                <td>{{ date('d / m / Y', strtotime($item->acc_fecha_realiz )) }}</td>
                                 <td>{!! $item->acc_tipo_accion !!}</td>
                                 <td>{!! $item->acc_subtipo_accion !!}</td>
                                 <td>{!! $item->acc_woker_accion !!}</td>
