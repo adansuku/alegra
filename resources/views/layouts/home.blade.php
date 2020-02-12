@@ -65,11 +65,27 @@
                     <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
                         Entrada
                     </button>
+                    <button type="button" id="saveOut" class="btn btn-danger"
+                        style="width:120px;margin-left:10px;display:none;">
+                        Salida
+                    </button>
                     @else
+                    <button type="button" id="saveIn" class="btn btn-primary"
+                        style="width:120px;margin-left:10px;display:none;">
+                        Entrada
+                    </button>
                     <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;">
                         Salida
                     </button>
                     @endif
+                    @else
+                    <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
+                        Entrada
+                    </button>
+                    <button type="button" id="saveOut" class="btn btn-danger"
+                        style="width:120px;margin-left:10px;display:none;">
+                        Salida
+                    </button>
                     @endif
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -292,8 +308,13 @@
                     $("#saveOut").prop('disabled',false);
                     if(action=='in'){
                         toastr.success("Entrada registrada");
+                        $("#saveIn").hide();
+                        $("#saveOut").show();
                     }else{
                         toastr.success("Salida registrada");
+                        $("#saveOut").hide();
+                        $("#saveIn").show();
+                        
                     }
                 },
                 error: function (data) {
