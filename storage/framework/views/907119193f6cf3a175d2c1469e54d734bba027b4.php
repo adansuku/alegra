@@ -16,9 +16,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <link href="<?php echo e(mix('css/app.css')); ?>" rel="stylesheet">
-    
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css"
+        rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <!-- Datatable styles -->
     <?php echo $__env->yieldPushContent('css'); ?>
@@ -47,9 +48,11 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..."
+                                aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -58,33 +61,32 @@
                         </div>
                     </form>
                     <?php if(Auth::user()->workerSession->count() > 0): ?>
-                        <?php if(Auth::user()->workerSession->last()->action == 'out'): ?>
-                            <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
-                                Entrada 
-                            </button>
-                        <?php else: ?>
-                            <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;">
-                                Salida 
-                            </button>
-                        <?php endif; ?>
+                    <?php if(Auth::user()->workerSession->last()->action == 'out'): ?>
+                    <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
+                        Entrada
+                    </button>
                     <?php else: ?>
-                        <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
-                            Entrada 
-                        </button>
+                    <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;">
+                        Salida
+                    </button>
+                    <?php endif; ?>
                     <?php endif; ?>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -101,7 +103,8 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
                                 <div class="" style="
                             background-image:url(http://localhost/storage/<?php echo e(Auth::user()->avatar); ?>);
@@ -119,7 +122,8 @@
 
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
                                 <!-- <a class="dropdown-item" href="#">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Settings
@@ -167,7 +171,8 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Realizado con <i class="fas fa-heart"></i> para Acufade por La Isla Creativa &copy; | <i class="fas fa-grin-hearts"></i> Alegra app 2019 </span>
+                        <span>Realizado con <i class="fas fa-heart"></i> para Acufade por La Isla Creativa &copy; | <i
+                                class="fas fa-grin-hearts"></i> Alegra app 2019 </span>
                     </div>
                 </div>
             </footer>
@@ -185,7 +190,8 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -228,16 +234,18 @@
 
     <!-- Custom scripts for all pages -->
     <script src="<?php echo e(mix('js/customJs/custom.js')); ?>"></script>
-    
+
 
     <!-- Bootstrap core JavaScript, Core plugin JavaScript, Page level plugins -->
     <script src="<?php echo e(mix('js/app.js')); ?>"></script>
-    
+
 
     <!-- datatable 2 -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js">
+    </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!--scripts-->
     <?php echo $__env->yieldPushContent('scripts'); ?>
@@ -309,5 +317,4 @@
 
 </body>
 
-</html>
-<?php /**PATH /var/www/resources/views/layouts/home.blade.php ENDPATH**/ ?>
+</html><?php /**PATH /var/www/resources/views/layouts/home.blade.php ENDPATH**/ ?>
