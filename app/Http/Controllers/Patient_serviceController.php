@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePatient_serviceRequest;
 use App\Repositories\Patient_serviceRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Worker;
 use Flash;
 use Response;
 
@@ -29,6 +30,7 @@ class Patient_serviceController extends AppBaseController
      */
     public function index(Request $request)
     {
+
         $patientServices = $this->patientServiceRepository->all();
 
         return view('patient_services.index')
@@ -55,6 +57,7 @@ class Patient_serviceController extends AppBaseController
     public function store(CreatePatient_serviceRequest $request)
 
     {
+
         $input = $request->all();
 
         $patientService = $this->patientServiceRepository->create($input);
@@ -95,13 +98,17 @@ class Patient_serviceController extends AppBaseController
     {
         $patientService = $this->patientServiceRepository->find($id);
 
+        $workers = Worker::all();
+
         if (empty($patientService)) {
             Flash::error('Patient Service not found');
 
             return redirect(route('patientServices.index'));
         }
 
-        return view('patient_services.edit')->with('patientService', $patientService);
+        return view('patient_services.edit')
+            ->with('patientService', $patientService)
+            ->with('workers', $workers);
     }
 
     /**
@@ -114,6 +121,7 @@ class Patient_serviceController extends AppBaseController
      */
     public function update($id, UpdatePatient_serviceRequest $request)
     {
+
         $patientService = $this->patientServiceRepository->find($id);
 
         if (empty($patientService)) {
@@ -126,7 +134,7 @@ class Patient_serviceController extends AppBaseController
 
         Flash::success('Patient Service updated successfully.');
 
-        return redirect(route('patientServices.index'));
+        return redirect()->to('patients/' . $patientService->patient->id . '/edit#services');
     }
 
     /**

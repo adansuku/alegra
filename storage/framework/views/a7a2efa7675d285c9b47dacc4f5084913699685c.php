@@ -3,14 +3,12 @@
 
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Patient Service</h1>
+    <h1 class="h3 mt-4 pl-2 text-gray-800">Editar servicio</h1>
     <br>
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edition</h6>
-        </div>
         <div class="card-body">
-            <?php echo Form::model($patientService, ['route' => ['patientServices.update', $patientService->id], 'method' => 'patch']); ?>
+            <?php echo Form::model($patientService, ['route' => ['patientServices.update', $patientService->id], 'method' =>
+            'patch']); ?>
 
 
             <?php echo $__env->make('patient_services.fields', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

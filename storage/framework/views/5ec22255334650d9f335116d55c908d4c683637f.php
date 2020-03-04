@@ -90,11 +90,13 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#historia" role="tab">Historia</a>
-    </li>
-    <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#documentacion" role="tab">Documentación</a>
     </li>
+
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#historia" role="tab">Historial</a>
+    </li>
+
 
 </ul><!-- Tab panes -->
 
@@ -711,7 +713,7 @@
                     <h5><strong>OTRAS AYUDAS SOCIOSANITARIAS</strong></h5>
                     <hr>
 
-                    <small>Tipo Ayuda:</small>
+                    <small>Tipo Ayudas:</small>
                     <h6><strong><?php echo $patient->patientInfo->ayuda_soc; ?></strong></h6>
 
                     <small>Certificado Discapacidad:</small>
@@ -1169,8 +1171,8 @@
                         <tbody>
                             <?php $__currentLoopData = $patient->patientHistory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td><?php echo $item->acc_fecha_reg; ?></td>
-                                <td><?php echo $item->acc_fecha_realiz; ?></td>
+                                <td><?php echo e(date('d / m / Y', strtotime($item->acc_fecha_reg ))); ?></td>
+                                <td><?php echo e(date('d / m / Y', strtotime($item->acc_fecha_realiz ))); ?></td>
                                 <td><?php echo $item->acc_tipo_accion; ?></td>
                                 <td><?php echo $item->acc_subtipo_accion; ?></td>
                                 <td><?php echo $item->acc_woker_accion; ?></td>

@@ -2,7 +2,6 @@
     <thead class="thead-light">
         <tr>
             <th>Programa</th>
-            <th>Numero de sesiones Totales en el programa</th>
             <th>Duración de la sesión</th>
             <th>Días</th>
             <th>Inicio</th>
@@ -11,7 +10,10 @@
         </tr>
     </thead>
     <tbody>
+
+
         @foreach($patient->patientSpapd as $patientSpapd)
+
         <tr>
             <td>
                 @if ($patientSpapd->prog_spapd == "Otros")
@@ -21,7 +23,7 @@
                 @endif
             </td>
 
-            <td>{!! $patientSpapd->num_sesiones !!}</td>
+            {{-- <td>{!! $patientSpapd->num_sesiones !!}</td> --}}
 
             <td>
                 @if ($patientSpapd->dur_spapd == "Otros")
@@ -39,12 +41,23 @@
             </td>
 
             <td>{!! $patientSpapd->fecha_inicio !!}</td>
-            <td>{!! $patientSpapd->worker_id !!}</td>
+            <td>
+                @foreach($workers as $worker)
+                @if ($worker->id == $patientSpapd->worker_id)
+                {{$worker->nombre}} {{$worker->apellido}}
+                @endif
+                @endforeach
+
+
+            </td>
             <td>
                 <div class='btn-group'>
-                    <a href="{!! route('patientSpapds.edit', [$patientSpapd->id]) !!}" class='btn btn-primary btn-xs'><i class="far fa-edit"></i></a>
+                    <a href="{!! route('patientSpapds.edit', [$patientSpapd->id]) !!}" class='btn btn-primary btn-xs'><i
+                            class="far fa-edit"></i></a>
 
-                    <a href="/spapddelete/{{$patientSpapd->id}}" data-token="{{csrf_token()}}" class='btn btn-block btn-danger btn-xs' onclick="return confirm('¿Estas segura que quieres eliminar el servicio?')">
+                    <a href="/spapddelete/{{$patientSpapd->id}}" data-token="{{csrf_token()}}"
+                        class='btn btn-block btn-danger btn-xs'
+                        onclick="return confirm('¿Estas segura que quieres eliminar el servicio?')">
                         <i class="fas fa-trash"></i> Eliminar
                     </a>
 

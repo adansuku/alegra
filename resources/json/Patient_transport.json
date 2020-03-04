@@ -1,58 +1,57 @@
 [{
-    "name": "id",
-    "dbType": "increments",
-    "htmlType": "",
-    "validations": "",
-    "searchable": true,
-    "fillable": false,
-    "primary": false,
-    "inForm": false,
-    "inIndex": false
-},
-{
-    "name": "dia_trans",
-    "dbType": "string",
-    "htmlType": "select,Lunes,Martes,Miércoles,Jueves,Viernes",
-    "searchable": true
-},
-{
-    "name": "dom_recogida",
-    "dbType": "string",
-    "htmlType": "text",
-    "searchable": true
-},
-{
-    "name": "tray_trans",
-    "dbType": "string",
-    "htmlType": "select,Ida,Vuelta,Ida y Vuelta",
-    "searchable": true
-},
-{
-    "name": "created_at",
-    "dbType": "timestamp",
-    "htmlType": "",
-    "validations": "",
-    "searchable": false,
-    "fillable": false,
-    "primary": false,
-    "inForm": false,
-    "inIndex": false
-}, 
-{
-    "name": "updated_at",
-    "dbType": "timestamp",
-    "htmlType": "",
-    "validations": "",
-    "searchable": false,
-    "fillable": false,
-    "primary": false,
-    "inForm": false,
-    "inIndex": false
-},
-{
-    "name": "patient_id",
-    "dbType": "integer:unsigned:foreign,patients,id",
-    "htmlType": "text",
-    "relation": "mt1,Patient"
-}
+        "name": "id",
+        "dbType": "increments",
+        "htmlType": "",
+        "validations": "",
+        "searchable": true,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "dia_trans",
+        "dbType": "string",
+        "htmlType": "select,Lunes,Martes,Miércoles,Jueves,Viernes",
+        "searchable": true
+    },
+    {
+        "dbType": "string",
+        "htmlType": "text",
+        "searchable": true
+    },
+    {
+        "name": "tray_trans",
+        "dbType": "string",
+        "htmlType": "select,Ida,Vuelta,Ida y Vuelta",
+        "searchable": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "timestamp",
+        "htmlType": "",
+        "validations": "",
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "patient_id",
+        "dbType": "integer:unsigned:foreign,patients,id",
+        "htmlType": "text",
+        "relation": "mt1,Patient"
+    }
 ]

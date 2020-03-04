@@ -12,7 +12,7 @@
 
 <!-- Apellido Field -->
 <div class="form-group">
-    {!! Form::label('apellido', 'Apellido:') !!}
+    {!! Form::label('apellido', 'Apellidos:') !!}
     <p>{!! $patientCarer->apellido !!}</p>
 </div>
 
@@ -123,4 +123,3 @@
     {!! Form::label('patient_id', 'Patient Id:') !!}
     <p>{!! $patientCarer->patient_id !!}</p>
 </div>
-

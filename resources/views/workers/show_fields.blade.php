@@ -1,24 +1,25 @@
 <div class="buttons">
 
     {!! Form::open(['route' => ['workers.destroy', $worker->id], 'method' => 'delete']) !!}
-            <div class='btn-group float-right'>
-                <a href="{!! route('workers.edit', [$worker->id]) !!}" class='btn btn-primary btn-xs'>
-                    <i class="far fa-edit"></i> Editar
-                </a>
-                {!! Form::button('<i class="far fa-trash-alt"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Vamos a proceder a eliminar un elemento. ¿Estas seguro/a?')"]) !!}
-            </div>
-            {!! Form::close() !!}
+    <div class='btn-group float-right'>
+        <a href="{!! route('workers.edit', [$worker->id]) !!}" class='btn btn-primary btn-xs'>
+            <i class="far fa-edit"></i> Editar
+        </a>
+        {!! Form::button('<i class="far fa-trash-alt"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-danger
+        btn-xs', 'onclick' => "return confirm('Vamos a proceder a eliminar un elemento. ¿Estas seguro/a?')"]) !!}
+    </div>
+    {!! Form::close() !!}
 </div>
 
 <div class="avatar" style="background-image:url({{ asset("storage/$worker->avatar") }})"></div>
 
 
 <style>
-.row {
-    background: #fbf5f5;
-    padding: 20px 20px 10px 20px;
-    margin: 20px 0px;
-}
+    .row {
+        background: #fbf5f5;
+        padding: 20px 20px 10px 20px;
+        margin: 20px 0px;
+    }
 </style>
 
 
@@ -38,10 +39,13 @@
 
 <div class="row">
 
-<div class="col-lg-12"><h5><strong>Datos personales</strong></h5><hr></div>
+    <div class="col-lg-12">
+        <h5><strong>Datos personales</strong></h5>
+        <hr>
+    </div>
     <div class="col-sm-12 col-lg-4 my-3 h-100">
-        
-        
+
+
         <!-- Nombre Field -->
         <small>Fecha Alta:</small>
         <h6><strong>{{ date('d / m / Y', strtotime($worker->fecha_alta)) }}</strong></h6>
@@ -50,17 +54,17 @@
         <h6><strong>{!! $worker->nombre !!}</strong></h6>
 
         <!-- Apellido Field -->
-        <small>Apellido:</small>
+        <small>Apellidos:</small>
         <h6><strong>{!! $worker->apellido !!}</strong></h6>
 
-    
+
     </div>
 
 
 
 
     <div class="col-sm-12 col-lg-4 my-3 h-100">
-       
+
         <!-- Fecha Nacimiento Field -->
         <small>Fecha de nacimiento</small>
         <h6><strong>{{ $worker->fecha_nacimiento->format('d/m/Y')}}</strong></h6>
@@ -78,7 +82,7 @@
 
 
     <div class="col-sm-12 col-lg-4 my-3 h-100">
-      
+
         <!-- Telefono Field -->
         <small>Teléfono personal:</small>
         <h6><strong>{!! $worker->telefono !!}</strong></h6>
@@ -158,7 +162,7 @@
 </div>
 
 <div class="row">
-<div class="col-sm-12 col-lg-4 my-3 ">
+    <div class="col-sm-12 col-lg-4 my-3 ">
         <h5><strong>Datos académicos</strong></h5>
         <hr>
         <small>Categoría profesional:</small>
@@ -229,7 +233,7 @@
 
     </div>
 
-    </div>
+</div>
 
 <div class="row">
 
@@ -243,7 +247,7 @@
 
     </div>
 
-    </div>
+</div>
 
 <div class="row">
 
@@ -256,7 +260,7 @@
 
     </div>
 
-    </div>
+</div>
 
 <div class="row">
 

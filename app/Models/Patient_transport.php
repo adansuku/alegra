@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @property \App\Models\Patient patient
  * @property string dia_trans
- * @property string dom_recogida
  * @property string tray_trans
  * @property integer patient_id
  */
@@ -21,14 +20,13 @@ class Patient_transport extends Model
     use SoftDeletes;
 
     public $table = 'patient_transports';
-    
+
 
     protected $dates = ['deleted_at'];
 
 
     public $fillable = [
         'dia_trans',
-        'dom_recogida',
         'tray_trans',
         'patient_id'
     ];
@@ -41,7 +39,6 @@ class Patient_transport extends Model
     protected $casts = [
         'id' => 'integer',
         'dia_trans' => 'string',
-        'dom_recogida' => 'string',
         'tray_trans' => 'string',
         'patient_id' => 'integer'
     ];
@@ -51,9 +48,7 @@ class Patient_transport extends Model
      *
      * @var array
      */
-    public static $rules = [
-        
-    ];
+    public static $rules = [];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

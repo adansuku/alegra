@@ -30,7 +30,7 @@
         ?>
 
         <td>
-            <?php if($patientPia->fecha_real != null ): ?>
+            <?php if($patientPia->fecha_real != NULL ): ?>
             <?php echo e(date('d/m/yy', strtotime($patientPia->fecha_real))); ?>
 
             <?php endif; ?>
@@ -38,7 +38,7 @@
 
         <td>
 
-            <?php if($patientPia->fecha_real != null ): ?>
+            <?php if($patientPia->fecha_real_entrega != NULL ): ?>
             <?php echo e(date('d/m/yy', strtotime($patientPia->fecha_real_entrega))); ?>
 
             <?php endif; ?>
@@ -46,7 +46,7 @@
 
 
         <td>
-            <?php if($patientPia->fecha_real != null): ?>
+            <?php if($patientPia->fecha_real != NULL): ?>
             <?php if($patientPia->fecha_limite > $patientPia->fecha_real): ?>
             <div style="background: green;text-align: center; color: white">Éxito</div>
             <?php else: ?>

@@ -372,7 +372,7 @@
 
     <!-- Ayuda Soc Field -->
     <div class="form-group col-sm-6">
-        <?php echo Form::label('ayuda_soc', 'Tipo Ayuda:'); ?>
+        <?php echo Form::label('ayuda_soc', 'Tipo Ayudas:'); ?>
 
         <select class="form-control" id="ayuda_soc" name="ayuda_soc" onchange="showInput(this.value, this.id);">
             <option <?php echo e($patient->patientInfo->ayuda_soc == '' ? 'selected':''); ?>>Selecciona una opción</option>

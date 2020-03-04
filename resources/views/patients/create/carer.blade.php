@@ -15,7 +15,7 @@
     <div class="form-group col-sm-12">
         {!! Form::label('genero_carer', 'Género:') !!}
         {!! Form::select('genero_carer', [
-        "" => 'Elige un género',
+        "" => 'Elige una opción',
         'Hombre' => 'Hombre',
         'Mujer' => 'Mujer',
         'Intersexual' => 'Intersexual'
@@ -84,7 +84,7 @@
     <div class="form-group col-sm-12">
         {!! Form::label('municipio_carer', 'Municipio:') !!}
         <select class="form-control select2" id="municipio" name="municipio_carer">
-            <option value="">Selecciona un municipio</option>
+            <option value="">Selecciona una opción</option>
             <option value="" disabled>Tenerife</option>
             <option {{ $patient->Municipio == 'Adeje' ? 'selected':'' }}>Adeje</option>
             <option {{ $patient->Municipio == 'Arafo' ? 'selected':'' }}>Arafo</option>
@@ -221,12 +221,6 @@
     <div class="form-group col-sm-12">
         {!! Form::label('email_care', 'Email:') !!}
         {!! Form::email('email_care', null, ['class' => 'form-control']) !!}
-    </div>
-
-    <!-- Whatsapp Field -->
-    <div class="form-group col-sm-12">
-        {!! Form::label('whatsapp', 'Whatsapp:') !!}
-        {!! Form::select('whatsapp', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Sit Laboral Field -->
@@ -368,13 +362,16 @@
         });
     </script>
 
-
-
-
     <!-- Cesion Care Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('cesion_care', 'Cesión de Imagen:') !!}
         {!! Form::select('cesion_care', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
+    </div>
+
+    <!-- Whatsapp Field -->
+    <div class="form-group col-sm-12">
+        {!! Form::label('whatsapp', 'Whatsapp:') !!}
+        {!! Form::select('whatsapp', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Contactar Para Field -->

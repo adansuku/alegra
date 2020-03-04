@@ -1057,7 +1057,6 @@
                             @foreach($patient->patientTransport as $patientTransport)
                             <tr>
                                 <td>{!! $patientTransport->dia_trans !!}</td>
-                                <td>{!! $patientTransport->dom_recogida !!}</td>
                                 <td>{!! $patientTransport->tray_trans !!}</td>
                             </tr>
                             @endforeach

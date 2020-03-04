@@ -1,19 +1,15 @@
 <!-- Dia Trans Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('dia_trans', 'Dia Trans:') !!}
-    {!! Form::select('dia_trans', ['Lunes' => 'Lunes', 'Martes' => 'Martes', 'Miércoles' => 'Miércoles', 'Jueves' => 'Jueves', 'Viernes' => 'Viernes'], null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Dom Recogida Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('dom_recogida', 'Dom Recogida:') !!}
-    {!! Form::text('dom_recogida', null, ['class' => 'form-control']) !!}
+    {!! Form::select('dia_trans', ['Lunes' => 'Lunes', 'Martes' => 'Martes', 'Miércoles' => 'Miércoles', 'Jueves' =>
+    'Jueves', 'Viernes' => 'Viernes'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tray Trans Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tray_trans', 'Tray Trans:') !!}
-    {!! Form::select('tray_trans', ['Ida' => 'Ida', 'Vuelta' => 'Vuelta', 'Ida y Vuelta' => 'Ida y Vuelta'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('tray_trans', ['Ida' => 'Ida', 'Vuelta' => 'Vuelta', 'Ida y Vuelta' => 'Ida y Vuelta'], null,
+    ['class' => 'form-control']) !!}
 </div>
 
 <!-- Patient Id Field -->

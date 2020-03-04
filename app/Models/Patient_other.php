@@ -25,9 +25,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer importe_serv
  * @property integer importe_trans
  * @property string cuota_socio
- * @property string  periodicidad',
- * @property string  pago_socio,
- * @property string dire_transporte,
+ * @property string  periodicidad
+ * @property string fecha_transporte
+ * @property string  pago_socio
+ * @property string dire_transporte
  * @property string  patient_id
  */
 class Patient_other extends Model
@@ -57,6 +58,7 @@ class Patient_other extends Model
         'periodicidad',
         'pago_socio',
         'dire_transporte',
+        'fecha_transporte',
         'patient_id'
     ];
 
@@ -83,6 +85,7 @@ class Patient_other extends Model
         'periodicidad' => 'string',
         'pago_socio' => 'string',
         'dire_transporte' => 'string',
+        'fecha_transporte' => 'date',
         'patient_id' => 'integer'
     ];
 
@@ -91,9 +94,7 @@ class Patient_other extends Model
      *
      * @var array
      */
-    public static $rules = [
-
-    ];
+    public static $rules = [];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

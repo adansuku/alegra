@@ -40,7 +40,7 @@ class Patient extends Model
     use SoftDeletes;
 
     public $table = 'patients';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -102,7 +102,7 @@ class Patient extends Model
         'obs_direcion' => 'string',
         'num_direcion' => 'string',
         'otros_parentesco' => 'string',
-        'worker_id' => 'integer'
+        'worker_id' => 'array'
     ];
 
     /**
@@ -170,7 +170,7 @@ class Patient extends Model
 
     public function patientPia()
     {
-        return $this->hasMany(\App\Models\Patient_pia::class)->orderBy('id','ASC');
+        return $this->hasMany(\App\Models\Patient_pia::class)->orderBy('id', 'ASC');
     }
 
     public function patientSpapd()
@@ -207,6 +207,4 @@ class Patient extends Model
     {
         return $this->hasMany(\App\Models\Patient_medication::class);
     }
-
-    
 }

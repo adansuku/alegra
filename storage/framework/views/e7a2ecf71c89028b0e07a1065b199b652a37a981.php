@@ -20,15 +20,6 @@
 
     </div>
 
-    <!-- Dom Recogida Field -->
-    <div class="form-group col-sm-12">
-        <?php echo Form::label('dom_recogida', 'Domicilio de recogida para ese día:'); ?>
-
-        <?php echo Form::text('dom_recogida', null, ['class' => 'form-control']); ?>
-
-    </div>
-
-
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
         <?php echo Form::submit('Añadir transporte', ['class' => 'btn btn-primary float-right' ]); ?>

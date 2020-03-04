@@ -66,7 +66,6 @@ class PatientController extends AppBaseController
     {
         // $patients = $this->patientRepository->all();
         return view('patients.index');
-        
     }
 
     /**
@@ -99,7 +98,7 @@ class PatientController extends AppBaseController
      */
     public function store(CreatePatientRequest $request)
     {
-        
+
         $request->request->add(['convive_con' => ['']]); //add request
         $request->request->add(['estado' => '1']);
         $input = $request->all();
@@ -122,14 +121,14 @@ class PatientController extends AppBaseController
 
         $today = Carbon::parse($request->fecha_alta_paciente);
         $patient->patientPia()->create([
-            'fecha_limite' => $today->addMonths(6),
+            'fecha_limite' => $today->addMonths(9),
             'fecha_Real' => '',
             'tipo_pia' => 'Seguimiento',
             'url_pia' => '',
             'obs_pia' => '',
             'patient_id' => $patient->id,
         ]);
-        
+
         Flash::success('Persona atendida guardada correctamente.');
         return redirect()->route('patients.edit', $patient->id);
     }
@@ -167,7 +166,7 @@ class PatientController extends AppBaseController
         $patient = $this->patientRepository->find($id);
         $workers = Worker::all();
         $services = Patient_service::where('patient_id', $id)->get();
-    
+
         if (empty($patient)) {
             Flash::error('Patient not found');
             return redirect(route('patients.index'));

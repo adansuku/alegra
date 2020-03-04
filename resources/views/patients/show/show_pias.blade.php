@@ -29,21 +29,21 @@
         @endphp
 
         <td>
-            @if($patientPia->fecha_real != null )
+            @if($patientPia->fecha_real != NULL )
             {{ date('d/m/yy', strtotime($patientPia->fecha_real)) }}
             @endif
         </td>
 
         <td>
 
-            @if($patientPia->fecha_real != null )
+            @if($patientPia->fecha_real_entrega != NULL )
             {{ date('d/m/yy', strtotime($patientPia->fecha_real_entrega)) }}
             @endif
         </td>
 
 
         <td>
-            @if ($patientPia->fecha_real != null)
+            @if ($patientPia->fecha_real != NULL)
             @if ($patientPia->fecha_limite > $patientPia->fecha_real)
             <div style="background: green;text-align: center; color: white">Éxito</div>
             @else

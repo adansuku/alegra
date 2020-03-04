@@ -44,19 +44,21 @@
     </div>
     <div class="col-sm-9">
         <div class="file-upload">
-            <button class="btn-block btn btn-secondary" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Añadir Avatar</button>
+            <button class="btn-block btn btn-secondary" type="button"
+                onclick="$('.file-upload-input').trigger( 'click' )">Añadir Avatar</button>
 
             <div class="image-upload-wrap">
                 <input class="file-upload-input" name="avatar" type='file' onchange="readURL(this);" accept="image/" />
                 <div class="drag-text">
-                    <h3>Arrastra una archivo</h3>
+                    <h3>Arrastra un archivo</h3>
                     <p>Recuerda utilizar archivos pequeños</p>
                 </div>
             </div>
             <div class="file-upload-content">
                 <img class="file-upload-image" src="#" alt="your image" />
                 <div class="image-title-wrap">
-                    <button type="button" onclick="removeUpload()" class="remove-image">Eliminar <span class="image-title">Uploaded Image</span></button>
+                    <button type="button" onclick="removeUpload()" class="remove-image">Eliminar <span
+                            class="image-title">Uploaded Image</span></button>
                 </div>
             </div>
         </div>
@@ -75,14 +77,15 @@
 
         <!-- Apellido Field -->
         <div class="form-group ">
-            <strong>{!! Form::label('apellido', 'Apellido:') !!}</strong>
+            <strong>{!! Form::label('apellido', 'Apellidos:') !!}</strong>
             {!! Form::text('apellido', null, ['class' => 'form-control']) !!}
         </div>
 
         <!-- Fecha Nacimiento Field -->
         <div class="form-group ">
             <strong>{!! Form::label('fecha_nacimiento', 'Fecha Nacimiento:') !!}</strong>
-            {!! Form::date('fecha_nacimiento', $worker->fecha_nacimiento, ['class' => 'form-control','id'=>'fecha_nacimiento']) !!}
+            {!! Form::date('fecha_nacimiento', $worker->fecha_nacimiento, ['class' =>
+            'form-control','id'=>'fecha_nacimiento']) !!}
         </div>
 
         @section('scripts')
@@ -110,7 +113,8 @@
     <div class="col-sm-6">
         <!-- Email Corporativo Field -->
         <div class="form-group ">
-            <strong>{!! Form::label('email_personal', 'Email personal ') !!}</strong> (este no es el email para iniciar sesión)
+            <strong>{!! Form::label('email_personal', 'Email personal ') !!}</strong> (este no es el email para iniciar
+            sesión)
             {!! Form::email('email_personal', null, ['class' => 'form-control']) !!}
         </div>
 
@@ -134,14 +138,18 @@
                 <option value="" selected disabled hidden>Selecciona una opción</option>
                 <option {{ $worker->cat_profesional == 'Psicólogo/a' ? 'selected':'' }}>Psicólogo/a</option>
                 <option {{ $worker->cat_profesional == 'Fisioterapeuta' ? 'selected':'' }}>Fisioterapeuta</option>
-                <option {{ $worker->cat_profesional == 'Terapeuta Ocupacional' ? 'selected':'' }}>Terapeuta Ocupacional</option>
-                <option {{ $worker->cat_profesional == 'Trabajadora Social' ? 'selected':'' }}>Trabajadora Social</option>
-                <option {{ $worker->cat_profesional == 'Técnico en Integración Social' ? 'selected':'' }}>Técnico en Integración Social</option>
+                <option {{ $worker->cat_profesional == 'Terapeuta Ocupacional' ? 'selected':'' }}>Terapeuta Ocupacional
+                </option>
+                <option {{ $worker->cat_profesional == 'Trabajadora Social' ? 'selected':'' }}>Trabajadora Social
+                </option>
+                <option {{ $worker->cat_profesional == 'Técnico en Integración Social' ? 'selected':'' }}>Técnico en
+                    Integración Social</option>
                 <option {{ $worker->cat_profesional == 'Gerocultor/a' ? 'selected':'' }}>Gerocultor/a</option>
-                <option {{ $worker->cat_profesional == 'Auxiliar Administrativo' ? 'selected':'' }}>Auxiliar Administrativo</option>
+                <option {{ $worker->cat_profesional == 'Auxiliar Administrativo' ? 'selected':'' }}>Auxiliar
+                    Administrativo</option>
                 <option {{ $worker->cat_profesional == 'Administrativo' ? 'selected':'' }}>Administrativo</option>
                 <option {{ $worker->cat_profesional == 'Otros' ? 'selected':'' }}>Otros</option>
-              </select>
+            </select>
         </div>
 
         <!-- Titulacion Field -->
@@ -149,22 +157,39 @@
             <strong>{!! Form::label('titulacion', 'Titulacion:') !!}</strong>
             <select class="form-control" id="titulacion" name="titulacion">
                 <option value="" selected disabled hidden>Selecciona una opción</option>
-                <option {{ $worker->titulacion == 'Grado/Licenciado/a Psicología' ? 'selected':'' }}>Grado/Licenciado/a Psicología</option>
-                <option {{ $worker->titulacion == 'Grado/Diplomado/a Fisioterapia' ? 'selected':'' }}>Grado/Diplomado/a Fisioterapia</option>
-                <option {{ $worker->titulacion == 'Grado/Licenciado Pedagogía' ? 'selected':'' }}>Grado/Licenciado Pedagogía</option>
-                <option {{ $worker->titulacion == 'Grado/Diplomado/a Trabajo Social' ? 'selected':'' }}>Grado/Diplomado/a Trabajo Social</option>
-                <option {{ $worker->titulacion == 'Grado/Diplomatura Educación Social' ? 'selected':'' }}>Grado/Diplomatura Educación Social</option>
-                <option {{ $worker->titulacion == 'Grado/Licenciado Logopedia' ? 'selected':'' }}>Grado/Licenciado Logopedia</option>
-                <option {{ $worker->titulacion == 'Grado/Diplomatura Terapia Ocupacional' ? 'selected':'' }}>Grado/Diplomatura Terapia Ocupacional</option>
-                <option {{ $worker->titulacion == 'Técnico Auxiliar Administrativo' ? 'selected':'' }}>Técnico Auxiliar Administrativo</option>
-                <option {{ $worker->titulacion == 'Técnico Superior Administración' ? 'selected':'' }}>Técnico Superior Administración</option>
-                <option {{ $worker->titulacion == 'Técnico en Atención a Personas Dependientes' ? 'selected':'' }}>Técnico en Atención a Personas Dependientes</option>
-                <option {{ $worker->titulacion == 'Auxiliar de Enfermería' ? 'selected':'' }}>Auxiliar de Enfermería</option>
-                <option {{ $worker->titulacion == 'Técnico en Integración Social' ? 'selected':'' }}>Técnico en Integración Social</option>
-                <option {{ $worker->titulacion == 'Certificado de Profesionalidad de Atención a personas dependientes en instituciones sociales' ? 'selected':'' }}>Certificado de Profesionalidad de Atención a personas dependientes en instituciones sociales</option>
-                <option {{ $worker->titulacion == 'Certificado de profesionalidad de atención a personas depnendientes en domicilio' ? 'selected':'' }}>Certificado de profesionalidad de atención a personas depnendientes en domicilio</option>
+                <option {{ $worker->titulacion == 'Grado/Licenciado/a Psicología' ? 'selected':'' }}>Grado/Licenciado/a
+                    Psicología</option>
+                <option {{ $worker->titulacion == 'Grado/Diplomado/a Fisioterapia' ? 'selected':'' }}>Grado/Diplomado/a
+                    Fisioterapia</option>
+                <option {{ $worker->titulacion == 'Grado/Licenciado Pedagogía' ? 'selected':'' }}>Grado/Licenciado
+                    Pedagogía</option>
+                <option {{ $worker->titulacion == 'Grado/Diplomado/a Trabajo Social' ? 'selected':'' }}>
+                    Grado/Diplomado/a Trabajo Social</option>
+                <option {{ $worker->titulacion == 'Grado/Diplomatura Educación Social' ? 'selected':'' }}>
+                    Grado/Diplomatura Educación Social</option>
+                <option {{ $worker->titulacion == 'Grado/Licenciado Logopedia' ? 'selected':'' }}>Grado/Licenciado
+                    Logopedia</option>
+                <option {{ $worker->titulacion == 'Grado/Diplomatura Terapia Ocupacional' ? 'selected':'' }}>
+                    Grado/Diplomatura Terapia Ocupacional</option>
+                <option {{ $worker->titulacion == 'Técnico Auxiliar Administrativo' ? 'selected':'' }}>Técnico Auxiliar
+                    Administrativo</option>
+                <option {{ $worker->titulacion == 'Técnico Superior Administración' ? 'selected':'' }}>Técnico Superior
+                    Administración</option>
+                <option {{ $worker->titulacion == 'Técnico en Atención a Personas Dependientes' ? 'selected':'' }}>
+                    Técnico en Atención a Personas Dependientes</option>
+                <option {{ $worker->titulacion == 'Auxiliar de Enfermería' ? 'selected':'' }}>Auxiliar de Enfermería
+                </option>
+                <option {{ $worker->titulacion == 'Técnico en Integración Social' ? 'selected':'' }}>Técnico en
+                    Integración Social</option>
+                <option
+                    {{ $worker->titulacion == 'Certificado de Profesionalidad de Atención a personas dependientes en instituciones sociales' ? 'selected':'' }}>
+                    Certificado de Profesionalidad de Atención a personas dependientes en instituciones sociales
+                </option>
+                <option
+                    {{ $worker->titulacion == 'Certificado de profesionalidad de atención a personas depnendientes en domicilio' ? 'selected':'' }}>
+                    Certificado de profesionalidad de atención a personas depnendientes en domicilio</option>
                 <option {{ $worker->titulacion == 'Otros' ? 'selected':'' }}>Otros</option>
-              </select>
+            </select>
         </div>
     </div>
 </div>

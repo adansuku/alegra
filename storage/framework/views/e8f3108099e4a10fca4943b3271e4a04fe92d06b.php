@@ -1,79 +1,13 @@
-<?php $__env->startSection('scripts'); ?>
-
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('.image-upload-wrap').hide();
-
-                $('.file-upload-image').attr('src', e.target.result);
-                $('.file-upload-content').show();
-
-                $('.image-title').html(input.files[0].name);
-            };
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            removeUpload();
-        }
-    }
-
-    function removeUpload() {
-        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-        $('.file-upload-content').hide();
-        $('.image-upload-wrap').show();
-    }
-    $('.image-upload-wrap').bind('dragover', function() {
-        $('.image-upload-wrap').addClass('image-dropping');
-    });
-    $('.image-upload-wrap').bind('dragleave', function() {
-        $('.image-upload-wrap').removeClass('image-dropping');
-    });
-
-    $("#convive_con").focus(function(){
-        if ($('#convive_con').val() == 'Otras') {
-            $('#otro_parent').css('display', 'block');
-        } else {
-            $('#otro_parent').css('display', 'none');
-        }
-    });
-
-    $('#convive_con').on('change', function() {
-        console.log("hello");
-        if ($("#convive_con option[value=Otro]:selected").length > 0){
-             $('#otro_parent').css('display', 'block');
-        }
-        else {
-            $('#otro_parent').css('display', 'none');
-        }
-    });
-</script>
-
-<?php $__env->stopSection(); ?>
-<div class="row">
+<div class="row pb-4">
     <div class="col-sm-12 col-md-4">
         <!-- Foto Paciente Field -->
         <div class="avatar" style="background-image:url(<?php echo e(asset("storage/$patient->foto_paciente")); ?>)"></div>
     </div>
 
     <div class="col-sm-12 col-md-8">
-        <div class="file-upload">
-            <button class="btn-block btn btn-secondary" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Añadir Avatar</button>
 
-            <div class="image-upload-wrap">
-                <input class="file-upload-input" name="foto_paciente" type='file' onchange="readURL(this);" accept="image/" />
-                <div class="drag-text">
-                    <h3>Arrastra una archivo</h3>
-                    <p>Recuerda utilizar archivos pequeños</p>
-                </div>
-            </div>
-            <div class="file-upload-content">
-                <img class="file-upload-image" src="#" alt="your image" />
-                <div class="image-title-wrap">
-                    <button type="button" onclick="removeUpload()" class="remove-image">Eliminar <span class="image-title">Uploaded Image</span></button>
-                </div>
-            </div>
-        </div>
+        <input class="file-upload-input bg-secondary" name="foto_paciente" type='file' />
+
         <!--file-upload-->
 
     </div>
@@ -86,13 +20,15 @@
         <!-- Numero expediente -->
         <p><?php echo Form::label('numero_expediente', 'Número Expediente:'); ?>
 
-            <?php echo Form::text('numero_expediente', $patient->numero_expediente, ['class' => 'form-control',  'readonly' => 'readonly']); ?></p>
+            <?php echo Form::text('numero_expediente', $patient->numero_expediente, ['class' => 'form-control', 'readonly' =>
+            'readonly']); ?></p>
 
         <!-- Fecha Alta Paciente Field -->
         <p><?php echo Form::label('fecha_alta_paciente', 'Fecha Alta:'); ?>
 
-            <?php echo Form::date('fecha_alta_paciente', $patient->fecha_alta_paciente, ['class' => 'form-control','id'=>'fecha_alta_paciente']); ?></p>
-       
+            <?php echo Form::date('fecha_alta_paciente', $patient->fecha_alta_paciente, ['class' =>
+            'form-control','id'=>'fecha_alta_paciente']); ?></p>
+
         <!-- Nombre Field -->
         <p><?php echo Form::label('nombre', 'Nombre:'); ?>
 
@@ -112,7 +48,7 @@
         <p><?php echo Form::label('genero', 'Género:'); ?>
 
             <select class="form-control" id="type" name="genero">
-                <option value="">Selecciona una opcion</option>
+                <option value="">Selecciona una opción</option>
                 <option <?php echo e($patient->genero == 'Hombre' ? 'selected':''); ?>>Hombre</option>
                 <option <?php echo e($patient->genero == 'Mujer' ? 'selected':''); ?>>Mujer</option>
                 <option <?php echo e($patient->genero == 'Intersexual' ? 'selected':''); ?>>Intersexual</option>
@@ -123,12 +59,13 @@
         <p>
             <?php echo Form::label('fecha_nacimiento', 'Fecha de Nacimiento:'); ?>
 
-            <?php echo Form::date('fecha_nacimiento', $patient->fecha_nacimiento, ['class' => 'form-control','id'=>'fecha_nacimiento']); ?>
+            <?php echo Form::date('fecha_nacimiento', $patient->fecha_nacimiento, ['class' =>
+            'form-control','id'=>'fecha_nacimiento']); ?>
 
         </p>
 
-         <!-- Dni Field -->
-         <p>
+        <!-- Dni Field -->
+        <p>
             <?php echo Form::label('dni', 'Dni:'); ?>
 
             <?php echo Form::text('dni', null, ['class' => 'form-control']); ?>
@@ -151,13 +88,13 @@
 
     </div>
 
-    <div class="col-sm-12 col-md-4">        
+    <div class="col-sm-12 col-md-4">
 
         <!-- Isla Field -->
         <p><?php echo Form::label('Isla', 'Isla:'); ?>
 
             <select class="form-control" id="isla" name="Isla">
-                <option value="">Selecciona una opcion</option>
+                <option value="">Selecciona una opción</option>
                 <option id="Tenerife" <?php echo e($patient->Isla == 'Tenerife' ? 'selected':''); ?>>Tenerife</option>
                 <option <?php echo e($patient->Isla == 'Gran Canaria' ? 'selected':''); ?>>Gran Canaria</option>
                 <option <?php echo e($patient->Isla == 'La Graciosa' ? 'selected':''); ?>>La Graciosa</option>
@@ -192,8 +129,8 @@
 
         </p>
 
-         <!--codigfo postal-->
-         <p>
+        <!--codigfo postal-->
+        <p>
             <?php echo Form::label('codigo_postal', 'Código postal:'); ?>
 
             <?php echo Form::number(' codigo_postal', $patient-> codigo_postal, ['class' => 'form-control']); ?>
@@ -205,13 +142,14 @@
 
 
             <select class="select2" id="municipio" name="Municipio">
-                <option value="">Selecciona un municipio</option>
+                <option value="">Selecciona una opción</option>
                 <option value="" disabled>Tenerife</option>
                 <option <?php echo e($patient->Municipio == 'Adeje' ? 'selected':''); ?>>Adeje</option>
                 <option <?php echo e($patient->Municipio == 'Arafo' ? 'selected':''); ?>>Arafo</option>
                 <option <?php echo e($patient->Municipio == 'Arico' ? 'selected':''); ?>>Arico</option>
                 <option <?php echo e($patient->Municipio == 'Arona' ? 'selected':''); ?>>Arona</option>
-                <option <?php echo e($patient->Municipio == 'Buenavista del Norte' ? 'selected':''); ?>>Buenavista del Norte</option>
+                <option <?php echo e($patient->Municipio == 'Buenavista del Norte' ? 'selected':''); ?>>Buenavista del Norte
+                </option>
                 <option <?php echo e($patient->Municipio == 'Candelaria' ? 'selected':''); ?>>Candelaria</option>
                 <option <?php echo e($patient->Municipio == 'El Rosario' ? 'selected':''); ?>>El Rosario</option>
                 <option <?php echo e($patient->Municipio == 'El Sauzal' ? 'selected':''); ?>>El Sauzal</option>
@@ -223,16 +161,21 @@
                 <option <?php echo e($patient->Municipio == 'Guía de Isora' ? 'selected':''); ?>>Guía de Isora</option>
                 <option <?php echo e($patient->Municipio == 'Icod de los Vinos' ? 'selected':''); ?>>Icod de los Vinos</option>
                 <option <?php echo e($patient->Municipio == 'La Guancha' ? 'selected':''); ?>>La Guancha</option>
-                <option <?php echo e($patient->Municipio == 'La Matanza de Acentejo' ? 'selected':''); ?>>La Matanza de Acentejo</option>
+                <option <?php echo e($patient->Municipio == 'La Matanza de Acentejo' ? 'selected':''); ?>>La Matanza de Acentejo
+                </option>
                 <option <?php echo e($patient->Municipio == 'La Orotava' ? 'selected':''); ?>>La Orotava</option>
-                <option <?php echo e($patient->Municipio == 'La Victoria de Acentejo' ? 'selected':''); ?>>La Victoria de Acentejo</option>
+                <option <?php echo e($patient->Municipio == 'La Victoria de Acentejo' ? 'selected':''); ?>>La Victoria de Acentejo
+                </option>
                 <option <?php echo e($patient->Municipio == 'Los Realejos' ? 'selected':''); ?>>Los Realejos</option>
                 <option <?php echo e($patient->Municipio == 'Los Silos' ? 'selected':''); ?>>Los Silos</option>
                 <option <?php echo e($patient->Municipio == 'Puerto de la Cruz' ? 'selected':''); ?>>Puerto de la Cruz</option>
-                <option <?php echo e($patient->Municipio == 'San Cristóbal de la Laguna' ? 'selected':''); ?>>San Cristóbal de la Laguna</option>
-                <option <?php echo e($patient->Municipio == 'San Juan de la Rambla' ? 'selected':''); ?>>San Juan de la Rambla</option>
+                <option <?php echo e($patient->Municipio == 'San Cristóbal de la Laguna' ? 'selected':''); ?>>San Cristóbal de la
+                    Laguna</option>
+                <option <?php echo e($patient->Municipio == 'San Juan de la Rambla' ? 'selected':''); ?>>San Juan de la Rambla
+                </option>
                 <option <?php echo e($patient->Municipio == 'San Miguel de Abona' ? 'selected':''); ?>>San Miguel de Abona</option>
-                <option <?php echo e($patient->Municipio == 'Santa Cruz de Tenerife' ? 'selected':''); ?>>Santa Cruz de Tenerife</option>
+                <option <?php echo e($patient->Municipio == 'Santa Cruz de Tenerife' ? 'selected':''); ?>>Santa Cruz de Tenerife
+                </option>
                 <option <?php echo e($patient->Municipio == 'Santa Úrsula' ? 'selected':''); ?>>Santa Úrsula</option>
                 <option <?php echo e($patient->Municipio == 'Santiago del Teide' ? 'selected':''); ?>>Santiago del Teide</option>
                 <option <?php echo e($patient->Municipio == 'Tacoronte' ? 'selected':''); ?>>Tacoronte</option>
@@ -244,14 +187,16 @@
                 <option <?php echo e($patient->Municipio == 'Agulo' ? 'selected':''); ?>>Agulo</option>
                 <option <?php echo e($patient->Municipio == 'Alajeró' ? 'selected':''); ?>>Alajeró</option>
                 <option <?php echo e($patient->Municipio == 'Hermigua' ? 'selected':''); ?>>Hermigua</option>
-                <option <?php echo e($patient->Municipio == 'San Sebastián de la Gomera' ? 'selected':''); ?>>San Sebastián de la Gomera</option>
+                <option <?php echo e($patient->Municipio == 'San Sebastián de la Gomera' ? 'selected':''); ?>>San Sebastián de la
+                    Gomera</option>
                 <option <?php echo e($patient->Municipio == 'Valle Gran Rey' ? 'selected':''); ?>>Valle Gran Rey</option>
                 <option <?php echo e($patient->Municipio == 'Vallehermoso' ? 'selected':''); ?>>Vallehermoso</option>
 
                 <option value="" disabled></option>
                 <option value="" disabled>El Hierro</option>
                 <option <?php echo e($patient->Municipio == 'Frontera' ? 'selected':''); ?>>Frontera</option>
-                <option <?php echo e($patient->Municipio == 'El Pinar de El Hierro' ? 'selected':''); ?>>El Pinar de El Hierro</option>
+                <option <?php echo e($patient->Municipio == 'El Pinar de El Hierro' ? 'selected':''); ?>>El Pinar de El Hierro
+                </option>
                 <option <?php echo e($patient->Municipio == 'Valverde' ? 'selected':''); ?>>Valverde</option>
 
                 <option value="" disabled></option>
@@ -259,16 +204,20 @@
                 <option <?php echo e($patient->Municipio == 'Barlovento' ? 'selected':''); ?>>Barlovento</option>
                 <option <?php echo e($patient->Municipio == 'Breña Alta' ? 'selected':''); ?>>Breña Alta</option>
                 <option <?php echo e($patient->Municipio == 'Breña Baja' ? 'selected':''); ?>>Breña Baja</option>
-                <option <?php echo e($patient->Municipio == 'Fuencaliente de la Palma' ? 'selected':''); ?>>Fuencaliente de la Palma</option>
+                <option <?php echo e($patient->Municipio == 'Fuencaliente de la Palma' ? 'selected':''); ?>>Fuencaliente de la Palma
+                </option>
                 <option <?php echo e($patient->Municipio == 'Garafía' ? 'selected':''); ?>>Garafía</option>
-                <option <?php echo e($patient->Municipio == 'Los Llanos de Aridane' ? 'selected':''); ?>>Los Llanos de Aridane</option>
+                <option <?php echo e($patient->Municipio == 'Los Llanos de Aridane' ? 'selected':''); ?>>Los Llanos de Aridane
+                </option>
                 <option <?php echo e($patient->Municipio == 'El Paso' ? 'selected':''); ?>>El Paso</option>
                 <option <?php echo e($patient->Municipio == 'Puntagorda' ? 'selected':''); ?>>Puntagorda</option>
                 <option <?php echo e($patient->Municipio == 'Puntallana' ? 'selected':''); ?>>Puntallana</option>
                 <option <?php echo e($patient->Municipio == 'San Andrés y Sauces' ? 'selected':''); ?>>San Andrés y Sauces</option>
-                <option <?php echo e($patient->Municipio == 'Santa Cruz de la Palma' ? 'selected':''); ?>>Santa Cruz de la Palma</option>
+                <option <?php echo e($patient->Municipio == 'Santa Cruz de la Palma' ? 'selected':''); ?>>Santa Cruz de la Palma
+                </option>
                 <option <?php echo e($patient->Municipio == 'Tazacorte' ? 'selected':''); ?>>Tazacorte</option>
-                <option <?php echo e($patient->Municipio == 'Tijarafe y Villa de Mazo' ? 'selected':''); ?>>Tijarafe y Villa de Mazo</option>
+                <option <?php echo e($patient->Municipio == 'Tijarafe y Villa de Mazo' ? 'selected':''); ?>>Tijarafe y Villa de Mazo
+                </option>
 
                 <option value="" disabled></option>
                 <option value="" disabled>Lanzarote</option>
@@ -291,7 +240,8 @@
                 <option value="" disabled>Gran Canaria</option>
                 <option <?php echo e($patient->Municipio == 'Agaete' ? 'selected':''); ?>>Agaete</option>
                 <option <?php echo e($patient->Municipio == 'Agüimes' ? 'selected':''); ?>>Agüimes</option>
-                <option <?php echo e($patient->Municipio == 'La Aldea de San Nicolás' ? 'selected':''); ?>>La Aldea de San Nicolás</option>
+                <option <?php echo e($patient->Municipio == 'La Aldea de San Nicolás' ? 'selected':''); ?>>La Aldea de San Nicolás
+                </option>
                 <option <?php echo e($patient->Municipio == 'Artenara' ? 'selected':''); ?>>Artenara</option>
                 <option <?php echo e($patient->Municipio == 'Arucas' ? 'selected':''); ?>>Arucas</option>
                 <option <?php echo e($patient->Municipio == 'Firgas' ? 'selected':''); ?>>Firgas</option>
@@ -299,33 +249,38 @@
                 <option <?php echo e($patient->Municipio == 'Ingenio' ? 'selected':''); ?>>Ingenio</option>
                 <option <?php echo e($patient->Municipio == 'Mogán' ? 'selected':''); ?>>Mogán</option>
                 <option <?php echo e($patient->Municipio == 'Moya' ? 'selected':''); ?>>Moya</option>
-                <option <?php echo e($patient->Municipio == 'Las Palmas de Gran Canaria' ? 'selected':''); ?>>Las Palmas de Gran Canaria</option>
-                <option <?php echo e($patient->Municipio == 'San Bartolomé de Tirajana' ? 'selected':''); ?>>San Bartolomé de Tirajana</option>
+                <option <?php echo e($patient->Municipio == 'Las Palmas de Gran Canaria' ? 'selected':''); ?>>Las Palmas de Gran
+                    Canaria</option>
+                <option <?php echo e($patient->Municipio == 'San Bartolomé de Tirajana' ? 'selected':''); ?>>San Bartolomé de
+                    Tirajana</option>
                 <option <?php echo e($patient->Municipio == 'Santa Brígida' ? 'selected':''); ?>>Santa Brígida</option>
-                <option <?php echo e($patient->Municipio == 'Santa Lucía de Tirajana' ? 'selected':''); ?>>Santa Lucía de Tirajana</option>
-                <option <?php echo e($patient->Municipio == 'Santa María de Guía de Gran Canaria' ? 'selected':''); ?>>Santa María de Guía de Gran Canaria</option>
+                <option <?php echo e($patient->Municipio == 'Santa Lucía de Tirajana' ? 'selected':''); ?>>Santa Lucía de Tirajana
+                </option>
+                <option <?php echo e($patient->Municipio == 'Santa María de Guía de Gran Canaria' ? 'selected':''); ?>>Santa María
+                    de Guía de Gran Canaria</option>
                 <option <?php echo e($patient->Municipio == 'Tejeda Telde' ? 'selected':''); ?>>Tejeda Telde</option>
                 <option <?php echo e($patient->Municipio == 'Teror' ? 'selected':''); ?>>Teror</option>
                 <option <?php echo e($patient->Municipio == 'Valleseco' ? 'selected':''); ?>>Valleseco</option>
-                <option <?php echo e($patient->Municipio == 'Valsequillo de Gran Canaria' ? 'selected':''); ?>>Valsequillo de Gran Canaria</option>
+                <option <?php echo e($patient->Municipio == 'Valsequillo de Gran Canaria' ? 'selected':''); ?>>Valsequillo de Gran
+                    Canaria</option>
                 <option <?php echo e($patient->Municipio == 'Vega de San Mateo.' ? 'selected':''); ?>>Vega de San Mateo.</option>
             </select>
         </p>
 
         <p>
-            <?php echo Form::label('obs_direcion', 'Observaciones dirección'); ?>
+            <?php echo Form::label('obs_direcion', 'Observaciones dirección:'); ?>
 
-            <?php echo Form::textArea('obs_direcion', $patient->obs_direcion, ['class' => 'form-control']); ?>
+            <?php echo Form::textArea('obs_direcion', $patient->obs_direcion, ['class' => 'form-control', 'rows' => '8']); ?>
 
-            </p>
+        </p>
     </div>
 
     <div class="col-sm-12 col-md-4">
-       
-       
-        
 
-            
+
+
+
+
         <!-- Telefono Field -->
         <p><?php echo Form::label('telefono', 'Teléfono Fijo (de su residencia):'); ?>
 
@@ -350,7 +305,8 @@
                 <option <?php echo e(in_array('Hermana/o', $patient->convive_con) ? 'selected':''); ?>>Hermana/o</option>
                 <option <?php echo e(in_array('Nuera', $patient->convive_con) ? 'selected':''); ?>> Nuera</option>
                 <option <?php echo e(in_array('Yerno', $patient->convive_con) ? 'selected':''); ?>>Yerno</option>
-                <option <?php echo e(in_array('Cuidador/a profesional' , $patient->convive_con) ? 'selected':''); ?>>Cuidador/a profesional</option>
+                <option <?php echo e(in_array('Cuidador/a profesional' , $patient->convive_con) ? 'selected':''); ?>>Cuidador/a
+                    profesional</option>
                 <option <?php echo e(in_array('Nieta/o', $patient->convive_con) ? 'selected':''); ?>>Nieta/o</option>
                 <option <?php echo e(in_array('Sobrina/o', $patient->convive_con) ? 'selected':''); ?>>Sobrina/o</option>
                 <option <?php echo e(in_array('Pareja', $patient->convive_con) ? 'selected':''); ?>>Pareja</option>
@@ -362,31 +318,46 @@
             </select>
         </p>
 
+        <script>
+            $("#convive_con").on('change', function(){
+                if ($('#convive_con').val() == 'Otros') {
+                    $('#otro_parent').css('display', 'block');
+                    $('#otros_parentesco').attr('required', 'required');
+                } else {
+                    $('#otro_parent').css('display', 'none');
+                }
+            });
+        </script>
+
         <!--otro parentesco-->
+        <p class="bg-secondary p-3" id="otro_parent" style="display: none">
+            <?php echo Form::label('otros_parentesco', 'Otros (especificar):'); ?>
+
+            <?php echo Form::text('otros_parentesco', $patient->otros_parentesco, ['class' => 'form-control', 'id' =>
+            'otros_parentesco']); ?>
+
+        </p>
+
         
-            <div class="bg-secondary p-3" id="otro_parent">   
-                <?php echo Form::label('otros_parentesco', 'Otro (especificar):'); ?>
 
-                <?php echo Form::text('otros_parentesco', $patient->otros_parentesco, ['class' => 'form-control']); ?>
+        <!--  Dependencia Field -->
+        <p><?php echo Form::label('worker_id', 'Trabajadora social gestora del caso:'); ?>
 
-            </div>
+            <select class="form-control select2" id="worker_id" name="worker_id[]" required multiple="multiple">
+                <?php $__currentLoopData = $workers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $worker): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if($worker->cat_profesional == 'Trabajadora Social'): ?>
 
-            
+                <option <?php echo e(in_array($worker->id, $patient->worker_id) ? 'selected':''); ?> value="<?php echo e($worker->id); ?>">
+                    <?php echo e($worker->nombre); ?>
 
+                    <?php echo e($worker->apellido); ?>
 
+                </option>
 
-            <!--  Dependencia Field -->
-
-            <p><?php echo Form::label('worker_id', 'Trabajadora social gestora del caso:'); ?>
-
-                <select class="form-control" id="worker_id" name="worker_id" required>
-                    <?php $__currentLoopData = $workers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $worker): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if($worker->cat_profesional == 'Trabajadora Social'): ?>
-                            <option <?php echo e($patient->worker_id == $worker->id ? 'selected':''); ?> value="<?php echo e($worker->id); ?>"><?php echo e($worker->nombre); ?> <?php echo e($worker->apellido); ?></option>
-                        <?php endif; ?>        
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </select>
-            </p>
+                <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
+        </p>
     </div>
 
 </div><?php /**PATH /var/www/resources/views/patients/edit/personal_data.blade.php ENDPATH**/ ?>

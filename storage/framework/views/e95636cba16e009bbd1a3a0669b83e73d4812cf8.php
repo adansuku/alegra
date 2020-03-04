@@ -20,7 +20,7 @@
         <?php echo Form::label('genero_carer', 'Género:'); ?>
 
         <?php echo Form::select('genero_carer', [
-        "" => 'Elige un género',
+        "" => 'Elige una opción',
         'Hombre' => 'Hombre',
         'Mujer' => 'Mujer',
         'Intersexual' => 'Intersexual'
@@ -101,7 +101,7 @@
         <?php echo Form::label('municipio_carer', 'Municipio:'); ?>
 
         <select class="form-control select2" id="municipio" name="municipio_carer">
-            <option value="">Selecciona un municipio</option>
+            <option value="">Selecciona una opción</option>
             <option value="" disabled>Tenerife</option>
             <option <?php echo e($patient->Municipio == 'Adeje' ? 'selected':''); ?>>Adeje</option>
             <option <?php echo e($patient->Municipio == 'Arafo' ? 'selected':''); ?>>Arafo</option>
@@ -243,14 +243,6 @@
         <?php echo Form::label('email_care', 'Email:'); ?>
 
         <?php echo Form::email('email_care', null, ['class' => 'form-control']); ?>
-
-    </div>
-
-    <!-- Whatsapp Field -->
-    <div class="form-group col-sm-12">
-        <?php echo Form::label('whatsapp', 'Whatsapp:'); ?>
-
-        <?php echo Form::select('whatsapp', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']); ?>
 
     </div>
 
@@ -409,14 +401,19 @@
         });
     </script>
 
-
-
-
     <!-- Cesion Care Field -->
     <div class="form-group col-sm-12">
         <?php echo Form::label('cesion_care', 'Cesión de Imagen:'); ?>
 
         <?php echo Form::select('cesion_care', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']); ?>
+
+    </div>
+
+    <!-- Whatsapp Field -->
+    <div class="form-group col-sm-12">
+        <?php echo Form::label('whatsapp', 'Whatsapp:'); ?>
+
+        <?php echo Form::select('whatsapp', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']); ?>
 
     </div>
 

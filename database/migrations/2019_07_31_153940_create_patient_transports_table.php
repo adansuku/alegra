@@ -16,7 +16,6 @@ class CreatePatientTransportsTable extends Migration
         Schema::create('patient_transports', function (Blueprint $table) {
             $table->increments('id');
             $table->string('dia_trans');
-            $table->string('dom_recogida')->nullable();
             $table->string('tray_trans');
             $table->integer('patient_id')->unsigned();
             $table->timestamps();
