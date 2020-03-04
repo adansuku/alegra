@@ -29,6 +29,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string fecha_transporte
  * @property string  pago_socio
  * @property string dire_transporte
+ * @property string obser_transporte
  * @property string  patient_id
  */
 class Patient_other extends Model
@@ -59,6 +60,7 @@ class Patient_other extends Model
         'pago_socio',
         'dire_transporte',
         'fecha_transporte',
+        'obser_transporte',
         'patient_id'
     ];
 
@@ -86,6 +88,7 @@ class Patient_other extends Model
         'pago_socio' => 'string',
         'dire_transporte' => 'string',
         'fecha_transporte' => 'date',
+        'obser_transporte' => 'string',
         'patient_id' => 'integer'
     ];
 

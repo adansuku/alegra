@@ -44,6 +44,8 @@
     {!! Form::label('forma_pago', 'Forma de pago:') !!}
     <select class="form-control" id="type" name="forma_pago">
         <option value="">Selecciona una opcion</option>
+        <option {{ $patient->patientOther->forma_pago == 'Sesion' ? 'selected':'' }}>Sesión de derechos de cobros
+        </option>
         <option {{ $patient->patientOther->forma_pago == 'Efectivo' ? 'selected':'' }}>Efectivo</option>
         <option {{ $patient->patientOther->forma_pago == 'Transferencia' ? 'selected':'' }}>Transferencia</option>
         <option {{ $patient->patientOther->forma_pago == 'Domiciliación bancaria' ? 'selected':'' }}>Domiciliación
