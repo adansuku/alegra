@@ -2,7 +2,7 @@
 
     <!-- Regimen Sanitario Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('diagnostico', 'Diagnóstico:') !!}
+        {!! Form::label('diagnostico', 'Categoría Diagnóstica:') !!}
         {!! Form::select('diagnostico', [
         'Envejecimiento Activo' => 'Envejecimiento Activo',
         'Demencias' => 'Demencias',

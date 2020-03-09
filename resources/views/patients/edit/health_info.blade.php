@@ -70,7 +70,7 @@
 
         {!! Form::label('reg_sanitario', 'Régimen Asistencia Sanitaria:') !!}
         <select class="form-control" id="reg_sanitario" name="reg_sanitario">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option {{ $patient->patientHealth->reg_sanitario == 'Pública' ? 'selected':'' }}>Pública</option>
             <option {{ $patient->patientHealth->reg_sanitario == 'Privada' ? 'selected':'' }}>Privada</option>
         </select>
@@ -169,7 +169,7 @@
         {!! Form::label('incontinencia', 'Atención a la incontinencia:') !!}
         <select class="form-control" id="incontinencia" name="incontinencia"
             onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option {{ $patient->patientHealth->incontinencia == 'Ninguna' ? 'selected':'' }}>Ninguna</option>
             <option {{ $patient->patientHealth->incontinencia == 'Riesgo Incontinencia Leve' ? 'selected':'' }}>Riesgo
                 Incontinencia Leve</option>
@@ -205,7 +205,7 @@
     <div class="form-group col-md-4">
         {!! Form::label('caida', 'Riesgo caida:') !!}
         <select class="form-control" id="caida" name="caida" onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option {{ $patient->patientHealth->caida == 'Ninguna' ? 'selected':'' }}>Ninguna</option>
             <option {{ $patient->patientHealth->caida == 'Riesgo Caída Leve' ? 'selected':'' }}>Riesgo Caí­da Leve
             </option>
@@ -242,7 +242,7 @@
         {!! Form::label('dieta', 'Dieta:') !!}
 
         <select class="form-control" id="dieta" name="dieta" onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option {{ $patient->patientHealth->dieta == 'Basal' ? 'selected':'' }}>Basal</option>
             <option {{ $patient->patientHealth->dieta == 'Diabética' ? 'selected':'' }}>Diabética</option>
             <option {{ $patient->patientHealth->dieta == 'Hiposódica' ? 'selected':'' }}>Hiposódica</option>
@@ -282,7 +282,7 @@
     <div class="form-group col-md-4">
         {!! Form::label('higiene', 'Higiene personal:') !!}
         <select class="form-control" id="higiene" name="higiene" onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option {{ $patient->patientHealth->higiene == 'Autónoma/o' ? 'selected':'' }}>Autónoma/o</option>
             <option {{ $patient->patientHealth->higiene == 'Dependencia Leve' ? 'selected':'' }}>Dependencia Leve
             </option>
@@ -318,7 +318,7 @@
     <div class="form-group col-md-4">
         {!! Form::label('ulcera', 'Ulcera por presión:') !!}
         <select class="form-control" id="type" name="ulcera">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option {{ $patient->patientHealth->ulcera == 'Sin Riesgo ' ? 'selected':'' }}>Sin Riesgo </option>
             <option {{ $patient->patientHealth->ulcera == 'Medidas Preventivas' ? 'selected':'' }}>Medidas Preventivas
             </option>
@@ -331,7 +331,7 @@
     <div class="form-group col-md-4">
         {!! Form::label('deambulacion', 'Deambulación Errante:') !!}
         <select class="form-control" id="type" name="deambulacion">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option {{ $patient->patientHealth->deambulacion == 'Si' ? 'selected':'' }}>Si</option>
             <option {{ $patient->patientHealth->deambulacion == 'No' ? 'selected':'' }}>No</option>
         </select>
@@ -342,7 +342,7 @@
         {!! Form::label('hidratacion', 'Hidratación:') !!}
         <select class="form-control" id="hidratacion" name="hidratacion"
             onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option
                 {{ $patient->patientHealth->hidratacion == 'Hidratación Según Pauta General Servicio' ? 'selected':'' }}>
                 Hidratación Según Pauta General Servicio</option>

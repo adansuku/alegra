@@ -67,7 +67,7 @@
             {{$patient->estado_civil}}
             <select class="form-control" id="type" name="estado_civil">
 
-                <option value="">Selecciona una opcion</option>
+                <option value="">Selecciona una opción</option>
                 <option {{ $patient->estado_civil == 'Soltera/o' ? 'selected':'' }}>Soltera/o</option>
                 <option {{ $patient->estado_civil == 'Viuda/o' ? 'selected':'' }}> Viuda/o</option>
                 <option {{ $patient->estado_civil == 'Casada/o' ? 'selected':'' }}>Casada/o</option>

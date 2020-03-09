@@ -71,7 +71,7 @@
         <?php echo Form::label('reg_sanitario', 'Régimen Asistencia Sanitaria:'); ?>
 
         <select class="form-control" id="reg_sanitario" name="reg_sanitario">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->reg_sanitario == 'Pública' ? 'selected':''); ?>>Pública</option>
             <option <?php echo e($patient->patientHealth->reg_sanitario == 'Privada' ? 'selected':''); ?>>Privada</option>
         </select>
@@ -183,7 +183,7 @@
 
         <select class="form-control" id="incontinencia" name="incontinencia"
             onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->incontinencia == 'Ninguna' ? 'selected':''); ?>>Ninguna</option>
             <option <?php echo e($patient->patientHealth->incontinencia == 'Riesgo Incontinencia Leve' ? 'selected':''); ?>>Riesgo
                 Incontinencia Leve</option>
@@ -222,7 +222,7 @@
         <?php echo Form::label('caida', 'Riesgo caida:'); ?>
 
         <select class="form-control" id="caida" name="caida" onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->caida == 'Ninguna' ? 'selected':''); ?>>Ninguna</option>
             <option <?php echo e($patient->patientHealth->caida == 'Riesgo Caída Leve' ? 'selected':''); ?>>Riesgo Caí­da Leve
             </option>
@@ -262,7 +262,7 @@
 
 
         <select class="form-control" id="dieta" name="dieta" onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->dieta == 'Basal' ? 'selected':''); ?>>Basal</option>
             <option <?php echo e($patient->patientHealth->dieta == 'Diabética' ? 'selected':''); ?>>Diabética</option>
             <option <?php echo e($patient->patientHealth->dieta == 'Hiposódica' ? 'selected':''); ?>>Hiposódica</option>
@@ -307,7 +307,7 @@
         <?php echo Form::label('higiene', 'Higiene personal:'); ?>
 
         <select class="form-control" id="higiene" name="higiene" onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->higiene == 'Autónoma/o' ? 'selected':''); ?>>Autónoma/o</option>
             <option <?php echo e($patient->patientHealth->higiene == 'Dependencia Leve' ? 'selected':''); ?>>Dependencia Leve
             </option>
@@ -346,7 +346,7 @@
         <?php echo Form::label('ulcera', 'Ulcera por presión:'); ?>
 
         <select class="form-control" id="type" name="ulcera">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->ulcera == 'Sin Riesgo ' ? 'selected':''); ?>>Sin Riesgo </option>
             <option <?php echo e($patient->patientHealth->ulcera == 'Medidas Preventivas' ? 'selected':''); ?>>Medidas Preventivas
             </option>
@@ -360,7 +360,7 @@
         <?php echo Form::label('deambulacion', 'Deambulación Errante:'); ?>
 
         <select class="form-control" id="type" name="deambulacion">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->deambulacion == 'Si' ? 'selected':''); ?>>Si</option>
             <option <?php echo e($patient->patientHealth->deambulacion == 'No' ? 'selected':''); ?>>No</option>
         </select>
@@ -372,7 +372,7 @@
 
         <select class="form-control" id="hidratacion" name="hidratacion"
             onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option
                 <?php echo e($patient->patientHealth->hidratacion == 'Hidratación Según Pauta General Servicio' ? 'selected':''); ?>>
                 Hidratación Según Pauta General Servicio</option>

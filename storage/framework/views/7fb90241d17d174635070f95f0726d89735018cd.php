@@ -48,8 +48,8 @@
     <?php echo Form::label('forma_pago', 'Forma de pago:'); ?>
 
     <select class="form-control" id="type" name="forma_pago">
-        <option value="">Selecciona una opcion</option>
-        <option <?php echo e($patient->patientOther->forma_pago == 'Sesion' ? 'selected':''); ?>>Sesión de derechos de cobros
+        <option value="">Selecciona una opción</option>
+        <option <?php echo e($patient->patientOther->forma_pago == 'Cesion' ? 'selected':''); ?>>Cesión de derechos de cobros
         </option>
         <option <?php echo e($patient->patientOther->forma_pago == 'Efectivo' ? 'selected':''); ?>>Efectivo</option>
         <option <?php echo e($patient->patientOther->forma_pago == 'Transferencia' ? 'selected':''); ?>>Transferencia</option>
@@ -60,7 +60,7 @@
     <?php echo Form::label('cuota_socio', 'Cuota de socio:'); ?>
 
     <select class="form-control" id="cuota-socio" name="cuota_socio">
-        <option value="">Selecciona una opcion</option>
+        <option value="">Selecciona una opción</option>
         <option <?php echo e($patient->patientOther->cuota_socio == 'Si' ? 'selected':''); ?>>Si</option>
         <option <?php echo e($patient->patientOther->cuota_socio == 'No' ? 'selected':''); ?>>No</option>
     </select>
@@ -71,7 +71,7 @@
     <?php echo Form::label('pago_socio', 'Forma pago Cuota Socio/a:'); ?>
 
     <select class="form-control" id="type" name="pago_socio">
-        <option value="">Selecciona una opcion</option>
+        <option value="">Selecciona una opción</option>
         <option <?php echo e($patient->patientOther->pago_socio == 'Efectivo' ? 'selected':''); ?>>Efectivo</option>
         <option <?php echo e($patient->patientOther->pago_socio == 'Transferencia' ? 'selected':''); ?>>Transferencia</option>
         <option <?php echo e($patient->patientOther->pago_socio == 'Domiciliación bancaria' ? 'selected':''); ?>>Domiciliación
@@ -96,11 +96,11 @@
         <?php echo Form::label('periodicidad', 'Periodicidad:'); ?>
 
         <select class="form-control" id="type" name="periodicidad">
-            <option value="">Selecciona una opcion</option>
-            <option <?php echo e($patient->patientOther->periodicidad == 'Anual' ? 'selected':''); ?>>Anual</option>
-            <option <?php echo e($patient->patientOther->periodicidad == 'Semestral' ? 'selected':''); ?>>Semestral</option>
-            <option <?php echo e($patient->patientOther->periodicidad == 'Trimestral' ? 'selected':''); ?>>Trimestral</option>
-            <option <?php echo e($patient->patientOther->periodicidad == 'Mensual' ? 'selected':''); ?>>Mensual</option>
+            <option value="">Selecciona una opción</option>
+            <option <?php echo e($patient->patientOther->periodicidad == 'Anual' ? 'selected':''); ?>>Anual (60€)</option>
+            <option <?php echo e($patient->patientOther->periodicidad == 'Semestral' ? 'selected':''); ?>>Semestral (30€)</option>
+            <option <?php echo e($patient->patientOther->periodicidad == 'Trimestral' ? 'selected':''); ?>>Trimestral (15€)</option>
+            <option <?php echo e($patient->patientOther->periodicidad == 'Mensual' ? 'selected':''); ?>>Mensual (5€)</option>
         </select>
     </div>
 
@@ -109,7 +109,7 @@
     <?php echo Form::label('socio', 'Socio/a:'); ?>
 
     <select class="form-control" id="socio" name="socio">
-        <option value="">Selecciona una opcion</option>
+        <option value="">Selecciona una opción</option>
         <option <?php echo e($patient->patientOther->socio == 'Si' ? 'selected':''); ?>>Si</option>
         <option <?php echo e($patient->patientOther->socio == 'No' ? 'selected':''); ?>>No</option>
     </select>
@@ -117,7 +117,7 @@
     <!-- No Socio Field -->
     <?php echo Form::label('no_socio', 'Número de Socio/a:'); ?>
 
-    <?php echo Form::text('no_socio', $patient->patientOther->no_socio , ['class' => 'form-control numero_socio', 'id' =>
+    <?php echo Form::number('no_socio', $patient->patientOther->no_socio , ['class' => 'form-control numero_socio', 'id' =>
     'numero_socio']); ?>
 
 

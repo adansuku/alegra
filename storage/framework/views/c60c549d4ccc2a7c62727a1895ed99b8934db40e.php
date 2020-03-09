@@ -2,7 +2,7 @@
 
     <!-- Regimen Sanitario Field -->
     <div class="form-group col-sm-12">
-        <?php echo Form::label('diagnostico', 'Diagnóstico:'); ?>
+        <?php echo Form::label('diagnostico', 'Categoría Diagnóstica:'); ?>
 
         <?php echo Form::select('diagnostico', [
         'Envejecimiento Activo' => 'Envejecimiento Activo',
@@ -298,5 +298,4 @@
     }
 }
 
-</script>
-<?php /**PATH /var/www/resources/views/patients/create/diagnostic.blade.php ENDPATH**/ ?>
+</script><?php /**PATH /var/www/resources/views/patients/create/diagnostic.blade.php ENDPATH**/ ?>

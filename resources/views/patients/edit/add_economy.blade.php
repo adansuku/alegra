@@ -43,8 +43,8 @@
 <div class="form-group col-sm-4">
     {!! Form::label('forma_pago', 'Forma de pago:') !!}
     <select class="form-control" id="type" name="forma_pago">
-        <option value="">Selecciona una opcion</option>
-        <option {{ $patient->patientOther->forma_pago == 'Sesion' ? 'selected':'' }}>Sesión de derechos de cobros
+        <option value="">Selecciona una opción</option>
+        <option {{ $patient->patientOther->forma_pago == 'Cesion' ? 'selected':'' }}>Cesión de derechos de cobros
         </option>
         <option {{ $patient->patientOther->forma_pago == 'Efectivo' ? 'selected':'' }}>Efectivo</option>
         <option {{ $patient->patientOther->forma_pago == 'Transferencia' ? 'selected':'' }}>Transferencia</option>
@@ -54,7 +54,7 @@
 
     {!! Form::label('cuota_socio', 'Cuota de socio:') !!}
     <select class="form-control" id="cuota-socio" name="cuota_socio">
-        <option value="">Selecciona una opcion</option>
+        <option value="">Selecciona una opción</option>
         <option {{ $patient->patientOther->cuota_socio == 'Si' ? 'selected':'' }}>Si</option>
         <option {{ $patient->patientOther->cuota_socio == 'No' ? 'selected':'' }}>No</option>
     </select>
@@ -64,7 +64,7 @@
 <div class="col-lg-4">
     {!! Form::label('pago_socio', 'Forma pago Cuota Socio/a:') !!}
     <select class="form-control" id="type" name="pago_socio">
-        <option value="">Selecciona una opcion</option>
+        <option value="">Selecciona una opción</option>
         <option {{ $patient->patientOther->pago_socio == 'Efectivo' ? 'selected':'' }}>Efectivo</option>
         <option {{ $patient->patientOther->pago_socio == 'Transferencia' ? 'selected':'' }}>Transferencia</option>
         <option {{ $patient->patientOther->pago_socio == 'Domiciliación bancaria' ? 'selected':'' }}>Domiciliación
@@ -88,11 +88,11 @@
     <div id="periodicidad" style="display: none">
         {!! Form::label('periodicidad', 'Periodicidad:') !!}
         <select class="form-control" id="type" name="periodicidad">
-            <option value="">Selecciona una opcion</option>
-            <option {{ $patient->patientOther->periodicidad == 'Anual' ? 'selected':'' }}>Anual</option>
-            <option {{ $patient->patientOther->periodicidad == 'Semestral' ? 'selected':'' }}>Semestral</option>
-            <option {{ $patient->patientOther->periodicidad == 'Trimestral' ? 'selected':'' }}>Trimestral</option>
-            <option {{ $patient->patientOther->periodicidad == 'Mensual' ? 'selected':'' }}>Mensual</option>
+            <option value="">Selecciona una opción</option>
+            <option {{ $patient->patientOther->periodicidad == 'Anual' ? 'selected':'' }}>Anual (60€)</option>
+            <option {{ $patient->patientOther->periodicidad == 'Semestral' ? 'selected':'' }}>Semestral (30€)</option>
+            <option {{ $patient->patientOther->periodicidad == 'Trimestral' ? 'selected':'' }}>Trimestral (15€)</option>
+            <option {{ $patient->patientOther->periodicidad == 'Mensual' ? 'selected':'' }}>Mensual (5€)</option>
         </select>
     </div>
 
@@ -100,14 +100,14 @@
 
     {!! Form::label('socio', 'Socio/a:') !!}
     <select class="form-control" id="socio" name="socio">
-        <option value="">Selecciona una opcion</option>
+        <option value="">Selecciona una opción</option>
         <option {{ $patient->patientOther->socio == 'Si' ? 'selected':'' }}>Si</option>
         <option {{ $patient->patientOther->socio == 'No' ? 'selected':'' }}>No</option>
     </select>
 
     <!-- No Socio Field -->
     {!! Form::label('no_socio', 'Número de Socio/a:') !!}
-    {!! Form::text('no_socio', $patient->patientOther->no_socio , ['class' => 'form-control numero_socio', 'id' =>
+    {!! Form::number('no_socio', $patient->patientOther->no_socio , ['class' => 'form-control numero_socio', 'id' =>
     'numero_socio']) !!}
 
 </div>

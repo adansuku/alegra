@@ -9,7 +9,7 @@
 
     <div class="form-group col-sm-4">
         <!-- Miembros unidad familiar -->
-        {!! Form::label('miem_familia', 'Miembros Unidad Familiar:') !!}
+        {!! Form::label('miem_familia', 'Miembros Unidad Familiar: (max. 20)') !!}
         {!! Form::number('miem_familia', $patient->patientInfo->miem_familia, ['class' => 'form-control', 'max' =>
         '20']) !!}
     </div>
@@ -17,7 +17,7 @@
     <!-- Hijos -->
     <div class="form-group col-sm-4">
         {!! Form::label('hijos', 'Hijos:') !!}
-        {!! Form::number('hijos', $patient->patientInfo->hijos, ['class' => 'form-control']) !!}
+        {!! Form::number('hijos', $patient->patientInfo->hijos, ['class' => 'form-control', 'max' => '20']) !!}
     </div>
 
     <!-- Vivienda -->
@@ -43,9 +43,8 @@
         @endif
 
         <div class="form-group col-sm-12 bg-secondary py-3" id="tipo_vivienda_cont" hidden="hidden">
-            {!! Form::label('vivienda_otros', 'Especifica cual:') !!}
-            {!! Form::text('vivienda_otros', $patient->patientInfo->vivienda_otros, ['class' => 'form-control',
-            'placeholder' => 'Qué otros?']) !!}
+            {!! Form::label('vivienda_otros', 'Otros (especificar):') !!}
+            {!! Form::text('vivienda_otros', $patient->patientInfo->vivienda_otros, ['class' => 'form-control']) !!}
         </div>
     </div>
 
@@ -64,8 +63,8 @@
                 leer y escribir</option>
             <option {{ $patient->patientInfo->nivel_educativo == 'Sabe leer y escribir' ? 'selected':'' }}>Sabe leer y
                 escribir </option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Graduado Escolar' ? 'selected':'' }}>Graduado Escolar
-            </option>
+            <option {{ $patient->patientInfo->nivel_educativo == 'Primarios' ? 'selected':'' }}>Primarios</option>
+            <option {{ $patient->patientInfo->nivel_educativo == 'Secundarios' ? 'selected':'' }}>Secundarios</option>
             <option {{ $patient->patientInfo->nivel_educativo == 'Bachillerato' ? 'selected':'' }}>Bachillerato</option>
             <option {{ $patient->patientInfo->nivel_educativo == 'Formación Profesional grado medio' ? 'selected':'' }}>
                 Formación Profesional grado medio</option>
@@ -75,6 +74,7 @@
             <option {{ $patient->patientInfo->nivel_educativo == 'Estudios Universitarios' ? 'selected':'' }}>Estudios
                 Universitarios</option>
             <option {{ $patient->patientInfo->nivel_educativo == 'Otros' ? 'selected':''}}>Otros</option>
+
         </select>
 
         @if (
@@ -140,7 +140,8 @@
     <!-- ingresos -->
     <div class="form-group col-sm-4">
         {!! Form::label('ingresos_m', 'Ingresos mensuales:') !!}
-        {!! Form::text('ingresos_m', $patient->patientInfo->ingresos_m, ['class' => 'form-control']) !!}
+        {!! Form::text('ingresos_m', $patient->patientInfo->ingresos_m, ['class'
+        => 'form-control']) !!}
     </div>
 
     <!-- Procedencia Ingresos -->
@@ -221,8 +222,9 @@
             <option {{ $patient->patientInfo->situacion_dep == 'Resolución de Grado' ? 'selected':'' }}>Resolución de
                 Grado</option>
             <option {{ $patient->patientInfo->situacion_dep == 'Espera PIA' ? 'selected':'' }}>Espera PIA</option>
-            <option {{ $patient->patientInfo->situacion_dep == 'Disfruta Prestacón/Servicio' ? 'selected':'' }}>Disfruta
-                Prestacón/Servicio</option>
+            <option {{ $patient->patientInfo->situacion_dep == 'Disfruta Prestacíon/Servicio' ? 'selected':'' }}>
+                Disfruta
+                Prestación/Servicio</option>
         </select>
     </div>
 
@@ -280,7 +282,7 @@
 
     <!-- Cuantia Field -->
     <div class="form-group col-sm-4">
-        {!! Form::label('cuantia', 'Cuantia Resolución PIA:') !!}
+        {!! Form::label('cuantia', 'Cuantía Resolución PIA:') !!}
         {!! Form::text('cuantia', $patient->patientInfo->cuantia, ['class' => 'form-control']) !!}
     </div>
 
@@ -301,8 +303,8 @@
     <div class="col-sm-12 my-3">
         <div class="row">
             <div class="col-lg-6">
-                <h4><i class="fas fa-file-medical">
-                    </i> Fechas Dependencia</h4>
+                <h6><i class="fas fa-file-medical">
+                    </i> Fechas Dependencia</h6>
             </div>
             <div class="col-lg-6">
                 <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
