@@ -14,6 +14,7 @@
 @include('patients.modals.service')
 @include('patients.modals.service_dates')
 @include('patients.modals.spapd')
+@include('patients.modals.spapd_days')
 @include('patients.modals.transport')
 @include('patients.modals.dates')
 @include('patients.modals.doctor')
@@ -307,6 +308,38 @@
         window.location.hash = e.target.hash.replace("#", "#" + prefix);
     });
 </script>
+
+<script type="text/javascript">
+    $(".spapd_add_day").click(function(){
+        var url = "{{ url('/patientSpapdDays') }}" + "?patient_spapd_id=" +  $(this).attr('data-id');
+        $("#frm_spapd_days").attr('action',url);
+        $("#spadp_title").html($(this).attr('data-title'));
+        $("#spapd_dia_modal").modal('show');
+    })
+
+    $(".day_check").click(function(){
+        if($(this).is(':checked')){
+            $($(this).attr('data-ref')).prop('disabled', false);
+        }else{
+            $($(this).attr('data-ref')).prop('disabled', true);
+        }
+    });
+
+    $("#btnSubmitSpadpDay").click(function(){
+        var url = $("#frm_spapd_days").attr('action');
+        var data = $("#frm_spapd_days").serialize();
+        $.post(url, data).done(function(response) {
+            if(response.success){
+                alert("Patient Spapd days saved successfully");
+                location.reload();
+            }else{
+                alert("Cannot add days to spapd");
+            }
+            
+        });
+    })
+</script>
+
 <!-- SHOWUP -->
 <script type="text/javascript">
     function showInput(val, id) {
