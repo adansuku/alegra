@@ -310,6 +310,10 @@
 </script>
 
 <script type="text/javascript">
+    $('.time_picker').datetimepicker({
+        format: 'HH:mm'
+    });
+
     $(".spapd_add_day").click(function(){
         var url = "{{ url('/patientSpapdDays') }}" + "?patient_spapd_id=" +  $(this).attr('data-id');
         $("#frm_spapd_days").attr('action',url);
