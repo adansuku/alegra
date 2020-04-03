@@ -251,7 +251,7 @@
         <?php echo Form::label('sit_laboral', 'Ocupación:'); ?>
 
         <?php echo Form::select('sit_laboral', [
-        '' => 'Selecciona una ocupación',
+        '' => 'Selecciona una opción',
         'Jubilación' => 'Jubilación',
         'Ocupada Remunerada' => 'Ocupada Remunerada',
         'Ocupada No Remunerada' => 'Ocupada No Remunerada',
@@ -320,7 +320,7 @@
         <?php echo Form::label('', 'Estudios:'); ?>
 
         <?php echo Form::select('', [
-        '' => 'Selecciona estudios',
+        '' => 'Selecciona una opción',
         'Analfabetismo' => 'Analfabetismo',
         'Sin estudios' => 'Sin estudios',
         'Primarios' => 'Primarios',
@@ -460,7 +460,7 @@
 
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
-        <?php echo Form::submit('Añadir Cuidadora', ['class' => 'btn btn-primary float-right' ]); ?>
+        <?php echo Form::submit('Añadir Persona de Referencia', ['class' => 'btn btn-primary float-right' ]); ?>
 
         <?php echo Form::submit('Cancelar', ['class' => 'btn btn-danger float-right', 'data-dismiss' => 'modal']); ?>
 

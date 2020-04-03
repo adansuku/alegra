@@ -43,13 +43,26 @@
 
 
         <td>
+  
+            @php 
+                $inicio = \Carbon\Carbon::parse('2020-06-01') ;
+                $fecha_real = \Carbon\Carbon::parse($patientPia->fecha_real) 
+            @endphp
+                
             @if ($patientPia->fecha_real != NULL)
-            @if ($patientPia->fecha_limite > $patientPia->fecha_real)
-            <div style="background: green;text-align: center; color: white">Éxito</div>
-            @else
-            <div style="background: red; text-align: center; color: white">Fracaso</div>
+                @if($inicio > $fecha_real) 
+                    <div style="background: green; text-align: center; color: white">Éxito</div>
+                @else
+                    @if ($patientPia->fecha_limite > $patientPia->fecha_real)
+                        <div style="background: green;text-align: center; color: white">Éxito</div>
+                    @else
+                        <div style="background: red; text-align: center; color: white">Fracaso</div>
+                    @endif
+                @endif
             @endif
-            @endif
+
+           
+
         </td>
 
         <td>

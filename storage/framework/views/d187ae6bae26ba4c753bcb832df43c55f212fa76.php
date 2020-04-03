@@ -316,15 +316,6 @@
                     $("#tipoVivienda").attr('name', 'tipo_vivienda');
                 }
                 break;
-            case id == 'ingresos_proced':
-                if (val !== "Otros (especificar)") {
-                    $("#ingresosProced").removeAttr('name');
-                    $("#ingresos_proced_cont").attr('hidden', 'hidden').hide();
-                } else {
-                    $("#ingresos_proced_cont").removeAttr('hidden').show();
-                    $("#ingresosProced").attr('name', 'ingresos_proced');
-                }
-                break;
             case id == 'alergia':
                 if (val !== "Otras") {
                     // $("#alergiaOtro").removeAttr('name');

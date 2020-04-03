@@ -251,7 +251,7 @@
     <div class="form-group col-sm-12">
         {!! Form::label('sit_laboral', 'Ocupación:') !!}
         {!! Form::select('sit_laboral', [
-        '' => 'Selecciona una ocupación',
+        '' => 'Selecciona una opción',
         'Jubilación' => 'Jubilación',
         'Ocupada Remunerada' => 'Ocupada Remunerada',
         'Ocupada No Remunerada' => 'Ocupada No Remunerada',
@@ -497,7 +497,7 @@
 
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
-        {!! Form::submit('Actualizar cuidadora', ['class' => 'btn btn-primary float-right' ]) !!}
+        {!! Form::submit('Actualizar Persona de Referencia', ['class' => 'btn btn-primary float-right' ]) !!}
         {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right', 'data-dismiss' => 'modal']) !!}
     </div>
 

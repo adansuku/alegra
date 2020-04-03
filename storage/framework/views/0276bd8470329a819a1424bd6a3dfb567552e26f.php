@@ -548,7 +548,7 @@
 
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
-        <?php echo Form::submit('Actualizar cuidadora', ['class' => 'btn btn-primary float-right' ]); ?>
+        <?php echo Form::submit('Actualizar Persona de Referencia', ['class' => 'btn btn-primary float-right' ]); ?>
 
         <?php echo Form::submit('Cancelar', ['class' => 'btn btn-danger float-right', 'data-dismiss' => 'modal']); ?>
 

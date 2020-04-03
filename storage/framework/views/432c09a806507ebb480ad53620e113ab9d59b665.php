@@ -1,6 +1,6 @@
 <div class="row">
     <!-- Cesion Imagen Field -->
-    <div class="form-group col-sm-4">
+    <div class="form-group col-sm-6">
         <?php echo Form::label('cesion_imagen', 'Cesión de Imagen:'); ?>
 
         <select class="form-control" id="type" name="cesion_imagen">
@@ -11,7 +11,7 @@
     </div>
 
     <!-- Salir Centro Field -->
-    <div class="form-group col-sm-4">
+    <div class="form-group col-sm-6">
         <?php echo Form::label('salir_centro', 'Autorización Entrar y Salir Centro:'); ?>
 
         <select class="form-control" id="type" name="salir_centro">
@@ -22,7 +22,7 @@
     </div>
 
     <!-- Riesgo Caidas Field -->
-    <div class="form-group col-sm-4">
+    <div class="form-group col-sm-6">
         <?php echo Form::label('riesgo_caidas', 'Riesgo Caidas:'); ?>
 
         <select class="form-control" id="type" name="riesgo_caidas">
@@ -36,7 +36,7 @@
     </div>
 
     <!-- Salida Externa Field -->
-    <div class="form-group col-sm-4">
+    <div class="form-group col-sm-6">
         <?php echo Form::label('salida_externa', 'Autorización Salida Externa:'); ?>
 
         <select class="form-control" id="type" name="salida_externa">

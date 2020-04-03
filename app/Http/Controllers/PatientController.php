@@ -104,9 +104,9 @@ class PatientController extends AppBaseController
         $input = $request->all();
 
         $patient = $this->patientRepository->create($input);
-        // $patient->patientOther()->create(['patient_id' => $patient->id, 'tipo_sub' => ['']]);
         $patient->patientOther()->create(['patient_id' => $patient->id]);
-        $patient->patientInfo()->create(['patient_id' => $patient->id]);
+        $patient->patientInfo()->create(['patient_id' => $patient->id, 'ayuda_soc' => ['']]);
+
         $patient->patientHealth()->create(['patient_id' => $patient->id]);
 
         $today = Carbon::parse($request->fecha_alta_paciente);
@@ -187,6 +187,7 @@ class PatientController extends AppBaseController
      */
     public function update($id, UpdatePatientRequest $request)
     {
+
         $patient = $this->patientRepository->find($id);
 
 

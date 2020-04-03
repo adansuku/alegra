@@ -227,7 +227,7 @@
     <div class="form-group col-sm-12">
         {!! Form::label('sit_laboral', 'Ocupación:') !!}
         {!! Form::select('sit_laboral', [
-        '' => 'Selecciona una ocupación',
+        '' => 'Selecciona una opción',
         'Jubilación' => 'Jubilación',
         'Ocupada Remunerada' => 'Ocupada Remunerada',
         'Ocupada No Remunerada' => 'Ocupada No Remunerada',
@@ -289,7 +289,7 @@
     <div class="form-group col-sm-12">
         {!! Form::label('', 'Estudios:') !!}
         {!! Form::select('', [
-        '' => 'Selecciona estudios',
+        '' => 'Selecciona una opción',
         'Analfabetismo' => 'Analfabetismo',
         'Sin estudios' => 'Sin estudios',
         'Primarios' => 'Primarios',
@@ -412,7 +412,7 @@
 
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
-        {!! Form::submit('Añadir Cuidadora', ['class' => 'btn btn-primary float-right' ]) !!}
+        {!! Form::submit('Añadir Persona de Referencia', ['class' => 'btn btn-primary float-right' ]) !!}
         {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right', 'data-dismiss' => 'modal']) !!}
     </div>
 

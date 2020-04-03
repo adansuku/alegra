@@ -17,7 +17,7 @@
     <!-- Hijos -->
     <div class="form-group col-sm-4">
         {!! Form::label('hijos', 'Hijos:') !!}
-        {!! Form::number('hijos', $patient->patientInfo->hijos, ['class' => 'form-control', 'max' => '20']) !!}
+        {!! Form::number('hijos', $patient->patientInfo->hijos, ['class' => 'form-control', 'max' => '20', 'value' => '0']) !!}
     </div>
 
     <!-- Vivienda -->
@@ -97,11 +97,11 @@
         </script>
         @endif
 
-        <div class="pt-3" id="nivel_educativo_cont" hidden="hidden">
-            {!! Form::label('nivelEducativo', 'Especifica cual:') !!}
+        <div class="p-3 bg-secondary" id="nivel_educativo_cont" hidden="hidden">
+            {!! Form::label('nivelEducativo', 'Otros (especificar):') !!}
             {!! Form::text('nivelEducativo', $patient->patientInfo->nivel_educativo, ['class' => 'form-control', 'name'
             =>
-            'nivel_educativo', 'placeholder' => 'Qué otros estudios?']) !!}
+            'nivel_educativo']) !!}
         </div>
     </div>
 
@@ -146,40 +146,55 @@
 
     <!-- Procedencia Ingresos -->
     <div class="form-group col-sm-4">
-        {!! Form::label('ingresos_proced', 'Procedencia Ingresos:') !!}
-        {{ $patient->patientInfo->ingresos_proced}}
 
-        <select class="form-control" id="ingresos_proced" name="ingresos_proced"
-            onchange="showInput(this.value, this.id);">
+
+
+
+        {!! Form::label('ingresos_proced', 'Procedencia Ingresos:') !!}
+        <select class="form-control" id="ingresos_proced" name="ingresos_proced">
             <option {{ $patient->patientInfo->ingresos_proced == 'Selecciona una opción' ? 'selected':'' }}>Selecciona
                 una opción</option>
             <option {{ $patient->patientInfo->ingresos_proced == 'Salario' ? 'selected':'' }}>Salario</option>
             <option {{ $patient->patientInfo->ingresos_proced == 'Jubilacion,' ? 'selected':'' }}>Jubilacion</option>
             <option {{ $patient->patientInfo->ingresos_proced == 'Viudedad,' ? 'selected':'' }}>Viudedad</option>
             <option {{ $patient->patientInfo->ingresos_proced == 'PNC,' ? 'selected':'' }}>PNC</option>
-            <option {{ $patient->patientInfo->ingresos_proced == 'Otros (especificar)' ? 'selected':'' }}>
+            <option {{ $patient->patientInfo->ingresos_proced == 'Otros(especificar)' ? 'selected':'' }}>
                 Otros(especificar)</option>
         </select>
 
-        @if ($patient->patientInfo->ingresos_proced == "Otros (especificar)")
-        <script>
-            $(document).ready(function(){
-                    $('#ingresos_proced_cont').removeAttr('hidden');
-                });
-        </script>
-        @endif
 
 
-        <div class="pt-3" id="ingresos_proced_cont" hidden="hidden">
-            {!! Form::label('ingresosProced', 'Especifica cual:') !!}
-            {!! Form::text('ingresosProced', $patient->patientInfo->ingresos_proced, ['class' => 'form-control', 'name'
-            =>
-            'ingresos_proced', 'placeholder' => 'Procedencia?']) !!}
+
+        <div class="p-3 bg-secondary" id="ingresos_proced_cont" style="display: none;">
+            {!! Form::label('otros_ingresos', 'Otros (especificar):') !!}
+            {!! Form::text('otros_ingresos', $patient->patientInfo->otros_ingresos, ['class' => 'form-control',]) !!}
         </div>
+
+
+        @push('scripts')
+        <script>
+            $('#ingresos_proced').on('change', function() {
+                if ($(this).val() == 'Otros(especificar)' ) {
+                    $('#ingresos_proced_cont').css('display', 'block');
+                }else{
+                    $('#ingresos_proced_cont').css('display', 'none');
+                }
+                
+            });
+
+            $(document).ready(function() {
+                var selected_option = $('#ingresos_proced').val();
+                if(selected_option == 'Otros(especificar)'){
+                    $('#ingresos_proced_cont').css('display', 'block');
+                }
+        
+            });
+        </script>
+        @endpush
     </div>
 
     <!-- Ocupacion Field -->
-    <div class="form-group col-sm-4">
+    <div class=" form-group col-sm-4">
         {!! Form::label('ocupacion', 'Ocupación Anterior:') !!}
         {!! Form::text('ocupacion', $patient->patientInfo->ocupacion, ['class' => 'form-control']) !!}
     </div>
@@ -217,9 +232,11 @@
     <div class="form-group col-sm-4">
         {!! Form::label('situacion_dep', 'Situacion dependencia:') !!}
         <select class="form-control" id="type" name="situacion_dep">
-            <option {{ $patient->patientInfo->situacion_dep == 'No Solicitada' ? 'selected':'' }}>No Solicitada</option>
+            <option {{ $patient->patientInfo->situacion_dep == 'No Solicitada' ? 'selected':'' }}>No Solicitada
+            </option>
             <option {{ $patient->patientInfo->situacion_dep == 'Solicitada' ? 'selected':'' }}>Solicitada</option>
-            <option {{ $patient->patientInfo->situacion_dep == 'Resolución de Grado' ? 'selected':'' }}>Resolución de
+            <option {{ $patient->patientInfo->situacion_dep == 'Resolución de Grado' ? 'selected':'' }}>Resolución
+                de
                 Grado</option>
             <option {{ $patient->patientInfo->situacion_dep == 'Espera PIA' ? 'selected':'' }}>Espera PIA</option>
             <option {{ $patient->patientInfo->situacion_dep == 'Disfruta Prestacíon/Servicio' ? 'selected':'' }}>
@@ -272,8 +289,8 @@
         </script>
         @endif
 
-        <div class="pt-3" id="ayuda_dep_cont" hidden="hidden">
-            {!! Form::label('ayudaDep', 'Especifica cual:') !!}
+        <div class="p-3 bg-secondary" id="ayuda_dep_cont" hidden="hidden">
+            {!! Form::label('ayudaDep', 'Otros (especificar):') !!}
             {!! Form::text('ayudaDep', $patient->patientInfo->ayuda_dep, ['class' => 'form-control', 'name'
             =>
             'ayuda_dep', 'placeholder' => 'Cuáles?']) !!}
@@ -355,64 +372,38 @@
     </div>
 
     <!-- Ayuda Soc Field -->
+
     <div class="form-group col-sm-6">
         {!! Form::label('ayuda_soc', 'Tipo Ayudas:') !!}
-        <select class="form-control" id="ayuda_soc" name="ayuda_soc" onchange="showInput(this.value, this.id);">
-            <option {{ $patient->patientInfo->ayuda_soc == '' ? 'selected':'' }}>Selecciona una opción</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Teleasistencia' ? 'selected':'' }}>Teleasistencia</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'SAD' ? 'selected':'' }}>SAD</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Empleada de Hogar,' ? 'selected':'' }}>Empleada de Hogar
-            </option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Cuidadora interna' ? 'selected':'' }}>Cuidadora interna
-            </option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Fisioterapia' ? 'selected':'' }}>Fisioterapia</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Estimulación Cognitiva' ? 'selected':'' }}>Estimulación
-                Cognitiva</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Apoyo Emocional' ? 'selected':'' }}>Apoyo Emocional</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Centro Atención Residencial' ? 'selected':'' }}> Centro
-                Atención Residencial</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Centro Estancia Diurna' ? 'selected':'' }}>Centro Estancia
-                Diurna</option>
-            <option {{ $patient->patientInfo->ayuda_soc == 'Otros' ? 'selected':'' }}>Otros</option>
+        <select class="form-control select2" id="ayuda_soc" name="ayuda_soc[]" id="ayuda_soc" multiple="multiple">
+            <option {{ in_array('Teleasistencia', $patient->patientInfo->ayuda_soc) ? 'selected':'' }}>Teleasistencia</option>
+            <option {{ in_array('SAD', $patient->patientInfo->ayuda_soc) ? 'selected':'' }}>SAD</option>
+            <option {{ in_array('Empleada de Hogar', $patient->patientInfo->ayuda_soc) ? 'selected':'' }}>Empleada de Hogar</option>
+            <option {{ in_array('Cuidadora interna', $patient->patientInfo->ayuda_soc) ? 'selected':'' }}>Cuidadora interna</option>
+            <option {{ in_array('Fisioterapia', $patient->patientInfo->ayuda_soc) ? 'selected':'' }}>Fisioterapia</option>
+            <option {{ in_array('Estimulación Cognitiva', $patient->patientInfo->ayuda_soc) ? 'selected':'' }}>Estimulación Cognitiva</option>
+            <option {{ in_array('Apoyo Emocional', $patient->patientInfo->ayuda_soc) ? 'selected':'' }}>Apoyo Emocional</option>
+            <option {{ in_array('Centro Atención Residencial', $patient->patientInfo->ayuda_soc) ? 'selected':'' }}>Centro Atención Residencial</option>
+            <option {{ in_array('Centro Estancia Diurna', $patient->patientInfo->ayuda_soc) ? 'selected':'' }}>Centro Estancia Diurna</option>
+            <option {{ in_array('Otros', $patient->patientInfo->ayuda_soc) ? 'selected':'' }}>Otros</option>
         </select>
 
-
-        @if (
-        $patient->patientInfo->ayuda_soc != "Teleasistencia" ||
-        $patient->patientInfo->ayuda_soc != "SAD" ||
-        $patient->patientInfo->ayuda_soc != "Empleada de Hogar" ||
-        $patient->patientInfo->ayuda_soc != "Cuidadora interna" ||
-        $patient->patientInfo->ayuda_soc != "Fisioterapia" ||
-        $patient->patientInfo->ayuda_soc != "Apoyo Emocional" ||
-        $patient->patientInfo->ayuda_soc != "Estimulación Cognitiva" ||
-        $patient->patientInfo->ayuda_soc != "Centro Atención Residencial" ||
-        $patient->patientInfo->ayuda_soc != "Centro Estancia Diurna"
-        )
-        <script>
-            $(document).ready(function(){
-                    $('#ayuda_soc_cont').removeAttr('hidden');
-                    $("#nivel_educativo option").each(function(){
-                        if ($(this).text() == "Otros")
-                        $(this).attr("selected","selected");
-                    });
-                });
-        </script>
-        @else
-        <script>
-            $(document).ready(function(){
-                    $('#ayuda_soc_cont').attr('hidden', 'hidden');
-                    
-                });
-        </script>
-        @endif
-
-
-        <div class="pt-3" id="ayuda_soc_cont" hidden="hidden">
-            {!! Form::label('ayudaSoc', 'Especifica cual:') !!}
-            {!! Form::text('ayudaSoc', $patient->patientInfo->ayuda_soc, ['class' => 'form-control', 'name' =>
-            'ayuda_soc', 'placeholder' => 'Qué otras ayudas?']) !!}
-        </div>
+    <div class="p-3 bg-secondary" id="ayuda_soc_cont" style="display:none">
+        {!! Form::label('otras_ayudas_soc', 'Otros (especificar):') !!}
+        {!! Form::text('otras_ayudas_soc', $patient->patientInfo->otras_ayudas_soc, ['class' => 'form-control', 'name' =>
+        'otras_ayudas_soc', ]) !!}
     </div>
+
+    <script>
+        $('#ayuda_soc').on('change', function() {
+            if ($("#ayuda_soc option[value=Otros]:selected").length > 0){
+                $('#ayuda_soc_cont').css('display', 'block');
+                console.log($('entra en el if'));
+            }
+        });
+    </script>
+
+</div>
 
 
 
@@ -496,7 +487,8 @@
             <option {{ $patient->patientInfo->sit_legal == 'Autónoma' ? 'selected':'' }}>Autónoma</option>
             <option {{ $patient->patientInfo->sit_legal == 'Tutela' ? 'selected':'' }}>Tutela</option>
             <option {{ $patient->patientInfo->sit_legal == 'Curatela' ? 'selected':'' }}>Curatela</option>
-            <option {{ $patient->patientInfo->sit_legal == 'Guarda de Hecho' ? 'selected':'' }}>Guarda de Hecho</option>
+            <option {{ $patient->patientInfo->sit_legal == 'Guarda de Hecho' ? 'selected':'' }}>Guarda de Hecho
+            </option>
         </select>
     </div>
 

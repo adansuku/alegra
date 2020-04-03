@@ -57,14 +57,12 @@
         </script>
 
 
-
+<div class="bg-secondary p-3" id="fecha_otros_pacientes" style="display: none;">
         {!! Form::text('desc_fecha_paciente', null,
-        ['class' => 'form-control bg-secondary p-3',
-        'style' => 'display: none',
-        'id' => 'fecha_otros_pacientes',
-        'placeholder' => 'Otros (especificar)']
+        ['class' => 'form-control '
+        ]
         ) !!}
-
+</div>
 
 
     </div>
