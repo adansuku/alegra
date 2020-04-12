@@ -16,3 +16,5 @@ laradock/
 .DS_Store
 .DS_Store
 .DS_Store
+
+/storage/framework/views/
