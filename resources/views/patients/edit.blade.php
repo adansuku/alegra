@@ -334,10 +334,10 @@
         var data = $("#frm_spapd_days").serialize();
         $.post(url, data).done(function(response) {
             if(response.success){
-                alert("Patient Spapd days saved successfully");
+                alert("Horas añadida correctamente");
                 location.reload();
             }else{
-                alert("Cannot add days to spapd");
+                alert("No se puede añadir los horarios");
             }
             
         });
