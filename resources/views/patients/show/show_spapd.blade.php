@@ -31,7 +31,16 @@
 
                 </td>
 
-                <td style="text-align:center;">{!! $patientSpapd->worker_id !!}</td>
+                <td style="text-align:center;">
+                    @foreach($workers as $worker)
+                        @if( $patientSpapd->worker_id == $worker->id)
+                        {{$worker->nombre}} {{$worker->apellido}}
+                        @endif
+                    @endforeach
+
+                    {!! $patientSpapd->worker_id !!}
+                </td>
+
                 <td>
                     <div class='btn-group'>
                         <button type="button" class="btn btn-secondary btn-xs spapd_add_day" data-title='@if ($patientSpapd->prog_spapd == "Otros") {{ $patientSpapd->otros_programa }} @else {{ $patientSpapd->prog_spapd }} @endif' data-id="{{ $patientSpapd->id }}">
