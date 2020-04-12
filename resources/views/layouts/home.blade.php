@@ -86,15 +86,7 @@
                                 Salida 
                         </button>
                     @endif
-                    @else
-                    <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
-                        Entrada
-                    </button>
-                    <button type="button" id="saveOut" class="btn btn-danger"
-                        style="width:120px;margin-left:10px;display:none;">
-                        Salida
-                    </button>
-                    @endif
+        
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
