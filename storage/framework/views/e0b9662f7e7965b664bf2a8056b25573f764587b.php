@@ -6,7 +6,8 @@
 
     <div class="col-md-6">
         <h5>Diagnósticos Principales</h5>
-        <button type="button" class="btn btn-secondary  float-right mb-3" data-toggle="modal" data-target="#diagnostic_modal">
+        <button type="button" class="btn btn-secondary  float-right mb-3" data-toggle="modal"
+            data-target="#diagnostic_modal">
             Añadir Diagnóstico <i class="fas fa-file-upload"></i>
         </button>
         <?php echo $__env->make('patients.show.show_diagnostic', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -16,7 +17,8 @@
 
     <div class="col-md-6">
         <h5>Alergia e intolerancia</h5>
-        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal" data-target="#allergy_modal">
+        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal"
+            data-target="#allergy_modal">
             Añadir Alergia <i class="fas fa-file-upload"></i>
         </button>
         <?php echo $__env->make('patients.show.show_allergy', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -24,9 +26,10 @@
 
 
     <div class="col-md-6">
-    <hr class="pb_4">
+        <hr class="pb_4">
         <h5>Otras patología/s Importantes</h5>
-        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal" data-target="#patology_modal">
+        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal"
+            data-target="#patology_modal">
             Añadir Patología <i class="fas fa-file-upload"></i>
         </button>
         <?php echo $__env->make('patients.show.show_patology', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -35,7 +38,7 @@
 
 
     <div class="col-md-6">
-    <hr class="pb_4">
+        <hr class="pb_4">
         <h5>Observaciones Importantes</h5>
     </div>
 </div>
@@ -68,14 +71,14 @@
         <?php echo Form::label('reg_sanitario', 'Régimen Asistencia Sanitaria:'); ?>
 
         <select class="form-control" id="reg_sanitario" name="reg_sanitario">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->reg_sanitario == 'Pública' ? 'selected':''); ?>>Pública</option>
             <option <?php echo e($patient->patientHealth->reg_sanitario == 'Privada' ? 'selected':''); ?>>Privada</option>
         </select>
 
         <!-- Regimen Priv Field -->
         <div class="form-group bg-secondary p-3" id="centro_privado" style="display: none">
-            <?php echo Form::label('regimen_priv', 'Centro Privado:'); ?>
+            <?php echo Form::label('regimen_priv', 'Nombre de Cobertura:'); ?>
 
             <?php echo Form::text('regimen_priv', $patient->patientHealth->regimen_priv, ['class' => 'form-control']); ?>
 
@@ -133,7 +136,8 @@
 <div class="row">
     <div class="col-md-12">
         <h4>Doctores Especialistas</h4>
-        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal" data-target="#doctor_modal">
+        <button type="button" class="btn btn-secondary float-right mb-3" data-toggle="modal"
+            data-target="#doctor_modal">
             Añadir nuevo especiali <i class="fas fa-file-upload"></i>
         </button>
         <?php echo $__env->make('patients.show.show_doctor', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -158,7 +162,8 @@
     </div>
 
     <div class="col-sm-12 text-right">
-        <button type="button" class=" btn btn-secondary my-3 float-right " data-toggle="modal" data-target="#medication_modal"> Añadir medicación <i class="fas fa-file-upload"></i></button>
+        <button type="button" class=" btn btn-secondary my-3 float-right " data-toggle="modal"
+            data-target="#medication_modal"> Añadir medicación <i class="fas fa-file-upload"></i></button>
     </div>
     <div class="col-sm-12">
         <?php echo $__env->make('patients.show.show_medication', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -178,7 +183,7 @@
 
         <select class="form-control" id="incontinencia" name="incontinencia"
             onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->incontinencia == 'Ninguna' ? 'selected':''); ?>>Ninguna</option>
             <option <?php echo e($patient->patientHealth->incontinencia == 'Riesgo Incontinencia Leve' ? 'selected':''); ?>>Riesgo
                 Incontinencia Leve</option>
@@ -189,11 +194,11 @@
         </select>
 
         <?php if(!$patient->patientHealth->incontinencia == ""): ?>
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#incontinencia_multi_content').removeAttr('hidden');
                         });
-            </script>
+        </script>
         <?php endif; ?>
 
         <!-- Opciones multiples de incontinencia -->
@@ -217,7 +222,7 @@
         <?php echo Form::label('caida', 'Riesgo caida:'); ?>
 
         <select class="form-control" id="caida" name="caida" onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->caida == 'Ninguna' ? 'selected':''); ?>>Ninguna</option>
             <option <?php echo e($patient->patientHealth->caida == 'Riesgo Caída Leve' ? 'selected':''); ?>>Riesgo Caí­da Leve
             </option>
@@ -228,11 +233,11 @@
         </select>
 
         <?php if(!$patient->patientHealth->caida == ""): ?>
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#riesgo_caida_multi_content').removeAttr('hidden');
                         });
-            </script>
+        </script>
         <?php endif; ?>
 
         <!-- Opciones multiples de Riesgo caí­da -->
@@ -255,9 +260,9 @@
     <div class="form-group col-md-4">
         <?php echo Form::label('dieta', 'Dieta:'); ?>
 
-       
+
         <select class="form-control" id="dieta" name="dieta" onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->dieta == 'Basal' ? 'selected':''); ?>>Basal</option>
             <option <?php echo e($patient->patientHealth->dieta == 'Diabética' ? 'selected':''); ?>>Diabética</option>
             <option <?php echo e($patient->patientHealth->dieta == 'Hiposódica' ? 'selected':''); ?>>Hiposódica</option>
@@ -265,12 +270,12 @@
         </select>
 
         <?php if(!$patient->patientHealth->dieta == ""): ?>
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#dieta_textura_content').removeAttr('hidden');
                     $('#dieta_observ_cont').removeAttr('hidden');
                         });
-            </script>
+        </script>
         <?php endif; ?>
 
         <!-- Opciones multiples de dieta -->
@@ -302,8 +307,8 @@
         <?php echo Form::label('higiene', 'Higiene personal:'); ?>
 
         <select class="form-control" id="higiene" name="higiene" onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
-            <option <?php echo e($patient->patientHealth->higiene == 'Autónoma' ? 'selected':''); ?>>Autónoma</option>
+            <option value="">Selecciona una opción</option>
+            <option <?php echo e($patient->patientHealth->higiene == 'Autónoma/o' ? 'selected':''); ?>>Autónoma/o</option>
             <option <?php echo e($patient->patientHealth->higiene == 'Dependencia Leve' ? 'selected':''); ?>>Dependencia Leve
             </option>
             <option <?php echo e($patient->patientHealth->higiene == 'Dependencia Moderada' ? 'selected':''); ?>>Dependencia
@@ -314,11 +319,11 @@
 
 
         <?php if(!$patient->patientHealth->higiene == ""): ?>
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#higiene_multi_content').removeAttr('hidden');
                         });
-            </script>
+        </script>
         <?php endif; ?>
 
         <!-- Opciones multiples de higiene -->
@@ -341,7 +346,7 @@
         <?php echo Form::label('ulcera', 'Ulcera por presión:'); ?>
 
         <select class="form-control" id="type" name="ulcera">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->ulcera == 'Sin Riesgo ' ? 'selected':''); ?>>Sin Riesgo </option>
             <option <?php echo e($patient->patientHealth->ulcera == 'Medidas Preventivas' ? 'selected':''); ?>>Medidas Preventivas
             </option>
@@ -355,7 +360,7 @@
         <?php echo Form::label('deambulacion', 'Deambulación Errante:'); ?>
 
         <select class="form-control" id="type" name="deambulacion">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option <?php echo e($patient->patientHealth->deambulacion == 'Si' ? 'selected':''); ?>>Si</option>
             <option <?php echo e($patient->patientHealth->deambulacion == 'No' ? 'selected':''); ?>>No</option>
         </select>
@@ -367,7 +372,7 @@
 
         <select class="form-control" id="hidratacion" name="hidratacion"
             onchange="indicadores_multi(this.value, this.id);">
-            <option value="">Selecciona una opcion</option>
+            <option value="">Selecciona una opción</option>
             <option
                 <?php echo e($patient->patientHealth->hidratacion == 'Hidratación Según Pauta General Servicio' ? 'selected':''); ?>>
                 Hidratación Según Pauta General Servicio</option>
@@ -376,14 +381,14 @@
         </select>
 
         <?php if(!$patient->patientHealth->hidratacion == ""): ?>
-            <script>
-                 $(document).ready(function(){
+        <script>
+            $(document).ready(function(){
                     $('#hidratacion_observ_cont').removeAttr('hidden');
                         });
-            </script>
+        </script>
         <?php endif; ?>
 
-        
+
         <!-- Observaciones Hidratación -->
         <div class="form-group pt-3" id="hidratacion_observ_cont" hidden="hidden">
             <?php echo Form::label('hidratacion_observ', 'Observaciones:'); ?>
@@ -393,5 +398,4 @@
         </div>
     </div>
 
-</div>
-<?php /**PATH /var/www/resources/views/patients/edit/health_info.blade.php ENDPATH**/ ?>
+</div><?php /**PATH /var/www/resources/views/patients/edit/health_info.blade.php ENDPATH**/ ?>

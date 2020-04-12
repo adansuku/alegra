@@ -30,6 +30,7 @@ Route::get('/workerdelete/{id}', 'Worker_documentController@destroy');
 Route::get('/piadelete/{id}', 'Patient_piaController@destroy');
 Route::get('/carerdelete/{id}', 'Patient_carerController@destroy');
 Route::get('/servicedelete/{id}', 'Patient_serviceController@destroy');
+Route::get('/servicedate_delete/{id}', 'Patient_Services_DateController@destroy');
 Route::get('/spapddelete/{id}', 'Patient_spapdController@destroy');
 Route::get('/spapddiadelete/{id}', 'Patient_spapd_diaController@destroy');
 Route::get('/transportdelete/{id}', 'Patient_transportController@destroy');

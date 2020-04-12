@@ -34,7 +34,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer hijos
  * @property string vivienda
  * @property string vivienda_otros
+ * @property string ingresos_proced
  * @property float ingresos_m
+ * @property float otros_ingresos
  *
  */
 class Patient_info extends Model
@@ -73,6 +75,7 @@ class Patient_info extends Model
         'ingresos_m',
         'ingresos_proced',
         'cuantia',
+        'otros_ingresos',
         'patient_id'
     ];
 
@@ -96,7 +99,7 @@ class Patient_info extends Model
         'cuantia' => 'string',
         'tec_dependencia' => 'string',
         'guarda_hecho' => 'string',
-        'ayuda_soc' => 'string',
+        'ayuda_soc' => 'array',
         'cert_disc' => 'string',
         'grado_disc' => 'string',
         'fecha_res_disc' => 'date',
@@ -108,6 +111,7 @@ class Patient_info extends Model
         'vivienda_otros' => 'string',
         'ingresos_m' => 'float',
         'ingresos_proced' => 'string',
+        'otros_ingresos' => 'string',
         'patient_id' => 'integer'
     ];
 
@@ -116,9 +120,7 @@ class Patient_info extends Model
      *
      * @var array
      */
-    public static $rules = [
-
-    ];
+    public static $rules = [];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

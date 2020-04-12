@@ -10,11 +10,6 @@
     <p>{!! $patientTransport->dia_trans !!}</p>
 </div>
 
-<!-- Dom Recogida Field -->
-<div class="form-group">
-    {!! Form::label('dom_recogida', 'Dom Recogida:') !!}
-    <p>{!! $patientTransport->dom_recogida !!}</p>
-</div>
 
 <!-- Tray Trans Field -->
 <div class="form-group">
@@ -39,4 +34,3 @@
     {!! Form::label('patient_id', 'Patient Id:') !!}
     <p>{!! $patientTransport->patient_id !!}</p>
 </div>
-

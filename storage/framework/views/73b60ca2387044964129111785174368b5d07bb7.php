@@ -4,7 +4,7 @@
         <?php echo Form::label('prog_spapd', 'Programa:'); ?>
 
         <select class="form-control" id="prog_spapd" name="prog_spapd" required>
-            <option value="" selected disabled hidden>Elegir un servicio</option>
+            <option value="" selected disabled hidden>Elige un programa</option>
             <option value="Estimulación Cognitiva (EC)">Estimulación Cognitiva (EC)</option>
             <option value="Fisioterapia">Fisioterapia</option>
             <option value="Apoyo Emocional">Apoyo Emocional</option>
@@ -32,12 +32,12 @@
         </script>
     </div>
 
-   
+
     <div class="form-group col-sm-6">
         <?php echo Form::label('dur_spapd', 'Dururación:'); ?>
 
         <select class="form-control" id="dur_spapd" name="dur_spapd" required>
-            <option value="" selected disabled hidden>Elegir un servicio</option>
+            <option value="" selected disabled hidden>Elegir duración</option>
             <option value="50">50</option>
             <option value="60">60</option>
             <option value="75">75</option>
@@ -69,21 +69,21 @@
 
     <!-- Dur Spapd Field -->
     <div class="form-group col-sm-6">
-          <!-- Num Sesiones Field -->
-          <?php echo Form::label('num_sesiones', 'Número de Sesiones:'); ?>
+        <!-- Num Sesiones Field -->
+        <?php echo Form::label('num_sesiones', 'Número de Sesiones:'); ?>
 
         <?php echo Form::number('num_sesiones', null, ['class' => 'form-control','required' => 'required']); ?>
 
     </div>
 
     <div class="form-group col-sm-6">
-        <?php echo Form::label('worker_id', 'Trabajadora social gestora del caso:'); ?>
+        <?php echo Form::label('worker_id', 'Trabajadora asociada:'); ?>
 
-        <select class="form-control" id="worker_id" name="worker_id" required>
+        <select class="form-control select2" id="worker_id" name="worker_id" required>
             <?php $__currentLoopData = $workers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $worker): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php if($worker->cat_profesional == 'Trabajadora Social'): ?>
-                    <option <?php echo e($patient->worker_id == $worker->id ? 'selected':''); ?> value="<?php echo e($worker->id); ?>"><?php echo e($worker->nombre); ?> <?php echo e($worker->apellido); ?></option>
-                <?php endif; ?>
+            <option <?php echo e($patient->worker_id == $worker->id ? 'selected':''); ?> value="<?php echo e($worker->id); ?>"><?php echo e($worker->nombre); ?>
+
+                <?php echo e($worker->apellido); ?></option>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </select>
     </div>
@@ -94,10 +94,10 @@
 
         <?php echo Form::time('fecha_inicio', null, ['class' => 'form-control','required' => 'required']); ?>
 
-    </div> 
+    </div>
 
     <div class="form-group col-sm-6">
-    <?php echo Form::label('dia_spapd', 'Dias programa:'); ?>
+        <?php echo Form::label('dia_spapd', 'Dias programa:'); ?>
 
         <select class="form-control select2" id="dias_serv" name="dia_spapd[]" multiple="multiple" required>
             <option value="Lunes">Lunes</option>
@@ -113,7 +113,7 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    <?php echo Form::submit('Crear SPAPD', ['class' => 'btn btn-primary float-right']); ?>
+    <?php echo Form::submit('Crear programa', ['class' => 'btn btn-primary float-right']); ?>
 
 
 </div><?php /**PATH /var/www/resources/views/patients/create/spapd.blade.php ENDPATH**/ ?>

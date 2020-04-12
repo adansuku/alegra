@@ -15,7 +15,7 @@
     <div class="form-group col-sm-12">
         {!! Form::label('genero_carer', 'Género:') !!}
         {!! Form::select('genero_carer', [
-        "" => 'Elige un género',
+        "" => 'Elige una opción',
         'Hombre' => 'Hombre',
         'Mujer' => 'Mujer',
         'Intersexual' => 'Intersexual'
@@ -84,7 +84,7 @@
     <div class="form-group col-sm-12">
         {!! Form::label('municipio_carer', 'Municipio:') !!}
         <select class="form-control select2" id="municipio" name="municipio_carer">
-            <option value="">Selecciona un municipio</option>
+            <option value="">Selecciona una opción</option>
             <option value="" disabled>Tenerife</option>
             <option {{ $patient->Municipio == 'Adeje' ? 'selected':'' }}>Adeje</option>
             <option {{ $patient->Municipio == 'Arafo' ? 'selected':'' }}>Arafo</option>
@@ -102,16 +102,20 @@
             <option {{ $patient->Municipio == 'Guía de Isora' ? 'selected':'' }}>Guía de Isora</option>
             <option {{ $patient->Municipio == 'Icod de los Vinos' ? 'selected':'' }}>Icod de los Vinos</option>
             <option {{ $patient->Municipio == 'La Guancha' ? 'selected':'' }}>La Guancha</option>
-            <option {{ $patient->Municipio == 'La Matanza de Acentejo' ? 'selected':'' }}>La Matanza de Acentejo</option>
+            <option {{ $patient->Municipio == 'La Matanza de Acentejo' ? 'selected':'' }}>La Matanza de Acentejo
+            </option>
             <option {{ $patient->Municipio == 'La Orotava' ? 'selected':'' }}>La Orotava</option>
-            <option {{ $patient->Municipio == 'La Victoria de Acentejo' ? 'selected':'' }}>La Victoria de Acentejo</option>
+            <option {{ $patient->Municipio == 'La Victoria de Acentejo' ? 'selected':'' }}>La Victoria de Acentejo
+            </option>
             <option {{ $patient->Municipio == 'Los Realejos' ? 'selected':'' }}>Los Realejos</option>
             <option {{ $patient->Municipio == 'Los Silos' ? 'selected':'' }}>Los Silos</option>
             <option {{ $patient->Municipio == 'Puerto de la Cruz' ? 'selected':'' }}>Puerto de la Cruz</option>
-            <option {{ $patient->Municipio == 'San Cristóbal de la Laguna' ? 'selected':'' }}>San Cristóbal de la Laguna</option>
+            <option {{ $patient->Municipio == 'San Cristóbal de la Laguna' ? 'selected':'' }}>San Cristóbal de la Laguna
+            </option>
             <option {{ $patient->Municipio == 'San Juan de la Rambla' ? 'selected':'' }}>San Juan de la Rambla</option>
             <option {{ $patient->Municipio == 'San Miguel de Abona' ? 'selected':'' }}>San Miguel de Abona</option>
-            <option {{ $patient->Municipio == 'Santa Cruz de Tenerife' ? 'selected':'' }}>Santa Cruz de Tenerife</option>
+            <option {{ $patient->Municipio == 'Santa Cruz de Tenerife' ? 'selected':'' }}>Santa Cruz de Tenerife
+            </option>
             <option {{ $patient->Municipio == 'Santa Úrsula' ? 'selected':'' }}>Santa Úrsula</option>
             <option {{ $patient->Municipio == 'Santiago del Teide' ? 'selected':'' }}>Santiago del Teide</option>
             <option {{ $patient->Municipio == 'Tacoronte' ? 'selected':'' }}>Tacoronte</option>
@@ -123,7 +127,8 @@
             <option {{ $patient->Municipio == 'Agulo' ? 'selected':'' }}>Agulo</option>
             <option {{ $patient->Municipio == 'Alajeró' ? 'selected':'' }}>Alajeró</option>
             <option {{ $patient->Municipio == 'Hermigua' ? 'selected':'' }}>Hermigua</option>
-            <option {{ $patient->Municipio == 'San Sebastián de la Gomera' ? 'selected':'' }}>San Sebastián de la Gomera</option>
+            <option {{ $patient->Municipio == 'San Sebastián de la Gomera' ? 'selected':'' }}>San Sebastián de la Gomera
+            </option>
             <option {{ $patient->Municipio == 'Valle Gran Rey' ? 'selected':'' }}>Valle Gran Rey</option>
             <option {{ $patient->Municipio == 'Vallehermoso' ? 'selected':'' }}>Vallehermoso</option>
 
@@ -138,16 +143,19 @@
             <option {{ $patient->Municipio == 'Barlovento' ? 'selected':'' }}>Barlovento</option>
             <option {{ $patient->Municipio == 'Breña Alta' ? 'selected':'' }}>Breña Alta</option>
             <option {{ $patient->Municipio == 'Breña Baja' ? 'selected':'' }}>Breña Baja</option>
-            <option {{ $patient->Municipio == 'Fuencaliente de la Palma' ? 'selected':'' }}>Fuencaliente de la Palma</option>
+            <option {{ $patient->Municipio == 'Fuencaliente de la Palma' ? 'selected':'' }}>Fuencaliente de la Palma
+            </option>
             <option {{ $patient->Municipio == 'Garafía' ? 'selected':'' }}>Garafía</option>
             <option {{ $patient->Municipio == 'Los Llanos de Aridane' ? 'selected':'' }}>Los Llanos de Aridane</option>
             <option {{ $patient->Municipio == 'El Paso' ? 'selected':'' }}>El Paso</option>
             <option {{ $patient->Municipio == 'Puntagorda' ? 'selected':'' }}>Puntagorda</option>
             <option {{ $patient->Municipio == 'Puntallana' ? 'selected':'' }}>Puntallana</option>
             <option {{ $patient->Municipio == 'San Andrés y Sauces' ? 'selected':'' }}>San Andrés y Sauces</option>
-            <option {{ $patient->Municipio == 'Santa Cruz de la Palma' ? 'selected':'' }}>Santa Cruz de la Palma</option>
+            <option {{ $patient->Municipio == 'Santa Cruz de la Palma' ? 'selected':'' }}>Santa Cruz de la Palma
+            </option>
             <option {{ $patient->Municipio == 'Tazacorte' ? 'selected':'' }}>Tazacorte</option>
-            <option {{ $patient->Municipio == 'Tijarafe y Villa de Mazo' ? 'selected':'' }}>Tijarafe y Villa de Mazo</option>
+            <option {{ $patient->Municipio == 'Tijarafe y Villa de Mazo' ? 'selected':'' }}>Tijarafe y Villa de Mazo
+            </option>
 
             <option value="" disabled></option>
             <option value="" disabled>Lanzarote</option>
@@ -170,7 +178,8 @@
             <option value="" disabled>Gran Canaria</option>
             <option {{ $patient->Municipio == 'Agaete' ? 'selected':'' }}>Agaete</option>
             <option {{ $patient->Municipio == 'Agüimes' ? 'selected':'' }}>Agüimes</option>
-            <option {{ $patient->Municipio == 'La Aldea de San Nicolás' ? 'selected':'' }}>La Aldea de San Nicolás</option>
+            <option {{ $patient->Municipio == 'La Aldea de San Nicolás' ? 'selected':'' }}>La Aldea de San Nicolás
+            </option>
             <option {{ $patient->Municipio == 'Artenara' ? 'selected':'' }}>Artenara</option>
             <option {{ $patient->Municipio == 'Arucas' ? 'selected':'' }}>Arucas</option>
             <option {{ $patient->Municipio == 'Firgas' ? 'selected':'' }}>Firgas</option>
@@ -178,15 +187,20 @@
             <option {{ $patient->Municipio == 'Ingenio' ? 'selected':'' }}>Ingenio</option>
             <option {{ $patient->Municipio == 'Mogán' ? 'selected':'' }}>Mogán</option>
             <option {{ $patient->Municipio == 'Moya' ? 'selected':'' }}>Moya</option>
-            <option {{ $patient->Municipio == 'Las Palmas de Gran Canaria' ? 'selected':'' }}>Las Palmas de Gran Canaria</option>
-            <option {{ $patient->Municipio == 'San Bartolomé de Tirajana' ? 'selected':'' }}>San Bartolomé de Tirajana</option>
+            <option {{ $patient->Municipio == 'Las Palmas de Gran Canaria' ? 'selected':'' }}>Las Palmas de Gran Canaria
+            </option>
+            <option {{ $patient->Municipio == 'San Bartolomé de Tirajana' ? 'selected':'' }}>San Bartolomé de Tirajana
+            </option>
             <option {{ $patient->Municipio == 'Santa Brígida' ? 'selected':'' }}>Santa Brígida</option>
-            <option {{ $patient->Municipio == 'Santa Lucía de Tirajana' ? 'selected':'' }}>Santa Lucía de Tirajana</option>
-            <option {{ $patient->Municipio == 'Santa María de Guía de Gran Canaria' ? 'selected':'' }}>Santa María de Guía de Gran Canaria</option>
+            <option {{ $patient->Municipio == 'Santa Lucía de Tirajana' ? 'selected':'' }}>Santa Lucía de Tirajana
+            </option>
+            <option {{ $patient->Municipio == 'Santa María de Guía de Gran Canaria' ? 'selected':'' }}>Santa María de
+                Guía de Gran Canaria</option>
             <option {{ $patient->Municipio == 'Tejeda Telde' ? 'selected':'' }}>Tejeda Telde</option>
             <option {{ $patient->Municipio == 'Teror' ? 'selected':'' }}>Teror</option>
             <option {{ $patient->Municipio == 'Valleseco' ? 'selected':'' }}>Valleseco</option>
-            <option {{ $patient->Municipio == 'Valsequillo de Gran Canaria' ? 'selected':'' }}>Valsequillo de Gran Canaria</option>
+            <option {{ $patient->Municipio == 'Valsequillo de Gran Canaria' ? 'selected':'' }}>Valsequillo de Gran
+                Canaria</option>
             <option {{ $patient->Municipio == 'Vega de San Mateo.' ? 'selected':'' }}>Vega de San Mateo.</option>
         </select>
     </div>
@@ -209,17 +223,11 @@
         {!! Form::email('email_care', null, ['class' => 'form-control']) !!}
     </div>
 
-    <!-- Whatsapp Field -->
-    <div class="form-group col-sm-12">
-        {!! Form::label('whatsapp', 'Whatsapp:') !!}
-        {!! Form::select('whatsapp', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
-    </div>
-
     <!-- Sit Laboral Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('sit_laboral', 'Ocupación:') !!}
         {!! Form::select('sit_laboral', [
-        '' => 'Selecciona una ocupación',
+        '' => 'Selecciona una opción',
         'Jubilación' => 'Jubilación',
         'Ocupada Remunerada' => 'Ocupada Remunerada',
         'Ocupada No Remunerada' => 'Ocupada No Remunerada',
@@ -249,8 +257,8 @@
     <!-- Trabajo actual Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('trabajo_care', 'Trabajo Actual:') !!}
-        <select class="form-control select2" id="trabajo_care" 
-        name="trabajo_care[]" multiple="multiple" style="display: none;">
+        <select class="form-control select2" id="trabajo_care" name="trabajo_care[]" multiple="multiple"
+            style="display: none;">
             <option value="Cuidadora familiar">Cuidadora familiar</option>
             <option value="Cuidadora profesional">Cuidadora profesional</option>
             <option value="Ama de casa">Ama de casa</option>
@@ -281,7 +289,7 @@
     <div class="form-group col-sm-12">
         {!! Form::label('', 'Estudios:') !!}
         {!! Form::select('', [
-        '' => 'Selecciona un trabajo habitual',
+        '' => 'Selecciona una opción',
         'Analfabetismo' => 'Analfabetismo',
         'Sin estudios' => 'Sin estudios',
         'Primarios' => 'Primarios',
@@ -316,7 +324,7 @@
     </script>
 
 
-    
+
 
     <!-- Ano Care Field -->
     <div class="form-group col-sm-12">
@@ -327,7 +335,7 @@
 
     <!-- Servicios que recibe actualmente -->
     <div class="form-group col-sm-12">
-        {!! Form::label('sit_apoyo', 'Servicios Apoyo Tecibe Actualmente:') !!}
+        {!! Form::label('sit_apoyo', 'Servicios de Apoyo Que Recibe Actualmente:') !!}
         <select class="form-control select2" id="sit_apoyo" name="sit_apoyo[]" multiple="multiple">
             <option value="Ninguno">Ninguno</option>
             <option value="Apoyo Emocional">Apoyo Emocional</option>
@@ -354,13 +362,16 @@
         });
     </script>
 
-
-
-
     <!-- Cesion Care Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('cesion_care', 'Cesión de Imagen:') !!}
         {!! Form::select('cesion_care', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
+    </div>
+
+    <!-- Whatsapp Field -->
+    <div class="form-group col-sm-12">
+        {!! Form::label('whatsapp', 'Whatsapp:') !!}
+        {!! Form::select('whatsapp', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Contactar Para Field -->
@@ -401,7 +412,7 @@
 
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
-        {!! Form::submit('Añadir Cuidadora', ['class' => 'btn btn-primary float-right' ]) !!}
+        {!! Form::submit('Añadir Persona de Referencia', ['class' => 'btn btn-primary float-right' ]) !!}
         {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right', 'data-dismiss' => 'modal']) !!}
     </div>
 

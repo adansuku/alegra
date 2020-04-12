@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class Patient_transportRepository
  * @package App\Repositories
  * @version July 31, 2019, 3:39 pm UTC
-*/
+ */
 
 class Patient_transportRepository extends BaseRepository
 {
@@ -19,7 +19,6 @@ class Patient_transportRepository extends BaseRepository
     protected $fieldSearchable = [
         'id',
         'dia_trans',
-        'dom_recogida',
         'tray_trans'
     ];
 

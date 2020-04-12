@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string plaza_privada_serv
  * @property string plaza_sub_serv
  * @property string fecha_form_serv
+ * @property string es_primario
+ * @property integer service_worker_id
  * @property integer patient_id
  */
 class Patient_service extends Model
@@ -36,6 +38,8 @@ class Patient_service extends Model
         'plaza_privada_serv',
         'plaza_sub_serv',
         'fecha_form_serv',
+        'es_primario',
+        'service_worker_id',
         'patient_id'
     ];
 
@@ -52,6 +56,8 @@ class Patient_service extends Model
         'plaza_privada_serv' => 'array',
         'plaza_sub_serv' => 'string',
         'fecha_form_serv' => 'date',
+        'es_primario' => 'string',
+        'service_worker_id' => 'integer',
         'patient_id' => 'integer'
     ];
 
@@ -60,9 +66,7 @@ class Patient_service extends Model
      *
      * @var array
      */
-    public static $rules = [
-
-    ];
+    public static $rules = [];
 
 
     public function patient()
@@ -74,6 +78,4 @@ class Patient_service extends Model
     {
         return $this->hasMany(\App\Models\Patient_Services_Date::class);
     }
-
-
 }

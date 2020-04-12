@@ -62,12 +62,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#history" role="tab">Historia</a>
+                    <a class="nav-link" data-toggle="tab" href="#documents" role="tab">Documentación</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#documents" role="tab">Documentación</a>
+                    <a class="nav-link" data-toggle="tab" href="#history" role="tab">Historial</a>
                 </li>
+
+
             </ul><!-- Tab panes -->
 
 
@@ -99,7 +101,8 @@
                 <div class="tab-pane" id="carer" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12 float-right mb-3">
-                            <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#carer_modal">
+                            <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
+                                data-target="#carer_modal">
                                 Añadir Persona de Referencia <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
@@ -114,7 +117,8 @@
 
                     <ul class="nav nav-tabs bg-light mb-3" id="myTab" role="tablist" style="margin-top:-24px;">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#tipos_servicio" role="tab" aria-controls="home" aria-selected="true">Tipo de servicio</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#tipos_servicio" role="tab"
+                                aria-controls="home" aria-selected="true">Tipo de servicio</a>
                         </li>
 
                         @php
@@ -132,27 +136,32 @@
 
                         @if(in_array($spapd, $array))
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#especificaciones" role="tab" aria-controls="profile" aria-selected="false">Especificaciones SPAPD</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#especificaciones" role="tab"
+                                aria-controls="profile" aria-selected="false">Especificaciones SPAPD</a>
                         </li>
                         @endif
 
 
 
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#transporte" role="tab" aria-controls="contact" aria-selected="false">Transporte</a>
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#transporte" role="tab"
+                                aria-controls="contact" aria-selected="false">Transporte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#economicos" role="tab" aria-controls="contact" aria-selected="false">Datos económicos</a>
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#economicos" role="tab"
+                                aria-controls="contact" aria-selected="false">Datos económicos</a>
                         </li>
                     </ul>
 
 
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="tipos_servicio" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade show active" id="tipos_servicio" role="tabpanel"
+                            aria-labelledby="home-tab">
                             <div class="row">
 
                                 <div class="col-lg-12">
-                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#service_modal">
+                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                        data-target="#service_modal">
                                         Añadir Servicio <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
@@ -166,8 +175,9 @@
                         <div class="tab-pane fade" id="especificaciones" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#spapd_modal">
-                                        Añadir SPAPD <i class="fas fa-file-upload"></i>
+                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                        data-target="#spapd_modal">
+                                        Añadir programa <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
                             </div>
@@ -175,56 +185,9 @@
                         </div>
 
                         <div class="tab-pane fade" id="transporte" role="tabpanel" aria-labelledby="contact-tab">
-                            <div class="row">
 
-                                <div class="col-lg-4">
+                            @include('patients.edit.transport')
 
-                                    {!! Form::label('transporte', 'Transporte:') !!}
-                                    <select class="form-control" id="trans_sel" name="transporte">
-                                        <option value="" selected disabled hidden>Elegir un servicio</option>
-                                        <option {{ $patient->patientOther->transporte == 'Si' ? 'selected':'' }}>Si
-                                        </option>
-                                        <option {{ $patient->patientOther->transporte == 'No' ? 'selected':'' }}
-                                            value="No">No</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-8">
-                                    <!-- Transporte Field -->
-                                    {!! Form::label('dire_transporte', 'Domicilio de Recogida:') !!}
-                                    {!! Form::text('dire_transporte', $patient->patientOther->dire_transporte , ['class'
-                                    => 'form-control']) !!}
-
-                                </div>
-
-
-                                <br>
-                                @if ($patient->patientOther->transporte == 'Si')
-                                    <div class="col-md-12 transporte_ficha pt-4">
-                                        <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#transport_modal">Añadir transporte <i class="fas fa-file-upload"></i>
-                                        </button>
-                                    </div>
-
-                                    <div class="col-md-12 transporte_ficha mt-3">
-                                        @include('patients.show.show_transport')
-                                    </div>
-                                @else
-                                <div class="col-md-12 transporte_ficha pt-4" style="display: none">
-                                    <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#transport_modal">Añadir transporte <i class="fas fa-file-upload"></i>
-                                    </button>
-                                </div>
-                                <div class="col-md-12 transporte_ficha mt-3" style="display: none">
-                                    @include('patients.show.show_transport')
-                                </div>
-                                @endif
-                                <script>
-                                    $('#trans_sel').on('change', function() {
-                                        $('.transporte_ficha').css('display', 'none');
-                                        if ($(this).val() === 'Si' || $(this).val() === '') {
-                                            $('.transporte_ficha').css('display', 'block');
-                                        }
-                                    });
-                                </script>
-                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="economicos" role="tabpanel" aria-labelledby="contact-tab">
@@ -243,8 +206,9 @@
                 <div class="tab-pane" id="history" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#history_modal" data-id={{$patient->id}}>
-                                Añadir historia <i class="fas fa-file-upload"></i>
+                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                data-target="#history_modal" data-id={{$patient->id}}>
+                                Añadir historial <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
 
@@ -255,7 +219,8 @@
                 <div class="tab-pane" id="documents" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#documents_modal" data-id={{$patient->id}}>
+                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                data-target="#documents_modal" data-id={{$patient->id}}>
                                 Añadir documento <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
@@ -266,7 +231,8 @@
                 <div class="tab-pane" id="pias" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#pias_modal" data-id={{$patient->id}}>
+                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                data-target="#pias_modal" data-id={{$patient->id}}>
                                 Añadir pia <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
@@ -382,15 +348,6 @@
                 } else {
                     $("#tipo_vivienda_cont").removeAttr('hidden').show();
                     $("#tipoVivienda").attr('name', 'tipo_vivienda');
-                }
-                break;
-            case id == 'ingresos_proced':
-                if (val !== "Otros (especificar)") {
-                    $("#ingresosProced").removeAttr('name');
-                    $("#ingresos_proced_cont").attr('hidden', 'hidden').hide();
-                } else {
-                    $("#ingresos_proced_cont").removeAttr('hidden').show();
-                    $("#ingresosProced").attr('name', 'ingresos_proced');
                 }
                 break;
             case id == 'alergia':

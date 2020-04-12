@@ -54,11 +54,11 @@
             <div class="clearfix"></div>
             <?php echo $__env->make('flash::message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <?php echo $__env->make('worker_times.table', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <div class="card-body">
+            <div class="table-responsive">
+                <?php echo $__env->make('worker_times.table', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            </div>
         </div>
-    </div>
     </div>
 </div>
 <?php $__env->stopSection(); ?>

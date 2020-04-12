@@ -1,7 +1,13 @@
 <div class="row">
     <div class="form-group col-sm-6">
         {!! Form::label('dia_servicio', 'Dia del servicio:') !!}
-        {!! Form::select('dia_servicio', [null => '', 'Lunes' => 'Lunes', 'Martes' => 'Martes', 'Miércoles' => 'Miércoles', 'Jueves' => 'Jueves', 'Viernes' => 'Viernes'],
+        {!! Form::select('dia_servicio', [null => '',
+        'Lunes' => 'Lunes',
+        'Martes' => 'Martes',
+        'Miércoles' => 'Miércoles',
+        'Jueves' => 'Jueves',
+        'Viernes' => 'Viernes',
+        'de Lunes a Viernes' => 'de Lunes a Viernes'],
         null, ['class' => 'form-control', 'required' => 'required']) !!}
     </div>
 
@@ -12,21 +18,28 @@
         [null => '',
         '9:00 - 13:00' => '9:00 - 13:00',
         '9:00 -17:00' => '9:00 - 17:00',
-        '9:00 - 16:00' => '9:00 - 16:00',
         '17:00 - 20:00' => '17:00 - 20:00',
         '10:00 - 13:00' => '10:00 -13:00',
         'Otros' => 'Otros'
         ],
         null, ['class' => 'form-control', 'required' => 'required', 'id' => 'horario_servicio']) !!}
 
+
+    </div>
+
+    <!-- Obs Servicio Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('obs_servicio', 'Observaciones del horario:') !!}
+        {!! Form::text('obs_servicio', null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group col-sm-6">
         <div class="horario_servicio_otros bg-secondary p-3" style="display: none;">
             {!! Form::label('horario_servicio', 'Otro horario (especificar):') !!}
             {!! Form::text('horario_servicio', null, ['class' => 'form-control', 'id' => 'horario_otros' ]) !!}
         </div>
-    </div>
-
-    <script>
-        $('#horario_servicio').on('change', function() {
+        <script>
+            $('#horario_servicio').on('change', function() {
             $('.horario_servicio_otros').css('display', 'none');
             if ($(this).val() === 'Otros') {
                 $('.horario_servicio_otros').css('display', 'block');
@@ -39,12 +52,7 @@
             }
 
         });
-    </script>
-
-    <!-- Obs Servicio Field -->
-    <div class="form-group col-sm-6">
-        {!! Form::label('obs_servicio', 'Observaciones del horario:') !!}
-        {!! Form::text('obs_servicio', null, ['class' => 'form-control']) !!}
+        </script>
     </div>
 
     <!-- Service Id Field -->

@@ -17,12 +17,12 @@
 </div>
 
 @section('scripts')
-    <script type="text/javascript">
-        $('#fecha_alta_paciente').datetimepicker({
+<script type="text/javascript">
+    $('#fecha_alta_paciente').datetimepicker({
             format: 'DD-MM-YYYY',
             useCurrent: false
         })
-    </script>
+</script>
 @endsection
 
 <!-- Nombre Field -->
@@ -33,7 +33,7 @@
 
 <!-- Apellido Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('apellido', 'Apellido:') !!}
+    {!! Form::label('apellido', 'Apellidos:') !!}
     {!! Form::text('apellido', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -56,12 +56,12 @@
 </div>
 
 @section('scripts')
-    <script type="text/javascript">
-        $('#fecha_nacimiento').datetimepicker({
+<script type="text/javascript">
+    $('#fecha_nacimiento').datetimepicker({
             format: 'DD-MM-YYYY',
             useCurrent: false
         })
-    </script>
+</script>
 @endsection
 
 <!-- Dni Field -->
@@ -72,9 +72,10 @@
 
 <!-- Estado Civil Field -->
 <div class="form-group col-sm-6">
-    
+
     {!! Form::label('estado_civil', 'Estado Civil:') !!}
-    {!! Form::select('estado_civil', [' Soltera/o' => ' Soltera/o', ' Viuda/o' => ' Viuda/o', ' Casada/o' => ' Casada/o', ' Divorciada/o' => ' Divorciada/o'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('estado_civil', [' Soltera/o' => ' Soltera/o', ' Viuda/o' => ' Viuda/o', ' Casada/o' => '
+    Casada/o', ' Divorciada/o' => ' Divorciada/o'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Direccion Field -->

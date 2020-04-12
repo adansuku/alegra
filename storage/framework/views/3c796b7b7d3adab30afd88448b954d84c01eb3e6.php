@@ -3,7 +3,7 @@
         <tr>
             <th>Antecedentes</th>
             <th>Año</th>
-            <th>Observaciones</th>
+            <th>Especificaciones</th>
             <th>Acción</th>
         </tr>
     </thead>
@@ -18,7 +18,9 @@
             <td><?php echo $patientPast->antecedentes_obs; ?></td>
             <td>
                 <div class='btn-group'>
-                    <a href="/pastdelete/<?php echo e($patientPast->id); ?>" data-token="<?php echo e(csrf_token()); ?>" class='btn btn-block btn-danger btn-xs' data-confirm="Seguro que quieres eliminar este pia?" onclick="return confirm('¿Estas segura que quieres eliminar el antecedente?')">
+                    <a href="/pastdelete/<?php echo e($patientPast->id); ?>" data-token="<?php echo e(csrf_token()); ?>"
+                        class='btn btn-block btn-danger btn-xs' data-confirm="Seguro que quieres eliminar este pia?"
+                        onclick="return confirm('¿Estas segura que quieres eliminar el antecedente?')">
                         <i class="fas fa-trash"></i> Eliminar
                     </a> </div>
             </td>
