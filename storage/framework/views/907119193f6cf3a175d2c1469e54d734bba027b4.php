@@ -16,10 +16,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <link href="<?php echo e(mix('css/app.css')); ?>" rel="stylesheet">
-
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css"
-        rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <!-- Datatable styles -->
     <?php echo $__env->yieldPushContent('css'); ?>
@@ -61,31 +60,28 @@
                         </div>
                     </form>
                     <?php if(Auth::user()->workerSession->count() > 0): ?>
-                    <?php if(Auth::user()->workerSession->last()->action == 'out'): ?>
-                    <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
-                        Entrada
-                    </button>
-                    <button type="button" id="saveOut" class="btn btn-danger"
-                        style="width:120px;margin-left:10px;display:none;">
-                        Salida
-                    </button>
+                        <?php if(Auth::user()->workerSession->last()->action == 'out'): ?>
+                            <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
+                                Entrada 
+                            </button>
+                            <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;display:none;">
+                                Salida 
+                            </button>
+                        <?php else: ?>
+                            <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;display:none;">
+                                Entrada 
+                            </button>
+                            <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;">
+                                Salida 
+                            </button>
+                        <?php endif; ?>
                     <?php else: ?>
-                    <button type="button" id="saveIn" class="btn btn-primary"
-                        style="width:120px;margin-left:10px;display:none;">
-                        Entrada
-                    </button>
-                    <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;">
-                        Salida
-                    </button>
-                    <?php endif; ?>
-                    <?php else: ?>
-                    <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
-                        Entrada
-                    </button>
-                    <button type="button" id="saveOut" class="btn btn-danger"
-                        style="width:120px;margin-left:10px;display:none;">
-                        Salida
-                    </button>
+                        <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
+                            Entrada 
+                        </button>
+                        <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;display:none;">
+                                Salida 
+                        </button>
                     <?php endif; ?>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -250,18 +246,18 @@
 
     <!-- Custom scripts for all pages -->
     <script src="<?php echo e(mix('js/customJs/custom.js')); ?>"></script>
+    
 
 
     <!-- Bootstrap core JavaScript, Core plugin JavaScript, Page level plugins -->
     <script src="<?php echo e(mix('js/app.js')); ?>"></script>
+    
 
 
     <!-- datatable 2 -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script type="text/javascript"
-        src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js">
-    </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <!--scripts-->
     <?php echo $__env->yieldPushContent('scripts'); ?>
