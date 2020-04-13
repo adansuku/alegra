@@ -5,6 +5,7 @@
 <div class="container ">
 
 
+<<<<<<< Updated upstream
   <div class="row pb-4">
     <div class="col-lg-12">
       <h1 class="text-center mt-5 mb-4 text-dark">Bienvenida a Alegra</h1>
@@ -12,6 +13,14 @@
     </div>
   </div>
 
+=======
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="text-center my-5 text-dark">Bienvenida a alegra | Open source software </h1>
+    </div>
+  </div>
+  
+>>>>>>> Stashed changes
   <div class="row">
 
     <div class="col-lg-3 my-2">
