@@ -16,9 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer num_sesiones
  * @property string otras_sesiones
  * @property string dur_spapd
- * @property string fecha_inicio
  * @property string baja_spapd
- * @property string dia_spapd
  * @property string worker_id
  * @property integer patient_id
  */
@@ -38,9 +36,7 @@ class Patient_spapd extends Model
         'num_sesiones',
         'otras_sesiones',
         'dur_spapd',
-        'fecha_inicio',
         'baja_spapd',
-        'dia_spapd',
         'worker_id',
         'patient_id'
     ];
@@ -58,9 +54,7 @@ class Patient_spapd extends Model
         'otras_sesiones' => 'string',
         'dur_spapd' => 'string',
         'worker_id' => 'string',
-        'fecha_inicio' => 'string',
         'baja_spapd' => 'string',
-        'dia_spapd' => 'array',
         'patient_id' => 'integer'
     ];
 
@@ -79,5 +73,10 @@ class Patient_spapd extends Model
     public function patient()
     {
         return $this->belongsTo(\App\Models\Patient::class);
+    }
+
+    public function patient_spapd_dias()
+    {
+        return $this->hasMany(\App\Models\Patient_spapd_dia::class);
     }
 }

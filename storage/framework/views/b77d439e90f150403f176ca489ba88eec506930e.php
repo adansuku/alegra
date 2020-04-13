@@ -416,7 +416,6 @@
 
     <script>
         $('#ayuda_soc').on('change', function() {
-            console.log($("#ayuda_soc option[value=Otros]:selected"));
             if ($("#ayuda_soc option[value=Otros]:selected").length > 0){
                 $('#ayuda_soc_cont').css('display', 'block');
                 console.log($('entra en el if'));

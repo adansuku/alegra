@@ -16,11 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <link href="<?php echo e(mix('css/app.css')); ?>" rel="stylesheet">
-<<<<<<< Updated upstream
 
-=======
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
->>>>>>> Stashed changes
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css"
         rel="stylesheet" />
@@ -67,32 +63,30 @@
                         </div>
                     </form>
                     <?php if(Auth::user()->workerSession->count() > 0): ?>
-                    <?php if(Auth::user()->workerSession->last()->action == 'out'): ?>
-                    <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
-                        Entrada
-                    </button>
-                    <button type="button" id="saveOut" class="btn btn-danger"
-                        style="width:120px;margin-left:10px;display:none;">
-                        Salida
-                    </button>
+                        <?php if(Auth::user()->workerSession->last()->action == 'out'): ?>
+                            <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
+                                Entrada 
+                            </button>
+                            <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;display:none;">
+                                Salida 
+                            </button>
+                        <?php else: ?>
+                            <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;display:none;">
+                                Entrada 
+                            </button>
+                            <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;">
+                                Salida 
+                            </button>
+                        <?php endif; ?>
                     <?php else: ?>
-                    <button type="button" id="saveIn" class="btn btn-primary"
-                        style="width:120px;margin-left:10px;display:none;">
-                        Entrada
-                    </button>
-                    <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;">
-                        Salida
-                    </button>
+                        <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
+                            Entrada 
+                        </button>
+                        <button type="button" id="saveOut" class="btn btn-danger" style="width:120px;margin-left:10px;display:none;">
+                                Salida 
+                        </button>
                     <?php endif; ?>
-                    <?php else: ?>
-                    <button type="button" id="saveIn" class="btn btn-primary" style="width:120px;margin-left:10px;">
-                        Entrada
-                    </button>
-                    <button type="button" id="saveOut" class="btn btn-danger"
-                        style="width:120px;margin-left:10px;display:none;">
-                        Salida
-                    </button>
-                    <?php endif; ?>
+        
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 

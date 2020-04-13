@@ -88,25 +88,8 @@
         </select>
     </div>
 
-
-    <div class="form-group col-sm-6">
-        <?php echo Form::label('fecha_inicio', 'Hora de inicio:'); ?>
-
-        <?php echo Form::time('fecha_inicio', null, ['class' => 'form-control','required' => 'required']); ?>
-
-    </div>
-
-    <div class="form-group col-sm-6">
-        <?php echo Form::label('dia_spapd', 'Dias programa:'); ?>
-
-        <select class="form-control select2" id="dias_serv" name="dia_spapd[]" multiple="multiple" required>
-            <option value="Lunes">Lunes</option>
-            <option value="Martes">Martes</option>
-            <option value="Miercoles">Miercoles</option>
-            <option value="Jueves">Jueves</option>
-            <option value="Viernes">Viernes</option>
-        </select>
-    </div>
+    
+    
 
 </div>
 <!--end row-->
