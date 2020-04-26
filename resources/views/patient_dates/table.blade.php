@@ -1,7 +1,7 @@
 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
     <thead>
         <tr>
-            <th>Fecha Paciente</th>
+            <th>Fecha</th>
         <th>Desc Fecha Paciente</th>
         <th>Patient Id</th>
             <th>Acción</th>

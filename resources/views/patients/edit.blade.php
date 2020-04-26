@@ -24,14 +24,14 @@
 
 <div class="container-fluid">
 
-    <div class="card p-4">
+    <div class="card p-5">
         <div class="card-header py-3">
             <h4 class="m-0 font-weight-bold text-primary">Editando Persona atendida</h4>
         </div>
         {!! Form::model($patient, ['route' => ['patients.update', $patient->id], 'method' => 'patch', 'enctype' =>
         'multipart/form-data']) !!}
 
-        <div class="col-sm-12 py-3">
+        <div class="col-sm-12 p-0">
             <ul class="nav nav-tabs tabs-marker tabs-dark bg-primary my-4" role="tablist" id="myTab">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#general" role="tab">Datos personales</a>
@@ -115,33 +115,25 @@
 
                 <div class="tab-pane" id="services" role="tabpanel">
 
-                    <ul class="nav nav-tabs bg-light mb-3" id="myTab" role="tablist" style="margin-top:-24px;">
+                    <ul class="nav nav-tabs bg-light" id="myTab" role="tablist" style="margin-top:-24px;">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#tipos_servicio" role="tab"
                                 aria-controls="home" aria-selected="true">Tipo de servicio</a>
                         </li>
 
-                        @php
-                        $spapd = 'SPAPD';
-                        $array = array();
-                        @endphp
-
+                        @php ($servicios = array())
+                        @php ($spapd = 'SPAPD')
+                        
                         @foreach($patient->patientServices as $patientService)
-                        @php
-                        $array = array($patientService->nom_servicio);
-                        @endphp
+                            @php (array_push($servicios,$patientService->nom_servicio))
                         @endforeach
 
-
-
-                        @if(in_array($spapd, $array))
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#especificaciones" role="tab"
-                                aria-controls="profile" aria-selected="false">Especificaciones SPAPD</a>
-                        </li>
+                        @if(in_array($spapd, $servicios)) 
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#especificaciones" role="tab"
+                                    aria-controls="profile" aria-selected="false">Especificaciones SPAPD</a>
+                            </li>
                         @endif
-
-
 
                         <li class="nav-item">
                             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#transporte" role="tab"
@@ -152,7 +144,6 @@
                                 aria-controls="contact" aria-selected="false">Datos económicos</a>
                         </li>
                     </ul>
-
 
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="tipos_servicio" role="tabpanel"
@@ -173,14 +164,7 @@
                         </div>
 
                         <div class="tab-pane fade" id="especificaciones" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
-                                        data-target="#spapd_modal">
-                                        Añadir programa <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                            </div>
+                            
                             @include('patients.show.show_spapd')
                         </div>
 
@@ -273,6 +257,8 @@
     $('.nav-tabs a').on('shown', function(e) {
         window.location.hash = e.target.hash.replace("#", "#" + prefix);
     });
+
+ 
 </script>
 
 <script type="text/javascript">
@@ -546,121 +532,5 @@
     }
 </script>
 
-<script type="text/javascript">
-    function histo_accion(val, id) {
-        var aux = document.querySelectorAll(".flag");
-                    aux.forEach(element => {
-                    element.removeAttribute("name");
-                    });
-        var aux2 = document.querySelectorAll(".flagy");
-                aux2.forEach(element => {
-                element.setAttribute("hidden", "hidden");
-                });
-        console.log(val + ' ' + id);
-        switch (true) {
-            case val == 'Solicitud Demandas' || val == 'Formalización Demandas':
-                    $("#solic_demandas_cont").removeAttr('hidden').show();
-                    $("#solic_demandas_cont select").attr('name', 'acc_subtipo_accion');
-                    const element = document.querySelector('div#solic_demandas_cont #acc_subtipo_accion');
-                    element.addEventListener('change', (e) => {
-                        if(e.target.value != 'Otras (especificar)') {
-                            $("#acc_subtipo_accion_otro").removeAttr('name');
-                            $("#acc_subtipo_accion_otro_cont").attr('hidden', 'hidden').hide();
-                        } else {
-                            $("#acc_subtipo_accion_otro_cont").removeAttr('hidden').show();
-                            $("#acc_subtipo_accion_otro").attr('name', 'acc_subtipo_accion');
-                        }
-                    });
-            break;
-            case val == 'Tipo intervenciones en Centro':
-                    $("#interv_centro_cont").removeAttr('hidden').show();
-                    $("#interv_centro_cont select").attr('name', 'acc_subtipo_accion');
-                    const element2 = document.querySelector('div#interv_centro_cont #acc_subtipo_accion');
-                    element2.addEventListener('change', (e) => {
-                    if(e.target.value != 'Otras (especificar)') {
-                        $("#acc_subtipo_accion_otro").removeAttr('name');
-                        $("#acc_subtipo_accion_otro_cont").attr('hidden', 'hidden').hide();
-                    } else {
-                        $("#acc_subtipo_accion_otro_cont").removeAttr('hidden').show();
-                        $("#acc_subtipo_accion_otro").attr('name', 'acc_subtipo_accion');
-                    }
-                });
-            break;
-            case val == 'Tipo de intervenciones en Domicilio':
-                    $("#interv_domic_cont").removeAttr('hidden').show();
-                    $("#interv_domic_cont select").attr('name', 'acc_subtipo_accion');
-                    const element3 = document.querySelector('div#interv_domic_cont #acc_subtipo_accion');
-                    element3.addEventListener('change', (e) => {
-                    if(e.target.value != 'Otras (especificar)') {
-                        $("#acc_subtipo_accion_otro").removeAttr('name');
-                        $("#acc_subtipo_accion_otro_cont").attr('hidden', 'hidden').hide();
-                    } else {
-                        $("#acc_subtipo_accion_otro_cont").removeAttr('hidden').show();
-                        $("#acc_subtipo_accion_otro").attr('name', 'acc_subtipo_accion');
-                    }
-                    });
-            break;
-            case val == 'Seguimiento de Salud':
-                    $("#seg_salud_cont").removeAttr('hidden').show();
-                    $("#seg_salud_cont select").attr('name', 'acc_subtipo_accion');
-                    const element4 = document.querySelector('div#seg_salud_cont #acc_subtipo_accion');
-                    element4.addEventListener('change', (e) => {
-                    if(e.target.value != 'Otras (especificar)') {
-                        $("#acc_subtipo_accion_otro").removeAttr('name');
-                        $("#acc_subtipo_accion_otro_cont").attr('hidden', 'hidden').hide();
-                    } else {
-                        $("#acc_subtipo_accion_otro_cont").removeAttr('hidden').show();
-                        $("#acc_subtipo_accion_otro").attr('name', 'acc_subtipo_accion');
-                    }
-                    });
-            break;
-            case val == 'Documentación':
-                    $("#docu_cont").removeAttr('hidden').show();
-                    $("#docu_cont select").attr('name', 'acc_subtipo_accion');
-                    const element5 = document.querySelector('div#docu_cont #acc_subtipo_accion');
-                    element5.addEventListener('change', (e) => {
-                    if(e.target.value != 'Otras (entregar)') {
-                        $("#acc_subtipo_accion_otro").removeAttr('name');
-                        $("#acc_subtipo_accion_otro_cont").attr('hidden', 'hidden').hide();
-                    } else {
-                        $("#acc_subtipo_accion_otro_cont").removeAttr('hidden').show();
-                        $("#acc_subtipo_accion_otro").attr('name', 'acc_subtipo_accion');
-                    }
-                    });
-            break;
-            case val == 'Contabilidad':
-                    $("#contab_cont").removeAttr('hidden').show();
-                    $("#contab_cont select").attr('name', 'acc_subtipo_accion');
-                    const element6 = document.querySelector('div#contab_cont #acc_subtipo_accion');
-                    element6.addEventListener('change', (e) => {
-                    if(e.target.value != 'Otros (especificar)') {
-                        $("#acc_subtipo_accion_otro").removeAttr('name');
-                        $("#acc_subtipo_accion_otro_cont").attr('hidden', 'hidden').hide();
-                    } else {
-                        $("#acc_subtipo_accion_otro_cont").removeAttr('hidden').show();
-                        $("#acc_subtipo_accion_otro").attr('name', 'acc_subtipo_accion');
-                    }
-                    });
-            break;
-            case val == 'Otras':
-            break;
-            default:
-                console.log('Default!!')
-            break;
-    }
-}
-
-//Default 'Otras Default' en tipo accion
-const element7 = document.querySelector('#acc_tipo_accion');
-element7.addEventListener('change', (e) => {
-    if(e.target.value != 'Otras') {
-        $("#acc_subtipo_accion_otro").removeAttr('name');
-        $("#acc_subtipo_accion_otro_cont").attr('hidden', 'hidden').hide();
-    } else {
-        $("#acc_subtipo_accion_otro_cont").removeAttr('hidden').show();
-        $("#acc_subtipo_accion_otro").attr('name', 'acc_tipo_accion');
-    }
-});
-</script>
 
 @endpush

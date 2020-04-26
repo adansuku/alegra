@@ -1,14 +1,14 @@
-<!-- Nom Servicio Field -->
-<div class="form-group">
-    {!! Form::label('es_primario', '¿Es el servicio primario?') !!}
-    {!! Form::select('es_primario', [
-    null => '',
-    'es_primario' => 'Si',
-    'no_es_primario' => 'No',
-    ], null, ['class' => 'form-control', 'required' => 'required']) !!}
+<div class="col-lg-6">
+    <!-- Nom Servicio Field -->
+        {!! Form::label('es_primario', '¿Es el servicio primario?') !!}
+        {!! Form::select('es_primario', [
+        null => '',
+        'es_primario' => 'Si',
+        'no_es_primario' => 'No',
+        ], null, ['class' => 'form-control', 'required' => 'required']) !!}
 </div>
 
-<div class="form-group">
+<div class="col-lg-6">
     {!! Form::label('service_worker_id', 'Trabajadora social responsable del caso:') !!}
     <select class="form-control" id="worker_id" name="service_worker_id" required>
         @foreach($workers as $worker)
@@ -20,7 +20,9 @@
     </select>
 </div>
 
-<div class="form-group">
+
+
+<div class="col-lg-6">
     {!! Form::label('nom_servicio', 'Nombre del servicio:') !!}
     {!! Form::select('nom_servicio', [
     null => '',
@@ -37,7 +39,7 @@
 
 
 
-<div class="form-group">
+<div class="col-lg-6">
     <!-- Municipio Serv Field -->
     {!! Form::label('municipio_serv', 'Municipio :') !!}
     <select class="form-control select2" id="municipio_serv" name="municipio_serv" required>
@@ -175,7 +177,7 @@
 </div>
 
 <!-- Tipo Plaza Serv Field -->
-<div class="form-group">
+<div class="col-lg-6">
     {!! Form::label('tipo_plaza_serv', 'Tipo de Plaza (Señalar varias):') !!}
     {!! Form::select('tipo_plaza_serv[]', [
     'Privada' => 'Privada',
@@ -188,7 +190,7 @@
 </div>
 
 <!-- Plaza Privada Serv Field -->
-<div class="form-group bg-secondary p-3" id="plaza_privada" style="display: none;">
+<div class="col-lg-6 bg-secondary p-3" id="plaza_privada" style="display: none;">
     {!! Form::label('plaza_privada_serv', 'Plaza Privada:') !!}
     {!! Form::select('plaza_privada_serv[]', [
     'Socixs' => 'Socixs',
@@ -201,7 +203,7 @@
 </div>
 
 <!-- Plaza Sub Serv Field -->
-<div class="form-group bg-secondary p-3" id="Subvencionada" style="display: none;">
+<div class="col-lg-6 bg-secondary p-3" id="Subvencionada" style="display: none;">
     {!! Form::label('plaza_sub_serv', 'Plaza Subvencionada:') !!}
     {!! Form::text('plaza_sub_serv', null, ['class' => 'form-control',]) !!}
 </div>
@@ -217,7 +219,7 @@ $("#Subvencionada").toggle(vals.indexOf("Subvencionada")>-1);
 })
 </script>
 
-<div class="form-group">
+<div class="col-lg-6">
     <!-- Fecha Form Serv Field -->
     {!! Form::label('fecha_form_serv', 'Fecha Formalizacion de Servicio:') !!}
     {!! Form::date('fecha_form_serv', $patientService->fecha_form_serv, ['class' =>
@@ -225,6 +227,6 @@ $("#Subvencionada").toggle(vals.indexOf("Subvencionada")>-1);
     'required']) !!}
 </div>
 <!-- Submit Field -->
-<div class="form-group">
+<div class="col-lg-6">
     {!! Form::submit('Guardar', ['class' => 'btn btn-primary float-right']) !!}
 </div>

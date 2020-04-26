@@ -12,68 +12,175 @@
         'Documentación económina' => 'Documentación económina',
         'Autorizaciones y Solicitudes Generales' => 'Autorizaciones y Solicitudes Generales',
         'Informes y Comunicaciones Desde Acufade' => 'Informes y Comunicaciones Desde Acufade',
-        'Otras' => 'Otras',
-        ], null, ['class' => 'form-control', 'required' => 'required', 'id' => 'cat_documentos']) !!}
+        'Otras' => 'Otras'
+        ], null, [
+            'class' => 'form-control', 
+            'required' => 'required', 
+            'onchange' => 'addDocumentName(this)',
+            'id' => 'cat_documentos'
+            ]) !!}
 </div>
 
+<!--
 <script>
+
+    function addDocumentName(idCampo){
+        var selected = idCampo.value;
+
+        switch (selected) {
+            case 'Documentación Personal':
+                console.log(selected);
+            break;
+
+            case 'Documentos de Admision':
+                console.log(selected);
+            break;
+                
+            case 'Contratos':
+            console.log(selected);
+            break;
+
+            case 'Ley de Dependencia':
+            console.log(selected);
+            break;
+
+            case 'Documentación Sanitaria':
+            console.log(selected);
+            break;
+
+            case 'Documentación económina':
+            console.log(selected);
+            break;
+
+            case 'Autorizaciones y Solicitudes Generales':
+            console.log(selected);
+            break;
+
+            case 'Informes y Comunicaciones Desde Acufade':
+            console.log(selected);
+            break;
+
+            case 'Valoraciones iniciales y de seguimiento':
+            console.log(selected);
+            break;
+         
+            default:
+                console.log('Lo lamentamos, por el momento no disponemos de ' + expr + '.');
+        }
+
+
+    }
+
+</script>
+-->
+
+
+ <script>
     $('#cat_documentos').on('change', function() {
-        $('#documentacion_personal').css('display', 'none');
+        
         if ($(this).val() === 'Documentación Personal') {
             $('#documentacion_personal').css('display', 'block');
+            $('#documentacion_personal').attr('name', 'nombre_doc' );
+        }else {
+            $('#documentacion_personal').removeAttr('name', 'nombre_doc' );
+            $('#documentacion_personal').css('display', 'none');
         }
 
-        $('#documentos_admision').css('display', 'none');
         if ($(this).val() === 'Documentos de Admision') {
             $('#documentos_admision').css('display', 'block');
+            $('#documentos_admision').attr('name', 'nombre_doc' );
+        }else {
+            $('#documentos_admision').removeAttr('name', 'nombre_doc' );
+            $('#documentos_admision').css('display', 'none');
         }
 
-        $('#contratos').css('display', 'none');
         if ($(this).val() === 'Contratos') {
             $('#contratos').css('display', 'block');
+            $('#contratos').attr('name', 'nombre_doc' );
+        }else {
+            $('#contratos').removeAttr('name', 'nombre_doc' );
+            $('#contratos').css('display', 'none');
         }
 
-        $('#documentos_sanitarios').css('display', 'none');
         if ($(this).val() === 'Documentación Sanitaria') {
             $('#documentos_sanitarios').css('display', 'block');
+            $('#documentos_sanitarios').attr('name', 'nombre_doc' );
+        }else {
+            $('#documentos_sanitarios').removeAttr('name', 'nombre_doc' );
+            $('#documentos_sanitarios').css('display', 'none');
         }
 
-        $('#dependencia').css('display', 'none');
         if ($(this).val() === 'Ley de Dependencia') {
             $('#dependencia').css('display', 'block');
+            $('#dependencia').attr('name', 'nombre_doc' );
+        }else {
+            $('#dependencia').removeAttr('name', 'nombre_doc' );
+            $('#dependencia').css('display', 'none');
         }
 
         $('#economia').css('display', 'none');
         if ($(this).val() === 'Documentación económina') {
             $('#economia').css('display', 'block');
+            $('#economia').attr('name', 'nombre_doc' );
+        }else {
+            $('#economia').removeAttr('name', 'nombre_doc' );
+            $('#economia').css('display', 'none');
         }
 
         $('#autorizaciones').css('display', 'none');
         if ($(this).val() === 'Autorizaciones y Solicitudes Generales') {
             $('#autorizaciones').css('display', 'block');
+            $('#autorizaciones').attr('name', 'nombre_doc' );
+        }else {
+            $('#autorizaciones').removeAttr('name', 'nombre_doc' );
+            $('#autorizaciones').css('display', 'none');
         }
 
         $('#informes').css('display', 'none');
         if ($(this).val() === 'Informes y Comunicaciones Desde Acufade') {
             $('#informes').css('display', 'block');
+            $('#informes').attr('name', 'nombre_doc' );
+        }else {
+            $('#informes').removeAttr('name', 'nombre_doc' );
+            $('#informes').css('display', 'none');
         }
 
-        $('#otros').css('display', 'none');
+        $('#valoraciones').css('display', 'none');
+        if ($(this).val() === 'Valoraciones iniciales y de seguimiento') {
+            $('#valoraciones').css('display', 'block');
+            $('#valoraciones').attr('name', 'nombre_doc' );
+        }else {
+            $('#valoraciones').removeAttr('name', 'nombre_doc' );
+            $('#valoraciones').css('display', 'none');
+        }
+
+        $('#valoraciones').css('display', 'none');
+        if ($(this).val() === 'Valoraciones iniciales y de seguimiento') {
+            $('#valoraciones').css('display', 'block');
+            $('#valoraciones').attr('name', 'nombre_doc' );
+        }else {
+            $('#valoraciones').removeAttr('name', 'nombre_doc' );
+            $('#valoraciones').css('display', 'none');
+        }
+
+
+  
         if ($(this).val() === 'Otras') {
-            $('#otros').css('display', 'block');
+            $('#otros_documentos').css('display', 'block');
+            $('#otros_documentos').attr('name', 'nombre_doc' );
+        } else {
+            $('#otros_documentos').removeAttr('name', 'nombre_doc' );
+            $('#otros_documentos').css('display', 'none');
         }
-
-
-
     });
-</script>
 
+</script> 
 
 
 <div class="form-group col-sm-6">
     {!! Form::label('nombre_doc', 'Nombre de Documento:') !!}
 
-    {!! Form::select('nombre_doc', [
+    {!! Form::select('', [
         'DNI usuario/a' => 'DNI usuario/a',
         'DNI familiar' => 'DNI familiar',
         'Documento de incapacidad' => 'Documento de incapacidad',
@@ -87,8 +194,8 @@
 
 
 
-    {!! Form::select('nombre_doc', [
-        'Ficha de recogida de datos básicos' => 'Ficha de recogida de datos básicos',
+    {!! Form::select('', [
+        // 'Ficha de recogida de datos básicos' => 'Ficha de recogida de datos básicos',
         'Solicitud de plaza' => 'Solicitud de plaza',
         'LOPD usuarios/as, cesión de imagen y otros' => 'LOPD usuarios/as, cesión de imagen y otros',
         'Ficha de registro de socios/as' => 'Ficha de registro de socios/as',
@@ -106,7 +213,7 @@
 
 
 
-    {!! Form::select('nombre_doc', [
+    {!! Form::select('', [
         'Contrato de admisión del servicio de promoción de la autonomía personal en domicilio' => 'Contrato de admisión del servicio de promoción de la autonomía personal en domicilio',
         'Contrato de admisión de servicios en centro' => 'Contrato de admisión de servicios en centro',
         'Anexo I: cambio de condiciones de contrato SPAPD' => 'Anexo I: cambio de condiciones de contrato SPAPD',
@@ -118,7 +225,7 @@
     ]) !!}
 
 
-    {!! Form::select('nombre_doc', [
+    {!! Form::select('', [
         'Informes médico/a de cabecera' => 'Informes médico/a de cabecera',
         'Informes médico/a especialista' => 'Informes médico/a especialista',
         'Receta electrónica/tratamiento' => 'Receta electrónica/tratamiento',
@@ -134,8 +241,23 @@
     ]) !!}
 
 
+    {{-- {!! Form::select('', [
+        'Ficha de Acogida' => 'Ficha de Acogida',
+        'Registros Valoración Sociofamiliar' => 'Registros Valoración Sociofamiliar',
+        'Registros Valoración Cognitiva' => 'Registros Valoración Cognitiva',
+        'Registros Valoración Física' => 'Registros Valoración Física',
+        'Registros Valoración Funcional' => 'Registros Valoración Funcional',
+        'Registros Valoración Emocional' => 'Registros Valoración Emocional',
+        'Otros' => 'Otros'
+       
+    ], null, ['class' => 'form-control', 
+    'id' => 'valoraciones',
+    'style' => 'display: none'
+    ]) !!} --}}
 
-    {!! Form::select('nombre_doc', [
+
+
+    {!! Form::select('', [
         'Solicitud de grado' => 'Solicitud de grado',
         'Carta de resolución de grado' => 'Carta de resolución de grado',
         'Carta de resolución PIA' => 'Carta de resolución PIA',
@@ -151,7 +273,7 @@
 
 
 
-    {!! Form::select('nombre_doc', [
+    {!! Form::select('', [
         'Aviso de suspensión del servicio por impago dirigido al usuarios/as' => 'Aviso de suspensión del servicio por impago dirigido al usuarios/as',
         'Aviso de suspensión de prestación del servicio por impago dirigido a la dirección general de dependencia' => 'Aviso de suspensión de prestación del servicio por impago dirigido a la dirección general de dependencia',
         'Cesión de derechos de cobro' => 'Cesión de derechos de cobro',
@@ -167,7 +289,7 @@
 
 
 
-    {!! Form::select('nombre_doc', [
+    {!! Form::select('', [
         'Autorización de actividad externa puntual SPAPD' => 'Autorización de actividad externa puntual SPAPD',
         'Autorización salidas grupales en centro' => 'Autorización salidas grupales en centro',
         'Autorización general para actividades externas de SPAPD' => 'Autorización general para actividades externas de SPAPD',
@@ -182,7 +304,7 @@
 
 
 
-    {!! Form::select('nombre_doc', [
+    {!! Form::select('', [
         'Compromiso de prestación del servicio' => 'Compromiso de prestación del servicio',
         'Informe de alta de prestación de servicio' => 'Informe de alta de prestación de servicio',
         'Informe de baja de prestación de servicio' => 'Informe de baja de prestación de servicio',
@@ -198,7 +320,10 @@
     ]) !!}
 
 
+    <!-- Observaciones Doctor Field -->
+     {!! Form::text('', null, ['class' => 'form-control', 'id' => 'otros_documentos']) !!}
     
+
 
 </div>
 
@@ -215,6 +340,15 @@
             aria-describedby="inputGroupFileAddon01" name="url" required>
             <label class="custom-file-label" for="inputGroupFile01">Seleccionar archivo</label>
         </div>
+
+        <script>
+            $('#inputGroupFile01').on('change',function(){
+                //get the file name
+                var fileName = $(this).val();
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label').html(fileName);
+            })
+        </script>
     </div>
 </div>
 <div class="clearfix"></div>

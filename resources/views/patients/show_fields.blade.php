@@ -675,8 +675,8 @@
                     <table class="table datatables" width="100%" cellspacing="0">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Fecha Paciente</th>
-                                <th>Descripción de la fecha añadida</th>
+                                <th>Fecha</th>
+                                <th>Descripción</th>
                                 <th>Documento</th>
                             </tr>
                         </thead>
@@ -1130,11 +1130,12 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>Fecha Registro</th>
-                                <th>Fecha realizacion</th>
+                                <th>Fecha de la acción</th>
                                 <th>Tipo Acción/Tarea</th>
                                 <th>Subtipo Acción/Tarea</th>
-                                <th>Profesional Responsable</th>
+                                <th>Destinado a</th>
                                 <th>Descripción</th>
+                                <th>Profesional Responsable</th>
                                 <th>Observaciones</th>
                             </tr>
                         </thead>
@@ -1146,8 +1147,9 @@
                                 <td>{{ date('d / m / Y', strtotime($item->acc_fecha_realiz )) }}</td>
                                 <td>{!! $item->acc_tipo_accion !!}</td>
                                 <td>{!! $item->acc_subtipo_accion !!}</td>
-                                <td>{!! $item->acc_woker_accion !!}</td>
+                                <td>{!! $item->destinado_a !!}</td>
                                 <td>{!! $item->acc_descrip !!}</td>
+                                <td>{!! $item->persona_responsable !!}</td>
                                 <td>{!! $item->acc_observaciones !!}</td>
                             </tr>
                             @endforeach

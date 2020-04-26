@@ -1,6 +1,6 @@
 <div class="row">
     <!-- Prog Spapd Field -->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-4">
         {!! Form::label('prog_spapd', 'Programa:') !!}
         <select class="form-control" id="prog_spapd" name="prog_spapd" required>
             <option value="" selected disabled hidden>Elige un programa</option>
@@ -11,13 +11,6 @@
             <option value="Logopedia">Logopedia</option>
             <option value="Otros">Otros</option>
         </select>
-        <br>
-        <!-- Otros Programa Field -->
-        <div id="otros_programa" style="display: none;">
-            {!! Form::label('otros_programa', 'Otros Programa:') !!}
-            {!! Form::text('otros_programa', null, ['class' => 'form-control']) !!}
-        </div>
-
         <script>
             $('#prog_spapd').on('change', function() {
                 if ($(this).val() === 'Otros') {
@@ -29,9 +22,8 @@
         </script>
     </div>
 
-
-    <div class="form-group col-sm-6">
-        {!! Form::label('dur_spapd', 'Dururación:') !!}
+    {{-- <div class="form-group col-sm-3">
+        {!! Form::label('dur_spapd', 'Duración:') !!}
         <select class="form-control" id="dur_spapd" name="dur_spapd" required>
             <option value="" selected disabled hidden>Elegir duración</option>
             <option value="50">50</option>
@@ -42,6 +34,7 @@
             <option value="Otros">Otros</option>
         </select>
         <br>
+
         <!-- Otros Programa Field -->
         <div id="otras_sesiones" style="display: none;">
             <!-- Otras Sesiones Field -->
@@ -58,17 +51,16 @@
                 }
             });
         </script>
-    </div>
-
+    </div> --}}
 
     <!-- Dur Spapd Field -->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-4">
         <!-- Num Sesiones Field -->
-        {!! Form::label('num_sesiones', 'Número de Sesiones:') !!}
+        {!! Form::label('num_sesiones', 'Número Total de Sesiones:') !!}
         {!! Form::number('num_sesiones', null, ['class' => 'form-control','required' => 'required']) !!}
     </div>
 
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-4">
         {!! Form::label('worker_id', 'Trabajadora asociada:') !!}
         <select class="form-control select2" id="worker_id" name="worker_id" required>
             @foreach($workers as $worker)
@@ -78,14 +70,20 @@
         </select>
     </div>
 
-    
-    
+    <!-- Otros Programa Field -->
+    <div class="form-group col-sm-12">
+        <div id="otros_programa" class="bg-secondary p-2" style="display: none;">
+            {!! Form::label('otros_programa', 'Otro Programa:') !!}
+            {!! Form::text('otros_programa', null, ['class' => 'form-control']) !!}
+        </div>
+    </div>
 
+    <!-- Submit Field -->
+    <div class="form-group col-sm-12">
+        {!! Form::submit('Crear programa', ['class' => 'btn btn-primary float-right']) !!}
+    
+    </div>
+    
 </div>
 <!--end row-->
 
-<!-- Submit Field -->
-<div class="form-group col-sm-12">
-    {!! Form::submit('Crear programa', ['class' => 'btn btn-primary float-right']) !!}
-
-</div>

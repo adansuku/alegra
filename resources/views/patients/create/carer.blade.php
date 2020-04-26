@@ -208,7 +208,7 @@
     <!-- Tel Care Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('tel_care', 'Teléfono Fijo:') !!}
-        {!! Form::number('tel_care', null, ['class' => 'form-control','required' => 'required']) !!}
+        {!! Form::number('tel_care', null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Movil Care Field -->

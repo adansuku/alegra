@@ -1,35 +1,6 @@
 <div class="row">
-
     <div class="form-group col-sm-6">
-
-        @if (!isset($patient->patientServices[1]))
-        {!! Form::label('es_primario', '¿Es el servicio primario?') !!}
-        {!! Form::select('es_primario', [
-        null => '',
-        'es_primario' => 'Si',
-        'no_es_primario' => 'No',
-        ], null, ['class' => 'form-control', 'required' => 'required']) !!}
-        @endif
-
-
-
-
-        {!! Form::label('service_worker_id', 'Trabajadora social responsable del caso:') !!}
-        <select class="form-control" id="service_worker_id" name="service_worker_id" required>
-            @foreach($workers as $worker)
-            @if (in_array($worker->id,$patient->worker_id))
-            <option value="{{$worker->id}}">{{$worker->nombre}} {{$worker->apellido}}</option>
-            @endif
-            @endforeach
-        </select>
-
-
-
-
-
-
         {!! Form::label('nom_servicio', 'Nombre del servicio:') !!}
-
         {!! Form::select('nom_servicio', [
         null => '',
         'CALO' => 'CALO',
@@ -41,10 +12,41 @@
         ], null, ['class' => 'form-control', 'required' => 'required']) !!}
     </div>
 
+    {{-- @php 
+    $name = array($patient->patientServices);
+    var_dump(in_array('es_primario',$name));
+    var_dump($patient->patientServices[1]['es_primario']);
+    var_dump($patient->patientServices[2]['es_primario']);
+    @endphp
+     --}}
+    {{-- @if ($patient->patientServices) --}}
+        <div class="form-group col-sm-6">
+        {!! Form::label('es_primario', '¿Es el servicio primario?') !!}
+        {!! Form::select('es_primario', [
+        null => '',
+        'es_primario' => 'Si',
+        'no_es_primario' => 'No',
+        ], null, ['class' => 'form-control', 'required' => 'required']) !!}
+        </div>
+    {{-- //@endif --}}
+
+    <div class="form-group col-sm-6">
+        {!! Form::label('service_worker_id', 'Trabajadora social responsable del caso:') !!}
+        <select class="form-control" id="service_worker_id" name="service_worker_id" required>
+            @foreach($workers as $worker)
+            @if (in_array($worker->id,$patient->worker_id))
+            <option value="{{$worker->id}}">{{$worker->nombre}} {{$worker->apellido}}</option>
+            @endif
+            @endforeach
+        </select>
+    </div>
+
+   
+
     <!-- Municipio Serv Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('municipio_serv', 'Municipio :') !!}
-        <select class="form-control" id="municipio_serv" name="municipio_serv" required>
+        <select class="form-control select2" id="municipio_serv" name="municipio_serv" required>
             <option value="">Selecciona una opción</option>
             <option value='' disabled>Tenerife</option>
             <option value='Adeje'>Adeje</option>

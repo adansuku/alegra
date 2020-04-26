@@ -103,7 +103,7 @@ class Patient_info extends Model
         'cert_disc' => 'string',
         'grado_disc' => 'string',
         'fecha_res_disc' => 'date',
-        'tipo_disc' => 'string',
+        'tipo_disc' => 'array',
         'sit_legal' => 'string',
         'miem_familia' => 'string',
         'hijos' => 'integer',
