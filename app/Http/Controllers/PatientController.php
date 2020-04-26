@@ -100,12 +100,14 @@ class PatientController extends AppBaseController
     {
 
         $request->request->add(['convive_con' => ['']]); //add request
+       
         $request->request->add(['estado' => '1']);
         $input = $request->all();
 
         $patient = $this->patientRepository->create($input);
         $patient->patientOther()->create(['patient_id' => $patient->id]);
-        $patient->patientInfo()->create(['patient_id' => $patient->id, 'ayuda_soc' => ['']]);
+        $patient->patientInfo()->create(['patient_id' => $patient->id, 'ayuda_soc' => [''], 'tipo_disc' => ['']]);
+
 
         $patient->patientHealth()->create(['patient_id' => $patient->id]);
 
