@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use File;
 use Response;
+use Illuminate\Support\Facades\Storage;
 
 class Patient_documentController extends AppBaseController
 {
@@ -57,8 +58,13 @@ class Patient_documentController extends AppBaseController
     {
         $input = $request->all();
         $patientDocument = $this->patientDocumentRepository->create($input);
-
         $patientDocument->url = $request->file('url')->store('patient_documents/' . $patientDocument->patient_id);
+        
+        //dd($request->file('url'));
+        //$patientDocument->url = $request->file('url')->store($patientDocument);
+
+        //dd($patientDocument->url);
+
         $patientDocument->update();
 
         Flash::success('Patient Document saved successfully.');
@@ -141,18 +147,20 @@ class Patient_documentController extends AppBaseController
     public function destroy($id)
     {
         $patientDocument = $this->patientDocumentRepository->find($id);
-        $file =   'storage/app/public/' . $patientDocument->url ;
+        
+        //dd(Storage::delete('/app/public/' . $patientDocument->url));
+        //$file =   public_path('storage/') . $patientDocument->url ;
+
+        $file =  public_path('storage/') . $patientDocument->url;
         unlink($file);
-        File::delete($file);
-     
-      
-      
+        Storage::delete($file);
+        $this->patientDocumentRepository->delete($id);
+    
         if (empty($patientDocument)) {
             Flash::error('Patient Document not found');
             return redirect(route('patientDocuments.index'));
         }
 
-        $this->patientDocumentRepository->delete($id);
         Flash::success('Patient Document deleted successfully.');
         return redirect()->to(url()->previous() . '#documents');    }
 }
