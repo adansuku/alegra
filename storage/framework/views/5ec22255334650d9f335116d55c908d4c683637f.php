@@ -1158,11 +1158,12 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th>Fecha Registro</th>
-                                <th>Fecha realizacion</th>
+                                <th>Fecha de la acción</th>
                                 <th>Tipo Acción/Tarea</th>
                                 <th>Subtipo Acción/Tarea</th>
-                                <th>Profesional Responsable</th>
+                                <th>Destinado a</th>
                                 <th>Descripción</th>
+                                <th>Profesional Responsable</th>
                                 <th>Observaciones</th>
                             </tr>
                         </thead>
@@ -1174,8 +1175,9 @@
                                 <td><?php echo e(date('d / m / Y', strtotime($item->acc_fecha_realiz ))); ?></td>
                                 <td><?php echo $item->acc_tipo_accion; ?></td>
                                 <td><?php echo $item->acc_subtipo_accion; ?></td>
-                                <td><?php echo $item->acc_woker_accion; ?></td>
+                                <td><?php echo $item->destinado_a; ?></td>
                                 <td><?php echo $item->acc_descrip; ?></td>
+                                <td><?php echo $item->persona_responsable; ?></td>
                                 <td><?php echo $item->acc_observaciones; ?></td>
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

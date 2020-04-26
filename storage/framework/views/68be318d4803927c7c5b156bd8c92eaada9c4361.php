@@ -1,38 +1,6 @@
 <div class="row">
-
     <div class="form-group col-sm-6">
-
-        <?php if(!isset($patient->patientServices[1])): ?>
-        <?php echo Form::label('es_primario', '¿Es el servicio primario?'); ?>
-
-        <?php echo Form::select('es_primario', [
-        null => '',
-        'es_primario' => 'Si',
-        'no_es_primario' => 'No',
-        ], null, ['class' => 'form-control', 'required' => 'required']); ?>
-
-        <?php endif; ?>
-
-
-
-
-        <?php echo Form::label('service_worker_id', 'Trabajadora social responsable del caso:'); ?>
-
-        <select class="form-control" id="service_worker_id" name="service_worker_id" required>
-            <?php $__currentLoopData = $workers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $worker): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <?php if(in_array($worker->id,$patient->worker_id)): ?>
-            <option value="<?php echo e($worker->id); ?>"><?php echo e($worker->nombre); ?> <?php echo e($worker->apellido); ?></option>
-            <?php endif; ?>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </select>
-
-
-
-
-
-
         <?php echo Form::label('nom_servicio', 'Nombre del servicio:'); ?>
-
 
         <?php echo Form::select('nom_servicio', [
         null => '',
@@ -46,11 +14,39 @@
 
     </div>
 
+    
+    
+        <div class="form-group col-sm-6">
+        <?php echo Form::label('es_primario', '¿Es el servicio primario?'); ?>
+
+        <?php echo Form::select('es_primario', [
+        null => '',
+        'es_primario' => 'Si',
+        'no_es_primario' => 'No',
+        ], null, ['class' => 'form-control', 'required' => 'required']); ?>
+
+        </div>
+    
+
+    <div class="form-group col-sm-6">
+        <?php echo Form::label('service_worker_id', 'Trabajadora social responsable del caso:'); ?>
+
+        <select class="form-control" id="service_worker_id" name="service_worker_id" required>
+            <?php $__currentLoopData = $workers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $worker): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if(in_array($worker->id,$patient->worker_id)): ?>
+            <option value="<?php echo e($worker->id); ?>"><?php echo e($worker->nombre); ?> <?php echo e($worker->apellido); ?></option>
+            <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </select>
+    </div>
+
+   
+
     <!-- Municipio Serv Field -->
     <div class="form-group col-sm-6">
         <?php echo Form::label('municipio_serv', 'Municipio :'); ?>
 
-        <select class="form-control" id="municipio_serv" name="municipio_serv" required>
+        <select class="form-control select2" id="municipio_serv" name="municipio_serv" required>
             <option value="">Selecciona una opción</option>
             <option value='' disabled>Tenerife</option>
             <option value='Adeje'>Adeje</option>

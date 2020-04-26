@@ -226,7 +226,7 @@
     <div class="form-group col-sm-12">
         <?php echo Form::label('tel_care', 'Teléfono Fijo:'); ?>
 
-        <?php echo Form::number('tel_care', null, ['class' => 'form-control','required' => 'required']); ?>
+        <?php echo Form::number('tel_care', null, ['class' => 'form-control']); ?>
 
     </div>
 

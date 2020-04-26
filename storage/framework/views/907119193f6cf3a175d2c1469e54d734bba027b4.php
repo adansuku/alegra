@@ -16,7 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <link href="<?php echo e(mix('css/app.css')); ?>" rel="stylesheet">
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css"
         rel="stylesheet" />

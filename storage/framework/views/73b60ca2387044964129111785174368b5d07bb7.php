@@ -1,6 +1,6 @@
 <div class="row">
     <!-- Prog Spapd Field -->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-4">
         <?php echo Form::label('prog_spapd', 'Programa:'); ?>
 
         <select class="form-control" id="prog_spapd" name="prog_spapd" required>
@@ -12,15 +12,6 @@
             <option value="Logopedia">Logopedia</option>
             <option value="Otros">Otros</option>
         </select>
-        <br>
-        <!-- Otros Programa Field -->
-        <div id="otros_programa" style="display: none;">
-            <?php echo Form::label('otros_programa', 'Otros Programa:'); ?>
-
-            <?php echo Form::text('otros_programa', null, ['class' => 'form-control']); ?>
-
-        </div>
-
         <script>
             $('#prog_spapd').on('change', function() {
                 if ($(this).val() === 'Otros') {
@@ -32,51 +23,18 @@
         </script>
     </div>
 
-
-    <div class="form-group col-sm-6">
-        <?php echo Form::label('dur_spapd', 'Dururación:'); ?>
-
-        <select class="form-control" id="dur_spapd" name="dur_spapd" required>
-            <option value="" selected disabled hidden>Elegir duración</option>
-            <option value="50">50</option>
-            <option value="60">60</option>
-            <option value="75">75</option>
-            <option value="100">100</option>
-            <option value="150">150</option>
-            <option value="Otros">Otros</option>
-        </select>
-        <br>
-        <!-- Otros Programa Field -->
-        <div id="otras_sesiones" style="display: none;">
-            <!-- Otras Sesiones Field -->
-            <?php echo Form::label('otras_sesiones', 'Otras Sesiones:'); ?>
-
-            <?php echo Form::number('otras_sesiones', null, ['class' => 'form-control']); ?>
-
-        </div>
-
-        <script>
-            $('#dur_spapd').on('change', function() {
-                if ($(this).val() === 'Otros') {
-                    $('#otras_sesiones').css('display','block');
-                }else{
-                    $('#otras_sesiones').css('display','none');
-                }
-            });
-        </script>
-    </div>
-
+    
 
     <!-- Dur Spapd Field -->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-4">
         <!-- Num Sesiones Field -->
-        <?php echo Form::label('num_sesiones', 'Número de Sesiones:'); ?>
+        <?php echo Form::label('num_sesiones', 'Número Total de Sesiones:'); ?>
 
         <?php echo Form::number('num_sesiones', null, ['class' => 'form-control','required' => 'required']); ?>
 
     </div>
 
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-4">
         <?php echo Form::label('worker_id', 'Trabajadora asociada:'); ?>
 
         <select class="form-control select2" id="worker_id" name="worker_id" required>
@@ -88,15 +46,24 @@
         </select>
     </div>
 
-    
-    
+    <!-- Otros Programa Field -->
+    <div class="form-group col-sm-12">
+        <div id="otros_programa" class="bg-secondary p-2" style="display: none;">
+            <?php echo Form::label('otros_programa', 'Otro Programa:'); ?>
 
+            <?php echo Form::text('otros_programa', null, ['class' => 'form-control']); ?>
+
+        </div>
+    </div>
+
+    <!-- Submit Field -->
+    <div class="form-group col-sm-12">
+        <?php echo Form::submit('Crear programa', ['class' => 'btn btn-primary float-right']); ?>
+
+    
+    </div>
+    
 </div>
 <!--end row-->
 
-<!-- Submit Field -->
-<div class="form-group col-sm-12">
-    <?php echo Form::submit('Crear programa', ['class' => 'btn btn-primary float-right']); ?>
-
-
-</div><?php /**PATH /var/www/resources/views/patients/create/spapd.blade.php ENDPATH**/ ?>
+<?php /**PATH /var/www/resources/views/patients/create/spapd.blade.php ENDPATH**/ ?>

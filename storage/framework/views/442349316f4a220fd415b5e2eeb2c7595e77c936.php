@@ -1,16 +1,16 @@
-<!-- Nom Servicio Field -->
-<div class="form-group">
-    <?php echo Form::label('es_primario', '¿Es el servicio primario?'); ?>
+<div class="col-lg-6">
+    <!-- Nom Servicio Field -->
+        <?php echo Form::label('es_primario', '¿Es el servicio primario?'); ?>
 
-    <?php echo Form::select('es_primario', [
-    null => '',
-    'es_primario' => 'Si',
-    'no_es_primario' => 'No',
-    ], null, ['class' => 'form-control', 'required' => 'required']); ?>
+        <?php echo Form::select('es_primario', [
+        null => '',
+        'es_primario' => 'Si',
+        'no_es_primario' => 'No',
+        ], null, ['class' => 'form-control', 'required' => 'required']); ?>
 
 </div>
 
-<div class="form-group">
+<div class="col-lg-6">
     <?php echo Form::label('service_worker_id', 'Trabajadora social responsable del caso:'); ?>
 
     <select class="form-control" id="worker_id" name="service_worker_id" required>
@@ -23,7 +23,9 @@
     </select>
 </div>
 
-<div class="form-group">
+
+
+<div class="col-lg-6">
     <?php echo Form::label('nom_servicio', 'Nombre del servicio:'); ?>
 
     <?php echo Form::select('nom_servicio', [
@@ -42,7 +44,7 @@
 
 
 
-<div class="form-group">
+<div class="col-lg-6">
     <!-- Municipio Serv Field -->
     <?php echo Form::label('municipio_serv', 'Municipio :'); ?>
 
@@ -181,7 +183,7 @@
 </div>
 
 <!-- Tipo Plaza Serv Field -->
-<div class="form-group">
+<div class="col-lg-6">
     <?php echo Form::label('tipo_plaza_serv', 'Tipo de Plaza (Señalar varias):'); ?>
 
     <?php echo Form::select('tipo_plaza_serv[]', [
@@ -196,7 +198,7 @@
 </div>
 
 <!-- Plaza Privada Serv Field -->
-<div class="form-group bg-secondary p-3" id="plaza_privada" style="display: none;">
+<div class="col-lg-6 bg-secondary p-3" id="plaza_privada" style="display: none;">
     <?php echo Form::label('plaza_privada_serv', 'Plaza Privada:'); ?>
 
     <?php echo Form::select('plaza_privada_serv[]', [
@@ -211,7 +213,7 @@
 </div>
 
 <!-- Plaza Sub Serv Field -->
-<div class="form-group bg-secondary p-3" id="Subvencionada" style="display: none;">
+<div class="col-lg-6 bg-secondary p-3" id="Subvencionada" style="display: none;">
     <?php echo Form::label('plaza_sub_serv', 'Plaza Subvencionada:'); ?>
 
     <?php echo Form::text('plaza_sub_serv', null, ['class' => 'form-control',]); ?>
@@ -229,7 +231,7 @@ $("#Subvencionada").toggle(vals.indexOf("Subvencionada")>-1);
 })
 </script>
 
-<div class="form-group">
+<div class="col-lg-6">
     <!-- Fecha Form Serv Field -->
     <?php echo Form::label('fecha_form_serv', 'Fecha Formalizacion de Servicio:'); ?>
 
@@ -239,7 +241,7 @@ $("#Subvencionada").toggle(vals.indexOf("Subvencionada")>-1);
 
 </div>
 <!-- Submit Field -->
-<div class="form-group">
+<div class="col-lg-6">
     <?php echo Form::submit('Guardar', ['class' => 'btn btn-primary float-right']); ?>
 
 </div><?php /**PATH /var/www/resources/views/patient_services/fields.blade.php ENDPATH**/ ?>
