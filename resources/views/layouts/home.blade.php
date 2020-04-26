@@ -118,6 +118,13 @@
                         <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
 
                         <!-- Nav Item - User Information -->
+                       <li class="d-flex align-items-center">
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Cerrar sesión
+                            </a>
+                       </li>
+
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
