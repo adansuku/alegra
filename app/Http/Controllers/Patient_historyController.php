@@ -53,7 +53,9 @@ class Patient_historyController extends AppBaseController
      */
     public function store(CreatePatient_historyRequest $request)
     {
+        //dd($request);
         $input = $request->all();
+       
 
         $patientHistory = $this->patientHistoryRepository->create($input);
 

@@ -15,9 +15,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string acc_fecha_realiz
  * @property string acc_tipo_accion
  * @property string acc_subtipo_accion
- * @property string acc_woker_accion
  * @property string acc_descrip
  * @property string acc_observaciones
+ * @property string persona_responsable
+ * @property string otro_acc_sub
+ * @property string destinado_a
  * @property integer patient_id
  */
 class Patient_history extends Model
@@ -35,9 +37,11 @@ class Patient_history extends Model
         'acc_fecha_realiz',
         'acc_tipo_accion',
         'acc_subtipo_accion',
-        'acc_woker_accion',
         'acc_descrip',
         'acc_observaciones',
+        'persona_responsable',
+        'destinado_a',
+        'otro_acc_sub',
         'patient_id'
     ];
 
@@ -52,9 +56,11 @@ class Patient_history extends Model
         'acc_fecha_realiz' => 'date',
         'acc_tipo_accion' => 'string',
         'acc_subtipo_accion' => 'string',
-        'acc_woker_accion' => 'string',
-        'acc_descrip',
+        'acc_descrip' => 'string',
         'acc_observaciones' => 'string',
+        'persona_responsable' => 'string',
+        'destinado_a' => 'array',
+        'otro_acc_sub' => 'string',
         'patient_id' => 'integer'
     ];
 
