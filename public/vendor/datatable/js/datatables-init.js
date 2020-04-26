@@ -199,7 +199,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/resources/js/datatables-init.js */"./resources/js/datatables-init.js");
+module.exports = __webpack_require__(/*! /Users/adangonzalezrodriguez/Documents/Proyectos/Laravel/alegra/resources/js/datatables-init.js */"./resources/js/datatables-init.js");
 
 
 /***/ })
