@@ -25,6 +25,8 @@ class ChangeAyudaSocOnPatientInfos extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('patient_infos', function (Blueprint $table) {
+            $table->string('ayuda_soc')->change();
+        });
     }
 }

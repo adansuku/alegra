@@ -25,6 +25,9 @@ class ChangeTrabajadoraSocialField extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('patients', function (Blueprint $table) {
+            $table->string('worker_id')->change();
+        });
+            
     }
 }

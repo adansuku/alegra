@@ -14,11 +14,11 @@ class AddMoreinfoToPatientInfos extends Migration
     public function up()
     {
         Schema::table('patient_infos', function (Blueprint $table) {
-            $table->string('miem_familia');
-            $table->integer('hijos');
-            $table->string('vivienda');
-            $table->string('vivienda_otros');
-            $table->string('ingresos_m');
+            $table->string('miem_familia')->nullable;
+            $table->integer('hijos')->nullable;
+            $table->string('vivienda')->nullable;
+            $table->string('vivienda_otros')->nullable;
+            $table->string('ingresos_m')->nullable;
         });
     }
 

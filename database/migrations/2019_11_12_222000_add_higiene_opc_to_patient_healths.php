@@ -14,7 +14,7 @@ class AddHigieneOpcToPatientHealths extends Migration
     public function up()
     {
         Schema::table('patient_healths', function (Blueprint $table) {
-            $table->string('higiene_opc');
+            $table->json('higiene_opc');
         });
     }
 

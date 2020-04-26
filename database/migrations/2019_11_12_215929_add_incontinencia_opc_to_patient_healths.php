@@ -14,7 +14,7 @@ class AddIncontinenciaOpcToPatientHealths extends Migration
     public function up()
     {
         Schema::table('patient_healths', function (Blueprint $table) {
-            $table->string('incontinencia_opc');
+            $table->json('incontinencia_opc');
         });
     }
 

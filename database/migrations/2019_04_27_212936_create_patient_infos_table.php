@@ -31,7 +31,7 @@ class CreatePatientInfosTable extends Migration
             $table->string('cert_disc');
             $table->string('grado_disc');
             $table->date('fecha_res_disc')->nullable();
-            $table->string('tipo_disc');
+            $table->json('tipo_disc');
             $table->string('sit_legal');
             $table->integer('patient_id')->unsigned();
             $table->timestamps();

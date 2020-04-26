@@ -19,7 +19,6 @@ class CreatePatientHistoriesTable extends Migration
             $table->date('acc_fecha_realiz')->nullable();
             $table->string('acc_tipo_accion');
             $table->string('acc_subtipo_accion');
-            $table->string('acc_woker_accion');
             $table->string('acc_descrip');
             $table->string('acc_observaciones')->nullable();
             $table->integer('patient_id')->unsigned();
