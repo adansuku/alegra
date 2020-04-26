@@ -36,6 +36,7 @@ class Patient_spapd_diaController extends AppBaseController
             $input = [];
             $postData = $request->all();
             $patient_spapd_id = (int)$request->patient_spapd_id;
+            $duracion_spapd = (int)$request->duracion_spapd;
             foreach($request->dias as $value){
                 if(trim($postData[$value])!=""){
                     $exists = Patient_spapd_dia::where('dia_spapd',$value)->where('patient_spapd_id',$patient_spapd_id);
@@ -45,7 +46,8 @@ class Patient_spapd_diaController extends AppBaseController
                     $input = [
                         'dia_spapd' => $value,
                         'fecha_inicio' => $postData[$value],
-                        'patient_spapd_id' => $patient_spapd_id
+                        'patient_spapd_id' => $patient_spapd_id,
+                        'duracion_spapd' => $duracion_spapd
                     ];
                     $patientSpapdDia = $this->patientSpapdDiaRepository->create($input);
                 }

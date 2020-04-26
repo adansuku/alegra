@@ -14,7 +14,8 @@ class Patient_spapd_dia extends Model
     public $fillable = [
         'fecha_inicio',
         'dia_spapd',
-        'patient_spapd_id'
+        'patient_spapd_id',
+        'duracion_spapd'
     ];
 
     /**
@@ -26,6 +27,7 @@ class Patient_spapd_dia extends Model
         'id' => 'integer',
         'fecha_inicio' => 'string',
         'dia_spapd' => 'string',
+        'duracion_spapd' => 'string',
         'patient_spapd_id' => 'integer'
     ];
 
