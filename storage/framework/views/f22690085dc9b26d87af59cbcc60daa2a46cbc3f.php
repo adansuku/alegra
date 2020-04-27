@@ -1,1 +1,0 @@
-<?php /**PATH /var/www/resources/views/workers/create/user_pass.blade.php ENDPATH**/ ?>
