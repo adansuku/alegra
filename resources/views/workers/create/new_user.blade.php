@@ -47,6 +47,7 @@
             @endif
         </div>
 
+       
         {!! Form::label('password', 'Contraseña:') !!}
 
         <div class="form-group row">
@@ -61,13 +62,19 @@
                 </span> @endif
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <input id="password-confirm" type="password" class="form-control form-control-user"
                     name="password_confirmation" placeholder="Repetir contraseña" required>
+            </div>
+            <div class="col-md-1 show-password">
+                <button type="button" class="btn btn-primary btn-xs" id="show-pass"><i class="fas fa-eye"></i></button>
             </div>
         </div>
 
     </div>
+
+    
+
 </div>
 
 @csrf
