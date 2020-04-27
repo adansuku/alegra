@@ -1,5 +1,5 @@
 <div class="row">
-    <!--<div class="col-sm-6">
+    <div class="col-sm-6">
 
         <div class="form-group">
             {!! Form::label('email', 'Email corporativo :') !!}
@@ -33,7 +33,7 @@
                             </div>
         </div>
 
-    </div>-->
+    </div>
     
     <div class="col-sm-6">
             <!-- Fecha Alta Field -->

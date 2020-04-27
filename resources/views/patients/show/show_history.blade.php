@@ -1,14 +1,14 @@
-<table class="table datatables" width="100%" cellspacing="0">
+<table class="table " width="100%" cellspacing="0" id="history_table">
     <thead class="thead-light">
         <tr>
-            <th width="15%">Fecha Registro</th>
-            <th width="15%">Fecha de la acción</th>
-            <th width="20%">Tipo Acción/Tarea</th>
-            <th width="10%">Subtipo Acción/Tarea</th>
-            <th width="10%">Destinado a</th>
-            <th width="10%">Descripción</th>
-            <th width="19%">Profesional Responsable</th>
-            <th width="1%">Observaciones</th>
+            <th >Fecha Registro</th>
+            <th >Fecha de la acción</th>
+            <th >Tipo Acción/Tarea</th>
+            <th >Subtipo Acción/Tarea</th>
+            <th >Destinado a</th>
+            <th >Descripción</th>
+            <th >Profesional Responsable</th>
+            <th >Observaciones</th>
         </tr>
     </thead>
 
