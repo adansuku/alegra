@@ -136,6 +136,8 @@
             <strong>{!! Form::label('cat_profesional', 'Categoría Profesional:') !!}</strong>
             <select class="form-control" id="cat_profesional" name="cat_profesional">
                 <option value="" selected disabled hidden>Selecciona una opción</option>
+                <option {{ $worker->cat_profesional == 'Pedagoga/o' ? 'selected':'' }}>Pedagoga/o</option>
+                <option {{ $worker->cat_profesional == 'Logopeda' ? 'selected':'' }}>Logopeda</option>
                 <option {{ $worker->cat_profesional == 'Psicólogo/a' ? 'selected':'' }}>Psicólogo/a</option>
                 <option {{ $worker->cat_profesional == 'Fisioterapeuta' ? 'selected':'' }}>Fisioterapeuta</option>
                 <option {{ $worker->cat_profesional == 'Terapeuta Ocupacional' ? 'selected':'' }}>Terapeuta Ocupacional
