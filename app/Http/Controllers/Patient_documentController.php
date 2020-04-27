@@ -58,7 +58,7 @@ class Patient_documentController extends AppBaseController
     {
         $input = $request->all();
         $patientDocument = $this->patientDocumentRepository->create($input);
-        $patientDocument->url = $request->file('url')->store('patient_documents/' . $patientDocument->patient_id);
+        $patientDocument->url = $request->file('url')->store($patientDocument->patient_id . '/patient_documents/documents');
         
         //dd($request->file('url'));
         //$patientDocument->url = $request->file('url')->store($patientDocument);

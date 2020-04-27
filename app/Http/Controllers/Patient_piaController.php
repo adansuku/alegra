@@ -57,6 +57,7 @@ class Patient_piaController extends AppBaseController
      */
     public function store(CreatePatient_piaRequest $request)
     {
+     
         $today = Carbon::parse($request->fecha_alta_paciente);
 
         $patientPia = new Patient_pia;
@@ -80,7 +81,7 @@ class Patient_piaController extends AppBaseController
         ]);
 
         if ($patientPia->url_pia != null) {
-            $patientPia->url_pia = $request->file('url_pia')->store('patient_documents/pia_documents' . $patientPia->patient_id);
+            $patientPia->url_pia = $request->file('url_pia')->store($patientPia->patient_id . '/patient_documents/pia_documents_' . $patientPia->patient_id);
             $patientPia->fecha_real = date('d-m-Y');
         }
 
@@ -92,6 +93,7 @@ class Patient_piaController extends AppBaseController
 
     public function pia_seguimiento(CreatePatient_piaRequest $request)
     {
+      
         
         if ($request->tipo_pia == 'Seguimiento') {
             $patientPiaLast = Patient_pia::where('tipo_pia', 'Seguimiento')
@@ -110,7 +112,7 @@ class Patient_piaController extends AppBaseController
             ]);
 
             if ($request->url_pia != null) {
-                $patientPia->url_pia = $request->file('url_pia')->store('patient_documents/pia_documents' . $request->patient_id);
+                $patientPia->url_pia = $request->file('url_pia')->store($request->id .'/patient_documents/pia_documents_' . $request->patient_id);
                 $patientPia->update();
             }
         }
@@ -171,11 +173,11 @@ class Patient_piaController extends AppBaseController
 
 
         if ($request->url_pia != "" || $request->url_pia != null) {
-            $patientPia->url_pia = $request->file('url_pia')->store('patient_documents/pia_documents' . $patientPia->patient_id);
+            $patientPia->url_pia = $request->file('url_pia')->store($patientPia->patient_id .'/patient_documents/pia_documents_' . $patientPia->patient_id);
         }
 
         if ($request->url_recepcion != "" || $request->url_recepcion != null) {
-            $patientPia->url_recepcion = $request->file('url_recepcion')->store('patient_documents/pia_documents' . $patientPia->patient_id);
+            $patientPia->url_recepcion = $request->file('url_recepcion')->store($patientPia->patient_id .'/patient_documents/pia_documents_' . $patientPia->patient_id);
         }
 
     
