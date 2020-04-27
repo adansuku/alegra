@@ -194,22 +194,8 @@ class PatientController extends AppBaseController
 
 
         $new_patient_id = $request->worker_id;
-        $old_patient_id = $patient->worker_id;
-        $worker = Worker::find($new_patient_id);
-
-        // if ($new_patient_id != $old_patient_id) {
-        //     $patient->patientHistory()->create([
-        //         'patient_id' => $patient->id,
-        //         'accion' => 'Cambio',
-        //         'tipo_accion' => 'Cambio de trabajadora social',
-        //         'des_accion' => '<b>Cambio realizado por:</b><br>' . $user->name . " " . $user->lastname,
-        //         'reg_accion' => date('d-m-Y'),
-        //         'rea_accion' => date('d-m-Y'),
-        //         'woker_accion' => $user->name . " " . $user->lastname,
-        //         'observaciones' => '<b>Anterior</b>: ' . $patient->worker->nombre . " " .  $patient->worker->apellido . '<br>
-        //         <b>Nueva</b>: ' . $worker->nombre . " " . $worker->apellido
-        //     ]);
-        // }
+        //$old_patient_id = $patient->worker_id;
+        //$worker = Worker::find($new_patient_id);
 
         $patient->patientOther()->first()->update($request->all());
         $patient->patientInfo()->first()->update($request->all());
@@ -249,25 +235,35 @@ class PatientController extends AppBaseController
      * @return Response
      */
 
-    // public function destroy($id)
-    // {
-    //     $patient = $this->patientRepository->find($id);
+    public function destroy($id)
+    {
+        $patient = $this->patientRepository->find($id);
 
-    //     if (empty($patient)) {
-    //         Flash::error('Persona no encontrada');
-    //         return redirect(route('patients.index'));
-    //     }
+        if (empty($patient)) {
+            Flash::error('Persona no encontrada');
+            return redirect(route('patients.index'));
+        }
 
-    //     $this->patientRepository->delete($id);
-    //     $patient->patientInfo()->delete();
-    //     $patient->patientOther()->delete();
-    //     $patient->patientHealth()->delete();
-    //     $patient->patientDiagnostics()->delete();
-    //     $patient->patientPatologies()->delete();
-    //     $patient->patientAllergies()->delete();
-    //     $patient->patientCarers()->delete();
+        $this->patientRepository->delete($id);
+        $patient->patientInfo()->delete();
+        $patient->patientOther()->delete();
+        $patient->patientHealth()->delete();
+        $patient->patientDiagnostics()->delete();
+        $patient->patientPatologies()->delete();
+        $patient->patientAllergies()->delete();
+        $patient->patientCarers()->delete();
+        $patient->patientHistory()->delete();
+        $patient->patientDocuments()->delete();
+        $patient->patientServices()->delete();
+        $patient->patientPia()->delete();
+        $patient->patientSpapd()->delete();
+        $patient->patientTransport()->delete();
+        $patient->patientDates()->delete();
+        $patient->patientDoctors()->delete();
+        $patient->patientMedications()->delete();
+        $patient->patientPasts()->delete();
 
-    //     Flash::success('Persona eliminada correctamente.');
-    //     return redirect(route('patients.index'));
-    // }
+        Flash::success('Persona eliminada correctamente.');
+        return redirect(route('patients.index'));
+    }
 }
