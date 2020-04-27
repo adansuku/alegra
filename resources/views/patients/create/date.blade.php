@@ -41,28 +41,24 @@
 
         <script>
             $('#fecha_paciente_id').on('change', function() {
-                $('#fecha_otros_pacientes').css('display', 'none');
-                if ($(this).val() === 'Otros') {
+                if ($(this).val() == 'Otros') {
                     $('#fecha_otros_pacientes').css('display', 'block');
-                    $("#fecha_paciente_id").removeAttr('name');
-                    $("#fecha_otros_pacientes").attr('name', 'desc_fecha_paciente');
-                    $("#fecha_otros_pacientes").attr('required', 'required');
+                    $("#fecha_paciente_id").removeAttr('name', 'desc_fecha_paciente');
+                    $("#fecha_otros_pacientes_input").attr('name', 'desc_fecha_paciente');
+                    $("#fecha_otros_pacientes_input").attr('required', 'required');
                 }
                 else{
-                    $("#fecha_otros_pacientes").removeAttr('name');
+                    $("#fecha_otros_pacientes_input").removeAttr('name','desc_fecha_paciente');
                     $("#fecha_paciente_id").attr('name', 'desc_fecha_paciente');
                 }
                  
             });
-        </script>
+        </script> 
 
 
-<div class="bg-secondary p-3" id="fecha_otros_pacientes" style="display: none;">
-        {!! Form::text('desc_fecha_paciente', null,
-        ['class' => 'form-control '
-        ]
-        ) !!}
-</div>
+        <div class="bg-secondary p-3" id="fecha_otros_pacientes" style="display: none;">
+                {!! Form::text('', null,['class' => 'form-control', 'id' => 'fecha_otros_pacientes_input']) !!}
+        </div>
 
 
     </div>
