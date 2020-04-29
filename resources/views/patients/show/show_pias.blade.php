@@ -30,14 +30,14 @@
 
         <td>
             @if($patientPia->fecha_real != NULL )
-            {{ date('d/m/yy', strtotime($patientPia->fecha_real)) }}
+            {{ date('d/m/Y', strtotime($patientPia->fecha_real)) }}
             @endif
         </td>
 
         <td>
 
             @if($patientPia->fecha_real_entrega != NULL )
-            {{ date('d/m/yy', strtotime($patientPia->fecha_real_entrega)) }}
+            {{ date('d/m/Y', strtotime($patientPia->fecha_real_entrega)) }}
             @endif
         </td>
 

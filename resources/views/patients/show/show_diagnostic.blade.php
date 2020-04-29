@@ -3,6 +3,7 @@
         <tr>
             <th>Diagnóstico</th>
             <th>Diagnostico Concreto</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -10,6 +11,13 @@
         <tr>
             <td>{!! $item->diagnostico !!}</td>
             <td>{!! implode(', ', (array)$item->diagnos_concreto) !!}</td>
+            <td class="text-right">
+                <a href="/deletediagnostic/{{$item->id}}" data-token="{{csrf_token()}}" class='btn btn-danger btn-xs'
+                    data-confirm="Seguro que quieres eliminar este pia?" 
+                    onclick="return confirm('¿Estas segura que quieres el documento?')">
+                        <i class="fas fa-trash"></i>
+                    </a>
+            </td>
         </tr>
     @endforeach
     </tbody>
