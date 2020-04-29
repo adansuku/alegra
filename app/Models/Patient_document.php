@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string cat_documentos
  * @property string nombre_doc
  * @property string url
+ * @property string fecha_documento
  * @property integer patient_id
  */
 class Patient_document extends Model
@@ -30,6 +31,7 @@ class Patient_document extends Model
         'cat_documentos',
         'nombre_doc',
         'url',
+        'fecha_documento',
         'patient_id'
     ];
 
@@ -42,6 +44,7 @@ class Patient_document extends Model
         'id' => 'integer',
         'cat_documentos' => 'string',
         'nombre_doc' => 'string',
+        'fecha_documento' => 'date',
         'url' => 'string',
         'patient_id' => 'integer'
     ];
