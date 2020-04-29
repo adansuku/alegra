@@ -156,9 +156,9 @@
     <!-- Ulcera Field -->
     <div class="form-group col-md-4">
         {!! Form::label('ulcera', 'Ulcera por presión:') !!}
-        <select class="form-control" id="type" name="ulcera">
+        <select class="form-control" id="ulcera" name="ulcera">
             <option value="">Selecciona una opción</option>
-            <option {{ $patient->patientHealth->ulcera == 'Sin Riesgo ' ? 'selected':'' }}>Sin Riesgo </option>
+            <option {{ $patient->patientHealth->ulcera == 'Sin Riesgo' ? 'selected':'' }}>Sin Riesgo</option>
             <option {{ $patient->patientHealth->ulcera == 'Medidas Preventivas' ? 'selected':'' }}>Medidas Preventivas
             </option>
             <option {{ $patient->patientHealth->ulcera == 'Medidas de Cuidado - tratamiento' ? 'selected':'' }}>Medidas
@@ -169,7 +169,7 @@
     <!-- Deambulacion Field -->
     <div class="form-group col-md-4">
         {!! Form::label('deambulacion', 'Deambulación Errante:') !!}
-        <select class="form-control" id="type" name="deambulacion">
+        <select class="form-control" id="ulcera" name="deambulacion">
             <option value="">Selecciona una opción</option>
             <option {{ $patient->patientHealth->deambulacion == 'Si' ? 'selected':'' }}>Si</option>
             <option {{ $patient->patientHealth->deambulacion == 'No' ? 'selected':'' }}>No</option>
@@ -204,7 +204,7 @@
         <!-- Observaciones Hidratación -->
         <div class="form-group bg-secondary p-3" id="hidratacion_observ_cont" hidden="hidden">
             {!! Form::label('hidratacion_observ', 'Observaciones:') !!}
-            {!! Form::text('hidratacion_observ', null, ['class' => 'form-control']) !!}
+            {!! Form::text('hidratacion_observ', $patient->patientHealth->hidratacion_observ, ['class' => 'form-control']) !!}
         </div>
     </div>
 
