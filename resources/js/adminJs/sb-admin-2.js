@@ -71,7 +71,9 @@ $(document).ready(function() {
             }
         },
         "autoWidth": true,
-        dom: '<"row tools-datatables"  > + rt + < <"col-lg-12 pagination" p> >',
+        dom: ' <"col-md-6 search-datatables p-0" f>',
+
+
         language: {
             "searchPlaceholder": "Buscar...",
             "sProcessing": "Procesando...",
