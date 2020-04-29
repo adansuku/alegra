@@ -36,7 +36,13 @@ Route::get('/spapddiadelete/{id}', 'Patient_spapd_diaController@destroy');
 Route::get('/transportdelete/{id}', 'Patient_transportController@destroy');
 Route::get('/pastdelete/{id}', 'Patient_pastController@destroy');
 Route::get('/medicationdelete/{id}', 'Patient_medicationController@destroy');
+
+Route::get('/deletediagnostic/{id}', 'Patient_diagnosticController@destroy');
+Route::get('/deleteallergy/{id}', 'Patient_allergyController@destroy');
+Route::get('/deletepatology/{id}', 'Patient_patologyController@destroy');
+
 Route::get('/deletedocument/{id}', 'Patient_documentController@destroy');
+Route::get('/deletedate/{id}', 'Patient_dateController@destroy');
 
 Route::post('addpia/{id}', ['as' => 'pia_seg.create', 'uses' => 'Patient_piaController@pia_seguimiento']);
 
