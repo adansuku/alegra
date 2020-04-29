@@ -150,6 +150,7 @@ class Patient_diagnosticController extends AppBaseController
 
         Flash::success('Patient Diagnostic deleted successfully.');
 
-        return redirect(route('patientDiagnostics.index'));
+        // return redirect(route('patientDiagnostics.index'));
+        return redirect()->to(url()->previous() . '#diagnostic');
     }
 }

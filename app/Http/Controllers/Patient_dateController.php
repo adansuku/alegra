@@ -150,6 +150,7 @@ class Patient_dateController extends AppBaseController
 
         Flash::success('Patient Date deleted successfully.');
 
-        return redirect(route('patientDates.index'));
+        //return redirect(route('patientDates.index'));
+        return redirect()->to(url()->previous() . '#social_info');
     }
 }

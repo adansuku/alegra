@@ -99,14 +99,13 @@
                 </div>
 
                 <div class="tab-pane" id="carer" role="tabpanel">
-                    <div class="row">
-                        <div class="col-lg-12 float-right mb-3">
+                  
+                        <div class="col-lg-6 float-right mb-3">
                             <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
                                 data-target="#carer_modal">
                                 Añadir Persona de Referencia <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
-                    </div>
 
                     @include('patients.show.show_carer')
 
@@ -201,14 +200,14 @@
                 </div>
 
                 <div class="tab-pane" id="documents" role="tabpanel">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+
+                        <div class="col-lg-6 float-right mb-3">
+                            <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
                                 data-target="#documents_modal" data-id={{$patient->id}}>
                                 Añadir documento <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
-                    </div>
+             
                     @include('patients.show.show_documents')
                 </div>
 

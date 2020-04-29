@@ -36,34 +36,40 @@
         </select>
     </div>
 
-    <!-- Nivel Dep Field -->
-    {{-- <div class="form-group col-sm-4">
-        {!! Form::label('nivel_dep', 'Nivel Dependencia:') !!}
-        <select class="form-control" id="type" name="nivel_dep">
-            <option {{ $patient->patientInfo->nivel_dep == 'Nivel 1' ? 'selected':'' }}>Nivel 1</option>
-            <option {{ $patient->patientInfo->nivel_dep == 'Nivel 2' ? 'selected':'' }}>Nivel 2</option>
-            <option {{ $patient->patientInfo->nivel_dep == 'Nivel 3' ? 'selected':'' }}>Nivel 3</option>
-        </select>
-    </div> --}}
+
 
     <!-- Ayuda Dep Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('ayuda_dep', 'Tipo de Ayuda:') !!} 
         {!! Form::select('ayuda_dep', 
-        ['PEVS' => 'PEVS', 'PECEF' => 'PECEF', 'PEAE' => 'PEAE', 'Otras' => ' Otras'], null, 
-        ['class' => 'form-control', 'onchange' =>'showInput(this.value, this.id);']) !!} 
-        @if ($patient->patientInfo->ayuda_dep == "Otras")
+        [null => '', 'PNC' => 'PNC','PEVS' => 'PEVS', 'PECEF' => 'PECEF', 'PEAE' => 'PEAE', 'Otras' => ' Otras'], $patient->patientInfo->ayuda_dep, 
+        ['class' => 'form-control', 'id' => 'ayuda_dep']) !!} 
+        
+     
+
+
+        {{-- @if ($patient->patientInfo->ayuda_dep != 'PEVS' || $patient->patientInfo->ayuda_dep != 'PECEF' || $patient->patientInfo->ayuda_dep != 'PEAE'  )
         <script>
-            $(document).ready(function() {
-                $('#ayuda_dep_cont').removeAttr('hidden');
-            });
+            $(document).ready(function(){
+                    $('#otras_ayudas_dep').css('display', 'block');
+                    
+                });
         </script>
         @endif
 
-        <div class="p-3 bg-secondary" id="ayuda_dep_cont" hidden="hidden">
-            {!! Form::label('ayudaDep', 'Otros (especificar):') !!} {!! Form::text('ayudaDep', $patient->patientInfo->ayuda_dep, ['class' => 'form-control', 'name' => 'ayuda_dep', 'placeholder' => 'Cuáles?']) !!}
-        </div>
+
+
+
+        <div class="p-3 bg-secondary" id="ayuda_dep_cont" style="display: none">
+            {!! Form::label('ayudaDep2', 'Otros (especificar):') !!} 
+            {!! Form::text('', $patient->patientInfo->ayuda_dep, ['class' => 'form-control', 'name' => 'ayuda_dep', 'placeholder' => 'Cuáles?', 'id' => 'otras_ayudas_dep']) !!}
+        </div> --}}
     </div>
+
+
+
+
+
 
     <!-- Cuantia Field -->
     <div class="form-group col-sm-4">
@@ -105,6 +111,7 @@
                     <th>Fecha</th>
                     <th>Descripción</th>
                     <th>Documento</th>
+                    <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -113,6 +120,11 @@
                     <td>{{ date('d/m/Y', strtotime($item->fecha_paciente)) }}</td>
                     <td>{!! $item->desc_fecha_paciente !!}</td>
                     <td>{!! $item->documento_fecha_paciente !!}</td>
+                    <td><a href="/deletedate/{{$item->id}}" data-token="{{csrf_token()}}" class='btn btn-danger btn-xs'
+                        data-confirm="Seguro que quieres eliminar este pia?" 
+                        onclick="return confirm('¿Estas segura que quieres la fecha?')">
+                            <i class="fas fa-trash"></i>
+                        </a></td>
                 </tr>
                 @endforeach
             </tbody>

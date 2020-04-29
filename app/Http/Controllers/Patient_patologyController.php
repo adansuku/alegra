@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePatient_patologyRequest;
 use App\Repositories\Patient_patologyRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Patient;
 use Flash;
 use Response;
 
@@ -151,6 +152,7 @@ class Patient_patologyController extends AppBaseController
 
         Flash::success('Patient Patology deleted successfully.');
 
-        return redirect(route('patientPatologies.index'));
+        // return redirect(route('patientPatologies.index'));
+        return redirect()->to(url()->previous() . '#diagnostic');
     }
 }

@@ -81,7 +81,7 @@ class Patient_piaController extends AppBaseController
         ]);
 
         if ($patientPia->url_pia != null) {
-            $patientPia->url_pia = $request->file('url_pia')->store($patientPia->patient_id . '/patient_documents/pia_documents_' . $patientPia->patient_id);
+            $patientPia->url_pia = $request->file('url_pia')->store($patientPia->patient_id . '/patient_documents/pia_documents_');
             $patientPia->fecha_real = date('d-m-Y');
         }
 
@@ -112,7 +112,7 @@ class Patient_piaController extends AppBaseController
             ]);
 
             if ($request->url_pia != null) {
-                $patientPia->url_pia = $request->file('url_pia')->store($request->id .'/patient_documents/pia_documents_' . $request->patient_id);
+                $patientPia->url_pia = $request->file('url_pia')->store($request->id .'/patient_documents/pia_documents_');
                 $patientPia->update();
             }
         }
@@ -164,6 +164,8 @@ class Patient_piaController extends AppBaseController
     {
         $patientPia = $this->patientPiaRepository->find($id);
 
+        //dd($patientPia->pia_url);
+
         if (empty($patientPia)) {
             Flash::error('Patient Pia not found');
             return redirect(route('patientPias.index'));
@@ -173,11 +175,11 @@ class Patient_piaController extends AppBaseController
 
 
         if ($request->url_pia != "" || $request->url_pia != null) {
-            $patientPia->url_pia = $request->file('url_pia')->store($patientPia->patient_id .'/patient_documents/pia_documents_' . $patientPia->patient_id);
+            $patientPia->url_pia = $request->file('url_pia')->store($patientPia->patient_id .'/patient_documents/pia_documents_');
         }
 
         if ($request->url_recepcion != "" || $request->url_recepcion != null) {
-            $patientPia->url_recepcion = $request->file('url_recepcion')->store($patientPia->patient_id .'/patient_documents/pia_documents_' . $patientPia->patient_id);
+            $patientPia->url_recepcion = $request->file('url_recepcion')->store($patientPia->patient_id .'/patient_documents/pia_documents_');
         }
 
     

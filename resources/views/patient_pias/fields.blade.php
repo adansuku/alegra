@@ -1,11 +1,14 @@
 <div class="row">
+
+
+{{-- @php(var_dump($patientPia->patient->url_pia)); --}}
     <div class="col-sm-6">
         <!-- Url Pia Field -->
         <div class="form-group col-sm-12">
             <div class="h6">
                 <strong>{!! Form::label('url_pia', 'Adjunto Informe PIA') !!}</strong>
             </div>
-            {!! Form::file('url_pia') !!}
+            {!! Form::file('url_pia', null,['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group col-sm-12">

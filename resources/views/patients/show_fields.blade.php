@@ -335,7 +335,7 @@
                 </div><!-- end diagnosticos-->
 
                 <div class="col-lg-6">
-                    <h5><strong>Otras Patología/s Importantes</strong></h5>
+                    <h5><strong>Otras Patologías Importantes</strong></h5>
                     <hr>
                     @include('patients.show.show_patology')
 
@@ -393,14 +393,14 @@
 
                             <td>
                                 @if($patientPia->fecha_real != null )
-                                {{ date('d/m/yy', strtotime($patientPia->fecha_real)) }}
+                                {{ date('d/m/Y', strtotime($patientPia->fecha_real)) }}
                                 @endif
                             </td>
 
                             <td>
 
                                 @if($patientPia->fecha_real != null )
-                                {{ date('d/m/yy', strtotime($patientPia->fecha_real_entrega)) }}
+                                {{ date('d/m/Y', strtotime($patientPia->fecha_real_entrega)) }}
                                 @endif
                             </td>
 

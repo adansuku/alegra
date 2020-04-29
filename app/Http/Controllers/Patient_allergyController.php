@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePatient_allergyRequest;
 use App\Repositories\Patient_allergyRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Patient;
 use Flash;
 use Response;
 
@@ -151,6 +152,7 @@ class Patient_allergyController extends AppBaseController
 
         Flash::success('Patient Allergy deleted successfully.');
 
-        return redirect(route('patientAllergies.index'));
+        // return redirect(route('patientAllergies.index'));
+        return redirect()->to(url()->previous() . '#diagnostic');
     }
 }

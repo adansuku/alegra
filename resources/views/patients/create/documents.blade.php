@@ -1,6 +1,6 @@
 <div class="row">
     <!-- Cat Documentos Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     {!! Form::label('cat_documentos', 'Tipo de Documento:') !!}
     {!! Form::select('cat_documentos', [
         '' => '',
@@ -20,6 +20,7 @@
             'id' => 'cat_documentos'
             ]) !!}
 </div>
+
 
 <!--
 <script>
@@ -177,7 +178,8 @@
 </script> 
 
 
-<div class="form-group col-sm-6">
+
+<div class="form-group col-sm-4">
     {!! Form::label('nombre_doc', 'Nombre de Documento:') !!}
 
     {!! Form::select('', [
@@ -196,6 +198,7 @@
 
     {!! Form::select('', [
         // 'Ficha de recogida de datos básicos' => 'Ficha de recogida de datos básicos',
+        'Ficha de acogida' => 'Ficha de acogida',
         'Solicitud de plaza' => 'Solicitud de plaza',
         'LOPD usuarios/as, cesión de imagen y otros' => 'LOPD usuarios/as, cesión de imagen y otros',
         'Ficha de registro de socios/as' => 'Ficha de registro de socios/as',
@@ -327,6 +330,18 @@
 
 </div>
 
+<div class="form-group col-sm-4">
+    {!! Form::label('fecha_documento', 'Fecha del documento:') !!}
+    {!! Form::date('fecha_documento', null, ['class' => 'form-control','id'=>'fecha_documento']) !!}
+</div>
+@section('scripts')
+<script type="text/javascript">
+    $('#fecha_documento').datetimepicker({
+            format: 'DD-MM-YYYY',
+            useCurrent: false
+        })
+</script>
+@endsection
 
 
 <!-- Url Field -->
