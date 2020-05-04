@@ -162,7 +162,6 @@
             break;
             case val == 'Neurológico':
                     $("#neuro_content").removeAttr('hidden').show();
-                    // $("#diagnos_concreto_cont").removeAttr('hidden').show();
                     $("#demencia_content").attr('hidden', 'hidden').hide();
                     $("#diver_fisica_content").attr('hidden', 'hidden').hide();
                     $("#diversidad_intel_content").attr('hidden', 'hidden').hide();
@@ -182,7 +181,6 @@
             break;
             case val == 'Diversidad Física':
                     $("#diver_fisica_content").removeAttr('hidden').show();
-                    // $("#diagnos_concreto_cont").removeAttr('hidden').show();
                     $("#demencia_content").attr('hidden', 'hidden').hide();
                     $("#neuro_content").attr('hidden', 'hidden').hide();
                     $("#diversidad_intel_content").attr('hidden', 'hidden').hide();
@@ -202,7 +200,6 @@
             break;
             case val == 'Diversidad Intelectual':
                     $("#diversidad_intel_content").removeAttr('hidden').show();
-                    // $("#diagnos_concreto_cont").removeAttr('hidden').show();
                     $("#demencia_content").attr('hidden', 'hidden').hide();
                     $("#neuro_content").attr('hidden', 'hidden').hide();
                     $("#diver_fisica_content").attr('hidden', 'hidden').hide();
@@ -222,7 +219,6 @@
             break;
             case val == 'Diversidad Psíquico-Afectivo':
                     $("#diver_psiqAfect_content").removeAttr('hidden').show();
-                    // $("#diagnos_concreto_cont").removeAttr('hidden').show();
                     $("#demencia_content").attr('hidden', 'hidden').hide();
                     $("#neuro_content").attr('hidden', 'hidden').hide();
                     $("#diver_fisica_content").attr('hidden', 'hidden').hide();
@@ -242,7 +238,6 @@
             break;
             case val == 'Cardiopatías':
                     $("#cardio_content").removeAttr('hidden').show();
-                    // $("#diagnos_concreto_cont").removeAttr('hidden').show();
                     $("#demencia_content").attr('hidden', 'hidden').hide();
                     $("#neuro_content").attr('hidden', 'hidden').hide();
                     $("#diver_fisica_content").attr('hidden', 'hidden').hide();
@@ -262,7 +257,6 @@
             break;
             case val == 'Prob. Respiratorios':
                     $("#prob_resp_content").removeAttr('hidden').show();
-                    // $("#diagnos_concreto_cont").removeAttr('hidden').show();
                     $("#demencia_content").attr('hidden', 'hidden').hide();
                     $("#neuro_content").attr('hidden', 'hidden').hide();
                     $("#diver_fisica_content").attr('hidden', 'hidden').hide();

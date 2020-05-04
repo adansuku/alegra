@@ -43,45 +43,37 @@
 
 
 
-        <select class="form-control" id="nivel_educativo" name="nivel_educativo"
-            onchange="showInput(this.value, this.id);">
-            <option {{ $patient->patientInfo->nivel_educativo == 'No sabe leer y escribir' ? 'selected':'' }}>Selecciona una opcion</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'No sabe leer y escribir' ? 'selected':'' }}>No sabe
-                leer y escribir</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Sabe leer y escribir' ? 'selected':'' }}>Sabe leer y
-                escribir </option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Primarios' ? 'selected':'' }}>Primarios</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Secundarios' ? 'selected':'' }}>Secundarios</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Bachillerato' ? 'selected':'' }}>Bachillerato</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Formación Profesional grado medio' ? 'selected':'' }}>
-                Formación Profesional grado medio</option>
-            <option
-                {{ $patient->patientInfo->nivel_educativo == 'Formación Profesional grado superior' ? 'selected':'' }}>
-                Formación Profesional grado superior</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Estudios Universitarios' ? 'selected':'' }}>Estudios
-                Universitarios</option>
-            <option {{ $patient->patientInfo->nivel_educativo == 'Otros' ? 'selected':''}}>Otros</option>
+        {!! Form::select('nivel_educativo', 
+        [
+        null => 'Selecciona una opcion',
+        'No sabe leer y escribir' => 'No sabe leer y escribir', 
+        'Sabe leer y escribir' => 'Sabe leer y escribir', 
+        'Primarios' => 'Primarios', 
+        'Secundarios' => 'Secundarios', 
+        'Formación Profesional grado medio' => 'Formación Profesional grado medio', 
+        'Formación Profesional grado superior' => 'Formación Profesional grado superior',
+        'Bachillerato' => 'Bachillerato', 
+        'Estudios Universitarios' => 'Estudios Universitarios'], 
+        $patient->patientInfo->nivel_educativo, ['class' => 'form-control', 'id' => 'nivel_educativo']) !!}
 
-        </select>
-
-        @if (
-        $patient->patientInfo->nivel_educativo != "No sabe leer y escribir" ||
-        $patient->patientInfo->nivel_educativo != "Sabe leer y escribir" ||
-        $patient->patientInfo->nivel_educativo != "Graduado Escolar" ||
-        $patient->patientInfo->nivel_educativo != "Bachillerato" ||
-        $patient->patientInfo->nivel_educativo != "Formación Profesional grado medio" ||
-        $patient->patientInfo->nivel_educativo != "Formación Profesional grado superior" ||
-        $patient->patientInfo->nivel_educativo != "Estudios Universitarios"
-        )
-        <script>
-            $(document).ready(function(){
-                    $('#nivel_educativo_cont').removeAttr('hidden');
-                    $("#nivel_educativo option").each(function(){
-                        if ($(this).text() == "Otros")
-                        $(this).attr("selected","selected");
+        {{-- @if (
+            $patient->patientInfo->nivel_educativo != "No sabe leer y escribir" ||
+            $patient->patientInfo->nivel_educativo != "Sabe leer y escribir" ||
+            $patient->patientInfo->nivel_educativo != "Graduado Escolar" ||
+            $patient->patientInfo->nivel_educativo != "Bachillerato" ||
+            $patient->patientInfo->nivel_educativo != "Formación Profesional grado medio" ||
+            $patient->patientInfo->nivel_educativo != "Formación Profesional grado superior" ||
+            $patient->patientInfo->nivel_educativo != "Estudios Universitarios"
+            )
+            <script>
+                $(document).ready(function(){
+                        $('#nivel_educativo_cont').removeAttr('hidden');
+                        $("#nivel_educativo option").each(function(){
+                            if ($(this).text() == "Otros")
+                            $(this).attr("selected","selected");
+                        });
                     });
-                });
-        </script>
+            </script>
         @endif
 
         <div class="p-3 bg-secondary" id="nivel_educativo_cont" hidden="hidden">
@@ -89,13 +81,14 @@
             {!! Form::text('nivelEducativo', $patient->patientInfo->nivel_educativo, ['class' => 'form-control', 'name'
             =>
             'nivel_educativo']) !!}
-        </div>
+        </div> --}}
+
     </div>
 
     <!-- Estudios End Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('estudios_end', 'Estudios finalizados:') !!}
-        <select class="form-control" id="type" name="estudios_end">
+        <select class="form-control" id="estudios_end" name="estudios_end">
             <option {{ $patient->patientInfo->estudios_end == 'Si' ? 'selected':'' }}>Si</option>
             <option {{ $patient->patientInfo->estudios_end == 'No' ? 'selected':'' }}>No</option>
         </select>
@@ -115,17 +108,15 @@
 
 
         {!! Form::label('ingresos_proced', 'Procedencia Ingresos:') !!}
-        <select class="form-control" id="ingresos_proced" name="ingresos_proced">
-            <option {{ $patient->patientInfo->ingresos_proced == 'Selecciona una opción' ? 'selected':'' }}>Selecciona
-                una opción</option>
-            <option {{ $patient->patientInfo->ingresos_proced == 'Salario' ? 'selected':'' }}>Salario</option>
-            <option {{ $patient->patientInfo->ingresos_proced == 'Jubilacion,' ? 'selected':'' }}>Jubilacion</option>
-            <option {{ $patient->patientInfo->ingresos_proced == 'Viudedad,' ? 'selected':'' }}>Viudedad</option>
-            <option {{ $patient->patientInfo->ingresos_proced == 'PNC,' ? 'selected':'' }}>PNC</option>
-            <option {{ $patient->patientInfo->ingresos_proced == 'Otros(especificar)' ? 'selected':'' }}>
-                Otros(especificar)</option>
-        </select>
-
+        {!! Form::select('ingresos_proced', [
+             null => 'Selecciona una opción',
+            'Salario' => 'Salario',
+            'Jubilacion' => 'Jubilacion',
+            'Viudedad' => 'Viudedad',
+            'PNC' => 'PNC',
+            'Otros' => 'Otros(especificar)'],
+            $patient->patientInfo->ingresos_proced, ['class' => 'form-control', 'id' => 'ingresos_proced'])
+        !!}
 
 
 
@@ -138,7 +129,7 @@
         @push('scripts')
         <script>
             $('#ingresos_proced').on('change', function() {
-                if ($(this).val() == 'Otros(especificar)' ) {
+                if ($(this).val() == 'Otros' ) {
                     $('#ingresos_proced_cont').css('display', 'block');
                 }else{
                     $('#ingresos_proced_cont').css('display', 'none');
@@ -172,7 +163,7 @@
     <!-- Lee Escribe Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('¿Lee y escribe ahora?', '¿Lee y escribe ahora?:') !!}
-        <select class="form-control" id="type" name="lee_escribe">
+        <select class="form-control" id="lee_escribe" name="lee_escribe">
             <option {{ $patient->patientInfo->lee_escribe == 'Si' ? 'selected':'' }}>Si</option>
             <option {{ $patient->patientInfo->lee_escribe == 'No' ? 'selected':'' }}>No</option>
         </select>

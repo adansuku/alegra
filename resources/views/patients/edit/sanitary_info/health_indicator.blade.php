@@ -67,6 +67,7 @@
             'Supervisión en la Deambulación' => 'Supervisión en la Deambulación',
             'Ayuda fí­sica parcial' => 'Ayuda fí­sica parcial',
             'Ayuda fí­sica total' => 'Ayuda fí­sica total',
+            'Usuario/a con andador' => 'Usuario/a con andador',
             'Usuario/a de silla de ruedas' => 'Usuario/a de silla de ruedas'],
             $patient->patientHealth->riesgo_caida_opc, ['class' => 'form-control select2', 'multiple' => 'multiple'])!!}
         </div>
@@ -169,7 +170,7 @@
     <!-- Deambulacion Field -->
     <div class="form-group col-md-4">
         {!! Form::label('deambulacion', 'Deambulación Errante:') !!}
-        <select class="form-control" id="ulcera" name="deambulacion">
+        <select class="form-control" id="deambulacion" name="deambulacion">
             <option value="">Selecciona una opción</option>
             <option {{ $patient->patientHealth->deambulacion == 'Si' ? 'selected':'' }}>Si</option>
             <option {{ $patient->patientHealth->deambulacion == 'No' ? 'selected':'' }}>No</option>

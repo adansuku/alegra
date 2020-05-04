@@ -2,24 +2,22 @@
     <!-- Situacion Dep Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('situacion_dep', 'Situacion dependencia:') !!}
-        <select class="form-control" id="type" name="situacion_dep">
-            <option {{ $patient->patientInfo->situacion_dep == 'No Solicitada' ? 'selected':'' }}>No Solicitada
-            </option>
-            <option {{ $patient->patientInfo->situacion_dep == 'Solicitada' ? 'selected':'' }}>Solicitada</option>
-            <option {{ $patient->patientInfo->situacion_dep == 'Resolución de Grado' ? 'selected':'' }}>Resolución
-                de
-                Grado</option>
-            <option {{ $patient->patientInfo->situacion_dep == 'Espera PIA' ? 'selected':'' }}>Espera PIA</option>
-            <option {{ $patient->patientInfo->situacion_dep == 'Disfruta Prestacíon/Servicio' ? 'selected':'' }}>
-                Disfruta
-                Prestación/Servicio</option>
-        </select>
+
+
+        {!! Form::select('situacion_dep', 
+        [null => '', 
+        'No Solicitada' => 'No Solicitada',
+        'Solicitada' => 'Solicitada', 
+        'Resolución de Grado' => 'Resolución de Grado', 
+        'Espera PIA' => 'Espera PIA', 
+        'Disfruta Prestación/Servicio' => ' Disfruta Prestación/Servicio'], $patient->patientInfo->situacion_dep, 
+        ['class' => 'form-control', 'id' => 'situacion_dep']) !!} 
     </div>
 
     <!-- Grado Dep Field -->
     <div class="form-group col-sm-4">
         {!! Form::label('grado_dep', 'Grado Dependencia:') !!}
-        <select class="form-control" id="type" name="grado_dep">
+        <select class="form-control" id="grado_dep" name="grado_dep">
             <option {{ $patient->patientInfo->grado_dep == 'Sin Grado' ? 'selected':'' }}>Sin Grado</option>
             <option {{ $patient->patientInfo->grado_dep == 'I' ? 'selected':'' }}>I</option>
             <option {{ $patient->patientInfo->grado_dep == 'II' ? 'selected':'' }}>II</option>
@@ -44,26 +42,6 @@
         {!! Form::select('ayuda_dep', 
         [null => '', 'PNC' => 'PNC','PEVS' => 'PEVS', 'PECEF' => 'PECEF', 'PEAE' => 'PEAE', 'Otras' => ' Otras'], $patient->patientInfo->ayuda_dep, 
         ['class' => 'form-control', 'id' => 'ayuda_dep']) !!} 
-        
-     
-
-
-        {{-- @if ($patient->patientInfo->ayuda_dep != 'PEVS' || $patient->patientInfo->ayuda_dep != 'PECEF' || $patient->patientInfo->ayuda_dep != 'PEAE'  )
-        <script>
-            $(document).ready(function(){
-                    $('#otras_ayudas_dep').css('display', 'block');
-                    
-                });
-        </script>
-        @endif
-
-
-
-
-        <div class="p-3 bg-secondary" id="ayuda_dep_cont" style="display: none">
-            {!! Form::label('ayudaDep2', 'Otros (especificar):') !!} 
-            {!! Form::text('', $patient->patientInfo->ayuda_dep, ['class' => 'form-control', 'name' => 'ayuda_dep', 'placeholder' => 'Cuáles?', 'id' => 'otras_ayudas_dep']) !!}
-        </div> --}}
     </div>
 
 

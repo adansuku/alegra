@@ -1,7 +1,7 @@
 <!-- Prog Spapd Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('prog_spapd', 'Prog Spapd:') !!}
-    {!! Form::select('prog_spapd', ['Estimulación Cognitiva (EC)' => 'Estimulación Cognitiva (EC)', ' Fisioterapia' => ' Fisioterapia', ' Apoyo Emocional' => ' Apoyo Emocional', ' Terapia Ocupacional' => ' Terapia Ocupacional', ' Logopedia' => ' Logopedia', ' Otros' => ' Otros'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('prog_spapd', ['Estimulación Cognitiva (EC)' => 'Estimulación Cognitiva (EC)', 'Fisioterapia' => ' Fisioterapia', 'Apoyo Emocional' => 'Apoyo Emocional', 'Terapia Ocupacional' => 'Terapia Ocupacional', 'Logopedia' => 'Logopedia', 'Otros' => 'Otros'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Otros Programa Field -->

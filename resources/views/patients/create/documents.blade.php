@@ -197,7 +197,7 @@
 
 
     {!! Form::select('', [
-        // 'Ficha de recogida de datos básicos' => 'Ficha de recogida de datos básicos',
+        'Ficha de datos básicos' => 'Ficha de datos básicos',
         'Ficha de acogida' => 'Ficha de acogida',
         'Solicitud de plaza' => 'Solicitud de plaza',
         'LOPD usuarios/as, cesión de imagen y otros' => 'LOPD usuarios/as, cesión de imagen y otros',

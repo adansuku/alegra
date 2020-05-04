@@ -41,7 +41,7 @@
 
         <!-- Genero Field -->
         <p>{!! Form::label('genero', 'Género:') !!}
-            <select class="form-control" id="type" name="genero">
+            <select class="form-control" id="genero" name="genero">
                 <option value="">Selecciona una opción</option>
                 <option {{ $patient->genero == 'Hombre' ? 'selected':'' }}>Hombre</option>
                 <option {{ $patient->genero == 'Mujer' ? 'selected':'' }}>Mujer</option>
@@ -65,7 +65,7 @@
         <!-- Estado Civil Field -->
         <p>{!! Form::label('estado_civil', 'Estado Civil:') !!}
             {{$patient->estado_civil}}
-            <select class="form-control" id="type" name="estado_civil">
+            <select class="form-control" id="estado_civil" name="estado_civil">
 
                 <option value="">Selecciona una opción</option>
                 <option {{ $patient->estado_civil == 'Soltera/o' ? 'selected':'' }}>Soltera/o</option>
@@ -293,7 +293,7 @@
 
         <script>
             $("#convive_con").on('change', function(){
-                if ($('#convive_con').val() == 'Otros') {
+                if ($('#convive_con ').val() == 'Otros') {
                     $('#otro_parent').css('display', 'block');
                     $('#otros_parentesco').attr('required', 'required');
                 } else {
@@ -309,17 +309,9 @@
             'otros_parentesco']) !!}
         </p>
 
-        {{-- @if(in_array('Otros', $patient->convive_con))
-        <p class="bg-secondary p-3" id="otro_parent">
-            {!! Form::label('otros_parentesco', 'Otros (especificar):') !!}
-            {!! Form::text('otros_parentesco', $patient->otros_parentesco, ['class' => 'form-control', 'id' =>
-            'otros_parentesco']) !!}
-        </p>
-        @endif --}}
-
         <!--  Dependencia Field -->
         <p>{!! Form::label('worker_id', 'Trabajadora social gestora del caso:') !!}
-            <select class="form-control select2" id="worker_id" name="worker_id[]" required multiple="multiple">
+            <select class="form-control select2" id="trabajadora_social" name="worker_id[]" required multiple="multiple">
                 @foreach($workers as $worker)
                 @if ($worker->cat_profesional == 'Trabajadora Social')
 

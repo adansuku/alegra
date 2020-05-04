@@ -5,7 +5,9 @@
     <div class="form-group col-sm-6">
         <p>
             {!! Form::label('med_centro', 'Medicación en Centro:') !!}
-            {!! Form::select('med_centro', ['Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
+            {!! Form::select('med_centro', ['Si' => 'Si', 'No' => 'No'], $patient->patientHealth->med_centro, ['class' => 'form-control']) !!}
+
+           
         </p>
     </div>
 

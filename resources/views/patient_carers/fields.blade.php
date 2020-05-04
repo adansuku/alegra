@@ -89,7 +89,7 @@
     <!-- Municipio Care Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('municipio_carer', 'Municipio:') !!}
-        <select class="form-control select2" id="municipio" name="municipio_carer">
+        <select class="form-control select2" id="municipio_carer" name="municipio_carer">
             <option value="">Selecciona un municipio</option>
             <option value="" disabled>Tenerife</option>
             <option {{ $patientCarer->municipio_carer == 'Adeje' ? 'selected':'' }}>Adeje</option>

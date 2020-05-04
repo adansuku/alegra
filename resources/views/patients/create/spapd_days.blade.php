@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="form-group col-sm-4">
-        <select class="form-control inicio_lunes" id="duracion_spapd" name="duracion_spapd" required disabled>
+        <select class="form-control inicio_lunes"  name="duracion_spapd" required disabled>
             <option value="" selected disabled hidden>Elegir duración</option>
             <option value="50">50</option>
             <option value="60">60</option>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="form-group col-sm-4">
-        <select class="form-control inicio_martes" id="duracion_spapd" name="duracion_spapd" required disabled>
+        <select class="form-control inicio_martes"  name="duracion_spapd" required disabled>
             <option value="" selected disabled hidden>Elegir duración</option>
             <option value="50">50</option>
             <option value="60">60</option>
@@ -93,7 +93,7 @@
     </div>
 
     <div class="form-group col-sm-4">
-        <select class="form-control inicio_miercoles" id="duracion_spapd" name="duracion_spapd" required disabled>
+        <select class="form-control inicio_miercoles"  name="duracion_spapd" required disabled>
             <option value="" selected disabled hidden>Elegir duración</option>
             <option value="50">50</option>
             <option value="60">60</option>
@@ -127,7 +127,7 @@
     </div>
 
     <div class="form-group col-sm-4">
-        <select class="form-control inicio_jueves" id="duracion_spapd" name="duracion_spapd" required disabled>
+        <select class="form-control inicio_jueves"  name="duracion_spapd" required disabled>
             <option value="" selected disabled hidden>Elegir duración</option>
             <option value="50">50</option>
             <option value="60">60</option>
@@ -159,7 +159,7 @@
     </div>
 
     <div class="form-group col-sm-4">
-        <select class="form-control inicio_viernes" id="duracion_spapd" name="duracion_spapd" required disabled>
+        <select class="form-control inicio_viernes"  name="duracion_spapd" required disabled>
             <option value="" selected disabled hidden>Elegir duración</option>
             <option value="50">50</option>
             <option value="60">60</option>

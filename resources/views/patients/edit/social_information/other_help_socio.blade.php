@@ -51,7 +51,7 @@
 <!-- Tipo Disc Field -->
 <div class="form-group col-sm-4 discapacidad bg-secondary py-3"" style=" display: none;">
     {!! Form::label('tipo_disc', 'Tipo Discapacidad:') !!}
-    <select class="form-control select2" id="type" name="tipo_disc[]" multiple>
+    <select class="form-control select2" id="tipo_disc" name="tipo_disc[]" multiple>
         <option {{ in_array('Intelectual', $patient->patientInfo->tipo_disc) ? 'selected':'' }}>Intelectual</option>
         <option {{ in_array('Física', $patient->patientInfo->tipo_disc) ? 'selected':'' }}>Física</option>
         <option {{ in_array('Sensorial', $patient->patientInfo->tipo_disc) ? 'selected':'' }}>Sensorial</option>

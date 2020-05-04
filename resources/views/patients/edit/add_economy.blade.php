@@ -49,8 +49,8 @@
     <!-- IBAN Bancario -->
     <p>
         {!! Form::label('iban', 'IBAN bancario:') !!}
-        {!! Form::number('iban', $patient->patientOther->iban, ['class' => 'form-control', 'max' =>
-        '999999999999999999999999'])
+        {!! Form::text('iban', $patient->patientOther->iban, ['class' => 'form-control', 'max' =>
+        '99999999999999999999999'])
         !!}
     </p>
 
@@ -79,7 +79,7 @@
 <div class="form-group col-sm-4">
     <p>
         {!! Form::label('forma_pago', 'Forma de pago:') !!}
-        <select class="form-control" id="type" name="forma_pago">
+        <select class="form-control" id="forma_pago" name="forma_pago">
             <option value="">Selecciona una opción</option>
             <option {{ $patient->patientOther->forma_pago == 'Cesion' ? 'selected':'' }}>Cesión de derechos de cobros
             </option>
@@ -145,21 +145,19 @@
 <div class="col-lg-6 socio_si" style="display:none">
     <p>
             {!! Form::label('periodicidad', 'Periodicidad:') !!}
-            <select class="form-control" id="type" name="periodicidad">
-                <option value="">Selecciona una opción</option>
-                <option {{ $patient->patientOther->periodicidad == 'Anual' ? 'selected':'' }}>Anual (60€)</option>
-                <option {{ $patient->patientOther->periodicidad == 'Semestral' ? 'selected':'' }}>Semestral (30€)
-                </option>
-                <option {{ $patient->patientOther->periodicidad == 'Trimestral' ? 'selected':'' }}>Trimestral (15€)
-                </option>
-                <option {{ $patient->patientOther->periodicidad == 'Mensual' ? 'selected':'' }}>Mensual (5€)</option>
-            </select>
+            {!! Form::select('periodicidad', [
+                "" => 'Elige una opción',
+                'Mensual' => 'Mensual (5€)',
+                'Trimestral' => 'Trimestral (15€)',
+                'Semestral' => 'Semestral (30€)',
+                'Anual' => 'Anual (60€)'
+                ], $patient->patientOther->periodicidad, ['class' => 'form-control']) !!}
     </p>
 
     <p>
         <!-- Cuota de socio -->
         {!! Form::label('pago_socio', 'Forma pago Cuota Socio/a:') !!}
-        <select class="form-control" id="type" name="pago_socio">
+        <select class="form-control" id="pago_socio" name="pago_socio">
             <option value="">Selecciona una opción</option>
             <option {{ $patient->patientOther->pago_socio == 'Efectivo' ? 'selected':'' }}>Efectivo</option>
             <option {{ $patient->patientOther->pago_socio == 'Transferencia' ? 'selected':'' }}>Transferencia</option>
