@@ -57,7 +57,7 @@
     <!-- Factura -->
     <p>
         {!! Form::label('factura', 'Solicitud factura:') !!}
-        {!! Form::select('factura', ['' => 'Selecciona una opción', 'Si' => 'Si',' No' => 'No'],
+        {!! Form::select('factura', ['' => 'Selecciona una opción', 'Si' => 'Si','No' => 'No'],
         $patient->patientOther->factura, ['class' =>
         'form-control','id' => 'factura']) !!}
     </p>

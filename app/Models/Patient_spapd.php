@@ -50,7 +50,7 @@ class Patient_spapd extends Model
         'id' => 'integer',
         'prog_spapd' => 'string',
         'otros_programa' => 'string',
-        'num_sesiones' => 'integer',
+        'num_sesiones' => 'float',
         'otras_sesiones' => 'string',
         'dur_spapd' => 'string',
         'worker_id' => 'string',

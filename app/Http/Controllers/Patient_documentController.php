@@ -144,8 +144,8 @@ class Patient_documentController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
+	    
         $patientDocument = $this->patientDocumentRepository->find($id);
         
         //dd(Storage::delete('/app/public/' . $patientDocument->url));
@@ -162,5 +162,6 @@ class Patient_documentController extends AppBaseController
         }
 
         Flash::success('Patient Document deleted successfully.');
-        return redirect()->to(url()->previous() . '#documents');    }
+        return redirect()->to(url()->previous() . '#documents');    
+    }
 }

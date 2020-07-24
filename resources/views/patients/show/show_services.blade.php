@@ -12,11 +12,12 @@
                 </div>
                 
                 <div class="col-sm-6 p-0 text-right">
+                      @if ($patientService->nom_servicio != "SPAPD")
                     <button type="button" class="btn btn-secondary" id="date_button" data-toggle="modal"
                     data-target="#services_date_modal" data-id="{!! $patientService->id !!}" onClick="ShowModal(this)">
                         <i class="fas fa-clock"></i>+
                     </button>
-                    
+                    @endif                    
                     <a href="{!! route('patientServices.edit', [$patientService->id]) !!}" class='btn btn-primary'><i class="far fa-edit"></i> </a>                    
 
                     <a href="/servicedelete/{{$patientService->id}}" data-token="{{csrf_token()}}"
@@ -55,13 +56,16 @@
                             {{$worker->nombre}} {{$worker->apellido}}
                             @endif
                         @endforeach
-                        <hr>
+                        
                     </div>
 
                   
-                        
+                   
                     <div class="col-sm-12">
-                        <h4><strong>Horarios:</strong></h4>
+                        @if( count($patientService->serviceDates) > 0 )
+                        <hr>
+                            <h4><strong>Horarios:</strong></h4>
+                        @endif
                     </div>
                     @foreach($patientService->serviceDates as $item)
                     <div class="col-sm-6">

@@ -4,7 +4,7 @@
     @php $sesiones = 0; @endphp
 
     @foreach($patient->patientSpapd as $patientSpapd)
-        @php $sesiones = (int)$sesiones + (int)$patientSpapd->num_sesiones ;
+        @php $sesiones = (double)$sesiones + (double)$patientSpapd->num_sesiones ;
         
         @endphp
     @endforeach

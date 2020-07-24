@@ -54,8 +54,6 @@
 
 
 
-
-
 //Datatables
 $(document).ready(function() {
     $('.datatables').DataTable({

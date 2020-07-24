@@ -31,7 +31,7 @@
         {!! Form::label('obser_transporte', 'Observaciones transporte:') !!}
         {!! Form::text('obser_transporte', $patient->patientOther->obser_transporte , ['class' => 'form-control',
         'id' =>
-        'direccion_transporte']) !!}
+        'obser_transporte']) !!}
     </div>
 
 

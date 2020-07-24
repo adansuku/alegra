@@ -25,8 +25,8 @@
         <small>Alias:</small>
         <h6><strong>{!! $patient->alias !!}</strong></h6>
 
-        <small>Trabajadora social GESTORA CASO:</small>
-        <h6><strong>{{$worker->nombre}} {{$worker->apellido}}</strong></h6>
+        {{-- <small>Trabajadora social GESTORA CASO:</small>
+        <h6><strong>{{$worker->nombre}} {{$worker->apellido}}</strong></h6> --}}
 
 
 
@@ -188,10 +188,10 @@
                 <h6><strong>{!! $patient->grado_dep !!}</strong></h6>
 
                 <!-- Trabajadora social Field -->
-                <small>Trabajadora social GESTORA CASO:</small>
+                {{-- <small>Trabajadora social GESTORA CASO:</small>
                 <h6><strong>
                         {{$worker->nombre}} {{$worker->apellido}}
-                    </strong></h6>
+                    </strong></h6> --}}
 
                 <!-- PIA en vigor Field -->
 
@@ -698,13 +698,16 @@
                     <hr>
 
                     <small>Tipo Ayudas:</small>
-                    <h6><strong>{!! $patient->patientInfo->ayuda_soc !!}</strong></h6>
+
+                    {!! implode(', ', (array)$patient->patientInfo->ayuda_soc) !!}
+                    {{-- <h6><strong>{!! $patient->patientInfo->ayuda_soc !!}</strong></h6> --}}
 
                     <small>Certificado Discapacidad:</small>
                     <h6><strong>{!! $patient->patientInfo->cert_disc !!}</strong></h6>
 
                     <small>Tipo Discapacidad:</small>
-                    <h6><strong>{!! $patient->patientInfo->tipo_disc !!}</strong></h6>
+                    {!! implode(', ', (array)$patient->patientInfo->tipo_disc) !!}
+                    {{-- <h6><strong>{!! $patient->patientInfo->tipo_disc !!}</strong></h6> --}}
 
                     <small>Porcentaje Discapacidad:</small>
                     <h6><strong>{!! $patient->patientInfo->grado_disc !!}</strong></h6>

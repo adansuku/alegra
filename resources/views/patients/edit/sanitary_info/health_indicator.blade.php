@@ -68,6 +68,7 @@
             'Ayuda fí­sica parcial' => 'Ayuda fí­sica parcial',
             'Ayuda fí­sica total' => 'Ayuda fí­sica total',
             'Usuario/a con andador' => 'Usuario/a con andador',
+            'Usuario/a con baston' => 'Usuario/a con bastón',
             'Usuario/a de silla de ruedas' => 'Usuario/a de silla de ruedas'],
             $patient->patientHealth->riesgo_caida_opc, ['class' => 'form-control select2', 'multiple' => 'multiple'])!!}
         </div>

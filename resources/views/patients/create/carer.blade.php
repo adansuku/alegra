@@ -48,16 +48,7 @@
         {!! Form::text('otro_paren', null, ['class' => 'form-control', 'id'=> 'otro_parentesco_field']) !!}
     </div>
 
-    <script>
-        $('#parentesco').on('change', function() {
-            if ($(this).val() === 'Otros') {
-                $('#otros_parentesco').css('display', 'block');
-                $('#otro_parentesco_field').attr('required', 'required');
-            } else {
-                $('#otros_parentesco').css('display', 'none');
-            }
-        });
-    </script>
+    
 
     <!-- Fecha Nac Care Field -->
     <div class="form-group col-sm-12">
@@ -83,7 +74,7 @@
     <!-- Municipio Care Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('municipio_carer', 'Municipio:') !!}
-        <select class="form-control select2" id="municipio" name="municipio_carer">
+        <select class="form-control select2" id="municipio_carer" name="municipio_carer">
             <option value="">Selecciona una opción</option>
             <option value="" disabled>Tenerife</option>
             <option {{ $patient->Municipio == 'Adeje' ? 'selected':'' }}>Adeje</option>

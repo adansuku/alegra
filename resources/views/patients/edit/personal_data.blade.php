@@ -25,7 +25,8 @@
         <!-- Fecha Alta Paciente Field -->
         <p>{!! Form::label('fecha_alta_paciente', 'Fecha Alta:') !!}
             {!! Form::date('fecha_alta_paciente', $patient->fecha_alta_paciente, ['class' =>
-            'form-control','id'=>'fecha_alta_paciente']) !!}</p>
+            'form-control','id'=>'fecha_alta_paciente', 'readonly' =>
+            'readonly']) !!}</p>
 
         <!-- Nombre Field -->
         <p>{!! Form::label('nombre', 'Nombre:') !!}
@@ -293,12 +294,21 @@
 
         <script>
             $("#convive_con").on('change', function(){
-                if ($('#convive_con ').val() == 'Otros') {
+                if ( $('#convive_con ').val().includes('Otros') ){
                     $('#otro_parent').css('display', 'block');
                     $('#otros_parentesco').attr('required', 'required');
                 } else {
                     $('#otro_parent').css('display', 'none');
                 }
+            });
+
+            $(document).ready(function() {
+                var convive_option = $('#convive_con').val();
+                console.log(convive_option);
+                if(convive_option.includes('Otros')){
+                    $('#otro_parent').css('display', 'block');
+                }
+            
             });
         </script>
 

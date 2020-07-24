@@ -212,14 +212,14 @@
                 </div>
 
                 <div class="tab-pane" id="pias" role="tabpanel">
-                    <div class="row">
+                    
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                            <button type="button" class="btn btn-secondary mb-3 float-right" data-toggle="modal"
                                 data-target="#pias_modal" data-id={{$patient->id}}>
                                 Añadir pia <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
-                    </div>
+                    
 
                     @include('patients.show.show_pias')
 
@@ -315,15 +315,6 @@
                 } else {
                     $("#ayuda_soc_cont").removeAttr('hidden').show();
                     $("#ayudaSoc").attr('name', 'ayuda_soc');
-                }
-                break;
-            case id == 'nivel_educativo':
-                if (val !== "Otros") {
-                    $("#nivelEducativo").removeAttr('name');
-                    $("#nivel_educativo_cont").attr('hidden', 'hidden').hide();
-                } else {
-                    $("#nivel_educativo_cont").removeAttr('hidden').show();
-                    $("#nivelEducativo").attr('name', 'nivel_educativo');
                 }
                 break;
             case id == 'tipo_vivienda':

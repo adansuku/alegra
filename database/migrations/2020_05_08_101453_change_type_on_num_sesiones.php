@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRiesgoCaidaOpcToPatientHealths extends Migration
+class ChangeTypeOnNumSesiones extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddRiesgoCaidaOpcToPatientHealths extends Migration
      */
     public function up()
     {
-        Schema::table('patient_healths', function (Blueprint $table) {
-            $table->json('riesgo_caida_opc');
+        Schema::table('patient_spapds', function (Blueprint $table) {
+            $table->float('num_sesiones')->change()->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddRiesgoCaidaOpcToPatientHealths extends Migration
      */
     public function down()
     {
-        Schema::table('patient_healths', function (Blueprint $table) {
-            $table->dropColumn('riesgo_caida_opc');
+        Schema::table('patient_spapds', function (Blueprint $table) {
+            $table->float('num_sesiones');
         });
     }
 }

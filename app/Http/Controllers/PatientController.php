@@ -51,10 +51,19 @@ class PatientController extends AppBaseController
             ->addColumn('accion', function ($patient) {
                 return '
                 <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
-                <i class="far fa-edit"></i> Editar</a>
+                <i class="far fa-edit"></i> </a>
 
                 <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
-                <i class="far fa-eye"></i> Ver</a>';
+                <i class="far fa-eye"></i> </a>
+                
+               
+
+                <button class="btn btn-xs btn-danger btn-delete" data-remote="/patients/' . 
+                $patient->id . '"><i class="far fa-trash-alt"></i> </button>
+
+               
+
+                ';
             })
             ->editColumn('id', 'ID: {{$id}}')
             ->rawColumns(['accion'])

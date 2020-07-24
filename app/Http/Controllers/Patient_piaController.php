@@ -12,6 +12,8 @@ use Response;
 use App\Models\Patient;
 use App\Models\Patient_pia;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+
 
 class Patient_piaController extends AppBaseController
 {
@@ -89,15 +91,20 @@ class Patient_piaController extends AppBaseController
 
         Flash::success('Pia guardado correctamente');
         return redirect()->to(url()->route('patients.edit', $request->id) . '#pias');
+        
+       
+ 
     }
+
+
+
 
     public function pia_seguimiento(CreatePatient_piaRequest $request)
     {
       
         
         if ($request->tipo_pia == 'Seguimiento') {
-            $patientPiaLast = Patient_pia::where('tipo_pia', 'Seguimiento')
-                ->where('patient_id', $request->id)
+            $patientPiaLast = Patient_pia::where('patient_id', $request->id)
                 ->orderBy('created_at', 'desc')->first();
 
             $today = Carbon::parse($patientPiaLast->fecha_limite);
@@ -204,6 +211,22 @@ class Patient_piaController extends AppBaseController
     public function destroy($id)
     {
         $patientPia = $this->patientPiaRepository->find($id);
+        
+        $file = "";
+        
+        if ($patientPia->url_pia != "" || $patientPia->url_pia != null) {
+	    	$file =  public_path('storage/') . $patientPia->url_pia;
+	    }   
+	    
+	    if ($patientPia->url_recepcion != "" || $patientPia->url_recepcion != null) {
+		    $file =  public_path('storage/') . $patientPia->url_recepcion;
+		}
+        
+        if($file != ""){
+            unlink($file);
+            Storage::delete($file);
+        }     
+
 
         if (empty($patientPia)) {
             Flash::error('Patient Pia not found');
@@ -216,5 +239,10 @@ class Patient_piaController extends AppBaseController
         Flash::success('Patient Pia deleted successfully.');
 
         return redirect()->to(url()->route('patients.edit', $patientPia->patient) . '#pias');
+        
+        
+        
+        
+        
     }
 }

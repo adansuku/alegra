@@ -1,29 +1,60 @@
 
+
+
 <table class="table" id="patients" width="100%" cellspacing="0">
     <thead class="thead-light">
         <tr>
             <th>nombre</th>
             <th>apellido</th>
-            <th>Acción</th>
+            <th class="text-right pr-4">Acción</th>
         </tr>
     </thead>
 </table>
 
 <script>
+//DETELE PATIENTS
+
+$('#patients').on('click', '.btn-delete[data-remote]', function (e) { 
+    e.preventDefault();
+     $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    var url = $(this).data('remote');
+    // confirm then
+    if (confirm('CUIDADO!!! Vas a eliminar un usuario definitivamente de la base de datos, ¿Estás de acuerdo?')) {
+        $.ajax({
+            url: url,
+            type: 'DELETE',
+            dataType: 'json',
+            data: {method: '_DELETE', submit: true}
+        }).always(function (data) {
+            $('#patients').DataTable().draw(false);
+        });
+    }else
+        alert("Has cancelado la eliminación de la persona seleccionada");
+});
+
+
+
     $(document).ready(function() {
         $('#patients').DataTable({
             processing: true,
             serverSide: true,
             ajax: "{{ url('allpatients') }}",
+
             columns: [
                 {
-                    data: 'nombre'
+                    data: 'nombre',
+                    
                 },
                 {
                     data: 'apellido'
                 },
                 {
                     data: 'accion',
+                    className: 'text-right',
                     name: 'accion',
                     orderable: false,
                     searchable: false
@@ -41,7 +72,7 @@
                     renderer: $.fn.dataTable.Responsive.renderer.tableAll()
                 }
             },
-            dom: '<"row tools-datatables" <"col-md-6 buttons-datatables" B> <"col-md-6 search-datatables" f> > + rt + <"row" <"col-sm-12 col-md-5" i> <"col-sm-12 col-md-7" p> >',
+            dom: '<"row tools-datatables" <"col-md-6 buttons-datatables" B> <"col-md-6 search-datatables" f> > + rt + <"row" <"col-sm-12 col-md-5" p> <"col-sm-12 col-md-7 text-right" i> >',
             buttons: [{
                     extend: 'excelHtml5',
                     text: '<i class="fa fa-file-excel"></i> <strong>XLS</stron>',
@@ -75,6 +106,10 @@
                         "-1": "",
                     }
                 },
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente",
+                    },
                 "search": "Buscar",
                 "searchPlaceholder": "Buscar algo...",
                 "bPrint": "Imprimir",

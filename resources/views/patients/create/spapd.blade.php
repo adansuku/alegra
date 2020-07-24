@@ -57,7 +57,7 @@
     <div class="form-group col-sm-4">
         <!-- Num Sesiones Field -->
         {!! Form::label('num_sesiones', 'Número Total de Sesiones:') !!}
-        {!! Form::number('num_sesiones', null, ['class' => 'form-control','required' => 'required']) !!}
+        {!! Form::number('num_sesiones', null, ['class' => 'form-control','required' => 'required', 'step' => '0.01']) !!}
     </div>
 
     <div class="form-group col-sm-4">
