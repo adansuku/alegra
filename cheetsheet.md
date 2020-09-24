@@ -7,7 +7,7 @@ docker-compose exec workspace bash
 
 # Scaffold
 ### Create
-    artisan infyom:scaffold Patient_spapd --fieldsFile=resources/json/Patient_spapd.json
+artisan infyom:scaffold Patient_spapd --fieldsFile=resources/json/Patient_spapd.json
     
 ### Roolback
 php artisan infyom:rollback Patient_spapd scaffold
