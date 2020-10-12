@@ -15,7 +15,7 @@
     <!-- Custom styles for this template-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <link href="{{mix('css/app.css')}}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css"
@@ -257,11 +257,11 @@
 
 
     <!-- Custom scripts for all pages -->
-    <script src="{{asset('js/customJs/custom.js')}}"></script>
+    <script src="{{mix('js/customJs/custom.js')}}"></script>
 
 
     <!-- Bootstrap core JavaScript, Core plugin JavaScript, Page level plugins -->
-    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{mix('js/app.js')}}"></script>
 
 
     <!-- datatable 2 -->
