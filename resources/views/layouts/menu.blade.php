@@ -43,3 +43,8 @@
     <a class="nav-link" href="{!! route('workerSessions.index') !!}"><i class="fas fa-fw fa-table"></i><span>Mi área
             personal</span></a>
 </li>
+
+<hr class="sidebar-divider">
+<li class="{{ Request::is('workerSessions*') ? 'active' : '' }} nav-item">
+    <a class="nav-link" href="{!! route('worker.patients') !!}"><i class="fas fa-fw fa-users"></i><span>Mis personas atendidas</span></a>
+</li>

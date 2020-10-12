@@ -38,6 +38,9 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#history" role="tab">Historial</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#people" role="tab">Personas Atendidas</a>
+                        </li>
                 </ul><!-- Tab panes -->
 
                 <div class="tab-content">
@@ -102,7 +105,13 @@
                             </div>
                             @include('workers.show.show_histories')
                         </div>
-                    </div><!--tabpanel-->
+                    </div>
+
+
+                    <div class="tab-pane" id="people" role="tabpanel">
+                        @include('workers.partials.people')
+                    </div>
+                    <!--tabpanel-->
                 </div><!--end tab-content-->
 
         {!! Form::submit('Guardar', ['class' => 'btn btn-primary float-right', 'value' => 'guardar', 'name' => 'action']) !!}  

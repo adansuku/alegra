@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateWorkerRequest;
 use App\Repositories\WorkerRepository;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Worker;
+use App\Models\Patient;
+use App\Models\Worker_patient_served;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -14,15 +16,19 @@ use App\User;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Hash;
+use App\Repositories\PatientRepository;
+use Auth;
 
 class WorkerController extends AppBaseController
 {
     /** @var  WorkerRepository */
     private $workerRepository;
+    
 
     public function __construct(WorkerRepository $workerRepo)
     {
         $this->workerRepository = $workerRepo;
+        
         $this->middleware('auth');
     }
 
@@ -107,12 +113,13 @@ class WorkerController extends AppBaseController
     public function edit($id)
     {
         $worker = $this->workerRepository->find($id);
-
+        
         if (empty($worker)) {
             Flash::error('Worker not found');
             return redirect(route('workers.index'));
         }
-        return view('workers.edit')->with('worker', $worker);
+        $patients = Patient::all();
+        return view('workers.edit')->with('worker', $worker)->with('patients',$patients);
     }
 
 
@@ -146,6 +153,18 @@ class WorkerController extends AppBaseController
             $user = User::where('email', $worker->email )->update(['avatar'=>$worker->avatar]);
             $worker->save();
         }
+
+        if($request->has('patient_served') && $request->patient_served!=''){
+            Worker_patient_served::where('worker_id',$worker->id)->delete();
+            foreach($request->patient_served as $p){
+                $wps = new Worker_patient_served();
+                $wps->worker_id = $worker->id;
+                $wps->patient_id = $p;
+                $wps->save();
+            }
+            
+        }
+
         Flash::success('Campos actualizados correctamente.');
 
         if ($request->get('action') == 'Guardar') {
@@ -169,4 +188,22 @@ class WorkerController extends AppBaseController
         Flash::success('Elemento eliminado correctamente.');
         return redirect(route('workers.index'));
     }
+
+
+    public function patients()
+    {
+        return view('workers.patients');
+    }
+
+    public function worker_patients()
+    {
+        $ids = Worker_patient_served::where('worker_id',Auth::user()->id)->pluck('patient_id')->toArray();
+        $patients = Patient::whereIn('id',$ids)->get();
+        
+        // dd($workers);
+        return datatables()->of($patients)
+            ->editColumn('id', 'ID: {{$id}}')
+            ->make(true);
+    }
 }
+
