@@ -18,6 +18,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Hash;
 use App\Repositories\PatientRepository;
 use Auth;
+use App\Models\Worker_role;
 
 class WorkerController extends AppBaseController
 {
@@ -48,12 +49,19 @@ class WorkerController extends AppBaseController
         // dd($workers);
         return datatables()->of($workers)
             ->addColumn('accion', function ($workers) {
-                return '
-                <a href="/workers/' . $workers->id . '/edit" class="btn btn-xs ">
-                <i class="far fa-edit"></i></a>
+                if(Auth::user()->role_id == 1){
+                    return '
+                    <a href="/workers/' . $workers->id . '/edit" class="btn btn-xs ">
+                    <i class="far fa-edit"></i></a>
 
-                <a href="/workers/' . $workers->id . '" class="btn btn-xs ">
-                <i class="far fa-eye"></i></a>';
+                    <a href="/workers/' . $workers->id . '" class="btn btn-xs ">
+                    <i class="far fa-eye"></i></a>';
+                }else if(Auth::user()->role_id == 3){
+                    return '
+                    <a href="/workers/' . $workers->id . '/edit" class="btn btn-xs ">
+                    <i class="far fa-edit"></i></a>';
+
+                }
             })
             ->editColumn('id', 'ID: {{$id}}')
             ->rawColumns(['accion'])
@@ -119,7 +127,9 @@ class WorkerController extends AppBaseController
             return redirect(route('workers.index'));
         }
         $patients = Patient::all();
-        return view('workers.edit')->with('worker', $worker)->with('patients',$patients);
+        $roles = Worker_role::all();
+        $wps = Worker_patient_served::where('worker_id',$id)->pluck('patient_id')->toArray();
+        return view('workers.edit')->with('worker', $worker)->with('patients',$patients)->with('wps',$wps)->with('roles',$roles);
     }
 
 

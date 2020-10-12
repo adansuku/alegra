@@ -78,7 +78,8 @@ class Worker extends Authenticatable
         'email_personal',
         'numero_horas',
         'avatar',
-        'password'
+        'password',
+        'role_id'
     ];
 
     protected $hidden = [
@@ -123,7 +124,8 @@ class Worker extends Authenticatable
         'fecha_baja' => 'date',
         'email_personal' => 'string',
         'numero_horas' => 'integer',
-        'avatar' => 'string'
+        'avatar' => 'string',
+        'role_id' => 'integer'
     ];
 
     /**
@@ -177,4 +179,10 @@ class Worker extends Authenticatable
     {
         return $this->hasMany('App\Models\Worker_session');
     }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Worker_role');
+    }
+
 }
