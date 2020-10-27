@@ -46,24 +46,35 @@ class PatientController extends AppBaseController
     {
         $patients = $this->patientRepository->all();
 
-
         return datatables()->of($patients)
             ->addColumn('accion', function ($patient) {
-                return '
-                <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
-                <i class="far fa-edit"></i> </a>
-
-                <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
-                <i class="far fa-eye"></i> </a>
-                
-               
-
-                <button class="btn btn-xs btn-danger btn-delete" data-remote="/patients/' . 
-                $patient->id . '"><i class="far fa-trash-alt"></i> </button>
-
-               
-
-                ';
+                if(Auth::user()->role_id == 1){
+                    return '
+                    <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
+                    <i class="far fa-edit"></i> </a>
+        
+                    <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
+                    <i class="far fa-eye"></i> </a>
+                    
+                   
+        
+                    <button class="btn btn-xs btn-danger btn-delete" data-remote="/patients/' . 
+                    $patient->id . '"><i class="far fa-trash-alt"></i> </button>
+                    ';
+                }else if(Auth::user()->role_id == 2){
+                    return '
+                    <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
+                    <i class="far fa-eye"></i> </a>
+                    ';
+                }else{
+                    return '
+                    <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
+                    <i class="far fa-edit"></i> </a>
+        
+                    <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
+                    <i class="far fa-eye"></i> </a>
+                    ';
+                }
             })
             ->editColumn('id', 'ID: {{$id}}')
             ->rawColumns(['accion'])

@@ -108,6 +108,16 @@
             <strong>{!! Form::label('direccion', 'Direccion:') !!}</strong>
             {!! Form::text('direccion', null, ['class' => 'form-control']) !!}
         </div>
+
+        <div class="form-group ">
+            <strong><label for="role_id">Rol</label></strong>
+            <select class="form-control" id="role_id" name="role_id">
+                <option value="" selected disabled hidden>Selecciona una opción</option>
+                @foreach($roles as $role)
+                    <option value="{{$role->id}}" {{ $worker->role_id == $role->id ? 'selected':'' }}>{{ $role->role }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
 
     <div class="col-sm-6">

@@ -33,6 +33,7 @@
 
         <div class="col-sm-12 p-0">
             <ul class="nav nav-tabs tabs-marker tabs-dark bg-primary my-4" role="tablist" id="myTab">
+                @if(Auth::user()->role_id == 1)
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#general" role="tab">Datos personales</a>
                 </li>
@@ -64,40 +65,23 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#documents" role="tab">Documentación</a>
                 </li>
+                @endif
 
+                @if(in_array(Auth::user()->role_id,[1,2]))
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#history" role="tab">Historial</a>
+                    <a class="nav-link @if(Auth::user()->role_id == 2) active @endif" data-toggle="tab" href="#history" role="tab">Historial</a>
                 </li>
+                @endif
 
 
             </ul><!-- Tab panes -->
 
 
             <div class="tab-content">
+                @if(Auth::user()->role_id == 1)
                 <div class="tab-pane active" id="general" role="tabpanel">
                     @include('patients.edit.personal_data')
                 </div>
-
-                <div class="tab-pane" id="social_info" role="tabpanel">
-                    @include('patients.edit.social_info')
-                </div>
-
-                <div class="tab-pane" id="other_data" role="tabpanel">
-                    @include('patients.edit.other_data')
-                </div>
-
-                <div class="tab-pane" id="diagnostic" role="tabpanel">
-
-
-                    @include('patients.edit.health_info')
-
-
-
-
-
-
-                </div>
-
                 <div class="tab-pane" id="carer" role="tabpanel">
                   
                         <div class="col-lg-6 float-right mb-3">
@@ -108,7 +92,18 @@
                         </div>
 
                     @include('patients.show.show_carer')
+                </div>
+                <div class="tab-pane" id="pias" role="tabpanel">
+                    
+                        <div class="col-lg-12">
+                            <button type="button" class="btn btn-secondary mb-3 float-right" data-toggle="modal"
+                                data-target="#pias_modal" data-id={{$patient->id}}>
+                                Añadir pia <i class="fas fa-file-upload"></i>
+                            </button>
+                        </div>
+                    
 
+                    @include('patients.show.show_pias')
 
                 </div>
 
@@ -184,21 +179,20 @@
                         </div>
                     </div>
                 </div>
-                <!-- end tab pane -->
 
-                <div class="tab-pane" id="history" role="tabpanel">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
-                                data-target="#history_modal" data-id={{$patient->id}}>
-                                Añadir historial <i class="fas fa-file-upload"></i>
-                            </button>
-                        </div>
-
-                    </div>
-                    @include('patients.show.show_history')
+                <div class="tab-pane" id="other_data" role="tabpanel">
+                    @include('patients.edit.other_data')
                 </div>
 
+                <div class="tab-pane" id="social_info" role="tabpanel">
+                    @include('patients.edit.social_info')
+                </div>
+                
+                <div class="tab-pane" id="diagnostic" role="tabpanel">
+                    @include('patients.edit.health_info')
+                </div>
+
+                
                 <div class="tab-pane" id="documents" role="tabpanel">
 
                         <div class="col-lg-6 float-right mb-3">
@@ -210,20 +204,25 @@
              
                     @include('patients.show.show_documents')
                 </div>
-
-                <div class="tab-pane" id="pias" role="tabpanel">
-                    
+                @endif
+                
+                @if(in_array(Auth::user()->role_id,[1,2]))
+                <div class="tab-pane @if(Auth::user()->role_id == 2) active @endif" id="history" role="tabpanel">
+                    <div class="row">
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary mb-3 float-right" data-toggle="modal"
-                                data-target="#pias_modal" data-id={{$patient->id}}>
-                                Añadir pia <i class="fas fa-file-upload"></i>
+                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                                data-target="#history_modal" data-id={{$patient->id}}>
+                                Añadir historial <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
-                    
 
-                    @include('patients.show.show_pias')
-
+                    </div>
+                    @include('patients.show.show_history')
                 </div>
+                @endif
+                
+
+                
             </div>
             <!--tabpanel-->
         </div>

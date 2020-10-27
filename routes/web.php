@@ -49,6 +49,8 @@ Route::post('addpia/{id}', ['as' => 'pia_seg.create', 'uses' => 'Patient_piaCont
 //Ajax
 Route::get('/allpatients', 'PatientController@allPatients');
 Route::get('/allworkers', 'WorkerController@allWorkers');
+Route::get('/worker_patients', 'WorkerController@patients')->name('worker.patients');;
+Route::get('/workerpatients', 'WorkerController@worker_patients');
 
 Route::resource('workers', 'WorkerController');
 Route::resource('workerDocuments', 'Worker_documentController');
