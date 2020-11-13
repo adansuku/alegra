@@ -13,14 +13,14 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ url('/dashboard') }}">
+        <a class="nav-link" href="/">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Escritorio</span></a>
     </li>
     <!-- Sidebar Menu -->
     @include('layouts.menu')
     <!-- Divider -->
-    
+
     <hr class="sidebar-divider">
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

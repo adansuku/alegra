@@ -26,7 +26,8 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 //Deletes buttons no in the same controller
-Route::get('/workerdelete/{id}', 'Worker_documentController@destroy');
+Route::get('/workerdelete/{id}', 'WorkerController@destroy');
+Route::get('/workerdocumentdelete/{id}', 'Worker_documentController@destroy');
 Route::get('/piadelete/{id}', 'Patient_piaController@destroy');
 Route::get('/carerdelete/{id}', 'Patient_carerController@destroy');
 Route::get('/servicedelete/{id}', 'Patient_serviceController@destroy');

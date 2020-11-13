@@ -14,16 +14,15 @@
                 {{$item->cat_documentos}}
             </td>
             <td>
-                <a href="{{ asset("storage/$item->url") }}" target="_blank">
+                <a href="{{ asset(" storage/$item->url") }}" target="_blank">
                     {{$item->nombre_documento}}
                 </a>
             </td>
             <td class="text-center">
-                <a href="{{ asset("storage/$item->url") }}" target="_blank">
+                <a href="{{ asset(" storage/$item->url") }}" target="_blank">
                     <i class="fas fa-download"></i>
-                </a>
-                |
-                <a href="/workerdelete/{{$item->id}}" data-token="{{csrf_token()}}" data-confirm="Are you sure?">
+                </a> |
+                <a href="/workerdocumentdelete/{{$item->id}}" data-token="{{csrf_token()}}" data-confirm="Are you sure?">
                     <i class="fas fa-trash"></i>
                 </a>
             </td>

@@ -10,14 +10,16 @@
             </div>
             <div class="col-md-6">
                 <div class="float-sm-right">
-                    <a class="btn btn-primary add-worker"
-                        href="{!! route('patients.create') !!}">Añadir persona</a>
+                    @if(in_array(Auth::user()->role_id,[1]))
+                    <a class="btn btn-primary add-worker" href="{!! route('patients.create') !!}">
+                        Añadir persona
+                    </a>
+                    @endif
                 </div>
             </div>
         </div>
         <div class="clearfix"></div>
-        @include('flash::message')
-            @include('patients.table')
+        @include('flash::message') @include('patients.table')
     </div>
 </div>
 @endsection

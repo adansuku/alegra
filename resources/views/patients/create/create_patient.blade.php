@@ -1,16 +1,13 @@
+@if(in_array(Auth::user()->role_id,[1]))
 <div class="row">
 
     <div class="form-group col-sm-6">
-        {!! Form::label('numero_expediente', 'Numero Expediente:') !!}
-        {!! Form::text('numero_expediente', $numero_expediente, ['class' => 'form-control', 'readonly' => 'readonly'])
-        !!}
+        {!! Form::label('numero_expediente', 'Numero Expediente:') !!} {!! Form::text('numero_expediente', $numero_expediente, ['class' => 'form-control', 'readonly' => 'readonly']) !!}
     </div>
 
     <!-- Fecha Alta Paciente Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('fecha_alta_paciente', 'Fecha Alta:') !!}
-        {!! Form::date('fecha_alta_paciente', null, ['class' => 'form-control','id'=>'fecha_alta_paciente', 'required'
-        => 'required']) !!}
+        {!! Form::label('fecha_alta_paciente', 'Fecha Alta:') !!} {!! Form::date('fecha_alta_paciente', null, ['class' => 'form-control','id'=>'fecha_alta_paciente', 'required' => 'required']) !!}
     </div>
 
     @section('scripts')
@@ -26,14 +23,12 @@
 <div class="row">
     <!-- Nombre Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('nombre', 'Nombre:') !!}
-        {!! Form::text('nombre', null, ['class' => 'form-control', 'required' => 'required' ]) !!}
+        {!! Form::label('nombre', 'Nombre:') !!} {!! Form::text('nombre', null, ['class' => 'form-control', 'required' => 'required' ]) !!}
     </div>
 
     <!-- Apellido Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('apellido', 'Apellidos:') !!}
-        {!! Form::text('apellido', null, ['class' => 'form-control', 'required' => 'required']) !!}
+        {!! Form::label('apellido', 'Apellidos:') !!} {!! Form::text('apellido', null, ['class' => 'form-control', 'required' => 'required']) !!}
     </div>
 </div>
 
@@ -50,7 +45,7 @@
     </div>
 </div>
 
-{{-- 
+{{--
 <p>{!! Form::label('convive_con', 'Convive con (nombre/s/parentesco/s):') !!}
 
     <select class="form-control select2" id="convive_con" name="convive_con[]" multiple="multiple">
@@ -81,3 +76,4 @@ $patient->convive_con[0] = "vacio"
 
 
 </div>
+@endif

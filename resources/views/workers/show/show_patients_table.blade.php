@@ -1,9 +1,9 @@
-
 <table class="table" id="worker_patients" width="100%" cellspacing="0">
     <thead class="thead-light">
         <tr>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>Acción</th>
         </tr>
     </thead>
 </table>
@@ -14,14 +14,17 @@
             processing: true,
             serverSide: true,
             ajax: "{{ url('workerpatients') }}",
-            columns: [
-                {
-                    data: 'nombre'
-                },
-                {
-                    data: 'apellido'
-                }
-            ],
+            columns: [{
+                data: 'nombre'
+            }, {
+                data: 'apellido'
+            }, {
+                data: 'accion',
+                className: 'text-right',
+                name: 'accion',
+                orderable: false,
+                searchable: false
+            }],
             "scrollX": false,
             responsive: {
                 details: {
@@ -36,29 +39,24 @@
             },
             dom: '<"row tools-datatables" <"col-md-6 buttons-datatables" B> <"col-md-6 search-datatables" f> > + rt + <"row" <"col-sm-12 col-md-5" i> <"col-sm-12 col-md-7" p> >',
             buttons: [{
-                    extend: 'excelHtml5',
-                    text: '<i class="fa fa-file-excel"></i> <strong>XLS</stron>',
-                    titleAttr: 'Excel'
-                },
-                {
-                    extend: 'pdfHtml5',
-                    text: '<i class="fa fa-file-pdf"></i> <strong>PDF</stron>',
-                    titleAttr: 'PDF'
-                },
-                {
-                    extend: 'print',
-                    text: '<i class="fa fa-print"></i>',
-                    titleAttr: 'PDF'
-                },
-                {
-                    extend: 'colvis',
-                    className: 'btn btn-primary'
-                },
-                {
-                    extend: 'pageLength',
-                    className: 'btn btn-primary'
-                },
-            ],
+                extend: 'excelHtml5',
+                text: '<i class="fa fa-file-excel"></i> <strong>XLS</stron>',
+                titleAttr: 'Excel'
+            }, {
+                extend: 'pdfHtml5',
+                text: '<i class="fa fa-file-pdf"></i> <strong>PDF</stron>',
+                titleAttr: 'PDF'
+            }, {
+                extend: 'print',
+                text: '<i class="fa fa-print"></i>',
+                titleAttr: 'PDF'
+            }, {
+                extend: 'colvis',
+                className: 'btn btn-primary'
+            }, {
+                extend: 'pageLength',
+                className: 'btn btn-primary'
+            }, ],
             "language": {
                 "buttons": {
                     "print": 'Imprimir',
@@ -84,11 +82,11 @@
                 "sInfoThousands": ",",
                 "sLoadingRecords": "Cargando...",
                 "oPaginate": {
-		              "sFirst":    "Primero",
-		              "sLast":     "Último",
-		              "sNext":     "Siguiente",
-		              "sPrevious": "Anterior"
-		          },
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
                 "oAria": {
                     "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
                     "sSortDescending": ": Activar para ordenar la columna de manera descendente"

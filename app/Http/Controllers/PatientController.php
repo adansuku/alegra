@@ -56,21 +56,14 @@ class PatientController extends AppBaseController
                     <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
                     <i class="far fa-eye"></i> </a>
                     
-                   
-        
                     <button class="btn btn-xs btn-danger btn-delete" data-remote="/patients/' . 
                     $patient->id . '"><i class="far fa-trash-alt"></i> </button>
                     ';
-                }else if(Auth::user()->role_id == 2){
-                    return '
-                    <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
-                    <i class="far fa-eye"></i> </a>
-                    ';
-                }else{
+                }elseif( in_array(Auth::user()->role_id,[2,3])  ){
                     return '
                     <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
                     <i class="far fa-edit"></i> </a>
-        
+
                     <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
                     <i class="far fa-eye"></i> </a>
                     ';
@@ -84,8 +77,11 @@ class PatientController extends AppBaseController
 
     public function index(Request $request)
     {
-        // $patients = $this->patientRepository->all();
-        return view('patients.index');
+        if(Auth::user()->role_id == 1){
+            return view('patients.index');
+        }else{
+            return redirect("/");
+        }
     }
 
     /**
@@ -257,6 +253,10 @@ class PatientController extends AppBaseController
 
     public function destroy($id)
     {
+        if(Auth::user()->role_id != 1){
+            $id = null;
+        }
+
         $patient = $this->patientRepository->find($id);
 
         if (empty($patient)) {

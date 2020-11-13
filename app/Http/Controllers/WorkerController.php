@@ -29,7 +29,6 @@ class WorkerController extends AppBaseController
     public function __construct(WorkerRepository $workerRepo)
     {
         $this->workerRepository = $workerRepo;
-        
         $this->middleware('auth');
     }
 
@@ -55,12 +54,12 @@ class WorkerController extends AppBaseController
                     <i class="far fa-edit"></i></a>
 
                     <a href="/workers/' . $workers->id . '" class="btn btn-xs ">
-                    <i class="far fa-eye"></i></a>';
-                }else if(Auth::user()->role_id == 3){
-                    return '
-                    <a href="/workers/' . $workers->id . '/edit" class="btn btn-xs ">
-                    <i class="far fa-edit"></i></a>';
+                    <i class="far fa-eye"></i></a>
 
+                    <a href="/workerdelete/' . $workers->id . '" class="btn btn-xs btn-danger btn-delete">
+                    <i class="far fa-trash-alt"></i></a>
+
+                    ';
                 }
             })
             ->editColumn('id', 'ID: {{$id}}')
@@ -72,10 +71,11 @@ class WorkerController extends AppBaseController
 
     public function index(Request $request)
     {
-        // $workers = $this->workerRepository->all();
-        // dd($workers);
-        return view('workers.index');
-            // ->with('workers', $workers);
+        if(Auth::user()->role_id == 1){
+            return view('workers.index');
+        }else{
+            return redirect("/");
+        }
     }
 
 
@@ -212,7 +212,30 @@ class WorkerController extends AppBaseController
         
         // dd($workers);
         return datatables()->of($patients)
+           ->addColumn('accion', function ($patient) {
+                if(Auth::user()->role_id == 1){
+                    return '
+                    <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
+                    <i class="far fa-edit"></i> </a>
+        
+                    <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
+                    <i class="far fa-eye"></i> </a>
+                    <button class="btn btn-xs btn-danger btn-delete" data-remote="/patients/' . 
+                    $patient->id . '"><i class="far fa-trash-alt"></i> </button>
+                    ';
+                }elseif( in_array(Auth::user()->role_id,[2,3])  ){
+                    return '
+                    <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
+                    <i class="far fa-edit"></i> </a>
+
+                    <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
+                    <i class="far fa-eye"></i> </a>
+                    ';
+                }
+            })
             ->editColumn('id', 'ID: {{$id}}')
+            ->rawColumns(['accion'])
+            ->removeColumn('password')
             ->make(true);
     }
 }
