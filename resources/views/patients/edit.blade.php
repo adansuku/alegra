@@ -81,6 +81,11 @@
                 <div class="tab-pane" id="pias" role="tabpanel">
 
                     <div class="col-lg-12">
+
+                        <button type="button" class="btn btn-danger mb-3 float-right" data-toggle="modal" data-target="#forzar_pias_modal" data-id={{$patient->id}}>
+                            Añadir pia (forzar fecha)<i class="fas fa-file-upload"></i>
+                        </button>
+
                         <button type="button" class="btn btn-secondary mb-3 float-right" data-toggle="modal" data-target="#pias_modal" data-id={{$patient->id}}>
                             Añadir pia <i class="fas fa-file-upload"></i>
                         </button>

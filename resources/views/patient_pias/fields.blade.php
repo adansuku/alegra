@@ -1,7 +1,5 @@
 <div class="row">
 
-
-{{-- @php(var_dump($patientPia->patient->url_pia)); --}}
     <div class="col-sm-6">
         <!-- Url Pia Field -->
         <div class="form-group col-sm-12">
@@ -49,8 +47,7 @@
 
         <!-- Obs Pia Field -->
         <div class="form-group col-sm-12">
-            {!! Form::label('obs_pia', 'Observaciones:') !!}
-            {!! Form::textArea('obs_pia', null, ['class' => 'form-control']) !!}
+            {!! Form::label('obs_pia', 'Observaciones:') !!} {!! Form::textArea('obs_pia', null, ['class' => 'form-control']) !!}
         </div>
     </div>
 </div>

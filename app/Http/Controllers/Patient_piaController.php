@@ -59,7 +59,7 @@ class Patient_piaController extends AppBaseController
      */
     public function store(CreatePatient_piaRequest $request)
     {
-     
+    
         $today = Carbon::parse($request->fecha_alta_paciente);
 
         $patientPia = new Patient_pia;
@@ -91,9 +91,6 @@ class Patient_piaController extends AppBaseController
 
         Flash::success('Pia guardado correctamente');
         return redirect()->to(url()->route('patients.edit', $request->id) . '#pias');
-        
-       
- 
     }
 
 
@@ -101,9 +98,13 @@ class Patient_piaController extends AppBaseController
 
     public function pia_seguimiento(CreatePatient_piaRequest $request)
     {
-      
+        //dd($request->tipo_pia == 'Seguimiento' && $request->fecha_limite == null);
+
+        //dd($request->tipo_pia == 'Seguimiento' && $request->fecha_limite != null);
         
-        if ($request->tipo_pia == 'Seguimiento') {
+        //dd($request->fecha_limite);
+
+        if ($request->tipo_pia == 'Seguimiento' && $request->fecha_limite == null) {
             $patientPiaLast = Patient_pia::where('patient_id', $request->id)
                 ->orderBy('created_at', 'desc')->first();
 
@@ -124,8 +125,20 @@ class Patient_piaController extends AppBaseController
             }
         }
 
-        if ($request->tipo_pia == 'Inicial') { 
-            $this->store($request);
+        // if ($request->tipo_pia == 'Inicial') { 
+        //     $this->store($request);
+        // }
+
+        if ($request->tipo_pia == 'Seguimiento' && $request->fecha_limite != null) { 
+
+            $patientPia =  $this->patientPiaRepository->create([
+                'fecha_limite' => $request->fecha_limite,
+                'fecha_Real' => '',
+                'tipo_pia' => 'Seguimiento',
+                'url_pia' => $request->url_pia,
+                'obs_pia' => $request->obs_pia,
+                'patient_id' => $request->id,
+            ]);
         }
 
         Flash::success('Pia guardado correctamente');
@@ -171,8 +184,6 @@ class Patient_piaController extends AppBaseController
     {
         $patientPia = $this->patientPiaRepository->find($id);
 
-        //dd($patientPia->pia_url);
-
         if (empty($patientPia)) {
             Flash::error('Patient Pia not found');
             return redirect(route('patientPias.index'));
@@ -180,20 +191,16 @@ class Patient_piaController extends AppBaseController
 
         $patientPia = $this->patientPiaRepository->update($request->all(), $id);
 
-
         if ($request->url_pia != "" || $request->url_pia != null) {
             $patientPia->url_pia = $request->file('url_pia')->store($patientPia->patient_id .'/patient_documents/pia_documents_');
+            $today = Carbon::now();
+            $patientPia->fecha_real = $today->toDateString();
+            $patientPia->update();
         }
 
         if ($request->url_recepcion != "" || $request->url_recepcion != null) {
             $patientPia->url_recepcion = $request->file('url_recepcion')->store($patientPia->patient_id .'/patient_documents/pia_documents_');
         }
-
-    
-
-        $today = Carbon::now();
-        $patientPia->fecha_real = $today->toDateString();
-        $patientPia->update();
 
         Flash::success('Pia actulizado correctamente.');
         return redirect()->to(url()->route('patients.edit', $patientPia->patient) . '#pias');

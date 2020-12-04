@@ -79,8 +79,9 @@
 
             <!-- PIA en vigor Field -->
             {{-- @foreach($patient->patientPia as $patientPia) @php $today = Carbon\Carbon::now(); @endphp @if ($today
-< $patientPia->fecha_limite){ Tipo pia: {!! $patientPia->tipo_pia !!} <br> Fecha máx. Elaboración y Entrega:<br> Fecha Real Elaboración Completa:<br> Fecha Real Entrega:<br> Éxito PIA:<br> Informe PIA:<br> Documento Recepción PIA:<br> Observaciones:
-<br> @endif {{ date('d/m/Y', strtotime($patientPia->fecha_real_entrega)) }} @if ($patientPia->exito_pia == "Si")
+            < $patientPia->fecha_limite){ Tipo pia: {!! $patientPia->tipo_pia !!} <br> Fecha máx. Elaboración y Entrega:<br> Fecha Real Elaboración Completa:<br> Fecha Real Entrega:<br> Éxito PIA:<br> Informe PIA:<br> Documento Recepción PIA:<br> Observaciones:
+                <br> @endif {{ date('d/m/Y', strtotime($patientPia->fecha_real_entrega)) }} @if ($patientPia->exito_pia
+            == "Si")
             <div style="background: green;text-align: center; color: white">
                 @else
                 <div style="background: red; text-align: center; color: white">

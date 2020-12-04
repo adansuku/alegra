@@ -1,5 +1,6 @@
 <!-- Modal Add Document-->
-<div class="modal fade" id="pias_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="pias_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,8 +11,32 @@
             </div>
             <div class="modal-body">
 
-                {!! Form::open(['url' => route('pia_seg.create', ['id' => $patient->id]),'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                @include('patients.create.pias')
+                {!! Form::open(['url' => route('pia_seg.create', ['id' => $patient->id]),'method' => 'POST', 'enctype'
+                => 'multipart/form-data']) !!} @include('patients.create.pias') {!! Form::close() !!}
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--end modal add documents-->
+
+
+<!-- Modal Add Document-->
+<div class="modal fade" id="forzar_pias_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Añadir nuevo pia</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                {!! Form::open(['url' => route('pia_seg.create', ['id' => $patient->id]),'method' => 'POST',
+                'enctype' => 'multipart/form-data']) !!}
+                @include('patients.create.pias_forzar')
                 {!! Form::close() !!}
 
             </div>

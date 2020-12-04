@@ -56,8 +56,9 @@ class WorkerController extends AppBaseController
                     <a href="/workers/' . $workers->id . '" class="btn btn-xs ">
                     <i class="far fa-eye"></i></a>
 
-                    <a href="/workerdelete/' . $workers->id . '" class="btn btn-xs btn-danger btn-delete">
-                    <i class="far fa-trash-alt"></i></a>
+                 
+                    <button class="btn btn-xs btn-danger btn-delete" data-remote="/workers/' . 
+                    $workers->id . '"><i class="far fa-trash-alt"></i> </button>
 
                     ';
                 }
@@ -220,8 +221,6 @@ class WorkerController extends AppBaseController
         
                     <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
                     <i class="far fa-eye"></i> </a>
-                    <button class="btn btn-xs btn-danger btn-delete" data-remote="/patients/' . 
-                    $patient->id . '"><i class="far fa-trash-alt"></i> </button>
                     ';
                 }elseif( in_array(Auth::user()->role_id,[2,3])  ){
                     return '

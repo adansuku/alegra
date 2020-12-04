@@ -101,7 +101,7 @@ class Patient_historyController extends AppBaseController
             return redirect(route('patientHistories.index'));
         }
 
-        return view('patient_histories.edit')->with('patientHistory', $patientHistory);
+        return view('patients.create.history')->with('patientHistory', $patientHistory);
     }
 
     /**

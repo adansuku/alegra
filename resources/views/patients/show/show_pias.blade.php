@@ -22,83 +22,60 @@
 
         </td>
 
-        @php
-        $fecha_limite = strtotime($patientPia->fecha_limite);
-        $newformat = date('d/m/Y',$fecha_limite);
-        echo ' <td data-sort="'. $fecha_limite .'">'.$newformat .'</td>';
-        @endphp
+        @php $fecha_limite = strtotime($patientPia->fecha_limite); $newformat = date('d/m/Y',$fecha_limite); echo '
+        <td data-sort="'. $fecha_limite .'">'.$newformat .'</td>'; @endphp
 
         <td>
-            @if($patientPia->fecha_real != NULL )
-            {{ date('d/m/Y', strtotime($patientPia->fecha_real)) }}
-            @endif
+            @if($patientPia->fecha_real != NULL ) {{ date('d/m/Y', strtotime($patientPia->fecha_real)) }} @endif
         </td>
 
         <td>
 
             @if($patientPia->fecha_real_entrega != NULL )
-            {{ date('d/m/Y', strtotime($patientPia->fecha_real_entrega)) }}
-            @endif
+            {{ date('d/m/Y', strtotime($patientPia->fecha_real_entrega)) }} @endif
         </td>
 
 
         <td>
-  
-            @php 
-                $inicio = \Carbon\Carbon::parse('2020-06-01') ;
-                $fecha_real = \Carbon\Carbon::parse($patientPia->fecha_real) 
+            @php $inicio = \Carbon\Carbon::parse('2020-12-31') ;
+            $fecha_real = \Carbon\Carbon::parse($patientPia->fecha_real)
             @endphp
-                
+
             @if ($patientPia->fecha_real != NULL)
-                @if($inicio > $fecha_real) 
-                    <div style="background: green; text-align: center; color: white">Éxito</div>
-                @else
-                    @if ($patientPia->fecha_limite > $patientPia->fecha_real)
-                        <div style="background: green;text-align: center; color: white">Éxito</div>
-                    @else
-                        <div style="background: red; text-align: center; color: white">Fracaso</div>
-                    @endif
-                @endif
-            @endif
-
-           
-
-        </td>
-
-        <td>
-            @if($patientPia->url_pia == null )
-            Pia no disponible
+            @if($inicio > $fecha_real)
+            <div style="background: green; text-align: center; color: white">Éxito</div>
+            @else @if ($patientPia->fecha_limite >= $patientPia->fecha_real)
+            <div style="background: green;text-align: center; color: white">Éxito</div>
             @else
-
-            <a href="{{ asset("storage/$patientPia->url_pia") }}" target="_blank">
-                <i class="fas fa-download"></i> Ver documento
-            </a>
+            <div style="background: red; text-align: center; color: white">Fracaso</div>
             @endif
+            @endif
+            @endif
+        </td>
+
+        <td>
+            @if($patientPia->url_pia == null ) Pia no disponible @else
+
+            <a href="{{ asset(" storage/$patientPia->url_pia") }}" target="_blank">
+                <i class="fas fa-download"></i> Ver documento
+            </a> @endif
         </td>
 
 
         <td>
-            @if($patientPia->url_recepcion == null )
-            Pia recepción no disponible
-            @else
+            @if($patientPia->url_recepcion == null ) Pia recepción no disponible @else
 
-            <a href="{{ asset("storage/$patientPia->url_recepcion") }}" target="_blank">
+            <a href="{{ asset(" storage/$patientPia->url_recepcion") }}" target="_blank">
                 <i class="fas fa-download"></i> Ver documento
-            </a>
-            @endif
+            </a> @endif
         </td>
 
 
         <td>
 
-            @php
-            $today = Carbon\Carbon::now();
-            if ($today < $patientPia->fecha_limite){
-                echo '<div class="bg-secondary p-1">Pia en vigor</div>';
-                }
-                @endphp
-
-                {!! $patientPia->obs_pia !!}
+            @php $today = Carbon\Carbon::now(); if ($today
+            < $patientPia->fecha_limite){ echo '
+                <div class="bg-secondary p-1">Pia en vigor</div>'; } @endphp {!! $patientPia->obs_pia !!}
         </td>
 
         <td>

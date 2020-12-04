@@ -63,6 +63,7 @@ Route::resource('patientDiagnostics', 'Patient_diagnosticController');
 Route::resource('patientPatologies', 'Patient_patologyController');
 Route::resource('patientAllergies', 'Patient_allergyController');
 Route::resource('patientCarers', 'Patient_carerController');
+#Route::resource('patientHistory', 'Patient_historyController');
 Route::resource('patientOthers', 'Patient_otherController');
 Route::resource('patientServices', 'Patient_serviceController');
 Route::resource('patientHealths', 'Patient_healthController');
@@ -79,7 +80,7 @@ Route::resource('patientTransports', 'Patient_transportController');
 Route::resource('patientSpapds', 'Patient_spapdController');
 Route::resource('patientSpapdDays', 'Patient_spapd_diaController');
 
-Route::resource('patientCarers', 'Patient_carerController');
+
 
 
 
