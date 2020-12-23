@@ -3,10 +3,11 @@
         <tr>
             <th>Nombre</th>
             <th>Apellido</th>
+            {{--
             <th>Fecha de Nacimiento</th>
             <th>Dni</th>
             <th>Direccion</th>
-            <th>Teléfono</th>
+            <th>Teléfono</th> --}}
             <th>Email</th>
             <th>Acción</th>
         </tr>
@@ -46,25 +47,30 @@
             serverSide: true,
             ajax: "{{ url('allworkers') }}",
             columns: [{
-                data: 'nombre'
-            }, {
-                data: 'apellido'
-            }, {
-                data: 'fecha_nacimiento'
-            }, {
-                data: 'dni'
-            }, {
-                data: 'direccion'
-            }, {
-                data: 'telefono'
-            }, {
-                data: 'email'
-            }, {
-                data: 'accion',
-                name: 'accion',
-                orderable: false,
-                searchable: false
-            }],
+                    data: 'nombre'
+                }, {
+                    data: 'apellido'
+                },
+                // {
+                //     data: 'fecha_nacimiento'
+                // }, {
+                //     data: 'dni'
+                // }, {
+                //     data: 'direccion'
+                // }, {
+                //     data: 'telefono'
+                // }, 
+                {
+                    data: 'email'
+                }, {
+                    className: "text-right pr-4",
+                    targets: ['_all'],
+                    data: 'accion',
+                    name: 'accion',
+                    orderable: false,
+                    searchable: false
+                }
+            ],
             "scrollX": false,
             responsive: {
                 details: {

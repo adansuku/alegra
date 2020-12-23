@@ -32,6 +32,7 @@ class WorkerController extends AppBaseController
         $this->middleware('auth');
     }
 
+   
 
     /**
      * Display a listing of the Workers.
@@ -40,6 +41,32 @@ class WorkerController extends AppBaseController
      *
      * @return Response
      */
+
+
+
+    public function updatePassword($id, Request $request){
+
+        $password_size = strlen($request->user_password);
+        $worker = $this->workerRepository->find($id);
+
+
+        if ($request->user_password == null) {
+            Flash::error('Error al cambiar la contraseña, asegurate que el campo no está vacio');
+            return redirect(route('workers.index'));
+        }else if( $password_size < 8 )  {
+            Flash::error('El password debe tener al menos 8 Caracteres');
+            return redirect(route('workers.index'));
+        } else {
+            $worker->password = Hash::make($request->user_password);
+            $worker->save();
+            
+            Flash::success('Constraseña Actualizada correctamente para el usuario ' . $worker->email);
+            return redirect('workers/' . $id . "/edit");
+        }
+    }
+
+
+
 
     public function allWorkers()
     {
@@ -50,6 +77,7 @@ class WorkerController extends AppBaseController
             ->addColumn('accion', function ($workers) {
                 if(Auth::user()->role_id == 1){
                     return '
+                    
                     <a href="/workers/' . $workers->id . '/edit" class="btn btn-xs ">
                     <i class="far fa-edit"></i></a>
 
@@ -138,19 +166,8 @@ class WorkerController extends AppBaseController
     {
         $worker = $this->workerRepository->find($id);
 
-        $user = new User;
-        $user = User::where('email', $worker->email )->first();
-        //dd($request);
-
-        // if($worker->email != $request->email){
-        //     $user->email = $request->email;
-        //     $user->save();
-        // }
-
-        // if($request->password != "00000000"){
-        //     $user->password = Hash::make($request->password);
-        //     $user->save();
-        // }
+        $user = new Worker;
+        $user = Worker::where('id', $worker->id )->first();
 
         if (empty($worker)) {
             Flash::error('Trabajador/a no encontrado');

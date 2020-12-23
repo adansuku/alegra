@@ -43,6 +43,7 @@ class PatientController extends AppBaseController
      */
 
     public function allPatients()
+
     {
         $patients = $this->patientRepository->all();
 
@@ -77,6 +78,18 @@ class PatientController extends AppBaseController
 
     public function index(Request $request)
     {
+
+
+        $str = request()->headers->get('referer');
+        $int = (int) filter_var($str, FILTER_SANITIZE_NUMBER_INT);
+
+        if ($int != 0){
+            $patient = $this->patientRepository->find($int);
+            $patient->user_edit = 0;   
+            $patient->save();
+        }
+
+
         if(Auth::user()->role_id == 1){
             return view('patients.index');
         }else{
@@ -182,18 +195,32 @@ class PatientController extends AppBaseController
     public function edit($id)
     {
         $patient = $this->patientRepository->find($id);
-        $workers = Worker::all();
-        $services = Patient_service::where('patient_id', $id)->get();
+        if ($patient->user_edit == 0 || $patient->user_edit == Auth::user()->id){
+            $patient->user_edit = Auth::user()->id;   
+            $patient->save();
+        
+            $workers = Worker::all();
+            $services = Patient_service::where('patient_id', $id)->get();
 
-        if (empty($patient)) {
-            Flash::error('Patient not found');
+            if (empty($patient)) {
+                Flash::error('Patient not found');
+                return redirect(route('patients.index'));
+            }
+
+            return view('patients.edit')
+                ->with('workers', $workers)
+                ->with('patient', $patient)
+                ->with('services', $services);
+        } else {
+            $worker = Worker::find($patient->user_edit);
+            Flash::error('Este usuario está siendo editado por ' . $worker->nombre);
             return redirect(route('patients.index'));
         }
-        return view('patients.edit')
-            ->with('workers', $workers)
-            ->with('patient', $patient)
-            ->with('services', $services);
+        
     }
+
+    /*Patient to 0*/
+    function reset_permision_on_edit(){}
 
     /**
      * Update the specified Patient in storage.
@@ -208,33 +235,46 @@ class PatientController extends AppBaseController
 
         $patient = $this->patientRepository->find($id);
 
-
-        $new_patient_id = $request->worker_id;
-        //$old_patient_id = $patient->worker_id;
-        //$worker = Worker::find($new_patient_id);
-
-        $patient->patientOther()->first()->update($request->all());
-        $patient->patientInfo()->first()->update($request->all());
-        $patient->patientHealth()->first()->update($request->all());
-        $patient = $this->patientRepository->update($request->all(), $id);
-
-        if ($request->file('foto_paciente') != null) {
-            $patient->foto_paciente = $request->file('foto_paciente')->store('foto_paciente/' . $patient->id);
+        if ($request->get('action') == 'Cancelar') {
+            $patient->user_edit = 0;
             $patient->save();
-        }
-
-        if (empty($patient)) {
-            Flash::error('Persona no encontrada');
             return redirect(route('patients.index'));
+        } else {
+            
+            //$new_patient_id = $request->worker_id;
+            //$old_patient_id = $patient->worker_id;
+            //$worker = Worker::find($new_patient_id);
+    
+            $patient->patientOther()->first()->update($request->all());
+            $patient->patientInfo()->first()->update($request->all());
+            $patient->patientHealth()->first()->update($request->all());
+            $patient = $this->patientRepository->update($request->all(), $id);
+    
+            if ($request->file('foto_paciente') != null) {
+                $patient->foto_paciente = $request->file('foto_paciente')->store('foto_paciente/' . $patient->id);
+            }
+
+            if ($request->get('action') == 'Guardar y salir') {
+                $patient->user_edit = 0;
+                $patient->save();
+            }
+    
+            if (empty($patient)) {
+                Flash::error('Persona no encontrada');
+                return redirect(route('patients.index'));
+            }
+
+            Flash::success('Persona actualizada correctamente.');
+    
+            if ($request->get('action') == 'Guardar') {
+                return redirect()->route('patients.edit', $patient->id);
+            } elseif ($request->get('action') == 'Guardar y salir') {
+                return redirect(route('patients.index'));
+            }
         }
 
-        Flash::success('Persona actualizada correctamente.');
-
-        if ($request->get('action') == 'Guardar') {
-            return redirect()->route('patients.edit', $patient->id);
-        } elseif ($request->get('action') == 'Guardar y salir') {
-            return redirect(route('patients.index'));
-        }
+        
+        
 
 
 

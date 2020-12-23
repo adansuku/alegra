@@ -10,15 +10,13 @@
 
     <!-- Tipo Pia Field -->
     <div class="form-group col-lg-6">
-        <strong>{!! Form::label('fecha_limite', 'Fecha límite (forzar):') !!}</strong>
+        <strong>{!! Form::label('fecha_limite', 'Fecha límite (forzar):') !!}</strong> {!! Form::date('fecha_limite', null, ['class' => 'form-control', 'id' => 'fecha_limite']) !!}
     </div>
-    {!! Form::date('fecha_limite', null, ['class' => 'form-control', 'id' => 'fecha_limite']) !!}
 
     <!-- Tipo Pia Field -->
     <div class="form-group col-lg-6">
-        {!! Form::label('tipo_pia', 'Tipo Pia:') !!} {!! Form::select('tipo_pia', ['Seguimiento' => 'Seguimiento'],
-        'null', ['class' => 'form-control', 'id' => 'tipo_pia','required' => 'required']) !!}
-    </div>Editando Pia
+        {!! Form::label('tipo_pia', 'Tipo Pia:') !!} {!! Form::select('tipo_pia', ['Seguimiento' => 'Seguimiento'], 'null', ['class' => 'form-control', 'id' => 'tipo_pia','required' => 'required']) !!}
+    </div>
 
     <!-- Url Pia Field -->
     <div class="form-group col-lg-6">
@@ -28,15 +26,13 @@
 
     <!-- Obs Pia Field -->
     <div class="form-group col-lg-12">
-        {!! Form::label('obs_pia', 'Observaciones:') !!} {!! Form::textArea('obs_pia', null, ['class' =>
-        'form-control']) !!}
+        {!! Form::label('obs_pia', 'Observaciones:') !!} {!! Form::textArea('obs_pia', null, ['class' => 'form-control']) !!}
     </div>
 
 
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
-        {!! Form::submit('Crear nuevo pia', ['class' => 'btn btn-primary float-right', 'id' => 'save']) !!}
-        {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right', 'data-dismiss' => 'modal']) !!}
+        {!! Form::submit('Crear nuevo pia', ['class' => 'btn btn-primary float-right', 'id' => 'save']) !!} {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right', 'data-dismiss' => 'modal']) !!}
 
     </div>
 </div>

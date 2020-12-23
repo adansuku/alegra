@@ -1,8 +1,10 @@
 @extends('layouts.home') @section('title', "Edit") @section('content')
 
 <!-- Include -->
-@include('workers.modals.documents_modal') @include('workers.modals.labor_modal') @include('workers.modals.history_modal')
-
+@include('workers.modals.documents_modal')
+@include('workers.modals.labor_modal')
+@include('workers.modals.history_modal')
+@include('workers.modals.update_password')
 <div class="container-fluid">
     <div class="card" id="editar_worker">
         <div class="card-header py-3">
@@ -10,7 +12,8 @@
         </div>
 
         <div class="card-body p-4">
-            {!! Form::model($worker, ['route' => ['workers.update', $worker->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
+            {!! Form::model($worker, ['route' => ['workers.update', $worker->id], 'method' => 'patch', 'enctype' =>
+            'multipart/form-data']) !!}
 
             <ul class="nav nav-pills flex-column flex-sm-row " role="tablist" id="myTab">
                 <li class="nav-item">
@@ -60,11 +63,13 @@
                 <div class="tab-pane" id="laboral" role="tabpanel">
                     <div class="row">
                         <div class="col-sm-7">
-                            <p class="my-3"><strong>Relación laboral del usuario:</strong> {{$worker->nombre}} {{$worker->apellido}}
+                            <p class="my-3"><strong>Relación laboral del usuario:</strong> {{$worker->nombre}}
+                                {{$worker->apellido}}
                             </p>
                         </div>
                         <div class="col-sm-5 text-right">
-                            <button type="button" class="btn-block btn btn-primary my-3 " data-toggle="modal" data-target="#labor_modal">
+                            <button type="button" class="btn-block btn btn-primary my-3 " data-toggle="modal"
+                                data-target="#labor_modal">
                                 Añadir Relación Laboral <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
@@ -77,11 +82,13 @@
                 <div class="tab-pane" id="documentation" role="tabpanel">
                     <div class="row">
                         <div class="col-sm-9">
-                            <p class="my-3"><strong>Documentos del usuario:</strong> {{$worker->nombre}} {{$worker->apellido}}
+                            <p class="my-3"><strong>Documentos del usuario:</strong> {{$worker->nombre}}
+                                {{$worker->apellido}}
                             </p>
                         </div>
                         <div class="col-sm-3 text-right">
-                            <button type="button" class="btn btn-primary my-3 " data-toggle="modal" data-target="#documents_modal">
+                            <button type="button" class="btn btn-primary my-3 " data-toggle="modal"
+                                data-target="#documents_modal">
                                 Añadir documento <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
@@ -99,7 +106,8 @@
                             <p class="my-3"><strong>Historial de</strong> {{$worker->nombre}} {{$worker->apellido}}</p>
                         </div>
                         <div class="col-sm-3 text-right">
-                            <button type="button" class="btn btn-primary my-3 " data-toggle="modal" data-target="#history_modal">
+                            <button type="button" class="btn btn-primary my-3 " data-toggle="modal"
+                                data-target="#history_modal">
                                 Añadir historial <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
@@ -115,7 +123,9 @@
             </div>
             <!--end tab-content-->
 
-            {!! Form::submit('Guardar', ['class' => 'btn btn-primary float-right', 'value' => 'guardar', 'name' => 'action']) !!} {!! Form::submit('Guardar y salir', ['class' => 'btn btn-secondary float-right', 'value' => 'guardar_y_salir', 'name' => 'action']) !!}
+            {!! Form::submit('Guardar', ['class' => 'btn btn-primary float-right', 'value' => 'guardar', 'name' =>
+            'action']) !!} {!! Form::submit('Guardar y salir', ['class' => 'btn btn-secondary float-right', 'value' =>
+            'guardar_y_salir', 'name' => 'action']) !!}
             {!! Form::close() !!}
             <button class="btn btn-default float-right" onclick="window.location.href='/workers'">Cancelar</button>
         </div>
@@ -136,7 +146,7 @@
     }
 
     // Change on page reload
-    $('.nav-pills a').on('shown', function(e) {
+    $('.nav-pills a').on('shown', function (e) {
         window.location.hash = e.target.hash.replace("#", "#" + prefix);
     });
 </script>

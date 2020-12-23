@@ -33,19 +33,24 @@
     });
 </script>
 
+
+
+
+
 <div class="row align-items-center h-100 no-gutters">
     <div class="col-sm-3 text-center mt-3">
         <!-- <img class="rounded-circle" src="/storage/{{ $worker->avatar }}"  
         width="90%"/> -->
 
-        <div class="avatar" style="background-image:url({{ asset("storage/$worker->avatar") }})">
+        <div class="avatar" style="background-image:url({{ asset(" storage/$worker->avatar") }})">
         </div>
+        <a class="btn btn-secondary" role="button" data-toggle="modal" data-target="#change_password"><i
+                class="fas fa-unlock-alt"></i> Cambiar contraseña</a>
 
     </div>
     <div class="col-sm-9">
         <div class="file-upload">
-            <button class="btn-block btn btn-secondary" type="button"
-                onclick="$('.file-upload-input').trigger( 'click' )">Añadir Avatar</button>
+            <button class="btn-block btn btn-secondary" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Añadir Avatar</button>
 
             <div class="image-upload-wrap">
                 <input class="file-upload-input" name="avatar" type='file' onchange="readURL(this);" accept="image/" />
@@ -70,22 +75,18 @@
 
         <!-- Nombre Field -->
         <div class="form-group">
-            <strong>{!! Form::label('nombre', 'Nombre:') !!}</strong>
-            {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
+            <strong>{!! Form::label('nombre', 'Nombre:') !!}</strong> {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
         </div>
 
 
         <!-- Apellido Field -->
         <div class="form-group ">
-            <strong>{!! Form::label('apellido', 'Apellidos:') !!}</strong>
-            {!! Form::text('apellido', null, ['class' => 'form-control']) !!}
+            <strong>{!! Form::label('apellido', 'Apellidos:') !!}</strong> {!! Form::text('apellido', null, ['class' => 'form-control']) !!}
         </div>
 
         <!-- Fecha Nacimiento Field -->
         <div class="form-group ">
-            <strong>{!! Form::label('fecha_nacimiento', 'Fecha Nacimiento:') !!}</strong>
-            {!! Form::date('fecha_nacimiento', $worker->fecha_nacimiento, ['class' =>
-            'form-control','id'=>'fecha_nacimiento']) !!}
+            <strong>{!! Form::label('fecha_nacimiento', 'Fecha Nacimiento:') !!}</strong> {!! Form::date('fecha_nacimiento', $worker->fecha_nacimiento, ['class' => 'form-control','id'=>'fecha_nacimiento']) !!}
         </div>
 
         @section('scripts')
@@ -99,14 +100,12 @@
 
         <!-- Dni Field -->
         <div class="form-group ">
-            <strong>{!! Form::label('dni', 'Dni:') !!}</strong>
-            {!! Form::text('dni', null, ['class' => 'form-control']) !!}
+            <strong>{!! Form::label('dni', 'Dni:') !!}</strong> {!! Form::text('dni', null, ['class' => 'form-control']) !!}
         </div>
 
         <!-- Direccion Field -->
         <div class="form-group ">
-            <strong>{!! Form::label('direccion', 'Direccion:') !!}</strong>
-            {!! Form::text('direccion', null, ['class' => 'form-control']) !!}
+            <strong>{!! Form::label('direccion', 'Direccion:') !!}</strong> {!! Form::text('direccion', null, ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group ">
@@ -114,7 +113,8 @@
             <select class="form-control" id="role_id" name="role_id">
                 <option value="" selected disabled hidden>Selecciona una opción</option>
                 @foreach($roles as $role)
-                    <option value="{{$role->id}}" {{ $worker->role_id == $role->id ? 'selected':'' }}>{{ $role->role }}</option>
+                <option value="{{$role->id}}" {{ $worker->role_id == $role->id ? 'selected':'' }}>{{ $role->role }}
+                </option>
                 @endforeach
             </select>
         </div>
@@ -123,21 +123,17 @@
     <div class="col-sm-6">
         <!-- Email Corporativo Field -->
         <div class="form-group ">
-            <strong>{!! Form::label('email_personal', 'Email personal ') !!}</strong> (este no es el email para iniciar
-            sesión)
-            {!! Form::email('email_personal', null, ['class' => 'form-control']) !!}
+            <strong>{!! Form::label('email_personal', 'Email personal ') !!}</strong> (este no es el email para iniciar sesión) {!! Form::email('email_personal', null, ['class' => 'form-control']) !!}
         </div>
 
         <!-- Telefono Field -->
         <div class="form-group ">
-            <strong>{!! Form::label('telefono', 'Telefono:') !!}</strong>
-            {!! Form::number('telefono', null, ['class' => 'form-control']) !!}
+            <strong>{!! Form::label('telefono', 'Telefono:') !!}</strong> {!! Form::number('telefono', null, ['class' => 'form-control']) !!}
         </div>
 
         <!-- Telefono Movil Field -->
         <div class="form-group ">
-            <strong>{!! Form::label('telefono_movil', 'Telefono Movil:')!!} </strong>
-            {!! Form::number('telefono_movil', null, ['class' => 'form-control']) !!}
+            <strong>{!! Form::label('telefono_movil', 'Telefono Movil:')!!} </strong> {!! Form::number('telefono_movil', null, ['class' => 'form-control']) !!}
         </div>
 
 
@@ -193,12 +189,12 @@
                 </option>
                 <option {{ $worker->titulacion == 'Técnico en Integración Social' ? 'selected':'' }}>Técnico en
                     Integración Social</option>
-                <option
-                    {{ $worker->titulacion == 'Certificado de Profesionalidad de Atención a personas dependientes en instituciones sociales' ? 'selected':'' }}>
+                <option {{ $worker->titulacion == 'Certificado de Profesionalidad de Atención a personas dependientes en
+                    instituciones sociales' ? 'selected':'' }}>
                     Certificado de Profesionalidad de Atención a personas dependientes en instituciones sociales
                 </option>
-                <option
-                    {{ $worker->titulacion == 'Certificado de profesionalidad de atención a personas depnendientes en domicilio' ? 'selected':'' }}>
+                <option {{ $worker->titulacion == 'Certificado de profesionalidad de atención a personas depnendientes
+                    en domicilio' ? 'selected':'' }}>
                     Certificado de profesionalidad de atención a personas depnendientes en domicilio</option>
                 <option {{ $worker->titulacion == 'Otros' ? 'selected':'' }}>Otros</option>
             </select>

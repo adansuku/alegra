@@ -98,10 +98,11 @@ class Patient_historyController extends AppBaseController
         if (empty($patientHistory)) {
             Flash::error('Patient History not found');
 
-            return redirect(route('patientHistories.index'));
+            return redirect(route('patient_histories.index'));
         }
 
-        return view('patients.create.history')->with('patientHistory', $patientHistory);
+
+        return view('patient_histories.edit')->with('patientHistory', $patientHistory);
     }
 
     /**
@@ -114,8 +115,10 @@ class Patient_historyController extends AppBaseController
      */
     public function update($id, UpdatePatient_historyRequest $request)
     {
-        $patientHistory = $this->patientHistoryRepository->find($id);
 
+        
+        $patientHistory = $this->patientHistoryRepository->find($id);
+        
         if (empty($patientHistory)) {
             Flash::error('Patient History not found');
 
@@ -126,7 +129,7 @@ class Patient_historyController extends AppBaseController
 
         Flash::success('Patient History updated successfully.');
 
-        return redirect()->to(url()->previous() . '#history');
+        return redirect()->to('patients/' . $patientHistory->patient_id . '/edit/#history');
     }
 
     /**

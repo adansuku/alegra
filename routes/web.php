@@ -96,3 +96,8 @@ Route::resource('patientMedications', 'Patient_medicationController');
 Route::resource('workerTimes', 'Worker_timeController');
 
 Route::resource('workerSessions', 'Worker_sessionController');
+
+Route::post('addpia/{id}', ['as' => 'pia_seg.create', 'uses' => 'Patient_piaController@pia_seguimiento']);
+
+Route::post('updatePassword/{id}', ['as' => 'updatePassword.user', 'uses' => 'WorkerController@updatePassword']);
+

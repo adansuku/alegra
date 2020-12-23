@@ -30,10 +30,22 @@
                 <a href="{!! route('patientHistories.edit', [$item->id]) !!}" class='btn btn-secondary btn-xs'>
                     <i class="far fa-edit"></i>
                 </a>
+                {{-- <a href="{!! route('patientPias.edit', [$patientPia->id]) !!}" class='btn  btn-secondary btn-xs'>
+                    <i class="far fa-edit"></i>
+                </a> --}}
+
+                {{-- <a href="/carerdelete/{{$item->id}}"
+                data-token="{{csrf_token()}}"
+                class='btn btn-danger btn-xs'
+                data-confirm="Seguro que quieres eliminar este pia?"
+                onclick="return confirm('¿Estas segura que quieres eliminar la persona de referencia?')">
+                <i class="fas fa-trash"></i>
+                </a> --}}
 
 
 
-                {{-- <a href="/piadelete/{{$$item->id}}" data-token="{{csrf_token()}}" class='btn btn-danger btn-xs'
+                {{--
+                <a href="/piadelete/{{$$item->id}}" data-token="{{csrf_token()}}" class='btn btn-danger btn-xs'
                 data-confirm="Seguro que quieres eliminar este pia?" onclick="return confirm('¿Estas segura que quieres
                 eliminar el pia?')">
                 <i class="fas fa-trash"></i>

@@ -1,9 +1,8 @@
 <div class="row m-0 p-3">
     <!-- Reg Fecha registro Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('acc_fecha_reg', 'Fecha de registro:') !!}
-        {!! Form::date('acc_fecha_reg', today(), ['class' => 'form-control','id'=>'reg_accion', 'required' =>
-        'required', 'readonly' => 'readonly']) !!}
+        {!! Form::label('acc_fecha_reg', 'Fecha de registro:') !!} {!! Form::date('acc_fecha_reg', today(), ['class' =>
+        'form-control','id'=>'reg_accion', 'required' => 'required', 'readonly' => 'readonly']) !!}
     </div>
 
     @section('scripts')
@@ -17,9 +16,8 @@
 
     <!-- Reg fecha realizacion Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('acc_fecha_realiz', 'Fecha de la acción:') !!}
-        {!! Form::date('acc_fecha_realiz', null, ['class' => 'form-control','id'=>'rea_accion', 'required' =>
-        'required']) !!}
+        {!! Form::label('acc_fecha_realiz', 'Fecha de la acción:') !!} {!! Form::date('acc_fecha_realiz', null, ['class'
+        => 'form-control','id'=>'rea_accion', 'required' => 'required']) !!}
     </div>
 
     @section('scripts')
@@ -34,18 +32,23 @@
 
     <!-- Tipo accion Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('acc_tipo_accion', 'Tipo Acción/Tarea:') !!} {!! Form::select('acc_tipo_accion', [ null =>
-        'Selecciona una:', 'Solicitud Demandas' => 'Solicitud Demandas', 'Formalización Demandas' => 'Formalización
-        Demandas', 'Intervenciones en Centro'
-        => 'Intervenciones en Centro', 'Intervenciones en Domicilio' => 'Intervenciones en Domicilio', 'Seguimiento de
-        Salud' => 'Seguimiento de Salud', 'Documentación' => 'Documentación', 'Contabilidad' => 'Contabilidad',
-        'Valoraciones iniciales' =>
-        'Valoraciones iniciales', 'Otras' => 'Otras'], null, ['class' => 'form-control', 'required'=>'required', 'id' =>
-        'acc_tipo_accion']) !!}
+        {!! Form::label('acc_tipo_accion', 'Tipo Acción/Tarea:') !!} {!! Form::select('acc_tipo_accion', [
+        null => 'Selecciona una:', 'Solicitud Demandas' => 'Solicitud Demandas', 'Formalización Demandas' =>
+        'Formalización Demandas', 'Intervenciones en Centro'
+        => 'Intervenciones en Centro', 'Intervenciones en Domicilio' => 'Intervenciones en Domicilio',
+        'Seguimiento de Salud' => 'Seguimiento de Salud',
+        'Documentación' => 'Documentación',
+        'Contabilidad' => 'Contabilidad',
+        'Valoraciones iniciales'=> 'Valoraciones iniciales',
+        'Incidencias'=> 'Incidencias',
+        'Felicitaciones'=> 'Felicitaciones',
+        'Quejas y reclamaciones'=> 'Quejas y reclamaciones',
+        'Otras' => 'Otras'], null, ['class' =>
+        'form-control', 'required'=>'required', 'id' => 'acc_tipo_accion']) !!}
     </div>
 
     <script>
-        $('#acc_tipo_accion').on('change', function () {
+        $('#acc_tipo_accion').on('change', function() {
             if ($(this).val() === 'Solicitud Demandas' || $(this).val() === 'Formalización Demandas') {
                 console.log('ok');
                 $('#solic_demandas').css('display', 'block');
@@ -228,14 +231,14 @@
 
     <!-- Valoraciones iniciales -->
     <div class="form-group col-sm-12 " id="valoracion_ini" style="display: none">
-        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Ficha
-        de Acogida' => 'Ficha de Acogida', 'Valoración Adaptación' =>'Valoración Adaptación' , 'Valoración Inicial de
-        Indicador Salud' =>'Valoración
-        Inicial de Indicador Salud' , 'Valoración Inicial Sociofamiliar' =>'Valoración Inicial Sociofamiliar' ,
-        'Valoración Inicial Cognitiva' =>'Valoración Inicial Cognitiva' , 'Valoración Inicial Física' =>'Valoración
-        Inicial Física' , 'Valoración Inicial
-        Funcional' =>'Valoración Inicial Funcional' , 'Valoración Inicial Emocional' =>'Valoración Inicial Emocional' ,
-        'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' =>
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una
+        opcion', 'Primera Entrevista' =>'Primera Entrevista', 'Valoración Adaptación' =>'Valoración Adaptación' ,
+        'Valoración Inicial de Indicador Salud'
+        =>'Valoración Inicial de Indicador Salud' , 'Valoración
+        Inicial Cognitiva' =>'Valoración Inicial Cognitiva' , 'Valoración Inicial Física' =>'Valoración Inicial Física'
+        , 'Valoración Inicial Funcional' =>'Valoración Inicial Funcional' , 'Valoración Inicial Emocional' =>'Valoración
+        Inicial Emocional'
+        , 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' =>
         'valoracion_ini_opt']) !!}
     </div>
 
@@ -243,7 +246,7 @@
 
     <!-- script otro accion -->
     <script>
-        $('.acc_subtipo_accion').on('change', function () {
+        $('.acc_subtipo_accion').on('change', function() {
             if ($(this).val() === 'Otras') {
                 $('#otro_acc_sub_id').css('display', 'block');
                 $('#otro_acc_sub_cont_id').attr('required', 'required');
@@ -290,19 +293,12 @@
         {!! Form::label('', 'Selecciona una plantilla para cargar:') !!}
         <div class="row">
             <div class="col-md-7 col-lg-8">
-                {!! Form::select('', [ '' => 'Selecciona
-                plantilla',
-                '1' => 'Seguimiento Sociofamiliar',
-                '2' => 'Segumiento cognitivo',
-                '3' => 'Seguimiento Físico',
-                '4' => 'Seguimiento Emocional',
-                '5' => 'Seguimiento Funcional',
-                '6' => 'Valoracion Inicial Emocional',
-                '7' => 'Valoración inicial coginitiva',
-                '8' => 'Valoración Inicial TO',
-                '10' => 'Valoración Inicial Fisioterapéutica',
-                '9' => 'Primera entrevista'
-                ], null, ['class' => 'form-control', 'id' =>
+                {!! Form::select('', [ '' => 'Selecciona plantilla', '1' => 'Seguimiento Sociofamiliar', '2' =>
+                'Segumiento cognitivo', '3' => 'Seguimiento Físico', '4' => 'Seguimiento Emocional', '5' => 'Seguimiento
+                Funcional', '6' => 'Valoracion Inicial Emocional',
+                '7' => 'Valoración inicial coginitiva', '8' => 'Valoración Inicial TO', '10' => 'Valoración Inicial
+                Fisioterapéutica', '9' => 'Primera entrevista', '11' => 'Inicidencias', '12' => 'Felicitaciones', '13'
+                => 'Quejas y reclamaciones'], null, ['class' => 'form-control', 'id' =>
                 'select-template']) !!}
             </div>
 
@@ -316,7 +312,7 @@
 
 
     <script>
-        $('#add-template').click(function () {
+        $('#add-template').click(function() {
             switch (parseInt($('#select-template').val())) {
                 case 1:
                     $(".note-editable").empty();
@@ -382,11 +378,29 @@
                     $('#acc_descrip').html(add_template_all() + add_template_10());
                     $('.note-editable').html(add_template_all() + add_template_10());
                     break;
+
+                case 11:
+                    $(".note-editable").empty();
+                    $('#acc_descrip').html(add_template_11());
+                    $('.note-editable').html(add_template_11());
+                    break;
+
+                case 12:
+                    $(".note-editable").empty();
+                    $('#acc_descrip').html(add_template_11());
+                    $('.note-editable').html(add_template_11());
+                    break;
+
+                case 13:
+                    $(".note-editable").empty();
+                    $('#acc_descrip').html(add_template_11());
+                    $('.note-editable').html( add_template_11());
+                    break;
                 default:
             }
 
-            function add_template_all(){
-                return "<p>Los siguientes ítems son sólo una guía de apoyo para la valoración del profesional, completamente flexible y adaptable.</p><hr>" ;
+            function add_template_all() {
+                return "<p>Los siguientes ítems son sólo una guía de apoyo para la valoración del profesional, completamente flexible y adaptable.</p><hr>";
 
             }
 
@@ -475,94 +489,107 @@
             }
 
             function add_template_7() {
-                return "<ul>"+
-                    "<li><strong>MEMORIA (inmediata, reciente, autobiográfica, semántica...)</strong></li>"+
-                    "<li><strong>ORIENTACIÓN (espacial, personal, temporal y comunitaria)</strong></li>"+
-                    "<li><strong>PERCEPCIÓN (visual, auditiva, táctil)</strong></li>"+
-                    "<li><strong>ATENCIÓN Y CONCENTRACIÓN:</strong></li>"+
-                    "<li><strong>LENGUAJE (fluidez verbal, lectura, escritura...)</strong></li>"+
-                    "<li><strong>RAZONAMIENTO (comprensión, abstracción...)</strong></li>"+
-                    "<li><strong>CÁLCULO</strong></li>"+
-                    "<li><strong>FUNCIÓN EJECUTIVA</strong></li>"+
-                    "<li><strong>PRAXIAS (Constructiva, ideomotora, ideatoria...)</strong></li>"+
-                    "<li><strong>GNOSIAS (visuales, auditivas, táctiles, esquema corporal...)</strong></li>"+
-                    "<li><strong>OTRAS VALORACIONES:</strong></li>"+
-                "</ul>";
+                return "<ul>" +
+                    "<li><strong>MEMORIA (inmediata, reciente, autobiográfica, semántica...)</strong></li>" +
+                    "<li><strong>ORIENTACIÓN (espacial, personal, temporal y comunitaria)</strong></li>" +
+                    "<li><strong>PERCEPCIÓN (visual, auditiva, táctil)</strong></li>" +
+                    "<li><strong>ATENCIÓN Y CONCENTRACIÓN:</strong></li>" +
+                    "<li><strong>LENGUAJE (fluidez verbal, lectura, escritura...)</strong></li>" +
+                    "<li><strong>RAZONAMIENTO (comprensión, abstracción...)</strong></li>" +
+                    "<li><strong>CÁLCULO</strong></li>" +
+                    "<li><strong>FUNCIÓN EJECUTIVA</strong></li>" +
+                    "<li><strong>PRAXIAS (Constructiva, ideomotora, ideatoria...)</strong></li>" +
+                    "<li><strong>GNOSIAS (visuales, auditivas, táctiles, esquema corporal...)</strong></li>" +
+                    "<li><strong>OTRAS VALORACIONES:</strong></li>" +
+                    "</ul>";
             }
 
             function add_template_8() {
                 return "<p>Indicar descripción del grado de autonomía y productos de apoyo:<p>" +
-                    "<p><strong>CTIVIDADES BÁSICAS DE LA VIDA DIARIA (fisio/TO)</strong></p>"+
-                    "<ul>"+
-                        "<li>Caminar</li>" +
-                        "<li>Subir y bajar escaleras</li>" +
-                        "<li>Transferencias</li>" +
-                        "<li>Equilibrio</li>" +
-                        "<li>Continencia</li>" +
-                        "<li>Higiene y aseo personal</li>" +
-                        "<li>Imagen personal</li>" +
-                        "<li>Vestido</li>" +
-                        "<li>Alimentación</li>" +
-                        "<li>Actividad sexual</li>" +
-                        "<li>Sueño y descanso</li>" +
-                    "</ul>"+
-                    "<p><strong>CTIVIDADES INSTRUMENTALES DE LA VIDA DIARIA (psico/TO)</strong></p>"+
-                    "<ul>"+
-                        "<li>Uso de transporte</li>" +
-                        "<li>Elaboración de comidas</li>" +
-                        "<li>Cuidado y limpieza del hogar</li>" +
-                        "<li>Realización de compras</li>" +
-                        "<li>Uso de sistemas de comunicación</li>" +
-                        "<li>Cuidado de mascotas</li>" +
-                        "<li>Medidas de seguridad en el hogar</li>" +
-                        "<li>Cuidado de salud y manutención</li>" +
-                        "<li>Toma de medicación</li>" +
-                        "<li>Gestión económica</li>" +
-                    "</ul>"+
-                    "<p><strong>CTIVIDADES AVANZADAS DE LA VIDA DIARIA (psico/TO)</strong></p>"+
-                    "<ul>"+
-                        "<li>Participación en la comunidad</li>" +
-                        "<li>Educación</li>" +
-                        "<li>Ocio y tiempo libre</li>" +
+                    "<p><strong>CTIVIDADES BÁSICAS DE LA VIDA DIARIA (fisio/TO)</strong></p>" +
+                    "<ul>" +
+                    "<li>Caminar</li>" +
+                    "<li>Subir y bajar escaleras</li>" +
+                    "<li>Transferencias</li>" +
+                    "<li>Equilibrio</li>" +
+                    "<li>Continencia</li>" +
+                    "<li>Higiene y aseo personal</li>" +
+                    "<li>Imagen personal</li>" +
+                    "<li>Vestido</li>" +
+                    "<li>Alimentación</li>" +
+                    "<li>Actividad sexual</li>" +
+                    "<li>Sueño y descanso</li>" +
+                    "</ul>" +
+                    "<p><strong>CTIVIDADES INSTRUMENTALES DE LA VIDA DIARIA (psico/TO)</strong></p>" +
+                    "<ul>" +
+                    "<li>Uso de transporte</li>" +
+                    "<li>Elaboración de comidas</li>" +
+                    "<li>Cuidado y limpieza del hogar</li>" +
+                    "<li>Realización de compras</li>" +
+                    "<li>Uso de sistemas de comunicación</li>" +
+                    "<li>Cuidado de mascotas</li>" +
+                    "<li>Medidas de seguridad en el hogar</li>" +
+                    "<li>Cuidado de salud y manutención</li>" +
+                    "<li>Toma de medicación</li>" +
+                    "<li>Gestión económica</li>" +
+                    "</ul>" +
+                    "<p><strong>CTIVIDADES AVANZADAS DE LA VIDA DIARIA (psico/TO)</strong></p>" +
+                    "<ul>" +
+                    "<li>Participación en la comunidad</li>" +
+                    "<li>Educación</li>" +
+                    "<li>Ocio y tiempo libre</li>" +
                     "</ul>";
             }
 
             function add_template_9() {
-                        "<h3>PRIMERA ENTREVISTA (VALORACIÓN SOCIOFAMILIAR)</h3>" +
-                        "<p><strong>Demanda inicial:</strong></p>"+
-                        "<p><strong>Datos sociofamiliares</strong></p>"+
-                        "<ul>"+
-                        "<li>Historia de vida:</li>"+
-                        "<li>Educación, trabajos previos y ocupaciones actuales:</li>"+
-                        "<li>Intereses, gustos, temas que le gusta conversar (antes y ahora):</li>"+
-                        "<li>Fortalezas:</li>"+
-                        "<li>Redes de apoyo familiar:</li>"+
-                        "<li>Datos importantes sobre la cuidadora:</li>"+
-                        "</ul>"+
-                        "<p><strong>Datos de salud (pautas y necesidades específicas durante la intervención en domicilio)</strong></p>" +
-                        "<ul>"+
-                        "<li>Alimentación e hidratación:</li>" +
-                        "<li>Movilidad:</li>" +
-                        "<li>Incontinencia e higiene personal:</li>" +
-                        "<li>Medicación:</li>" +
-                        "<li>Alergias:</li>" +
-                        "<li>Aspectos cognitivos:</li>" +
-                        "<li>Otros datos importantes:</li>" +
-                        "</ul>" +
-                        "<p><strong>OTROS DATOS IMPORTANTES (pautas al equipo para las primeras sesiones, estado de tramitación de la ley de dependencia," +
-                        "cesión de fotos, inclusión en grupos de whatsapp, otros aspectos importantes surgidos en la conversación, etc)." +
-                        "</strong></p>";
+                return "<p><strong>PRIMERA ENTREVISTA (VALORACIÓN SOCIOFAMILIAR)</strong></p>" +
+                    "<p><strong>Demanda inicial:</strong></p>" +
+                    "<p><strong>Datos sociofamiliares</strong></p>" +
+                    "<ul>" +
+                    "<li>Historia de vida:</li>" +
+                    "<li>Educación, trabajos previos y ocupaciones actuales:</li>" +
+                    "<li>Intereses, gustos, temas que le gusta conversar (antes y ahora):</li>" +
+                    "<li>Fortalezas:</li>" +
+                    "<li>Redes de apoyo familiar:</li>" +
+                    "<li>Datos importantes sobre la cuidadora:</li>" +
+                    "</ul>" +
+                    "<p><strong>Datos de salud (pautas y necesidades específicas durante la intervención en domicilio)</strong></p>" +
+                    "<ul>" +
+                    "<li>Alimentación e hidratación:</li>" +
+                    "<li>Movilidad:</li>" +
+                    "<li>Incontinencia e higiene personal:</li>" +
+                    "<li>Medicación:</li>" +
+                    "<li>Alergias:</li>" +
+                    "<li>Aspectos cognitivos:</li>" +
+                    "<li>Otros datos importantes:</li>" +
+                    "</ul>" +
+                    "<p><strong>OTROS DATOS IMPORTANTES (pautas al equipo para las primeras sesiones, estado de tramitación de la ley de dependencia," +
+                    "cesión de fotos, inclusión en grupos de whatsapp, otros aspectos importantes surgidos en la conversación, etc)." +
+                    "</strong></p>";
             }
 
             function add_template_10() {
-                return "<ul>" + 
-                        "<li><strong>BALANCES ARTICULARES (miembros superiores, inferiores y columna)</strong></li>" +
-                        "<li><strong>BALANCES MUSCULARES (miembro superior, inferior y columna)</strong></li>" +
-                        "<li><strong>SENSIBILIDAD (superficial y profunda)</strong></li>" +
-                        "<li><strong>DOLOR (región, tipo de dolor, intensidad y duración).</strong></li>" +
-                        "<li><strong>ESTADO DE LA PIEL</strong></li>" +
-                        "<li><strong>MARCHA Y EQUILIBRIO (incluir desarrollo de la valoración en riesgo de caídas)</strong></li>" +
-                "</ul>";
+                return "<ul>" +
+                    "<li><strong>BALANCES ARTICULARES (miembros superiores, inferiores y columna)</strong></li>" +
+                    "<li><strong>BALANCES MUSCULARES (miembro superior, inferior y columna)</strong></li>" +
+                    "<li><strong>SENSIBILIDAD (superficial y profunda)</strong></li>" +
+                    "<li><strong>DOLOR (región, tipo de dolor, intensidad y duración).</strong></li>" +
+                    "<li><strong>ESTADO DE LA PIEL</strong></li>" +
+                    "<li><strong>MARCHA Y EQUILIBRIO (incluir desarrollo de la valoración en riesgo de caídas)</strong></li>" +
+                    "</ul>";
+            }
+
+            function add_template_11() {
+                return "<p>Recuerda, aquí se registra la incidencia,felicitación, quejas o reclamación que tenga que ver con la persona usuaria.</p>" + "<hr>" +
+                "<ul>" +
+                    "<li><strong>Personal Responsable</strong></li>" +
+                    "<li><strong>Descripción</strong></li>" +
+                    "<li><strong>Posibles Causas</strong></li>" +
+                    "<li><strong>Respuesta Inmediata</strong></li>" +
+                    "<li><strong>Medidas Preventivas</strong></li>" +
+                    "<li><strong>Fecha de Cierre</strong></li>" +
+                    "<li><strong>Observaciones</strong></li>" +
+                    "</ul>";
             }
 
         });
@@ -580,8 +607,8 @@
 
     <!-- Persona responsable Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('persona_responsable', 'Profesional Responsable:') !!}
-        {!! Form::text('persona_responsable', null, ['class' => 'form-control', 'required'=>'required']) !!}
+        {!! Form::label('persona_responsable', 'Profesional Responsable:') !!} {!! Form::text('persona_responsable',
+        null, ['class' => 'form-control', 'required'=>'required']) !!}
     </div>
 
 

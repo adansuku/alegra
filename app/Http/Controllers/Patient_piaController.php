@@ -98,16 +98,15 @@ class Patient_piaController extends AppBaseController
 
     public function pia_seguimiento(CreatePatient_piaRequest $request)
     {
-        //dd($request->tipo_pia == 'Seguimiento' && $request->fecha_limite == null);
 
-        //dd($request->tipo_pia == 'Seguimiento' && $request->fecha_limite != null);
-        
-        //dd($request->fecha_limite);
 
         if ($request->tipo_pia == 'Seguimiento' && $request->fecha_limite == null) {
-            $patientPiaLast = Patient_pia::where('patient_id', $request->id)
-                ->orderBy('created_at', 'desc')->first();
-
+	        
+            $patientPiaLast = 
+            Patient_pia::where('patient_id', $request->id)
+            //->where('tipo_pia', 'Seguimiento')
+            ->orderBy('fecha_limite', 'desc')->first();
+     
             $today = Carbon::parse($patientPiaLast->fecha_limite);
 
             $patientPia =  $this->patientPiaRepository->create([
@@ -125,9 +124,6 @@ class Patient_piaController extends AppBaseController
             }
         }
 
-        // if ($request->tipo_pia == 'Inicial') { 
-        //     $this->store($request);
-        // }
 
         if ($request->tipo_pia == 'Seguimiento' && $request->fecha_limite != null) { 
 
