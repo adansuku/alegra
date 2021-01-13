@@ -63,7 +63,7 @@ Route::resource('patientDiagnostics', 'Patient_diagnosticController');
 Route::resource('patientPatologies', 'Patient_patologyController');
 Route::resource('patientAllergies', 'Patient_allergyController');
 Route::resource('patientCarers', 'Patient_carerController');
-#Route::resource('patientHistory', 'Patient_historyController');
+//Route::resource('patientHistory', 'Patient_historyController');
 Route::resource('patientOthers', 'Patient_otherController');
 Route::resource('patientServices', 'Patient_serviceController');
 Route::resource('patientHealths', 'Patient_healthController');
@@ -101,3 +101,4 @@ Route::post('addpia/{id}', ['as' => 'pia_seg.create', 'uses' => 'Patient_piaCont
 
 Route::post('updatePassword/{id}', ['as' => 'updatePassword.user', 'uses' => 'WorkerController@updatePassword']);
 
+Route::get('/patientHistory/{id}', 'Patient_historyController@get_all_history_by_patient');
