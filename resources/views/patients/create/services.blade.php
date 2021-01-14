@@ -1,33 +1,17 @@
 <div class="row">
     <div class="form-group col-sm-6">
-        {!! Form::label('nom_servicio', 'Nombre del servicio:') !!}
-        {!! Form::select('nom_servicio', [
-        null => '',
-        'CALO' => 'CALO',
-        'CEA' => 'CEA',
-        'SPAP' => 'SPAP',
-        'UEC' => 'UEC',
-        'CD' => 'CD',
-        'SPAPD' => 'SPAPD'
-        ], null, ['class' => 'form-control', 'required' => 'required']) !!}
+        {!! Form::label('nom_servicio', 'Nombre del servicio:') !!} {!! Form::select('nom_servicio', [ null => '',
+        'CALO' => 'CALO', 'CEA' => 'CEA', 'SPAP' => 'SPAP', 'UEC' => 'UEC', 'CD' => 'CD', 'SPAPD' => 'SPAPD' ], null,
+        ['class' => 'form-control', 'required'
+        => 'required']) !!}
     </div>
 
-    {{-- @php 
-    $name = array($patient->patientServices);
-    var_dump(in_array('es_primario',$name));
-    var_dump($patient->patientServices[1]['es_primario']);
-    var_dump($patient->patientServices[2]['es_primario']);
-    @endphp
-     --}}
     {{-- @if ($patient->patientServices) --}}
-        <div class="form-group col-sm-6">
-        {!! Form::label('es_primario', '¿Es el servicio primario?') !!}
-        {!! Form::select('es_primario', [
-        null => '',
-        'es_primario' => 'Si',
-        'no_es_primario' => 'No',
-        ], null, ['class' => 'form-control', 'required' => 'required']) !!}
-        </div>
+    <div class="form-group col-sm-6">
+        {!! Form::label('es_primario', '¿Es el servicio primario?') !!} {!! Form::select('es_primario', [ null => '',
+        'es_primario' => 'Si', 'no_es_primario' => 'No', ], null, ['class' => 'form-control', 'required' => 'required'])
+        !!}
+    </div>
     {{-- //@endif --}}
 
     <div class="form-group col-sm-6">
@@ -41,7 +25,7 @@
         </select>
     </div>
 
-   
+
 
     <!-- Municipio Serv Field -->
     <div class="form-group col-sm-6">
@@ -150,50 +134,38 @@
 
     <!-- Tipo Plaza Serv Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('tipo_plaza_serv', 'Tipo de Plaza (Señalar varias):') !!}
-        {!! Form::select('tipo_plaza_serv[]', [
-        'Privada' => 'Privada',
-        'Publica' => 'Pública',
-        'Subvencionada' => 'Subvencionada'], null, [
-        'class' => 'select2 form-control',
-        'id' => 'tipo_plaza',
-        'required' => 'required',
-        'multiple' => 'multiple']) !!}
+        {!! Form::label('tipo_plaza_serv', 'Tipo de Plaza (Señalar varias):') !!} {!! Form::select('tipo_plaza_serv[]',
+        [ 'Privada' => 'Privada', 'Publica' => 'Pública', 'Subvencionada' => 'Subvencionada'], null, [ 'class' =>
+        'select2 form-control', 'id' => 'tipo_plaza',
+        'required' => 'required', 'multiple' => 'multiple']) !!}
     </div>
 
 
     <script>
         $('#tipo_plaza').change(function() {
-	var vals = $(this).val()    
-    $("#plaza_privada").toggle(vals.indexOf("Privada")>-1);
-    $("#Subvencionada").toggle(vals.indexOf("Subvencionada")>-1);
-})
+            var vals = $(this).val()
+            $("#plaza_privada").toggle(vals.indexOf("Privada") > -1);
+            $("#Subvencionada").toggle(vals.indexOf("Subvencionada") > -1);
+        })
     </script>
 
     <!-- Fecha Form Serv Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('fecha_form_serv', 'Fecha Formalizacion de Servicio:') !!}
-        {!! Form::date('fecha_form_serv', null, ['class' => 'form-control','id'=>'fecha_form_serv','required' =>
-        'required']) !!}
+        {!! Form::label('fecha_form_serv', 'Fecha Formalizacion de Servicio:') !!} {!! Form::date('fecha_form_serv',
+        null, ['class' => 'form-control','id'=>'fecha_form_serv','required' => 'required']) !!}
     </div>
 
     <!-- Plaza Privada Serv Field -->
     <div class="form-group col-sm-6 bg-secondary py-3" id="plaza_privada" style="display: none;">
-        {!! Form::label('plaza_privada_serv', 'Plaza Privada:') !!}
-        {!! Form::select('plaza_privada_serv[]', [
-        'Socixs' => 'Socixs',
-        'No Socixs' => 'No Socixs',
-        'PEVS' => 'PEVS'],
-        null, [
-        'class' => 'select2 form-control',
-        'multiple' => 'multiple'
-        ]) !!}
+        {!! Form::label('plaza_privada_serv', 'Plaza Privada:') !!} {!! Form::select('plaza_privada_serv[]', [ 'Socixs'
+        => 'Socixs', 'No Socixs' => 'No Socixs', 'PEVS' => 'PEVS'], null, [ 'class' => 'select2 form-control',
+        'multiple' => 'multiple' ]) !!}
     </div>
 
     <!-- Plaza Sub Serv Field -->
     <div class="form-group col-sm-6 bg-secondary py-3" id="Subvencionada" style="display: none;">
-        {!! Form::label('plaza_sub_serv', 'Plaza Subvencionada:') !!}
-        {!! Form::text('plaza_sub_serv', null, ['class' => 'form-control',]) !!}
+        {!! Form::label('plaza_sub_serv', 'Plaza Subvencionada:') !!} {!! Form::text('plaza_sub_serv', null, ['class' =>
+        'form-control',]) !!}
     </div>
 
 

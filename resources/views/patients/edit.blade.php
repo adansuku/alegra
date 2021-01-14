@@ -2,12 +2,8 @@
 
 
 <!-- Modals -->
-@include('patients.modals.patology') @include('patients.modals.allergy') @include('patients.modals.diagnostic')
-@include('patients.modals.carer') @include('patients.modals.history') @include('patients.modals.documents')
-@include('patients.modals.pias')
-@include('patients.modals.service') @include('patients.modals.service_dates') @include('patients.modals.spapd')
-@include('patients.modals.spapd_days') @include('patients.modals.transport') @include('patients.modals.dates')
-@include('patients.modals.doctor')
+@include('patients.modals.patology') @include('patients.modals.allergy') @include('patients.modals.diagnostic') @include('patients.modals.carer') @include('patients.modals.history') @include('patients.modals.documents') @include('patients.modals.pias')
+@include('patients.modals.service') @include('patients.modals.service_dates') @include('patients.modals.spapd') @include('patients.modals.spapd_days') @include('patients.modals.transport') @include('patients.modals.dates') @include('patients.modals.doctor')
 @include('patients.modals.past') @include('patients.modals.medication')
 
 <script language="JavaScript">
@@ -16,16 +12,20 @@
     }
 
     //var host = "{{url('/')}}";
-    window.onbeforeunload = function() { 
+    window.onbeforeunload = function() {
         return "You're leaving the site.";
     };
     $(document).ready(function() {
-        $('a[rel!=ext]').click(function() { window.onbeforeunload = null; });
+        $('a[rel!=ext]').click(function() {
+            window.onbeforeunload = null;
+        });
 
         $('cancel').submit();
 
 
-        $('form').submit(function() { window.onbeforeunload = null; });
+        $('form').submit(function() {
+            window.onbeforeunload = null;
+        });
     });
 </script>
 
@@ -36,8 +36,7 @@
         <div class="card-header py-3">
             <h4 class="m-0 font-weight-bold text-primary">Editando Persona atendida</h4>
         </div>
-        {!! Form::model($patient, ['route' => ['patients.update', $patient->id], 'method' => 'patch', 'enctype' =>
-        'multipart/form-data']) !!}
+        {!! Form::model($patient, ['route' => ['patients.update', $patient->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
 
         <div class="col-sm-12 p-0">
             <ul class="nav nav-tabs tabs-marker tabs-dark bg-primary my-4" role="tablist" id="myTab">
@@ -87,16 +86,14 @@
 
             <div class="tab-content">
                 @if( in_array(Auth::user()->role_id,[1,3]) )
-                <div class="tab-pane @if( in_array(Auth::user()->role_id,[1,3]) ) active @endif" id="general"
-                    role="tabpanel">
+                <div class="tab-pane @if( in_array(Auth::user()->role_id,[1,3]) ) active @endif" id="general" role="tabpanel">
                     @include('patients.edit.personal_data')
                 </div>
 
                 <div class="tab-pane" id="carer" role="tabpanel">
 
                     <div class="col-lg-6 float-right mb-3">
-                        <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
-                            data-target="#carer_modal">
+                        <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#carer_modal">
                             Añadir Persona de Referencia <i class="fas fa-file-upload"></i>
                         </button>
                     </div>
@@ -108,13 +105,11 @@
 
                     <div class="col-lg-12">
 
-                        <button type="button" class="btn btn-danger mb-3 float-right" data-toggle="modal"
-                            data-target="#forzar_pias_modal" data-id={{$patient->id}}>
+                        <button type="button" class="btn btn-danger mb-3 float-right" data-toggle="modal" data-target="#forzar_pias_modal" data-id={{$patient->id}}>
                             Añadir pia (forzar fecha)<i class="fas fa-file-upload"></i>
                         </button>
 
-                        <button type="button" class="btn btn-secondary mb-3 float-right" data-toggle="modal"
-                            data-target="#pias_modal" data-id={{$patient->id}}>
+                        <button type="button" class="btn btn-secondary mb-3 float-right" data-toggle="modal" data-target="#pias_modal" data-id={{$patient->id}}>
                             Añadir pia <i class="fas fa-file-upload"></i>
                         </button>
                     </div>
@@ -128,37 +123,29 @@
 
                     <ul class="nav nav-tabs bg-light" id="myTab" role="tablist" style="margin-top:-24px;">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#tipos_servicio" role="tab"
-                                aria-controls="home" aria-selected="true">Tipo de servicio</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#tipos_servicio" role="tab" aria-controls="home" aria-selected="true">Tipo de servicio</a>
                         </li>
 
-                        @php ($servicios = array()) @php ($spapd = 'SPAPD') @foreach($patient->patientServices as
-                        $patientService) @php (array_push($servicios,$patientService->nom_servicio)) @endforeach
-                        @if(in_array($spapd, $servicios))
+                        @php ($servicios = array()) @php ($spapd = 'SPAPD') @foreach($patient->patientServices as $patientService) @php (array_push($servicios,$patientService->nom_servicio)) @endforeach @if(in_array($spapd, $servicios))
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#especificaciones" role="tab"
-                                aria-controls="profile" aria-selected="false">Especificaciones SPAPD</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#especificaciones" role="tab" aria-controls="profile" aria-selected="false">Especificaciones SPAPD</a>
                         </li>
                         @endif
 
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#transporte" role="tab"
-                                aria-controls="contact" aria-selected="false">Transporte</a>
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#transporte" role="tab" aria-controls="contact" aria-selected="false">Transporte</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#economicos" role="tab"
-                                aria-controls="contact" aria-selected="false">Datos económicos</a>
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#economicos" role="tab" aria-controls="contact" aria-selected="false">Datos económicos</a>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="tipos_servicio" role="tabpanel"
-                            aria-labelledby="home-tab">
+                        <div class="tab-pane fade show active" id="tipos_servicio" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
 
                                 <div class="col-lg-12">
-                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
-                                        data-target="#service_modal">
+                                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#service_modal">
                                         Añadir Servicio <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
@@ -207,8 +194,7 @@
                 <div class="tab-pane" id="documents" role="tabpanel">
 
                     <div class="col-lg-6 float-right mb-3">
-                        <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
-                            data-target="#documents_modal" data-id={{$patient->id}}>
+                        <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#documents_modal" data-id={{$patient->id}}>
                             Añadir documento <i class="fas fa-file-upload"></i>
                         </button>
                     </div>
@@ -217,12 +203,10 @@
                 </div>
                 @endif
 
-                <div class="tab-pane @if( in_array(Auth::user()->role_id,[2]) ) active @endif" id="history"
-                    role="tabpanel">
+                <div class="tab-pane @if( in_array(Auth::user()->role_id,[2]) ) active @endif" id="history" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
-                                data-target="#history_modal" data-id={{$patient->id}}>
+                            <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#history_modal" data-id={{$patient->id}}>
                                 Añadir historial <i class="fas fa-file-upload"></i>
                             </button>
                         </div>
@@ -240,12 +224,8 @@
 
         <!-- Submit Field -->
         <div class="col-sm-12">
-            {!! Form::submit('Guardar', ['class' => 'btn btn-primary float-right', 'value' => 'guardar', 'name' =>
-            'action']) !!} {!! Form::submit('Guardar y salir', ['class' => 'btn btn-secondary float-right', 'value' =>
-            'guardar_y_salir', 'name' => 'action']) !!}
-            {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right cancel', 'value' => 'cancelar', 'name'
-            =>
-            'action']) !!} {!! Form::close() !!}
+            {!! Form::submit('Guardar', ['class' => 'btn btn-primary float-right', 'value' => 'guardar', 'name' => 'action']) !!} {!! Form::submit('Guardar y salir', ['class' => 'btn btn-secondary float-right', 'value' => 'guardar_y_salir', 'name' => 'action']) !!}
+            {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right cancel', 'value' => 'cancelar', 'name' => 'action']) !!} {!! Form::close() !!}
 
 
         </div>

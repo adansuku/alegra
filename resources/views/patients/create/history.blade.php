@@ -1,8 +1,7 @@
 <div class="row m-0 p-3">
     <!-- Reg Fecha registro Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('acc_fecha_reg', 'Fecha de registro:') !!} {!! Form::date('acc_fecha_reg', today(), ['class' =>
-        'form-control','id'=>'reg_accion', 'required' => 'required', 'readonly' => 'readonly']) !!}
+        {!! Form::label('acc_fecha_reg', 'Fecha de registro:') !!} {!! Form::date('acc_fecha_reg', today(), ['class' => 'form-control','id'=>'reg_accion', 'required' => 'required', 'readonly' => 'readonly']) !!}
     </div>
 
     @section('scripts')
@@ -16,8 +15,7 @@
 
     <!-- Reg fecha realizacion Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('acc_fecha_realiz', 'Fecha de la acción:') !!} {!! Form::date('acc_fecha_realiz', null, ['class'
-        => 'form-control','id'=>'rea_accion', 'required' => 'required']) !!}
+        {!! Form::label('acc_fecha_realiz', 'Fecha de la acción:') !!} {!! Form::date('acc_fecha_realiz', null, ['class' => 'form-control','id'=>'rea_accion', 'required' => 'required']) !!}
     </div>
 
     @section('scripts')
@@ -32,19 +30,9 @@
 
     <!-- Tipo accion Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('acc_tipo_accion', 'Tipo Acción/Tarea:') !!} {!! Form::select('acc_tipo_accion', [
-        null => 'Selecciona una:', 'Solicitud Demandas' => 'Solicitud Demandas', 'Formalización Demandas' =>
-        'Formalización Demandas', 'Intervenciones en Centro'
-        => 'Intervenciones en Centro', 'Intervenciones en Domicilio' => 'Intervenciones en Domicilio',
-        'Seguimiento de Salud' => 'Seguimiento de Salud',
-        'Documentación' => 'Documentación',
-        'Contabilidad' => 'Contabilidad',
-        'Valoraciones iniciales'=> 'Valoraciones iniciales',
-        'Incidencias'=> 'Incidencias',
-        'Felicitaciones'=> 'Felicitaciones',
-        'Quejas y reclamaciones'=> 'Quejas y reclamaciones',
-        'Otras' => 'Otras'], null, ['class' =>
-        'form-control', 'required'=>'required', 'id' => 'acc_tipo_accion']) !!}
+        {!! Form::label('acc_tipo_accion', 'Tipo Acción/Tarea:') !!} {!! Form::select('acc_tipo_accion', [ null => 'Selecciona una:', 'Solicitud Demandas' => 'Solicitud Demandas', 'Formalización Demandas' => 'Formalización Demandas', 'Intervenciones en Centro'
+        => 'Intervenciones en Centro', 'Intervenciones en Domicilio' => 'Intervenciones en Domicilio', 'Seguimiento de Salud' => 'Seguimiento de Salud', 'Documentación' => 'Documentación', 'Contabilidad' => 'Contabilidad', 'Valoraciones iniciales'=> 'Valoraciones
+        iniciales', 'Incidencias'=> 'Incidencias', 'Felicitaciones'=> 'Felicitaciones', 'Quejas y reclamaciones'=> 'Quejas y reclamaciones', 'Otras' => 'Otras'], null, ['class' => 'form-control', 'required'=>'required', 'id' => 'acc_tipo_accion']) !!}
     </div>
 
     <script>
@@ -136,31 +124,19 @@
 
     <!-- Tipo Subaccion solicitud demandas/formalizacion Field -->
     <div class="form-group col-sm-12 subtipo_acc" id="solic_demandas" style="display: none">
-        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Alta'
-        => 'Alta', 'Cambio' => 'Cambio', 'Suspensión' => 'Suspensión', 'Baja' => 'Baja', 'Apoyo Emocional' => 'Apoyo
-        Emocional', 'Intervención Familiar'
-        => 'Intervención Familiar', 'Asesoramiento fisico' => 'Asesoramiento Físico', 'Asesoramiento social' =>
-        'Asesoramiento Social', 'Asesoramiento funcional' => 'Asesoramiento Funcional', 'Asesoramiento cognitivo' =>
-        'Asesoramiento Cognitivo', 'Formación
-        individual' => 'Formación individual', 'Intervención familiar' => 'Intervención familiar', 'Otras' => 'Otras
-        (especificar)'], null, ['class' => 'form-control acc_subtipo_accion' , 'id' => 'solic_demandas_opt']) !!}
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Alta' => 'Alta', 'Cambio' => 'Cambio', 'Suspensión' => 'Suspensión', 'Baja' => 'Baja', 'Apoyo Emocional' => 'Apoyo Emocional', 'Intervención Familiar'
+        => 'Intervención Familiar', 'Asesoramiento fisico' => 'Asesoramiento Físico', 'Asesoramiento social' => 'Asesoramiento Social', 'Asesoramiento funcional' => 'Asesoramiento Funcional', 'Asesoramiento cognitivo' => 'Asesoramiento Cognitivo', 'Formación
+        individual' => 'Formación individual', 'Intervención familiar' => 'Intervención familiar', 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control acc_subtipo_accion' , 'id' => 'solic_demandas_opt']) !!}
     </div>
 
 
 
     <!-- Tipo intervencion centro Field -->
     <div class="form-group col-sm-12 " id="interv_centro" style="display: none">
-        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion',
-        'Valoración Trab.Social' => 'Valoración Trab.Social', 'Visita Centro' => 'Visita Centro', 'Acogida 1er Día' =>
-        'Acogida 1er Día', 'Entrega PIA' =>
-        'Entrega PIA', 'Apoyo Emocional' => 'Apoyo Emocional', 'Asesoramiento Individual' => 'Asesoramiento Individual',
-        'Asesoramiento Físico' => 'Aseoramiento Físico', 'Asesoramiento Social' => 'Asesoramiento Social',
-        'Asesoramiento Funcional' => 'Asesoramiento
-        Funcional', 'Asesoramiento Cognitivo' => 'Asesoramiento Cognitivo', 'Formación Individual' => 'Formación
-        Individual', 'Intervención Familiar' => 'Intervención Familiar', 'Intervención Física Individual' =>
-        'Intervención Física Individual', 'Intervención
-        Funcional Individual' => 'Intervención Funcional Individual', 'Otras' => 'Otras (especificar)'], null, ['class'
-        => 'form-control acc_subtipo_accion', 'id' => 'interv_centro_opt']) !!}
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Valoración Trab.Social' => 'Valoración Trab.Social', 'Visita Centro' => 'Visita Centro', 'Acogida 1er Día' => 'Acogida 1er Día', 'Entrega PIA' =>
+        'Entrega PIA', 'Apoyo Emocional' => 'Apoyo Emocional', 'Asesoramiento Individual' => 'Asesoramiento Individual', 'Asesoramiento Físico' => 'Aseoramiento Físico', 'Asesoramiento Social' => 'Asesoramiento Social', 'Asesoramiento Funcional' => 'Asesoramiento
+        Funcional', 'Asesoramiento Cognitivo' => 'Asesoramiento Cognitivo', 'Formación Individual' => 'Formación Individual', 'Intervención Familiar' => 'Intervención Familiar', 'Intervención Física Individual' => 'Intervención Física Individual', 'Intervención
+        Funcional Individual' => 'Intervención Funcional Individual', 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' => 'interv_centro_opt']) !!}
     </div>
 
 
@@ -168,17 +144,10 @@
 
     <!-- Tipo intervencion domicilio Field -->
     <div class="form-group col-sm-12 " id="interv_domic" style="display: none">
-        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion',
-        'Valoración Trab.Social' => 'Valoración Trab.Social', 'Valoración Acogida Inicial Equipo' => 'Valoración Acogida
-        Inicial Equipo', 'Entrega PIA' =>
-        'Entrega PIA', 'Intervención/Mediación Familiar' => 'Intervención/Mediación Familiar', 'Asesoramiento
-        Individual' => 'Asesoramiento Individual', 'Apoyo Emocional' => 'Apoyo Emocional', 'Formación Individual' =>
-        'Formación Individual', 'Fisioterapia
-        a cuidador/a' => 'Fisioterapia a cuidador/a', 'Seguimiento Psicológico Mensual' => 'Seguimiento Psicológico
-        Mensual', 'Asesoramiento Físico' => 'Asesoramiento Físico', 'Asesoramiento Social' => 'Asesoramiento Social',
-        'Asesoramiento Funcional'
-        => 'Asesoramiento Funcional', 'Asesoramiento cognitivo' => 'Asesoramiento cognitivo', 'Otras' => 'Otras
-        (especificar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' => 'interv_domic_opt']) !!}
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Valoración Trab.Social' => 'Valoración Trab.Social', 'Valoración Acogida Inicial Equipo' => 'Valoración Acogida Inicial Equipo', 'Entrega PIA' =>
+        'Entrega PIA', 'Intervención/Mediación Familiar' => 'Intervención/Mediación Familiar', 'Asesoramiento Individual' => 'Asesoramiento Individual', 'Apoyo Emocional' => 'Apoyo Emocional', 'Formación Individual' => 'Formación Individual', 'Fisioterapia
+        a cuidador/a' => 'Fisioterapia a cuidador/a', 'Seguimiento Psicológico Mensual' => 'Seguimiento Psicológico Mensual', 'Asesoramiento Físico' => 'Asesoramiento Físico', 'Asesoramiento Social' => 'Asesoramiento Social', 'Asesoramiento Funcional'
+        => 'Asesoramiento Funcional', 'Asesoramiento cognitivo' => 'Asesoramiento cognitivo', 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' => 'interv_domic_opt']) !!}
     </div>
 
 
@@ -186,15 +155,9 @@
 
     <!-- seguimiento salud Field -->
     <div class="form-group col-sm-12 " id="seg_salud" style="display: none">
-        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Cambio
-        valoración de Indicador salud' => 'Cambio valoración de Indicador salud', 'Seguimiento Socio Familiar' =>
-        'Seguimiento Socio Familiar', 'Seguimiento
-        Cognitivo' => 'Seguimiento Cognitivo', 'Seguimiento Físico' => 'Seguimiento Físico', 'Seguimiento Emocional' =>
-        'Seguimiento Emocional', 'Seguimiento Funcional' => 'Seguimiento Funcional', 'Nuevo diagnóstico principal' =>
-        'Nuevo diagnóstico principal',
-        'Cambio importante salud' => 'Cambio importante salud', 'Ficha de seguimiento de intervención' => 'Ficha de
-        seguimiento de intervención', 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control
-        acc_subtipo_accion', 'id' => 'seg_salud_opt'])
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Cambio valoración de Indicador salud' => 'Cambio valoración de Indicador salud', 'Seguimiento Socio Familiar' => 'Seguimiento Socio Familiar', 'Seguimiento
+        Cognitivo' => 'Seguimiento Cognitivo', 'Seguimiento Físico' => 'Seguimiento Físico', 'Seguimiento Emocional' => 'Seguimiento Emocional', 'Seguimiento Funcional' => 'Seguimiento Funcional', 'Nuevo diagnóstico principal' => 'Nuevo diagnóstico principal',
+        'Cambio importante salud' => 'Cambio importante salud', 'Ficha de seguimiento de intervención' => 'Ficha de seguimiento de intervención', 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' => 'seg_salud_opt'])
         !!}
     </div>
 
@@ -203,11 +166,8 @@
 
     <!-- Documentacion Field -->
     <div class="form-group col-sm-12 " id="docu_cont" style="display: none">
-        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion',
-        'Solicitud documento a Acufade' => 'Solicitud documento a Acufade', 'Entrega documento Acufade (a familia)' =>
-        'Entrega documento Acufade (a familia)',
-        'Solicitud documento salud (a familia)' => 'Solicitud documento salud (a familia)', 'Otras' => 'Otras
-        (entregar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' => 'docu_cont_opt' ]) !!}
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Solicitud documento a Acufade' => 'Solicitud documento a Acufade', 'Entrega documento Acufade (a familia)' => 'Entrega documento Acufade (a familia)',
+        'Solicitud documento salud (a familia)' => 'Solicitud documento salud (a familia)', 'Otras' => 'Otras (entregar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' => 'docu_cont_opt' ]) !!}
     </div>
 
 
@@ -216,14 +176,9 @@
 
     <!-- Contabilidad Field -->
     <div class="form-group col-sm-12 " id="contab_cont" style="display: none">
-        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion',
-        'Comunicación impago a usuario/a' => 'Comunicación impago a usuario/a', 'Comunicación impago a DGDD' =>
-        'Comunicación impago a DGDD', 'Cambio de forma
-        de pago' => 'Cambio de forma de pago', 'Cambio IBAN Bancario' => 'Cambio IBAN Bancario', 'Cambio importe
-        facturación' => 'Cambio importe facturación', 'Cambio cuota socio' => 'Cambio cuota socio', 'Situación impago'
-        => 'Situación impago', 'Abono
-        de deuda' => 'Abono de deuda', 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control
-        acc_subtipo_accion', 'id' => 'contab_cont_opt']) !!}
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Comunicación impago a usuario/a' => 'Comunicación impago a usuario/a', 'Comunicación impago a DGDD' => 'Comunicación impago a DGDD', 'Cambio de forma
+        de pago' => 'Cambio de forma de pago', 'Cambio IBAN Bancario' => 'Cambio IBAN Bancario', 'Cambio importe facturación' => 'Cambio importe facturación', 'Cambio cuota socio' => 'Cambio cuota socio', 'Situación impago' => 'Situación impago', 'Abono
+        de deuda' => 'Abono de deuda', 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' => 'contab_cont_opt']) !!}
     </div>
 
 
@@ -231,15 +186,9 @@
 
     <!-- Valoraciones iniciales -->
     <div class="form-group col-sm-12 " id="valoracion_ini" style="display: none">
-        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una
-        opcion', 'Primera Entrevista' =>'Primera Entrevista', 'Valoración Adaptación' =>'Valoración Adaptación' ,
-        'Valoración Inicial de Indicador Salud'
-        =>'Valoración Inicial de Indicador Salud' , 'Valoración
-        Inicial Cognitiva' =>'Valoración Inicial Cognitiva' , 'Valoración Inicial Física' =>'Valoración Inicial Física'
-        , 'Valoración Inicial Funcional' =>'Valoración Inicial Funcional' , 'Valoración Inicial Emocional' =>'Valoración
-        Inicial Emocional'
-        , 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' =>
-        'valoracion_ini_opt']) !!}
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Primera Entrevista' =>'Primera Entrevista', 'Valoración Adaptación' =>'Valoración Adaptación' , 'Valoración Inicial de Indicador Salud' =>'Valoración
+        Inicial de Indicador Salud' , 'Valoración Inicial Cognitiva' =>'Valoración Inicial Cognitiva' , 'Valoración Inicial Física' =>'Valoración Inicial Física' , 'Valoración Inicial Funcional' =>'Valoración Inicial Funcional' , 'Valoración Inicial Emocional'
+        =>'Valoración Inicial Emocional' , 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' => 'valoracion_ini_opt']) !!}
     </div>
 
 
@@ -262,16 +211,13 @@
 
     <!-- Otro tipo accion-->
     <div class="form-group col-sm-12 p-3 bg-secondary" id="acc_tipo_accion_otro" style="display: none">
-        {!! Form::label('acc_tipo_accion_otro', 'Si no esta en la lista, especifica cual:') !!} {!!
-        Form::text('acc_tipo_accion_otro', null, ['class' => 'form-control', 'id' => 'acc_tipo_accion_otro_cont_id'])
-        !!}
+        {!! Form::label('acc_tipo_accion_otro', 'Si no esta en la lista, especifica cual:') !!} {!! Form::text('acc_tipo_accion_otro', null, ['class' => 'form-control', 'id' => 'acc_tipo_accion_otro_cont_id']) !!}
     </div>
 
 
     <!-- Otro subtipo accion-->
     <div class="form-group col-sm-12 p-3 bg-secondary" id="otro_acc_sub_id" style="display: none">
-        {!! Form::label('otro_acc_sub', 'Si no esta en la lista, especifica cual:') !!} {!! Form::text('otro_acc_sub',
-        null, ['class' => 'form-control', 'id' => 'otro_acc_sub_cont_id']) !!}
+        {!! Form::label('otro_acc_sub', 'Si no esta en la lista, especifica cual:') !!} {!! Form::text('otro_acc_sub', null, ['class' => 'form-control', 'id' => 'otro_acc_sub_cont_id']) !!}
     </div>
 
 
@@ -280,11 +226,8 @@
 
     <!-- Persona responsable Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('destinado_a', 'Destinado a:') !!} {!! Form::select('destinado_a[]', [ 'Persona Usuaria' =>
-        'Persona Usuaria', 'Cuidadora Familiar' => 'Cuidadora Familiar', 'Cuidadora Profesional' => 'Cuidadora
-        Profesional', 'Profesional Externa' => 'Profesional
-        Externa', 'Otras' => 'Otras'], null, ['class' => 'select2 form-control','id' => 'destinado_a','multiple' =>
-        'multiple', 'required'=>'required']) !!}
+        {!! Form::label('destinado_a', 'Destinado a:') !!} {!! Form::select('destinado_a[]', [ 'Persona Usuaria' => 'Persona Usuaria', 'Cuidadora Familiar' => 'Cuidadora Familiar', 'Cuidadora Profesional' => 'Cuidadora Profesional', 'Profesional Externa' => 'Profesional
+        Externa', 'Otras' => 'Otras'], null, ['class' => 'select2 form-control','id' => 'destinado_a','multiple' => 'multiple', 'required'=>'required']) !!}
     </div>
 
 
@@ -293,19 +236,13 @@
         {!! Form::label('', 'Selecciona una plantilla para cargar:') !!}
         <div class="row">
             <div class="col-md-7 col-lg-8">
-                {!! Form::select('', [ '' => 'Selecciona plantilla', '1' => 'Seguimiento Sociofamiliar', '2' =>
-                'Segumiento cognitivo', '3' => 'Seguimiento Físico', '4' => 'Seguimiento Emocional', '5' => 'Seguimiento
-                Funcional', '6' => 'Valoracion Inicial Emocional',
-                '7' => 'Valoración inicial coginitiva', '8' => 'Valoración Inicial TO', '10' => 'Valoración Inicial
-                Fisioterapéutica', '9' => 'Primera entrevista', '11' => 'Inicidencias', '12' => 'Felicitaciones', '13'
-                => 'Quejas y reclamaciones'], null, ['class' => 'form-control', 'id' =>
-                'select-template']) !!}
+                {!! Form::select('', [ '' => 'Selecciona plantilla', '1' => 'Seguimiento Sociofamiliar', '2' => 'Segumiento cognitivo', '3' => 'Seguimiento Físico', '4' => 'Seguimiento Emocional', '5' => 'Seguimiento Funcional', '6' => 'Valoracion Inicial Emocional',
+                '7' => 'Valoración inicial coginitiva', '8' => 'Valoración Inicial TO', '10' => 'Valoración Inicial Fisioterapéutica', '9' => 'Primera entrevista', '11' => 'Inicidencias', '12' => 'Felicitaciones', '13' => 'Quejas y reclamaciones'], null,
+                ['class' => 'form-control', 'id' => 'select-template']) !!}
             </div>
 
             <div class="col-md-5 col-lg-4">
-                <a class="btn btn-block btn-secondary" id="add-template"
-                    onclick="return confirm('Al añadir una nueva plantilla, borrarás todo el contenido anterior')"
-                    href="#">Añadir plantilla</a>
+                <a class="btn btn-block btn-secondary" id="add-template" onclick="return confirm('Al añadir una nueva plantilla, borrarás todo el contenido anterior')" href="#">Añadir plantilla</a>
             </div>
         </div>
     </div>
@@ -394,7 +331,7 @@
                 case 13:
                     $(".note-editable").empty();
                     $('#acc_descrip').html(add_template_11());
-                    $('.note-editable').html( add_template_11());
+                    $('.note-editable').html(add_template_11());
                     break;
                 default:
             }
@@ -581,7 +518,7 @@
 
             function add_template_11() {
                 return "<p>Recuerda, aquí se registra la incidencia,felicitación, quejas o reclamación que tenga que ver con la persona usuaria.</p>" + "<hr>" +
-                "<ul>" +
+                    "<ul>" +
                     "<li><strong>Personal Responsable</strong></li>" +
                     "<li><strong>Descripción</strong></li>" +
                     "<li><strong>Posibles Causas</strong></li>" +
@@ -599,24 +536,21 @@
 
     <!-- Observaciones Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('acc_descrip', 'Descripción:') !!} {!! Form::textarea('acc_descrip', null, ['class' =>
-        'form-control', 'id' => 'acc_descrip']) !!}
+        {!! Form::label('acc_descrip', 'Descripción:') !!} {!! Form::textarea('acc_descrip', null, ['class' => 'form-control', 'id' => 'acc_descrip']) !!}
     </div>
 
 
 
     <!-- Persona responsable Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('persona_responsable', 'Profesional Responsable:') !!} {!! Form::text('persona_responsable',
-        null, ['class' => 'form-control', 'required'=>'required']) !!}
+        {!! Form::label('persona_responsable', 'Profesional Responsable:') !!} {!! Form::text('persona_responsable', null, ['class' => 'form-control', 'required'=>'required']) !!}
     </div>
 
 
 
     <!-- Observaciones Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('acc_observaciones', 'Observaciones:') !!} {!! Form::text('acc_observaciones', null, ['class' =>
-        'form-control']) !!}
+        {!! Form::label('acc_observaciones', 'Observaciones:') !!} {!! Form::text('acc_observaciones', null, ['class' => 'form-control']) !!}
     </div>
 
 
@@ -625,6 +559,6 @@
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
         {!! Form::submit('Añadir historia', ['class' => 'btn btn-primary float-right']) !!}
-        <button type="button" class="btn btn-default float-right" data-dismiss="modal">Cancelar</button>
+        <a href="javascript:history.back()" class="btn btn-default float-right">Cancelar</button>
     </div>
 </div>
