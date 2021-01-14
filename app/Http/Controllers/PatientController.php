@@ -78,18 +78,6 @@ class PatientController extends AppBaseController
 
     public function index(Request $request)
     {
-
-
-        $str = request()->headers->get('referer');
-        $int = (int) filter_var($str, FILTER_SANITIZE_NUMBER_INT);
-
-        if ($int != 0){
-            $patient = $this->patientRepository->find($int);
-            $patient->user_edit = 0;   
-            $patient->save();
-        }
-
-
         if(Auth::user()->role_id == 1){
             return view('patients.index');
         }else{
