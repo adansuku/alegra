@@ -52,16 +52,16 @@ class PatientController extends AppBaseController
             ->addColumn('accion', function ($patient) {
                 if(Auth::user()->role_id == 1){
                     return '
-                    <a href="/patientHistory/' . $patient->id . '" class="btn btn-xs btn-light ">
+                    <a href="/patientHistory/' . $patient->id . '" class="btn btn-xs btn-light">
                     <i class="fas fa-history"></i> Historial </a>
 
-                    <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs btn-light">
+                    <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs btn-light btn-icon">
                     <i class="far fa-edit"></i> </a>
         
-                    <a href="/patients/' . $patient->id . '" class="btn btn-xs btn-light">
+                    <a href="/patients/' . $patient->id . '" class="btn btn-xs btn-light btn-icon">
                     <i class="far fa-eye"></i> </a>
                     
-                    <button class="btn btn-xs btn-danger btn-delete" data-remote="/patients/' . 
+                    <button class="btn btn-xs btn-danger btn-delete btn-icon" data-remote="/patients/' . 
                     $patient->id . '"><i class="far fa-trash-alt"></i> </button>
                     ';
                 }elseif( in_array(Auth::user()->role_id,[2,3])  ){
