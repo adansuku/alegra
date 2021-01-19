@@ -284,7 +284,7 @@
                 <!-- Submit Field -->
                 <div class="form-group col-sm-12">
                     {!! Form::submit('Actualizar historial', ['class' => 'btn btn-primary float-right']) !!}
-                    <button type="button" class="btn btn-default float-right" data-dismiss="modal">Cancelar</button>
+                    <a href="{!! route('patients.index') !!}" class="btn btn-default float-right">Cancelar</a>
                 </div>
             </div>
             {!! Form::close() !!}

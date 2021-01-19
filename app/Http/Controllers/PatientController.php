@@ -11,6 +11,7 @@ use App\Models\Patient_health;
 use App\Http\Requests\CreatePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 use App\Repositories\PatientRepository;
+use App\Models\Worker_patient_served;
 //use App\Repositories\Patient_infoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -163,17 +164,22 @@ class PatientController extends AppBaseController
 
     public function show($id)
     {
-
         $patient = $this->patientRepository->find($id);
         $worker = Worker::find($patient->worker_id);
+        //find if user is autorized to view patient with GET 
+        $worker_patient = Worker_patient_served::where('worker_id',Auth::user()->id )->pluck('patient_id')->toArray();; //130
 
-        if (empty($patient)) {
-            Flash::error('Patient not found');
+        if (  in_array(Auth::user()->role_id , [1,3]) || in_array($patient->id , $worker_patient) ) {
+            if (empty($patient)) {
+                Flash::error('Patient not found');
+                return redirect(route('patients.index'));
+            }
+            return view('patients.show')
+                ->with('worker', $worker)
+                ->with('patient', $patient);
+        } else {
             return redirect(route('patients.index'));
         }
-        return view('patients.show')
-            ->with('worker', $worker)
-            ->with('patient', $patient);
     }
 
     /**

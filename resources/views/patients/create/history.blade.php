@@ -558,6 +558,6 @@
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
         {!! Form::submit('Añadir historia', ['class' => 'btn btn-primary float-right']) !!}
-        <button type="button" class="btn btn-default float-right" data-dismiss="modal">Cancelar</button>
+        <a href="javascript:history.back()" class="btn btn-default float-right">Cancelar</button>
     </div>
 </div>
