@@ -12,7 +12,7 @@
         <div class="card-body">
 
 
-            {!! Form::model($patientHistory, ['route' => ['patientHistories.update', $patientHistory->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!} {{-- @php dd($patientHistory) @endphp --}}
+            {!! Form::model($patientHistory, ['route' => ['patientHistories.update', $patientHistory->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
 
 
 

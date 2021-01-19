@@ -6,31 +6,18 @@
 @include('patients.modals.service') @include('patients.modals.service_dates') @include('patients.modals.spapd') @include('patients.modals.spapd_days') @include('patients.modals.transport') @include('patients.modals.dates') @include('patients.modals.doctor')
 @include('patients.modals.past') @include('patients.modals.medication')
 
-<script language="JavaScript">
-    function popit() {
-        return 'You are leaving the page.';
-    }
-
-    //var host = "{{url('/')}}";
-    window.onbeforeunload = function() {
-        return "You're leaving the site.";
-    };
-    $(document).ready(function() {
-        $('a[rel!=ext]').click(function() {
-            window.onbeforeunload = null;
-        });
-
-        $('cancel').submit();
-
-
-        $('form').submit(function() {
-            window.onbeforeunload = null;
-        });
-    });
-</script>
-
 <div class="container-fluid">
 
+    @if ($errors->has('nombre'))
+    <span class="" role="alert">
+        <strong>{{ $errors->first('nombre') }}</strong>
+    </span> @endif @if ($errors->has('nombre'))
+    <span class="" role="alert">
+        <strong>{{ $errors->first('worker_id') }}</strong>
+    </span> @endif @if ($errors->has('nombre'))
+    <span class="" role="alert">
+        <strong>{{ $errors->first('apellido') }}</strong>
+    </span> @endif
 
     <div class="card p-5">
         <div class="card-header py-3">
@@ -74,9 +61,9 @@
                 </li>
 
 
-                <li class="nav-item">
+                <!--<li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#history" role="tab">Historial</a>
-                </li>
+                </li>-->
                 @endif
 
 
@@ -203,34 +190,37 @@
                 </div>
                 @endif
 
-                <div class="tab-pane @if( in_array(Auth::user()->role_id,[2]) ) active @endif" id="history" role="tabpanel">
+                {{-- <div class="tab-pane @if( in_array(Auth::user()->role_id,[2]) ) active @endif" id="history" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
                             <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#history_modal" data-id={{$patient->id}}>
-                                Añadir historial <i class="fas fa-file-upload"></i>
-                            </button>
-                        </div>
-
-                    </div>
-                    @include('patients.show.show_history')
-                </div>
-
-
-
-
+                Añadir historial <i class="fas fa-file-upload"></i>
+                </button>
             </div>
-            <!--tabpanel-->
-        </div>
-
-        <!-- Submit Field -->
-        <div class="col-sm-12">
-            {!! Form::submit('Guardar', ['class' => 'btn btn-primary float-right', 'value' => 'guardar', 'name' => 'action']) !!} {!! Form::submit('Guardar y salir', ['class' => 'btn btn-secondary float-right', 'value' => 'guardar_y_salir', 'name' => 'action']) !!}
-            {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right cancel', 'value' => 'cancelar', 'name' => 'action']) !!} {!! Form::close() !!}
-
 
         </div>
+        @include('patients.show.show_history')
+    </div> --}}
 
-    </div>
+
+
+
+</div>
+<!--tabpanel-->
+</div>
+
+<!-- Submit Field -->
+<div class="col-sm-12">
+    {!! Form::submit('Guardar', ['class' => 'btn btn-primary float-right', 'value' => 'guardar', 'name' => 'action'])
+    !!} {!! Form::submit('Guardar y salir', ['class' => 'btn btn-secondary float-right', 'value' => 'guardar_y_salir',
+    'name' => 'action']) !!}
+    {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right cancel', 'value' => 'cancelar', 'name' =>
+    'action']) !!} {!! Form::close() !!}
+
+
+</div>
+
+</div>
 
 </div>
 <!--end container-->

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatePatient_historyRequest;
 use App\Repositories\Patient_historyRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Patient;
 use Flash;
 use Response;
 
@@ -30,9 +31,30 @@ class Patient_historyController extends AppBaseController
     public function index(Request $request)
     {
         $patientHistories = $this->patientHistoryRepository->all();
-
-        return redirect()->to(url()->previous() . '#history');  
+        return view('patients.index');
+        //return redirect()->to(url()->previous() . '#history');  
     }
+
+    /**
+     * Display a listing of the Patient_history wid patient id.
+     *
+     * @param Request $request
+     *
+     * @return Response
+     */
+
+    public function get_all_history_by_patient(Request $request)
+    {
+
+        $patient = Patient::find($request->id);
+        
+        // $patientHistory = $this::where('patient_id', Auth::user()->id)->get();
+        // $patientHistory = $this->patientHistoryRepository->find($request->id);
+        return view('patient_histories.show')->with('patient', $patient) ;
+
+    }
+
+
 
     /**
      * Show the form for creating a new Patient_history.
