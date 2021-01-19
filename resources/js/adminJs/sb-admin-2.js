@@ -69,8 +69,6 @@ $(document).ready(function() {
             }
         },
         "autoWidth": true,
-        // dom: ' <"col-md-6 search-datatables p-0" f> ' + 'p',
-        // "dom": '<"col-md-6 search-datatables p-0" f>rt<"bottom"p><"bottom"><"clear">',
         dom: '<"row tools-datatables" <"col-md-6 search-datatables" f> > + rt + <"row" <"col-sm-12 col-md-5 text-left" p> <"col-sm-12 col-md-7 text-right" i> >',
 
 

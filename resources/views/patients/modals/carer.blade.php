@@ -9,12 +9,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                {!! Form::open(['url' => route('patientCarers.store', ['patient_id' => $patient->id]),'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                @include('patients.create.carer')
-                {!! Form::close() !!}
+                {!! Form::open(['url' => route('patientCarers.store', ['patient_id' => $patient->id]),'method' => 'POST', 'enctype' => 'multipart/form-data', 'id' => 'carer_form']) !!} @include('patients.create.carer') {!! Form::close() !!}
             </div>
         </div>
     </div>
 </div>
 <!--end modal add documents-->
-

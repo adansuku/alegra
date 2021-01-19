@@ -1,59 +1,41 @@
 <div class="row m-0 p-3">
     <!-- Nombre Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('nombre', 'Nombre:') !!}
-        {!! Form::text('nombre', null, ['class' => 'form-control', 'required' => 'required']) !!}
+        {!! Form::label('nombre', 'Nombre:') !!} {!! Form::text('nombre', null, ['class' => 'form-control', 'required' => 'required']) !!}
     </div>
 
     <!-- Apellido Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('apellido', 'Apellidos:') !!}
-        {!! Form::text('apellido', null, ['class' => 'form-control']) !!}
+        {!! Form::label('apellido', 'Apellidos:') !!} {!! Form::text('apellido', null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Genero Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('genero_carer', 'Género:') !!}
-        {!! Form::select('genero_carer', [
-        "" => 'Elige una opción',
-        'Hombre' => 'Hombre',
-        'Mujer' => 'Mujer',
-        'Intersexual' => 'Intersexual'
-        ], null, ['class' => 'form-control']) !!}
+        {!! Form::label('genero_carer', 'Género:') !!} {!! Form::select('genero_carer', [ "" => 'Elige una opción', 'Hombre' => 'Hombre', 'Mujer' => 'Mujer', 'Intersexual' => 'Intersexual' ], null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Dni Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('dni', 'DNI:') !!}
-        {!! Form::text('dni', null, ['class' => 'form-control']) !!}
+        {!! Form::label('dni', 'DNI:') !!} {!! Form::text('dni', null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Parentesco Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('parentesco', 'Parentesco:') !!}
-        {!! Form::select('parentesco', [
-        '' => '',
-        'Hija/o' => 'Hija/o',
-        'Hermana/o' => 'Hermana/o',
-        'Nuera' => 'Nuera', 'Yerno' => 'Yerno',
-        'Cuidador/a profesional' => 'Cuidador/a profesional', 'Nieta/o' => 'Nieta/o', 'Sobrina/o' => 'Sobrina/o',
-        'Pareja' => 'Pareja', 'Madre' => 'Madre', 'Padre' => 'Padre', 'Otros' => 'Otros'
-        ], null, ['class' => 'form-control', 'id' => 'parentesco']) !!}
+        {!! Form::label('parentesco', 'Parentesco:') !!} {!! Form::select('parentesco', [ '' => '', 'Hija/o' => 'Hija/o', 'Hermana/o' => 'Hermana/o', 'Nuera' => 'Nuera', 'Yerno' => 'Yerno', 'Cuidador/a profesional' => 'Cuidador/a profesional', 'Nieta/o' => 'Nieta/o',
+        'Sobrina/o' => 'Sobrina/o', 'Pareja' => 'Pareja', 'Madre' => 'Madre', 'Padre' => 'Padre', 'Otros' => 'Otros' ], null, ['class' => 'form-control', 'id' => 'parentesco']) !!}
     </div>
 
 
     <!-- Otro parentesco -->
     <div class="form-group col-sm-12 bg-secondary p-3" id="otros_parentesco" style="display: none;">
-        {!! Form::label('otro_paren', 'Otros (especificar) :') !!}
-        {!! Form::text('otro_paren', null, ['class' => 'form-control', 'id'=> 'otro_parentesco_field']) !!}
+        {!! Form::label('otro_paren', 'Otros (especificar) :') !!} {!! Form::text('otro_paren', null, ['class' => 'form-control', 'id'=> 'otro_parentesco_field']) !!}
     </div>
 
-    
+
 
     <!-- Fecha Nac Care Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('fecha_nac_care', 'Fecha Nacimiento:') !!}
-        {!! Form::date('fecha_nac_care', null, ['class' => 'form-control','id'=>'fecha_nac_care']) !!}
+        {!! Form::label('fecha_nac_care', 'Fecha Nacimiento:') !!} {!! Form::date('fecha_nac_care', null, ['class' => 'form-control','id'=>'fecha_nac_care']) !!}
     </div>
 
     @section('scripts')
@@ -67,8 +49,7 @@
 
     <!-- Direccion Care Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('direccion_care', 'Dirección:') !!}
-        {!! Form::text('direccion_care', null, ['class' => 'form-control']) !!}
+        {!! Form::label('direccion_care', 'Dirección:') !!} {!! Form::text('direccion_care', null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Municipio Care Field -->
@@ -198,39 +179,28 @@
 
     <!-- Tel Care Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('tel_care', 'Teléfono Fijo:') !!}
-        {!! Form::number('tel_care', null, ['class' => 'form-control']) !!}
+        {!! Form::label('tel_care', 'Teléfono Fijo:') !!} {!! Form::number('tel_care', null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Movil Care Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('movil_care', 'Teléfono Móvil:') !!}
-        {!! Form::number('movil_care', null, ['class' => 'form-control']) !!}
+        {!! Form::label('movil_care', 'Teléfono Móvil:') !!} {!! Form::number('movil_care', null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Email Care Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('email_care', 'Email:') !!}
-        {!! Form::email('email_care', null, ['class' => 'form-control']) !!}
+        {!! Form::label('email_care', 'Email:') !!} {!! Form::email('email_care', null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Sit Laboral Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('sit_laboral', 'Ocupación:') !!}
-        {!! Form::select('sit_laboral', [
-        '' => 'Selecciona una opción',
-        'Jubilación' => 'Jubilación',
-        'Ocupada Remunerada' => 'Ocupada Remunerada',
-        'Ocupada No Remunerada' => 'Ocupada No Remunerada',
-        'Desempleada' => 'Desempleada',
-        'Estudiante' => 'Estudiante',
-        'Otras' => 'Otras'], null, ['class' => 'form-control', 'id'=>'sit_laboral']) !!}
+        {!! Form::label('sit_laboral', 'Ocupación:') !!} {!! Form::select('sit_laboral', [ '' => 'Selecciona una opción', 'Jubilación' => 'Jubilación', 'Ocupada Remunerada' => 'Ocupada Remunerada', 'Ocupada No Remunerada' => 'Ocupada No Remunerada', 'Desempleada'
+        => 'Desempleada', 'Estudiante' => 'Estudiante', 'Otras' => 'Otras'], null, ['class' => 'form-control', 'id'=>'sit_laboral']) !!}
     </div>
 
     <!-- Otra ocupacion Field -->
     <div class="form-group col-sm-12 bg-secondary p-3" id="otro_ocupacion" style="display: none;">
-        {!! Form::label('otro_ocupacion', 'Otras (especificar) :') !!}
-        {!! Form::text('otro_ocupacion', null, ['class' => 'form-control', 'id'=>'otro_ocupacion_field']) !!}
+        {!! Form::label('otro_ocupacion', 'Otras (especificar) :') !!} {!! Form::text('otro_ocupacion', null, ['class' => 'form-control', 'id'=>'otro_ocupacion_field']) !!}
     </div>
 
     <script>
@@ -248,8 +218,7 @@
     <!-- Trabajo actual Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('trabajo_care', 'Trabajo Actual:') !!}
-        <select class="form-control select2" id="trabajo_care" name="trabajo_care[]" multiple="multiple"
-            style="display: none;">
+        <select class="form-control select2" id="trabajo_care" name="trabajo_care[]" multiple="multiple" style="display: none;">
             <option value="Cuidadora familiar">Cuidadora familiar</option>
             <option value="Cuidadora profesional">Cuidadora profesional</option>
             <option value="Ama de casa">Ama de casa</option>
@@ -259,17 +228,15 @@
 
     <!-- Otra trabajo -->
     <div class="form-group col-sm-12 bg-secondary p-3" id="otro_trabajo" style="display: none;">
-        {!! Form::label('otro_trabajo', 'Otro (especificar) :') !!}
-        {!! Form::text('otro_trabajo', null, ['class' => 'form-control', 'id'=>'otro_trabajo_field']) !!}
+        {!! Form::label('otro_trabajo', 'Otro (especificar) :') !!} {!! Form::text('otro_trabajo', null, ['class' => 'form-control', 'id'=>'otro_trabajo_field']) !!}
     </div>
 
     <script>
         $('#trabajo_care').on('change', function() {
-            if ($("#trabajo_care option[value=Otro]:selected").length > 0){
-                 $('#otro_trabajo').css('display', 'block');
-                 $('#otro_trabajo_field').attr('required', 'required');
-            }
-            else {
+            if ($("#trabajo_care option[value=Otro]:selected").length > 0) {
+                $('#otro_trabajo').css('display', 'block');
+                $('#otro_trabajo_field').attr('required', 'required');
+            } else {
                 $('#otro_trabajo').css('display', 'none');
             }
         });
@@ -278,24 +245,13 @@
 
     <!-- Nivel de estudios -->
     <div class="form-group col-sm-12">
-        {!! Form::label('', 'Estudios:') !!}
-        {!! Form::select('', [
-        '' => 'Selecciona una opción',
-        'Analfabetismo' => 'Analfabetismo',
-        'Sin estudios' => 'Sin estudios',
-        'Primarios' => 'Primarios',
-        'Secundarios' => 'Secundarios',
-        'Grado medio' => 'Grado medio',
-        'Grado superior' => 'Grado superior',
-        'Universitarios' => 'Universitarios',
-        'Otros' => 'Otros',
-        ], null, ['class' => 'form-control', 'id' => 'estudios_carer']) !!}
+        {!! Form::label('', 'Estudios:') !!} {!! Form::select('', [ '' => 'Selecciona una opción', 'Analfabetismo' => 'Analfabetismo', 'Sin estudios' => 'Sin estudios', 'Primarios' => 'Primarios', 'Secundarios' => 'Secundarios', 'Grado medio' => 'Grado medio',
+        'Grado superior' => 'Grado superior', 'Universitarios' => 'Universitarios', 'Otros' => 'Otros', ], null, ['class' => 'form-control', 'id' => 'estudios_carer']) !!}
     </div>
 
     <!--otro nivel de estudios-->
     <div class="form-group col-sm-12 bg-secondary p-3" id="otro_estudio" style="display: none;">
-        {!! Form::label('', 'Otros (especificar) :') !!}
-        {!! Form::text('', null, ['class' => 'form-control', 'id' => 'estudios_carer_field']) !!}
+        {!! Form::label('', 'Otros (especificar) :') !!} {!! Form::text('', null, ['class' => 'form-control', 'id' => 'estudios_carer_field']) !!}
     </div>
 
     <script>
@@ -305,7 +261,7 @@
                 $("#estudios_carer_field").attr("name", "estudios_carer");
                 $("#estudios_carer").attr("name", "");
                 $('#estudios_carer_field').attr('required', 'required');
-                
+
             } else {
                 $('#otro_estudio').css('display', 'none');
                 $("#estudios_carer").attr("name", "estudios_carer");
@@ -319,8 +275,7 @@
 
     <!-- Ano Care Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('ano_care', 'Fecha inicio del Cuidado') !!}
-        {!! Form::date('ano_care', null, ['class' => 'form-control']) !!}
+        {!! Form::label('ano_care', 'Fecha inicio del Cuidado') !!} {!! Form::date('ano_care', null, ['class' => 'form-control']) !!}
     </div>
 
 
@@ -337,17 +292,15 @@
 
     <!-- Otra situacion de apoyo -->
     <div class="form-group col-sm-12 bg-secondary p-3" id="otro_serv_apoyo" style="display: none;">
-        {!! Form::label('otro_serv_apoyo', 'Otros (especificar) :') !!}
-        {!! Form::text('otro_serv_apoyo', null, ['class' => 'form-control', 'id' => 'otro_serv_apoyo_field']) !!}
+        {!! Form::label('otro_serv_apoyo', 'Otros (especificar) :') !!} {!! Form::text('otro_serv_apoyo', null, ['class' => 'form-control', 'id' => 'otro_serv_apoyo_field']) !!}
     </div>
 
     <script>
         $('#sit_apoyo').on('change', function() {
-            if ($("#sit_apoyo option[value=Otros]:selected").length > 0){
-                 $('#otro_serv_apoyo').css('display', 'block');
-                 $('#otro_serv_apoyo_field').attr('required', 'required');
-            }
-            else {
+            if ($("#sit_apoyo option[value=Otros]:selected").length > 0) {
+                $('#otro_serv_apoyo').css('display', 'block');
+                $('#otro_serv_apoyo_field').attr('required', 'required');
+            } else {
                 $('#otro_serv_apoyo').css('display', 'none');
             }
         });
@@ -355,14 +308,12 @@
 
     <!-- Cesion Care Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('cesion_care', 'Cesión de Imagen:') !!}
-        {!! Form::select('cesion_care', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
+        {!! Form::label('cesion_care', 'Cesión de Imagen:') !!} {!! Form::select('cesion_care', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Whatsapp Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('whatsapp', 'Whatsapp:') !!}
-        {!! Form::select('whatsapp', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
+        {!! Form::label('whatsapp', 'Whatsapp:') !!} {!! Form::select('whatsapp', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
     </div>
 
     <!-- Contactar Para Field -->
@@ -378,17 +329,15 @@
 
     <!-- Otro contactar para-->
     <div class="form-group col-sm-12 bg-secondary p-3" id="otro_contactar_para" style="display: none;">
-        {!! Form::label('otro_contactar_para', 'Otros (especificar):') !!}
-        {!! Form::text('otro_contactar_para', null, ['class' => 'form-control', 'id' => 'otro_contactar_field']) !!}
+        {!! Form::label('otro_contactar_para', 'Otros (especificar):') !!} {!! Form::text('otro_contactar_para', null, ['class' => 'form-control', 'id' => 'otro_contactar_field']) !!}
     </div>
 
     <script>
         $('#contactar_para').on('change', function() {
-            if ($("#contactar_para option[value=Otros]:selected").length > 0){
-                 $('#otro_contactar_para').css('display', 'block');
-                 $('#otro_contactar_field').attr('required', 'required');
-            }
-            else {
+            if ($("#contactar_para option[value=Otros]:selected").length > 0) {
+                $('#otro_contactar_para').css('display', 'block');
+                $('#otro_contactar_field').attr('required', 'required');
+            } else {
                 $('#otro_contactar_para').css('display', 'none');
             }
         });
@@ -396,16 +345,17 @@
 
 
     <div class="form-group col-sm-12">
-        {!! Form::label('es_tutor', '¿Es Tutor/a Legal?') !!}
-        {!! Form::select('es_tutor', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
+        {!! Form::label('es_tutor', '¿Es Tutor/a Legal?') !!} {!! Form::select('es_tutor', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
     </div>
 
 
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
-        {!! Form::submit('Añadir Persona de Referencia', ['class' => 'btn btn-primary float-right' ]) !!}
-        {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right', 'data-dismiss' => 'modal']) !!}
+        {!! Form::submit('Añadir Persona de Referencia', ['class' => 'btn btn-primary float-right', 'id' => 'add_carer' ]) !!} {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right', 'data-dismiss' => 'modal']) !!}
     </div>
+
+
+
 
 
 </div>

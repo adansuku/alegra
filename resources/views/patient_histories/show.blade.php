@@ -15,9 +15,38 @@
             <div class="modal-body">
 
                 {!! Form::open(['url' => route('patientHistories.store', ['patient_id' => $patient->id]),'method' =>
-                'POST']) !!}
+                'POST', 'id' => 'history_form']) !!}
                 @include('patients.create.history')
                 {!! Form::close() !!}
+
+                {{-- <script>
+                    jQuery(document).ready(function () {
+                        $("#addHistory").click(function (e) {
+                            e.preventDefault();
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                }
+                            });
+                            $.ajax({
+                                type: "post",
+                                url: "{{route('patientHistories.store')}}",
+                data: $('#history_form').serialize() + "&patient_id=" + {{$patient->id}},
+                success: function (msg) {
+                alert("Historia Insertada correctamente");
+                $('#history_modal').modal('hide');
+                $('.modal-backdrop').hide();
+                $('#history_table').DataTable().ajax.reload();
+                },
+                error: function (error) {
+                console.log(error)
+                alert("data not saved");
+                }
+                });
+                });
+                });
+                </script> --}}
+
 
             </div>
         </div>

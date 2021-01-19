@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Validator;
 
 class Patient_diagnosticController extends AppBaseController
 {
@@ -54,13 +55,24 @@ class Patient_diagnosticController extends AppBaseController
      */
     public function store(CreatePatient_diagnosticRequest $request)
     {
-        $input = $request->all();
+ 
+        $validator = Validator::make($request->all(), [
+            'diagnos_concreto' => 'required'
+        ]);
 
-        $patientDiagnostic = $this->patientDiagnosticRepository->create($input);
+        if ($validator->fails()) {
+            return Response::json(array('edit_errors' => $validator->getMessageBag()->toArray()));
+        } else {
+            
+            $input = $request->except(['_token']);
+            $patientDiagnostic = $this->patientDiagnosticRepository->create($input);
+            Flash::success('Patient Diagnostic saved successfully.');
+        }
 
-        Flash::success('Patient Diagnostic saved successfully.');
+        return response()->json($input);
 
-        return redirect()->to(url()->previous() . '#diagnostic');
+
+        //return redirect()->to(url()->previous() . '#diagnostic');
     }
 
     /**
