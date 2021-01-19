@@ -310,12 +310,12 @@ table.dataTable thead .sorting_desc_disabled:after {
 }
 
 .cs-loader {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    Background: $primary;
+    Background: #036056;
     z-index: 99999999;
 }
 

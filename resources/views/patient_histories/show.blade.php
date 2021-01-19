@@ -65,13 +65,13 @@
             </div>
             <div class="col-md-6">
                 <div class="float-sm-right">
-                    <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal"
+                    <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
                         data-target="#history_modal" data-id={{$patient->id}}>
                         Añadir historial <i class="fas fa-file-upload"></i>
                 </div>
             </div>
 
-            <div class="col-sm-12 py-3">
+            <div class="col-sm-12">
                 <table class="table datatables bg-white " width="100%" cellspacing="0" id="history_table">
                     <thead class="thead-light">
                         <tr>

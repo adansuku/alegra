@@ -12,7 +12,7 @@ $(document).ready(function() {
                 display: $.fn.dataTable.Responsive.display.modal({
                     header: function(row) {
                         var data = row.data();
-                        return 'Detalles: ' + data[0] + ' ' + data[1];
+                        return 'Detalles';
                     }
                 }),
                 renderer: $.fn.dataTable.Responsive.renderer.tableAll()
