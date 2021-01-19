@@ -87,12 +87,10 @@
     <a href="{!! route('patientDiagnostics.index') !!}" class="btn btn-default float-right"
         data-dismiss='modal'>Cancelar</a>
 </div>
-{{$patient->id}}
+
 <script>
-    jQuery(document).ready(function() {
-
-
-        $("#addDiagnostic").click(function(e) {
+    jQuery(document).ready(function () {
+        $("#addDiagnostic").click(function (e) {
             e.preventDefault();
             $.ajaxSetup({
                 headers: {
@@ -103,15 +101,15 @@
                 type: "post",
                 url: "{{route('patientDiagnostics.store')}}",
                 data: $('#diagnostic_form').serialize() + "&patient_id=" + {{$patient->id}},
-                success: function(msg) {
-                    alert("Diagnóstico Insertado correctamente");
-                    $('#diagnostic_modal').modal('hide');
-                    $('.modal-backdrop').hide();
-                },
-                error: function(error) {
-                    console.log(error)
-                    alert("data not saved");
-                }
+        success: function (msg) {
+            alert("Diagnóstico Insertado correctamente");
+            $('#diagnostic_modal').modal('hide');
+            $('.modal-backdrop').hide();
+        },
+        error: function (error) {
+            console.log(error)
+            alert("data not saved");
+        }
             });
         });
     });

@@ -52,13 +52,13 @@ class PatientController extends AppBaseController
             ->addColumn('accion', function ($patient) {
                 if(Auth::user()->role_id == 1){
                     return '
-                    <a href="/patientHistory/' . $patient->id . '" class="btn btn-xs ">
+                    <a href="/patientHistory/' . $patient->id . '" class="btn btn-xs btn-light ">
                     <i class="fas fa-history"></i> Historial </a>
 
-                    <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
+                    <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs btn-light">
                     <i class="far fa-edit"></i> </a>
         
-                    <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
+                    <a href="/patients/' . $patient->id . '" class="btn btn-xs btn-light">
                     <i class="far fa-eye"></i> </a>
                     
                     <button class="btn btn-xs btn-danger btn-delete" data-remote="/patients/' . 

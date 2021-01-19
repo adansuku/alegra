@@ -618,7 +618,7 @@
 
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
-        {!! Form::submit('Añadir historia', ['class' => 'btn btn-primary float-right']) !!}
+        {!! Form::submit('Añadir historia', ['class' => 'btn btn-primary float-right', 'id' => 'addHistory']) !!}
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
     </div>
 </div>

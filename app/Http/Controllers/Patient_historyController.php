@@ -75,15 +75,15 @@ class Patient_historyController extends AppBaseController
      */
     public function store(CreatePatient_historyRequest $request)
     {
-        //dd($request);
         $input = $request->all();
-       
-
         $patientHistory = $this->patientHistoryRepository->create($input);
 
         Flash::success('Patient History saved successfully.');
 
-        return redirect(route('patientHistories.index'));
+        // $html = view('patients.index', compact('view'))->render();
+        //return response()->json(compact('html'));
+        return redirect()->to('patientHistory/' . $patientHistory->patient_id);
+
     }
 
     /**

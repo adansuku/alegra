@@ -22,7 +22,7 @@ $(document).ready(function() {
         //dom: 'Bfrtip',
         //    dom: '<"top" Bf> + rt + <row <"col-sm-12 col-md-5" i> <"col-sm-12 col-md-7" p> >',
 
-        dom: '<"row tools-datatables" <"col-md-6 buttons-datatables" B> <"col-md-6 search-datatables" f> > + rt + <"row" <"col-sm-12 col-md-5" p> <"col-sm-12 col-md-7" i> >',
+        dom: '<"row tools-datatables" <"col-md-6 buttons-datatables" B> <"col-md-6 search-datatables d-flex align-items-center justify-content-end pr-3" f> > + rt + <"row" <"col-sm-12 col-md-5" p> <"col-sm-12 col-md-7" i> >',
         buttons: [{
                 extend: 'excelHtml5',
                 text: '<i class="fa fa-file-excel"></i> <strong>XLS</stron>',
