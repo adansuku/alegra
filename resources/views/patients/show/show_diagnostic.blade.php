@@ -1,4 +1,5 @@
-<table class="table datatables" width="100%" cellspacing="0">
+<table class="table" width="100%" cellspacing="0">
+    <!-- class="datatables" -->
     <thead class="thead-light">
         <tr>
             <th>Diagnóstico</th>

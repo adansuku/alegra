@@ -1,4 +1,5 @@
-<table class="table datatables dark" width="100%" cellspacing="0">
+<table class="table  dark" width="100%" cellspacing="0">
+    <!-- datatables-->
     <thead class="thead-dark">
         <tr>
             <th>Medicación</th>
@@ -15,10 +16,7 @@
             <td>{!! $patientMedication->obs_medicacion !!}</td>
             <td>
                 <div class='btn-group'>
-                    <a href="/medicationdelete/{{$patientMedication->id}}" 
-                    data-token="{{csrf_token()}}" 
-                    class='btn btn-block btn-danger btn-xs' 
-                    onclick="return confirm('¿Estas segura que quieres eliminar el la medicación?')">
+                    <a href="/medicationdelete/{{$patientMedication->id}}" data-token="{{csrf_token()}}" class='btn btn-block btn-danger btn-xs' onclick="return confirm('¿Estas segura que quieres eliminar el la medicación?')">
                         <i class="fas fa-trash"></i> Eliminar
                     </a>
 
