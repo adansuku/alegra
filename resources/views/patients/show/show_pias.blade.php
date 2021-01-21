@@ -31,12 +31,15 @@
 
         <td>
 
-            @if($patientPia->fecha_real_entrega != NULL ) {{ date('d/m/Y', strtotime($patientPia->fecha_real_entrega)) }} @endif
+            @if($patientPia->fecha_real_entrega != NULL )
+            {{ date('d/m/Y', strtotime($patientPia->fecha_real_entrega)) }} @endif
         </td>
 
 
         <td>
-            @php $inicio = \Carbon\Carbon::parse('2020-12-31') ; $fecha_real = \Carbon\Carbon::parse($patientPia->fecha_real) @endphp @if ($patientPia->fecha_real != NULL) @if($inicio > $fecha_real)
+            @php $inicio = \Carbon\Carbon::parse('2020-12-31') ; $fecha_real =
+            \Carbon\Carbon::parse($patientPia->fecha_real) @endphp @if ($patientPia->fecha_real != NULL) @if($inicio >
+            $fecha_real)
             <div style="background: green; text-align: center; color: white">Éxito</div>
             @else @if ($patientPia->fecha_limite >= $patientPia->fecha_real)
             <div style="background: green;text-align: center; color: white">Éxito</div>
@@ -48,7 +51,7 @@
         <td>
             @if($patientPia->url_pia == null ) Pia no disponible @else
 
-            <a href="{{ asset(" storage/$patientPia->url_pia") }}" target="_blank">
+            <a href="{{ asset("storage/$patientPia->url_pia") }}" target="_blank">
                 <i class="fas fa-download"></i> Ver documento
             </a> @endif
         </td>
@@ -57,7 +60,7 @@
         <td>
             @if($patientPia->url_recepcion == null ) Pia recepción no disponible @else
 
-            <a href="{{ asset(" storage/$patientPia->url_recepcion") }}" target="_blank">
+            <a href="{{ asset("storage/$patientPia->url_recepcion") }}" target="_blank">
                 <i class="fas fa-download"></i> Ver documento
             </a> @endif
         </td>
@@ -76,7 +79,9 @@
             </a>
 
             @if ( $patientPia->tipo_pia != 'Inicial')
-            <a href="/piadelete/{{$patientPia->id}}" data-token="{{csrf_token()}}" class='btn  btn-danger btn-xs' data-confirm="Seguro que quieres eliminar este pia?" onclick="return confirm('¿Estas segura que quieres eliminar el pia?')">
+            <a href="/piadelete/{{$patientPia->id}}" data-token="{{csrf_token()}}" class='btn  btn-danger btn-xs'
+                data-confirm="Seguro que quieres eliminar este pia?"
+                onclick="return confirm('¿Estas segura que quieres eliminar el pia?')">
                 <i class="fas fa-trash"></i>
             </a>
             @endif

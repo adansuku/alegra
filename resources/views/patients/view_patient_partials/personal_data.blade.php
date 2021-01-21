@@ -79,7 +79,9 @@
 
             <!-- PIA en vigor Field -->
             {{-- @foreach($patient->patientPia as $patientPia) @php $today = Carbon\Carbon::now(); @endphp @if ($today
-            < $patientPia->fecha_limite){ Tipo pia: {!! $patientPia->tipo_pia !!} <br> Fecha máx. Elaboración y Entrega:<br> Fecha Real Elaboración Completa:<br> Fecha Real Entrega:<br> Éxito PIA:<br> Informe PIA:<br> Documento Recepción PIA:<br> Observaciones:
+            < $patientPia->fecha_limite){ Tipo pia: {!! $patientPia->tipo_pia !!} <br> Fecha máx. Elaboración y Entrega:
+                <br> Fecha Real Elaboración Completa:<br> Fecha Real Entrega:<br> Éxito PIA:<br> Informe PIA:
+                <br> Documento Recepción PIA:<br> Observaciones:
                 <br> @endif {{ date('d/m/Y', strtotime($patientPia->fecha_real_entrega)) }} @if ($patientPia->exito_pia
             == "Si")
             <div style="background: green;text-align: center; color: white">
@@ -90,11 +92,11 @@
 
                 @if($patientPia->url_pia == null ) Pia no disponible @else
 
-                <a href="{{ asset(" storage/$patientPia->url_pia") }}" target="_blank">
+                <a href="{{ asset("storage/$patientPia->url_pia") }}" target="_blank">
                     <i class="fas fa-download"></i> Ver documento
                 </a> @endif @if($patientPia->url_recepcion == null ) Pia recepción no disponible @else
 
-                <a href="{{ asset(" storage/$patientPia->url_recepcion") }}" target="_blank">
+                <a href="{{ asset("storage/$patientPia->url_recepcion") }}" target="_blank">
                     <i class="fas fa-download"></i> Ver documento
                 </a> @endif @if ($loop->last)
                 <div class="bg-secondary p-1">Pia en vigor</div>

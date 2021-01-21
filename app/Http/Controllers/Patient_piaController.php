@@ -179,7 +179,7 @@ class Patient_piaController extends AppBaseController
     public function update($id, UpdatePatient_piaRequest $request)
     {
         $patientPia = $this->patientPiaRepository->find($id);
-
+        
         if (empty($patientPia)) {
             Flash::error('Patient Pia not found');
             return redirect(route('patientPias.index'));
@@ -191,12 +191,15 @@ class Patient_piaController extends AppBaseController
             $patientPia->url_pia = $request->file('url_pia')->store($patientPia->patient_id .'/patient_documents/pia_documents_');
             $today = Carbon::now();
             $patientPia->fecha_real = $today->toDateString();
-            $patientPia->update();
+            
         }
 
         if ($request->url_recepcion != "" || $request->url_recepcion != null) {
             $patientPia->url_recepcion = $request->file('url_recepcion')->store($patientPia->patient_id .'/patient_documents/pia_documents_');
+           
         }
+        
+        $patientPia->update();
 
         Flash::success('Pia actulizado correctamente.');
         return redirect()->to(url()->route('patients.edit', $patientPia->patient) . '#pias');

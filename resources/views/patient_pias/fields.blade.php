@@ -13,7 +13,7 @@
             <div class="h6">
                 <strong>{!! Form::label('url_recepcion', 'Adjunto Documento Recepción PIA') !!}</strong>
             </div>
-            {!! Form::file('url_recepcion') !!}
+            {!! Form::file('url_recepcion', null,['class' => 'form-control']) !!}
         </div>
 
         <!-- Obs Pia Field -->

@@ -187,7 +187,7 @@
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Realizado con <i class="fas fa-heart"></i> para Acufade por La Isla Creativa &copy; | <i
-                                class="fas fa-grin-hearts"></i> Alegra app 2019 </span>
+                                class="fas fa-grin-hearts"></i> Alegra app 2021 </span>
                     </div>
                 </div>
             </footer>

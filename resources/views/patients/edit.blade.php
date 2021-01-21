@@ -233,8 +233,7 @@
     !!} {!! Form::submit('Guardar y salir', ['class' => 'btn btn-secondary float-right mx-2', 'value' =>
     'guardar_y_salir',
     'name' => 'action']) !!}
-    {!! Form::submit('Cancelar', ['class' => 'btn btn-danger float-right cancel', 'value' => 'cancelar', 'name' =>
-    'action']) !!} {!! Form::close() !!}
+    <a href="/patients" class="btn btn-danger float-right cancel"> Cancelar </a>
 
 
 </div>

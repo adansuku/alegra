@@ -49,7 +49,6 @@ class WorkerController extends AppBaseController
         $password_size = strlen($request->user_password);
         $worker = $this->workerRepository->find($id);
 
-
         if ($request->user_password == null) {
             Flash::error('Error al cambiar la contraseña, asegurate que el campo no está vacio');
             return redirect(route('workers.index'));
@@ -165,6 +164,7 @@ class WorkerController extends AppBaseController
     public function update($id, UpdateWorkerRequest $request)
     {
         $worker = $this->workerRepository->find($id);
+        dd($worker);
 
         $user = new Worker;
         $user = Worker::where('id', $worker->id )->first();
@@ -231,18 +231,21 @@ class WorkerController extends AppBaseController
         // dd($workers);
         return datatables()->of($patients)
            ->addColumn('accion', function ($patient) {
-                if(Auth::user()->role_id == 1){
+                if( in_array(Auth::user()->role_id,[1,3])  ){
                     return '
+                    <a href="/patientHistory/' . $patient->id . '" class="btn btn-xs btn-light">
+                    <i class="fas fa-history"></i> Historial </a>
+
                     <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
                     <i class="far fa-edit"></i> </a>
         
                     <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
                     <i class="far fa-eye"></i> </a>
                     ';
-                }elseif( in_array(Auth::user()->role_id,[2,3])  ){
+                }elseif(Auth::user()->role_id == 2){
                     return '
-                    <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
-                    <i class="far fa-edit"></i> </a>
+                    <a href="/patientHistory/' . $patient->id . '" class="btn btn-xs btn-light">
+                    <i class="fas fa-history"></i> Historial </a>
 
                     <a href="/patients/' . $patient->id . '" class="btn btn-xs ">
                     <i class="far fa-eye"></i> </a>
@@ -255,4 +258,3 @@ class WorkerController extends AppBaseController
             ->make(true);
     }
 }
-

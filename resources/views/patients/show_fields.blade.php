@@ -1,7 +1,7 @@
 <!--end buttons-->
 <div class="row">
     <div class="col-sm-4">
-        <div class="avatar" style="background-image:url({{asset(" storage/$patient->foto_paciente") }})"></div>
+        <div class="avatar" style="background-image:url({{asset("storage/$patient->foto_paciente") }})"></div>
     </div>
     <div class="col-sm-8">
 
@@ -239,13 +239,14 @@
                         <div class="card-body">
                             <div><strong>Diagnóstico: </strong>{!! $item->diagnostico !!}</div>
                             <div><strong>Diagnóstico concreto: </strong>{!! implode(', ',
-                                (array)$item->diagnos_concreto)
-                                !!}</div>
+                                (array)$item->diagnos_concreto) !!}
+                            </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
-                {{-- <!<hr> @include('patients.show.show_diagnostic') --}}
+                {{--
+                <!<hr>@include('patients.show.show_diagnostic') --}}
             </div>
             <!-- end diagnosticos-->
 
@@ -268,7 +269,8 @@
                     </div>
                     @endforeach
                 </div>
-                {{-- <!<hr> @include('patients.show.show_patology') --}}
+                {{--
+                <!<hr>@include('patients.show.show_patology') --}}
             </div>
             <!-- end patologia-->
 
@@ -291,7 +293,8 @@
                     </div>
                     @endforeach
                 </div>
-                {{-- <!<hr> @include('patients.show.show_patology') --}}
+                {{--
+                <!<hr>@include('patients.show.show_patology') --}}
             </div>
             <!-- end alergias-->
 
@@ -313,7 +316,8 @@
                     </div>
                     @endforeach
                 </div>
-                {{-- <!<hr> @include('patients.show.show_patology') --}}
+                {{--
+                <!<hr>@include('patients.show.show_patology') --}}
             </div>
             <!-- end medico-->
 
@@ -409,16 +413,13 @@
                     <div class="card">
                         <div class="card-body">
                             <div>
-                                <strong>Medicación: </strong>
-                                {!! $patientMedication->medicacion !!}
+                                <strong>Medicación: </strong> {!! $patientMedication->medicacion !!}
                             </div>
                             <div>
-                                <strong>Pauta Medicacion: </strong>
-                                {!! $patientMedication->pauta_medicacion !!}
+                                <strong>Pauta Medicacion: </strong> {!! $patientMedication->pauta_medicacion !!}
                             </div>
                             <div>
-                                <strong>Observaciones: </strong>
-                                {!! $patientMedication->obs_medicacion !!}
+                                <strong>Observaciones: </strong> {!! $patientMedication->obs_medicacion !!}
                             </div>
                         </div>
                     </div>
@@ -438,12 +439,10 @@
                     <div class="card">
                         <div class="card-body">
                             <div>
-                                <strong>Nombre Doctor: </strong>
-                                {!! $item->nombre_doctor !!}
+                                <strong>Nombre Doctor: </strong> {!! $item->nombre_doctor !!}
                             </div>
                             <div>
-                                <strong>Centro de referencia: </strong>
-                                {!! $item->observaciones_doctor !!}
+                                <strong>Centro de referencia: </strong> {!! $item->observaciones_doctor !!}
                             </div>
                         </div>
                     </div>
@@ -750,7 +749,7 @@
                         <td>
                             @if($patientPia->url_pia == null ) Pia no disponible @else
 
-                            <a href="{{ asset(" storage/$patientPia->url_pia") }}" target="_blank">
+                            <a href="{{asset("storage/$patientPia->url_pia")}}" target="_blank">
                                 <i class="fas fa-download"></i> Ver documento
                             </a> @endif
                         </td>
@@ -759,7 +758,7 @@
                         <td>
                             @if($patientPia->url_recepcion == null ) Pia recepción no disponible @else
 
-                            <a href="{{ asset(" storage/$patientPia->url_recepcion") }}" target="_blank">
+                            <a href="{{ asset("storage/$patientPia->url_recepcion") }}" target="_blank">
                                 <i class="fas fa-download"></i> Ver documento
                             </a> @endif
                         </td>
@@ -811,8 +810,7 @@
                             @foreach($patientService->serviceDates as $item)
                             <strong>Dia:</strong> {{$item->dia_servicio}}<br>
                             <strong>Hora:</strong> {{$item->horario_servicio}}<br>
-                            <strong>Observaciones:</strong> {{$item->obs_servicio}}<br>
-                            @endforeach
+                            <strong>Observaciones:</strong> {{$item->obs_servicio}}<br> @endforeach
                         </div>
                     </div>
                     @endforeach
@@ -825,68 +823,48 @@
 
             <!-- spapd -->
             <div class="col-lg-12">
-                @php
-                $spapd = 'SPAPD';
-                $array = array();
-                @endphp
-
-                @foreach($patient->patientServices as $patientService)
-                @php $array = array($patientService->nom_servicio); @endphp
-                @endforeach
+                @php $spapd = 'SPAPD'; $array = array(); @endphp @foreach($patient->patientServices as $patientService)
+                @php $array = array($patientService->nom_servicio); @endphp @endforeach
 
                 <div class="card">
                     <div class="card-header">
                         <h6><strong>Especificaciones SPAPD</strong></h6>
                     </div>
-                    @if(in_array($spapd, $array))
-
-
-                    @foreach($patient->patientSpapd as $patientSpapd)
+                    @if(in_array($spapd, $array)) @foreach($patient->patientSpapd as $patientSpapd)
 
                     <div class="card">
                         <div class="card-body">
                             <div>
-                                <strong>Programa</strong>
-                                @if ($patientSpapd->prog_spapd == "Otros")
-                                {{$patientSpapd->otros_programa}}
-                                @else
-                                {{$patientSpapd->prog_spapd}}
-                                @endif
+                                <strong>Programa</strong> @if ($patientSpapd->prog_spapd == "Otros")
+                                {{$patientSpapd->otros_programa}} @else {{$patientSpapd->prog_spapd}} @endif
                             </div>
 
                             <div>
-                                <strong>Numero de sesiones Totales en el programa</strong>
-                                {!! $patientSpapd->num_sesiones !!}
+                                <strong>Numero de sesiones Totales en el programa</strong> {!!
+                                $patientSpapd->num_sesiones !!}
                             </div>
 
                             <div>
-                                <strong>Duración de la sesión</strong>
-                                @if ($patientSpapd->dur_spapd == "Otros")
-                                {{$patientSpapd->otras_sesiones}}
-                                @else
-                                {{$patientSpapd->dur_spapd}}
-                                @endif
+                                <strong>Duración de la sesión</strong> @if ($patientSpapd->dur_spapd == "Otros")
+                                {{$patientSpapd->otras_sesiones}} @else {{$patientSpapd->dur_spapd}} @endif
                             </div>
 
                             <div>
-                                <strong>Días</strong>
-                                {!! implode(', ', (array)$patientSpapd->dia_spapd) !!}
+                                <strong>Días</strong> {!! implode(', ', (array)$patientSpapd->dia_spapd) !!}
                             </div>
 
                             <div>
-                                <strong>Inicio</strong>
-                                {!! $patientSpapd->fecha_inicio !!}</div>
+                                <strong>Inicio</strong> {!! $patientSpapd->fecha_inicio !!}
+                            </div>
 
                             <div>
-                                <strong>Trabajador asignado</strong>
-                                {!! $patientSpapd->worker_id !!}
+                                <strong>Trabajador asignado</strong> {!! $patientSpapd->worker_id !!}
                             </div>
                         </div>
                     </div>
 
 
-                    @endforeach
-                    @endif
+                    @endforeach @endif
 
                 </div>
             </div>
@@ -980,7 +958,8 @@
             <!-- end Transporte -->
 
 
-        </div><!-- end row -->
+        </div>
+        <!-- end row -->
 
 
 
@@ -1027,7 +1006,7 @@
                             <td>{!! $item->nombre_doc !!}</td>
 
                             <td>
-                                <a class="btn btn-block btn-secondary btn-xs" href="{{ asset(" storage/$item->url")
+                                <a class="btn btn-secondary btn-xs" href="{{asset("storage/$item->url")
                                     }}" target="_blank"><i class="fas fa-download"></i> Ver / Descargar</a>
                             </td>
                         </tr>

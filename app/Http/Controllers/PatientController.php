@@ -66,6 +66,9 @@ class PatientController extends AppBaseController
                     ';
                 }elseif( in_array(Auth::user()->role_id,[2,3])  ){
                     return '
+                    <a href="/patientHistory/' . $patient->id . '" class="btn btn-xs btn-light">
+                    <i class="fas fa-history"></i> Historial </a>
+                    
                     <a href="/patients/' . $patient->id . '/edit" class="btn btn-xs ">
                     <i class="far fa-edit"></i> </a>
 
