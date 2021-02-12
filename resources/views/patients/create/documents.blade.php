@@ -169,6 +169,11 @@
         'Anexo I: cambio de condiciones de contrato SPAPD' => 'Anexo I: cambio de condiciones de contrato SPAPD',
         'Anexo II: cambio de condiciones de contrato en servicios centro' => 'Anexo II: cambio de condiciones de
         contrato en servicios centro',
+        'Contrato admisión de prestación de servicios' => 'Contrato admisión de prestación de servicios',
+        'Anexo I: condiciones gral SPAP en domicilio' => 'Anexo I: condiciones gral SPAP en domicilio',
+        'Anexo I: condiciones gral SPAP en centro' => 'Anexo I: condiciones gral SPAP en centro',
+        'Anexo I: condiciones gral prestación del servicio en centro de día' => 'Anexo I: condiciones gral prestación
+        del servicio en centro de día',
         'Otros' => 'Otros'
         ], null, ['class' => 'form-control',
         'id' => 'contratos',
