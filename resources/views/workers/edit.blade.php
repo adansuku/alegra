@@ -8,6 +8,8 @@
     <div class="card" id="editar_worker">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Editando trabajador/a</h6>
+
+            {{ count($errors) > 0 ? dd($errors->all()) : ''}}
         </div>
 
         <div class="card-body p-4">

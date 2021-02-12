@@ -136,10 +136,10 @@ class Worker extends Authenticatable
     public static $rules = [
         'nombre' => 'required',
         'apellido' => 'required',
-        'password' => 'required',
-        'password' => 'confirmed',
+        //'password' => 'required',
+        //'password' => 'confirmed',
         'email' => 'required',
-        'password_confirmation' => 'required'
+        //'password_confirmation' => 'required'
 
     ];
 
