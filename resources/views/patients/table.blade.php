@@ -10,7 +10,6 @@
 
 <script>
     //DETELE PATIENTS
-
     $('#patients').on('click', '.btn-delete[data-remote]', function(e) {
         e.preventDefault();
         $.ajaxSetup({
@@ -18,6 +17,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        console.log(url);
         var url = $(this).data('remote');
         // confirm then
         if (confirm('CUIDADO!!! Vas a eliminar un usuario definitivamente de la base de datos, ¿Estás de acuerdo?')) {
@@ -35,8 +35,6 @@
         } else
             alert("Has cancelado la eliminación de la persona seleccionada");
     });
-
-
 
     $(document).ready(function() {
         $('#patients').DataTable({

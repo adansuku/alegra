@@ -169,14 +169,11 @@ class Patient_historyController extends AppBaseController
 
         if (empty($patientHistory)) {
             Flash::error('Patient History not found');
-
             return redirect(route('patientHistories.index'));
         }
-
+        
         $this->patientHistoryRepository->delete($id);
-
-        Flash::success('Patient History deleted successfully.');
-
+        Flash::success('Historial borrado correctamente.');
         return redirect(route('patientHistories.index'));
     }
 }

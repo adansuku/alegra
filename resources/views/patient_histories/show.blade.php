@@ -102,44 +102,55 @@
                             <td>{!! $item->persona_responsable !!}</td>
                             <td>{!! $item->acc_observaciones !!}</td>
                             <td>
-                                <a href="{!! route('patientHistories.edit', [$item->id]) !!}"
+                                <a href="{!! route('patientHistories.edit', $item->id) !!}"
                                     class='btn btn-secondary btn-xs'>
                                     <i class="far fa-edit"></i>
                                 </a>
-                                {{--
-                                <a href="{!! route('patientPias.edit', [$patientPia->id]) !!}" class='btn  btn-secondary btn-xs'>
-                                    <i class="far fa-edit"></i>
-                                </a> --}} {{--
-                                <a href="/carerdelete/{{$item->id}}" data-token="{{csrf_token()}}" class='btn
-                                btn-danger btn-xs' data-confirm="Seguro que quieres eliminar este pia?" onclick="return
-                                confirm('¿Estas segura que quieres eliminar la persona de referencia?')">
-                                <i class="fas fa-trash"></i>
-                                </a> --}} {{--
-                                <a href="/piadelete/{{$$item->id}}" data-token="{{csrf_token()}}" class='btn btn-danger
-                                btn-xs' data-confirm="Seguro que quieres eliminar este pia?" onclick="return
-                                confirm('¿Estas segura que
-                                quieres
-                                eliminar el pia?')">
-                                <i class="fas fa-trash"></i>
-                                </a> --}}
-
-
-
+                                @if ( in_array( Auth::user()->role_id,[1,3]) )
+                                <button class="btn btn-xs btn-danger btn-delete btn-icon"
+                                    data-remote="/patientHistories/{!!$item->id!!}" id="deleteHistory">
+                                    <i class="far fa-trash-alt"></i> </button>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-
         </div>
-        <div class="clearfix"></div>
-        @include('flash::message')
     </div>
-
-
-
-
-
+    @include('flash::message')
 </div>
+
+<script>
+    //DETELE PATIENTS
+    $('#history_table').on('click', '.btn-delete[data-remote]', function(e) {
+        console.log("dsfsdfd");
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var url = $(this).data('remote');
+        console.log(url);
+        // confirm then
+        if (confirm('CUIDADO!!! Vas a eliminar un historial definitivamente de la base de datos, ¿Estás de acuerdo?')) {
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                dataType: 'json',
+                data: {
+                    method: '_DELETE',
+                    submit: true
+                }
+            }).always(function(data) {
+                $('#history_table').DataTable().draw(false);
+                location.reload();
+            });
+        } else
+            alert("Has cancelado la eliminación de la persona seleccionada");
+    });
+
+</script>
 @endsection
