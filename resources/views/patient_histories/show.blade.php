@@ -58,12 +58,12 @@
 <div class="container-fluid ">
     <div class="card shadow p-4">
         <div class="row">
+
             <div class="col-md-6">
                 <h1 class="h3 mb-2 text-gray-800">Historial de {{$patient->nombre}} {{$patient->apellido}}</h1>
-
-
             </div>
-            <div class="col-md-6">
+
+            <div class="col-md-6 ">
                 <div class="float-sm-right">
                     <button type="button" class="btn btn-secondary float-right" data-toggle="modal"
                         data-target="#history_modal" data-id={{$patient->id}}>
@@ -72,13 +72,13 @@
             </div>
 
             <div class="col-sm-12">
-                <table class="table datatables bg-white " width="100%" cellspacing="0" id="history_table">
+                <table class="table bg-white " width="100%" cellspacing="0" id="history_table">
                     <thead class="thead-light">
                         <tr>
                             <th class="all">Fecha Registro</th>
-                            <th class="all">Fecha de la acción</th>
-                            <th class="all">Tipo Acción/Tarea</th>
-                            <th class="all">Subtipo Acción/Tarea</th>
+                            <th class="all ">Fecha de la acción</th>
+                            <th class="all search">Tipo Acción/Tarea</th>
+                            <th class="all search">Subtipo Acción/Tarea</th>
                             <th class="all">Destinado a</th>
                             <th class="none">Descripción</th>
                             <th class="all">Profesional Responsable</th>
@@ -115,6 +115,19 @@
                         </tr>
                         @endforeach
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="all"></th>
+                            <th class="all"></th>
+                            <th class="all"></th>
+                            <th class="all"></th>
+                            <th class="all"></th>
+                            <th class="all"></th>
+                            <th class="all"></th>
+                            <th class="all"></th>
+                            <th class="all"></th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
@@ -122,10 +135,46 @@
     @include('flash::message')
 </div>
 
+<div class="side-filter p-4">
+    <h3>Filtrar</h3>
+    <div class="form-group">
+        <label for="">Tipo Accion / Tarea</label>
+
+
+        <select class="form-control acc_tipo_accion">
+            <option value="">Todo</option>
+            @foreach($patient->patientHistory->pluck('acc_tipo_accion')->unique() as $item)
+            @if( !$item == "" )
+            <option value="{{$item}}">{{$item}}</option>
+            @endif
+            @endforeach
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="">Subtipo Accion / Tarea</label>
+        <select class="form-control acc_subtipo_accion">
+            <option value="">Todo</option>
+            @foreach($patient->patientHistory->pluck('acc_subtipo_accion')->unique() as $item)
+            @if( !$item == "" )
+            <option value="{{$item}}">{{$item}}</option>
+            @endif
+            @endforeach
+        </select>
+    </div>
+
+    <button class="open-filter text-center">
+        Filtro
+    </button>
+</div>
+@section('scripts')
+
+@endsection
+
+
 <script>
     //DETELE PATIENTS
     $('#history_table').on('click', '.btn-delete[data-remote]', function(e) {
-        console.log("dsfsdfd");
         e.preventDefault();
         $.ajaxSetup({
             headers: {
@@ -151,6 +200,100 @@
         } else
             alert("Has cancelado la eliminación de la persona seleccionada");
     });
+
+
+    
+
+    $(document).ready(function() {
+        $('.open-filter').on("click", function () {
+        console.log("dfdf");
+		    $('.side-filter').toggleClass("show-filter");
+		});
+		
+
+        dataTable = $("#history_table").DataTable({
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.modal({
+                                header: function(row) {
+                                    var data = row.data();
+                                    return 'Detalles';
+                                }
+                            }),
+                            renderer: $.fn.dataTable.Responsive.renderer.tableAll()
+                        }
+                    },
+                    dom: '<"row tools-datatables" <"col-md-6 buttons-datatables" B> <"col-md-6 search-datatables d-flex align-items-center justify-content-end pr-3" f> > + rt + <"row" <"col-sm-12 col-md-5" p> <"col-sm-12 col-md-7 text-right" i> >',
+                    buttons: [{
+                            extend: 'excelHtml5',
+                            text: '<i class="fa fa-file-excel"></i> <strong>XLS</stron>',
+                            titleAttr: 'Excel'
+                        },
+                        {
+                            extend: 'pdfHtml5',
+                            text: '<i class="fa fa-file-pdf"></i> <strong>PDF</stron>',
+                            titleAttr: 'PDF'
+                        },
+                        {
+                            extend: 'print',
+                            text: '<i class="fa fa-print"></i>',
+                            titleAttr: 'PDF'
+                        },
+                        { extend: 'colvis', className: 'btn btn-primary' },
+                        { extend: 'pageLength', className: 'btn btn-primary' },
+                    ],
+                    "language": {
+                        "buttons": {
+                            "print": 'Imprimir',
+                            "colvis": 'Columnas',
+                            "pageLength": {
+                                "_": "Mostrar %d",
+                                "-1": "",
+                            }
+                        },
+                        "search": "Buscar",
+                        "searchPlaceholder": "Buscar algo...",
+                        "bPrint": "Imprimir",
+                        "sProcessing": "Procesando...",
+                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "Ningún dato disponible en esta tabla",
+                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sSearch": "",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Cargando...",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        }
+                    }
+                });
+
+        $('.acc_tipo_accion').on('change', function(e){
+            var status = $(this).val();
+            $('.acc_tipo_accion').val(status);
+            dataTable.column(2).search(status).draw();
+
+        })
+
+        $('.acc_subtipo_accion').on('change', function(e){
+            var status2 = $(this).val();
+            $('.acc_subtipo_accion').val(status2);
+            dataTable.column(3).search(status2).draw();
+        })
+
+    } );
+
 
 </script>
 @endsection
