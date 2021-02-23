@@ -18,12 +18,21 @@ $(document).ready(function() {
                 renderer: $.fn.dataTable.Responsive.renderer.tableAll()
             }
         },
+
+        //dom: 'Bfrtip',
+        //    dom: '<"top" Bf> + rt + <row <"col-sm-12 col-md-5" i> <"col-sm-12 col-md-7" p> >',
+
         dom: '<"row tools-datatables" <"col-md-6 buttons-datatables" B> <"col-md-6 search-datatables d-flex align-items-center justify-content-end pr-3" f> > + rt + <"row" <"col-sm-12 col-md-5" p> <"col-sm-12 col-md-7" i> >',
         buttons: [{
                 extend: 'excelHtml5',
                 text: '<i class="fa fa-file-excel"></i> <strong>XLS</stron>',
                 titleAttr: 'Excel'
             },
+            //   {
+            //       extend:    'csvHtml5',
+            //       text:      '<i class="fa fa-file-text"></i>',
+            //       titleAttr: 'CSV'
+            //   },
             {
                 extend: 'pdfHtml5',
                 text: '<i class="fa fa-file-pdf"></i> <strong>PDF</stron>',
@@ -35,6 +44,10 @@ $(document).ready(function() {
                 titleAttr: 'PDF'
             },
             { extend: 'colvis', className: 'btn btn-primary' },
+            //{ extend: 'excel', className: 'btn btn-primary' },
+            // { extend: 'print', className: 'btn btn-primary' },
+            // { extend: 'pdf', className: 'btn btn-primary' },
+            //{ extend: 'csv', className: 'btn btn-primary' },
             { extend: 'pageLength', className: 'btn btn-primary' },
         ],
         "language": {

@@ -16,7 +16,7 @@
      
 
             <td>
-                <a class="btn btn-secondary btn-xs" href="{{ asset("storage/$item->url") }}" target="_blank">
+                <a class="btn btn-secondary btn-xs" href="{{ url('private-files') }}/{{ $item->url }}" target="_blank">
                     <i class="fas fa-download"></i>
                 </a>
                 <a href="/deletedocument/{{$item->id}}" data-token="{{csrf_token()}}" class='btn btn-danger btn-xs'
