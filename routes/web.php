@@ -102,3 +102,6 @@ Route::post('addpia/{id}', ['as' => 'pia_seg.create', 'uses' => 'Patient_piaCont
 Route::post('updatePassword/{id}', ['as' => 'updatePassword.user', 'uses' => 'WorkerController@updatePassword']);
 
 Route::get('/patientHistory/{id}', 'Patient_historyController@get_all_history_by_patient');
+
+
+Route::get('/private-files/{file?}','FileController@getFile')->where('file', '(.*)');
