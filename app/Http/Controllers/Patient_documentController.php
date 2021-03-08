@@ -147,21 +147,21 @@ class Patient_documentController extends AppBaseController
     public function destroy($id) {
 	    
         $patientDocument = $this->patientDocumentRepository->find($id);
-        
-        //dd(Storage::delete('/app/public/' . $patientDocument->url));
-        //$file =   public_path('storage/') . $patientDocument->url ;
-
-        $file =  public_path('storage/') . $patientDocument->url;
-        unlink($file);
-        Storage::delete($file);
-        $this->patientDocumentRepository->delete($id);
-    
         if (empty($patientDocument)) {
             Flash::error('Patient Document not found');
             return redirect(route('patientDocuments.index'));
+            echo "Error";
         }
-
+        $file = \Storage::disk('local')->getDriver()->getAdapter()->applyPathPrefix($patientDocument->url);
+        if(file_exists($file)){
+            unlink($file);
+            if(file_exists($file)){
+                Storage::delete($file);
+            }
+        }
+        $patientDocument->delete();
+        //$this->patientDocumentRepository->delete($id);
         Flash::success('Patient Document deleted successfully.');
-        return redirect()->to(url()->previous() . '#documents');    
+        return redirect()->to(url()->previous() . '#documents');
     }
 }
