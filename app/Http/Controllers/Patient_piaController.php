@@ -221,34 +221,44 @@ class Patient_piaController extends AppBaseController
         $file = "";
         
         if ($patientPia->url_pia != "" || $patientPia->url_pia != null) {
-	    	$file =  public_path('storage/') . $patientPia->url_pia;
+	    	#$file =  public_path('storage/') . $patientPia->url_pia;
+
+            $file = \Storage::disk('local')->getDriver()->getAdapter()->applyPathPrefix($patientPia->url_pia);
+            if(file_exists($file)){
+                unlink($file);
+                if(file_exists($file)){
+                    Storage::delete($file);
+                }
+            }
 	    }   
 	    
 	    if ($patientPia->url_recepcion != "" || $patientPia->url_recepcion != null) {
-		    $file =  public_path('storage/') . $patientPia->url_recepcion;
+		    #$file =  public_path('storage/') . $patientPia->url_recepcion;
+
+            $file = \Storage::disk('local')->getDriver()->getAdapter()->applyPathPrefix($patientPia->url_recepcion);
+            if(file_exists($file)){
+                unlink($file);
+                if(file_exists($file)){
+                    Storage::delete($file);
+                }
+            }
 		}
         
-        if($file != ""){
-            unlink($file);
-            Storage::delete($file);
-        }     
-
+        // if($file != ""){
+        //     unlink($file);
+        //     Storage::delete($file);
+        // }     
 
         if (empty($patientPia)) {
             Flash::error('Patient Pia not found');
-
             return redirect(route('patientPias.index'));
         }
 
-        $this->patientPiaRepository->delete($id);
+        $patientPia->delete();
 
         Flash::success('Patient Pia deleted successfully.');
 
         return redirect()->to(url()->route('patients.edit', $patientPia->patient) . '#pias');
-        
-        
-        
-        
         
     }
 }

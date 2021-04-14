@@ -59,12 +59,6 @@ class Patient_documentController extends AppBaseController
         $input = $request->all();
         $patientDocument = $this->patientDocumentRepository->create($input);
         $patientDocument->url = $request->file('url')->store($patientDocument->patient_id . '/patient_documents/documents');
-        
-        //dd($request->file('url'));
-        //$patientDocument->url = $request->file('url')->store($patientDocument);
-
-        //dd($patientDocument->url);
-
         $patientDocument->update();
 
         Flash::success('Patient Document saved successfully.');
