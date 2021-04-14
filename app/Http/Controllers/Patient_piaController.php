@@ -221,8 +221,6 @@ class Patient_piaController extends AppBaseController
         $file = "";
         
         if ($patientPia->url_pia != "" || $patientPia->url_pia != null) {
-	    	#$file =  public_path('storage/') . $patientPia->url_pia;
-
             $file = \Storage::disk('local')->getDriver()->getAdapter()->applyPathPrefix($patientPia->url_pia);
             if(file_exists($file)){
                 unlink($file);
@@ -230,11 +228,11 @@ class Patient_piaController extends AppBaseController
                     Storage::delete($file);
                 }
             }
-	    }   
-	    
-	    if ($patientPia->url_recepcion != "" || $patientPia->url_recepcion != null) {
-		    #$file =  public_path('storage/') . $patientPia->url_recepcion;
+            //$file =  public_path('storage/') . $patientPia->url_pia;
+        }
 
+	    if ($patientPia->url_recepcion != "" || $patientPia->url_recepcion != null) {
+            //$file =  public_path('storage/') . $patientPia->url_recepcion;
             $file = \Storage::disk('local')->getDriver()->getAdapter()->applyPathPrefix($patientPia->url_recepcion);
             if(file_exists($file)){
                 unlink($file);
@@ -244,10 +242,10 @@ class Patient_piaController extends AppBaseController
             }
 		}
         
-        // if($file != ""){
-        //     unlink($file);
-        //     Storage::delete($file);
-        // }     
+        /*if($file != ""){
+            unlink($file);
+            Storage::delete($file);
+        } */    
 
         if (empty($patientPia)) {
             Flash::error('Patient Pia not found');
