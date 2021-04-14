@@ -51,7 +51,8 @@
         <td>
             @if($patientPia->url_pia == null ) Pia no disponible @else
 
-            <a href="{{ asset("storage/$patientPia->url_pia") }}" target="_blank">
+            {{-- <a href="{{ asset("storage/$patientPia->url_pia") }}" target="_blank"> --}}
+            <a href="{{ url('private-files') }}/{{ $patientPia->url_pia }}" target="_blank">
                 <i class="fas fa-download"></i> Ver documento
             </a> @endif
         </td>
@@ -60,7 +61,8 @@
         <td>
             @if($patientPia->url_recepcion == null ) Pia recepción no disponible @else
 
-            <a href="{{ asset("storage/$patientPia->url_recepcion") }}" target="_blank">
+            {{-- <a href="{{ asset("storage/$patientPia->url_recepcion") }}" target="_blank"> --}}
+            <a href="{{ url('private-files') }}/{{ $patientPia->url_recepcion }}" target="_blank">
                 <i class="fas fa-download"></i> Ver documento
             </a> @endif
         </td>

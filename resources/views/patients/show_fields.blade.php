@@ -749,7 +749,9 @@
                         <td>
                             @if($patientPia->url_pia == null ) Pia no disponible @else
 
-                            <a href="{{asset("storage/$patientPia->url_pia")}}" target="_blank">
+                            {{-- <a href="{{asset("storage/$patientPia->url_pia")}}" target="_blank"> --}}
+                            <a href="{{ url('private-files') }}/{{ $patientPia->url_pia }}" target="_blank">
+
                                 <i class="fas fa-download"></i> Ver documento
                             </a> @endif
                         </td>
@@ -758,7 +760,8 @@
                         <td>
                             @if($patientPia->url_recepcion == null ) Pia recepción no disponible @else
 
-                            <a href="{{ asset("storage/$patientPia->url_recepcion") }}" target="_blank">
+                            {{-- <a href="{{ asset("storage/$patientPia->url_recepcion") }}" target="_blank"> --}}
+                            <a href="{{ url('private-files') }}/{{ $patientPia->url_recepcion }}" target="_blank">
                                 <i class="fas fa-download"></i> Ver documento
                             </a> @endif
                         </td>
@@ -1004,10 +1007,11 @@
                         <tr>
                             <td>{!! $item->cat_documentos !!}</td>
                             <td>{!! $item->nombre_doc !!}</td>
-
                             <td>
-                                <a class="btn btn-secondary btn-xs" href="{{asset("storage/$item->url")
-                                    }}" target="_blank"><i class="fas fa-download"></i> Ver / Descargar</a>
+                                <a class="btn btn-secondary btn-xs" href="{{ url('private-files') }}/{{ $item->url }}"
+                                    target="_blank">
+                                    <i class="fas fa-download"></i> Ver / Descargar
+                                </a>
                             </td>
                         </tr>
                         @endforeach
