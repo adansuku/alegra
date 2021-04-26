@@ -111,6 +111,18 @@
             {!! Form::text('bloq_piso', $patient->bloq_piso, ['class' => 'form-control']) !!}
         </p>
 
+        <p>{!! Form::label('tipo_vivienda', 'Tipo de Vivienda:') !!}
+
+            <select class="form-control select2" id="tipo_vivienda" name="tipo_vivienda">
+                <option value="">Selecciona una opción</option>
+                <option {{ str_contains(strtolower($patient->tipo_vivienda),'apartamento') ? 'selected':'' }}>Apartamento</option>
+                <option {{ str_contains(strtolower($patient->tipo_vivienda),'piso') ? 'selected':'' }}>Piso</option>
+                <option {{ str_contains(strtolower($patient->tipo_vivienda),'casa') ? 'selected':'' }}>Casa Terrera</option>
+                <option {{ str_contains(strtolower($patient->tipo_vivienda),'chalet') ? 'selected':'' }}>Chalet</option>
+                <option {{ str_contains(strtolower($patient->tipo_vivienda),'adosado') ? 'selected':'' }}>Adosado</option>
+            </select>
+        </p>
+
         <!--codigfo postal-->
         <p>
             {!! Form::label('codigo_postal', 'Código postal:') !!}

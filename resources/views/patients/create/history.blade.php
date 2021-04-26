@@ -80,10 +80,12 @@
                 $('#seg_salud').css('display', 'block');
                 $('#seg_salud_opt').attr('required', 'required');
                 $('#seg_salud_opt').attr('name', 'acc_subtipo_accion');
+                $("#select-template").append(new Option("Valoración de vida accesible y funcional inicial","15"));
             } else {
                 $('#seg_salud').css('display', 'none');
                 $('#seg_salud_opt').removeAttr('required', 'required');
                 $('#seg_salud_opt').removeAttr('name', 'acc_subtipo_accion');
+                $("#select-template").find('option[value="15"]').remove();
             }
 
             if ($(this).val() === 'Documentación') {
@@ -110,10 +112,12 @@
                 $('#valoracion_ini').css('display', 'block');
                 $('#valoracion_ini_opt').attr('required', 'required');
                 $('#valoracion_ini_opt').attr('name', 'acc_subtipo_accion');
+                $("#select-template").append(new Option("Valoración de vida accesible y funcional inicial","14"));
             } else {
                 $('#valoracion_ini').css('display', 'none');
                 $('#valoracion_ini_opt').removeAttr('required', 'required');
                 $('#valoracion_ini_opt').removeAttr('name', 'acc_subtipo_accion');
+                $("#select-template").find('option[value="14"]').remove();
             }
 
             if ($(this).val() === 'Otras') {
@@ -138,7 +142,7 @@
         => 'Intervención Familiar', 'Asesoramiento fisico' => 'Asesoramiento Físico', 'Asesoramiento social' =>
         'Asesoramiento Social', 'Asesoramiento funcional' => 'Asesoramiento Funcional', 'Asesoramiento cognitivo' =>
         'Asesoramiento Cognitivo', 'Formación
-        individual' => 'Formación individual', 'Intervención familiar' => 'Intervención familiar', 'Otras' => 'Otras
+        individual' => 'Formación individual', 'Intervención familiar' => 'Intervención familiar', 'Programa de Hogar Accesible y Funcional (PHAF)'=>'Programa de Hogar Accesible y Funcional (PHAF)','Otras' => 'Otras
         (especificar)'], null, ['class' => 'form-control acc_subtipo_accion' , 'id' => 'solic_demandas_opt']) !!}
     </div>
 
@@ -173,7 +177,7 @@
         a cuidador/a' => 'Fisioterapia a cuidador/a', 'Seguimiento Psicológico Mensual' => 'Seguimiento Psicológico
         Mensual', 'Asesoramiento Físico' => 'Asesoramiento Físico', 'Asesoramiento Social' => 'Asesoramiento Social',
         'Asesoramiento Funcional'
-        => 'Asesoramiento Funcional', 'Asesoramiento cognitivo' => 'Asesoramiento cognitivo', 'Otras' => 'Otras
+        => 'Asesoramiento Funcional', 'Asesoramiento cognitivo' => 'Asesoramiento cognitivo', 'Visita de Vida Accesible Inicial'=>'Visita de Vida Accesible Inicial','Visita de Vida Accesible de Seguimiento'=>'Visita de Vida Accesible de Seguimiento','Visita de Vida Accesible Puntual'=>'Visita de Vida Accesible Puntual' ,'Otras' => 'Otras
         (especificar)'], null, ['class' => 'form-control acc_subtipo_accion', 'id' => 'interv_domic_opt']) !!}
     </div>
 
@@ -189,7 +193,7 @@
         'Seguimiento Emocional', 'Seguimiento Funcional' => 'Seguimiento Funcional', 'Nuevo diagnóstico principal' =>
         'Nuevo diagnóstico principal',
         'Cambio importante salud' => 'Cambio importante salud', 'Ficha de seguimiento de intervención' => 'Ficha de
-        seguimiento de intervención', 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control
+        seguimiento de intervención', 'Seguimiento Vida accesible y funcional '=>'Seguimiento Vida accesible y funcional ','Otras' => 'Otras (especificar)'], null, ['class' => 'form-control
         acc_subtipo_accion', 'id' => 'seg_salud_opt'])
         !!}
     </div>
@@ -233,7 +237,7 @@
         Inicial de Indicador Salud' , 'Valoración Inicial Cognitiva' =>'Valoración Inicial Cognitiva' , 'Valoración
         Inicial Física' =>'Valoración Inicial Física' , 'Valoración Inicial Funcional' =>'Valoración Inicial Funcional'
         , 'Valoración Inicial Emocional'
-        =>'Valoración Inicial Emocional' , 'Otras' => 'Otras (especificar)'], null, ['class' => 'form-control
+        =>'Valoración Inicial Emocional' , 'Visita de Vida Accesible inicial '=>'Visita de Vida Accesible inicial ','Otras' => 'Otras (especificar)'], null, ['class' => 'form-control
         acc_subtipo_accion', 'id' => 'valoracion_ini_opt']) !!}
     </div>
 
@@ -389,6 +393,16 @@
                     $(".note-editable").empty();
                     $('#acc_descrip').html(add_template_11());
                     $('.note-editable').html(add_template_11());
+                    break;
+                case 14:
+                    $(".note-editable").empty();
+                    $('#acc_descrip').html(add_template_12());
+                    $('.note-editable').html(add_template_12());
+                    break;
+                case 15:
+                    $(".note-editable").empty();
+                    $('#acc_descrip').html(add_template_13());
+                    $('.note-editable').html(add_template_13());
                     break;
                 default:
             }
@@ -584,6 +598,125 @@
                     "<li><strong>Fecha de Cierre</strong></li>" +
                     "<li><strong>Observaciones</strong></li>" +
                     "</ul>";
+            }
+
+            function add_template_12() {
+                return "<p><strong>ACTIVIDADES BÁSICAS DE LA VIDA DIARIA</strong></p>" +
+                "<ul>" +
+                "<li>Deambulación</li>" +
+                "<li>Subir y bajar escaleras</li>" +
+                "<li>Transferencias</li>" +
+                "<li>Continencia</li>" +
+                "<li>Uso del inodoro</li>" +
+                "<li>Aseo e higiene personal</li>" +
+                "<li>Uso de ducha o bañera</li>" +
+                "<li>Vestido</li>" +
+                "<li>Comer</li>" +
+                "<li>Alimentación</li>" +
+                "<li>Actividad sexual</li>" +
+                "<li>Descanso y sueño</li>" +
+                "</ul>" +
+                "<p><strong>ACTIVIDADES INSTRUMENTALES DE LA VIDA DIARIA</strong></p>" +
+                "<ul>" +
+                "<li>Movilidad en la comunidad</li>" +
+                "<li>Uso de transporte</li>" +
+                "<li>Elaboración de comidas</li>" +
+                "<li>Cuidado y limpieza del hogar</li>" +
+                "<li>Realización de compras</li>" +
+                "<li>Uso de sistemas de comunicación</li>" +
+                "<li>Toma de medicación</li>" +
+                "<li>Manejo de asuntos económicos</li>" +
+                "<li>Cuidado de mascotas</li>" +
+                "<li>Cuidado de otros</li>" +
+                "<li>Cuidado y mantenimiento de la salud</li>" +
+                "<li>Mantenimiento de la seguridad y responder a la emergencia</li>" +
+                "</ul>" +
+                "<p><strong>ACTIVIDADES AVANZADAS DE LA VIDA DIARIA</strong></p>" +
+                "<ul>" +
+                "<li>Participación en la comunidad</li>" +
+                "<li>Educación</li>" +
+                "<li>Ocio y tiempo libre</li>" +
+                "</ul>"+
+                "<p><strong>PRODUCTOS DE APOYO</strong></p>" +
+                "<ul>" +
+                "<li>Productos de apoyo utilizados</li>" +
+                "<li>Productos de apoyo subvencionables prescritos</li>" +
+                "<li>Productos de apoyo no subvencionables recomendados</li>" +
+                "</ul>"+
+                "<p><strong>ENTORNO</strong></p>" +
+                "<ul>" +
+                "<li>Facilitadores del hogar</li>" +
+                "<li>Barreras del hogar</li>" +
+                "<li>Adaptaciones recomendadas</li>" +
+                "<li>Fecha próximo seguimiento</li>" +
+                "<li>Valoración de vida accesible y funcional: (cambios no registrados)</li>" +
+                "<li>Recomendaciones llevadas a cabo</li>" +
+                "<li>Mejoras conseguidas</li>" +
+                "<li>Ajuste de objetivos</li>" +
+                "<li>Nuevas recomendaciones y propuestas para la familia</li>" +
+                "<li>Nuevas recomendaciones para el equipo multidisciplinar</li>" +
+                "</ul>"
+                ;
+
+            }
+
+            function add_template_13() {
+                return "<p><strong>ACTIVIDADES BÁSICAS DE LA VIDA DIARIA</strong></p>" +
+                "<ul>" +
+                "<li>Deambulación</li>" +
+                "<li>Subir y bajar escaleras</li>" +
+                "<li>Transferencias</li>" +
+                "<li>Continencia</li>" +
+                "<li>Uso del inodoro</li>" +
+                "<li>Aseo e higiene personal</li>" +
+                "<li>Uso de ducha o bañera</li>" +
+                "<li>Vestido</li>" +
+                "<li>Comer</li>" +
+                "<li>Alimentación</li>" +
+                "<li>Actividad sexual</li>" +
+                "<li>Descanso y sueño</li>" +
+                "</ul>" +
+                "<p><strong>ACTIVIDADES INSTRUMENTALES DE LA VIDA DIARIA</strong></p>" + 
+                "<ul>" +
+                "<li>Movilidad en la comunidad</li>" +
+                "<li>Uso de transporte</li>" +
+                "<li>Elaboración de comidas</li>" +
+                "<li>Cuidado y limpieza del hogar</li>" +
+                "<li>Realización de compras</li>" +
+                "<li>Uso de sistemas de comunicación</li>" +
+                "<li>Toma de medicación</li>" +
+                "<li>Manejo de asuntos económicos</li>" +
+                "<li>Cuidado de mascotas</li>" +
+                "<li>Cuidado de otros</li>" +
+                "<li>Cuidado y mantenimiento de la salud</li>" +
+                "<li>Mantenimiento de la seguridad y responder a la emergencia</li>" +
+                "</ul>" +
+                "<p><strong>ACTIVIDADES AVANZADAS DE LA VIDA DIARIA</strong></p>" + 
+                "<ul>" +
+                "<li>Participación en la comunidad</li>" +
+                "<li>Educación</li>" +
+                "<li>Ocio y tiempo libre</li>" +
+                "</ul>" +
+                "<p><strong>PRODUCTOS DE APOYO</strong></p>" + 
+                "<ul>" +
+                "<li>Productos de apoyo utilizados</li>" +
+                "<li>Productos de apoyo subvencionables prescritos</li>" +
+                "<li>Productos de apoyo no subvencionables recomendados</li>" +
+                "</ul>"+
+                "<p><strong>ENTORNO</strong></p>" + 
+                "<ul>" +
+                "<li>Facilitadores del hogar</li>" +
+                "<li>Barreras del hogar</li>" +
+                "<li>Adaptaciones recomendadas</li>" +
+                "<li>Fecha próximo seguimiento</li>" +
+                "<li>Valoración de vida accesible y funcional: (cambios no registrados)</li>" +
+                "<li>Recomendaciones llevadas a cabo</li>" +
+                "<li>Mejoras conseguidas</li>" +
+                "<li>Ajuste de objetivos</li>" +
+                "<li>Nuevas recomendaciones y propuestas para la familia</li>" +
+                "<li>Nuevas recomendaciones para el equipo multidisciplinar</li>" +
+                "</ul>"
+                ;
             }
 
         });

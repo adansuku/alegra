@@ -211,3 +211,24 @@
     </div>
 
 </div>
+
+@foreach($health_groups as $hg)
+    <div class="row">
+        <div class="form-group col-md-4">
+            {!! Form::label($hg->description) !!}
+            <select class="form-control select2" name="health_options[]" multiple="multiple">
+                <option value="">Selecciona una opción</option>
+                @foreach($hg->healthIndicatorOptions as $option)
+                    <option value="{{ $option->id }}" {{ in_array($option->id,$patient_health_options) ? 'selected' : '' }}>{{ $option->option }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+@endforeach
+
+<div class="row">
+    <div class="form-group col-md-4">
+        {!! Form::label('ocio', 'Ocio:') !!}
+        {!! Form::text('ocio', $patient->patientHealth->ocio, ['class' => 'form-control']) !!}
+    </div>
+</div>

@@ -12,6 +12,7 @@
         'Documentación económina' => 'Documentación económina',
         'Autorizaciones y Solicitudes Generales' => 'Autorizaciones y Solicitudes Generales',
         'Informes y Comunicaciones Desde Acufade' => 'Informes y Comunicaciones Desde Acufade',
+        'PHAF' => 'PHAF',
         'Otras' => 'Otras'
         ], null, [
         'class' => 'form-control',
@@ -54,6 +55,14 @@
         }else {
             $('#documentos_sanitarios').removeAttr('name', 'nombre_doc' );
             $('#documentos_sanitarios').css('display', 'none');
+        }
+
+        if ($(this).val() === 'PHAF') {
+            $('#phaf').css('display', 'block');
+            $('#phaf').attr('name', 'nombre_doc' );
+        }else {
+            $('#phaf').removeAttr('name', 'nombre_doc' );
+            $('#phaf').css('display', 'none');
         }
 
         if ($(this).val() === 'Ley de Dependencia') {
@@ -194,6 +203,18 @@
 
         ], null, ['class' => 'form-control',
         'id' => 'documentos_sanitarios',
+        'style' => 'display: none'
+        ]) !!}
+
+        {!! Form::select('', [
+        'Informe de Vida Accesible Inicial' =>'Informe de Vida Accesible Inicial',
+        'Informe de Vida Accesible de Seguimiento' => 'Informe de Vida Accesible de Seguimiento',
+        'Ruta Inicial de Trabajo de Vida Accesible' => 'Ruta Inicial de Trabajo de Vida Accesible',
+        'Ruta de Trabajo de seguimiento de Vida Accesible' => 'Ruta de Trabajo de seguimiento de Vida Accesible',
+        'Prescripción de producto de apoyo' => 'Prescripción de producto de apoyo',
+        'Otros' => 'Otros'
+        ], null, ['class' => 'form-control',
+        'id' => 'phaf',
         'style' => 'display: none'
         ]) !!}
 

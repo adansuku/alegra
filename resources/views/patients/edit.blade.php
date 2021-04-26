@@ -9,6 +9,7 @@
 @include('patients.modals.spapd_days') @include('patients.modals.transport') @include('patients.modals.dates')
 @include('patients.modals.doctor')
 @include('patients.modals.past') @include('patients.modals.medication')
+@include('patients.modals.spapd_dates')
 
 <div class="container-fluid">
 
@@ -261,11 +262,29 @@
         format: 'HH:mm'
     });
 
+    $('#spapd_fec_entrada').datetimepicker({
+        format: 'DD-MM-YYYY',
+        useCurrent: false
+    });
+
+    $('#spapd_fec_salida').datetimepicker({
+        format: 'DD-MM-YYYY',
+        useCurrent: false
+    });
+
     $(".spapd_add_day").click(function() {
         var url = "{{ url('/patientSpapdDays') }}" + "?patient_spapd_id=" + $(this).attr('data-id');
         $("#frm_spapd_days").attr('action', url);
         $("#spadp_title").html($(this).attr('data-title'));
         $("#spapd_dia_modal").modal('show');
+    })
+
+    $(".spapd_add_dates").click(function() {
+        var patient_spapd_id = $(this).attr('data-id');
+        var url = "{{ url('/patientSpapdDates') }}";
+        $("#frm_spapd_dates").attr('action', url);
+        $("#spadp_dates_patient_spapd_id").val(patient_spapd_id);
+        $("#spapd_fecha_modal").modal('show');
     })
 
     $(".day_check").click(function() {
@@ -285,6 +304,20 @@
                 location.reload();
             } else {
                 alert("No se puede añadir los horarios");
+            }
+
+        });
+    })
+
+    $("#btnSubmitSpadpDates").click(function() {
+        var url = $("#frm_spapd_dates").attr('action');
+        var data = $("#frm_spapd_dates").serialize();
+        $.post(url, data).done(function(response) {
+            if (response.success) {
+                alert("Fechas añadida correctamente");
+                location.reload();
+            } else {
+                alert("No se pudieron añadir las fechas");
             }
 
         });

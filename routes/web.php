@@ -80,6 +80,8 @@ Route::resource('patientTransports', 'Patient_transportController');
 Route::resource('patientSpapds', 'Patient_spapdController');
 Route::resource('patientSpapdDays', 'Patient_spapd_diaController');
 
+Route::resource('patientSpapdDates', 'Patient_spapd_dateController');
+
 
 
 

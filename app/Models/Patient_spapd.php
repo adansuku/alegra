@@ -79,4 +79,9 @@ class Patient_spapd extends Model
     {
         return $this->hasMany(\App\Models\Patient_spapd_dia::class);
     }
+
+    public function patient_spapd_dates()
+    {
+        return $this->hasMany(\App\Models\Patient_spapd_date::class);
+    }
 }

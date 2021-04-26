@@ -69,7 +69,8 @@ class Patient extends Model
         'obs_direcion',
         'num_direcion',
         'otros_parentesco',
-        'worker_id'
+        'worker_id',
+        'tipo_vivienda'
     ];
 
     /**
