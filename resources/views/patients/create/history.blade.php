@@ -32,7 +32,9 @@
 
     <!-- Tipo accion Field -->
     <div class="form-group col-sm-12">
-        {!! Form::label('acc_tipo_accion', 'Tipo Acción/Tarea:') !!} {!! Form::select('acc_tipo_accion', [ null =>
+        {!! Form::label('acc_tipo_accion', 'Tipo Acción/Tarea:') !!}
+
+        {!! Form::select('acc_tipo_accion', [ null =>
         'Selecciona una:', 'Solicitud Demandas' => 'Solicitud Demandas', 'Formalización Demandas' => 'Formalización
         Demandas', 'Intervenciones en Centro'
         => 'Intervenciones en Centro', 'Intervenciones en Domicilio' => 'Intervenciones en Domicilio', 'Seguimiento de
@@ -45,6 +47,7 @@
 
     <script>
         $('#acc_tipo_accion').on('change', function() {
+            console.log("here");
             if ($(this).val() === 'Solicitud Demandas' || $(this).val() === 'Formalización Demandas') {
                 console.log('ok');
                 $('#solic_demandas').css('display', 'block');
