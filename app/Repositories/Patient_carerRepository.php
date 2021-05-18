@@ -34,7 +34,9 @@ class Patient_carerRepository extends BaseRepository
         'sit_apoyo',
         'cesion_care',
         'contactar_para',
-        'es_referencia'
+        'es_referencia',
+        'cuidadora_principal',
+        'proyecto_social'
     ];
 
     /**

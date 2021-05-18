@@ -34,6 +34,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string obs_direcion
  * @property string num_direcion
  * @property string otros_parentesco
+ * @property string proyecto_social
  */
 class Patient extends Model
 {
@@ -70,7 +71,8 @@ class Patient extends Model
         'num_direcion',
         'otros_parentesco',
         'worker_id',
-        'tipo_vivienda'
+        'tipo_vivienda',
+        'proyecto_social'
     ];
 
     /**
@@ -103,7 +105,8 @@ class Patient extends Model
         'obs_direcion' => 'string',
         'num_direcion' => 'string',
         'otros_parentesco' => 'string',
-        'worker_id' => 'array'
+        'worker_id' => 'array',
+        'proyecto_social' => 'array'
     ];
 
     /**
@@ -177,6 +180,11 @@ class Patient extends Model
     public function patientSpapd()
     {
         return $this->hasMany(\App\Models\Patient_spapd::class);
+    }
+
+    public function patientCentro()
+    {
+        return $this->hasMany(\App\Models\Patient_centro::class);
     }
 
     public function worker()

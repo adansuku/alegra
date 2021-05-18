@@ -76,7 +76,9 @@ class Patient_carer extends Model
         'otro_trabajo',
         'otro_serv_apoyo',
         'otro_contactar_para',
-        'patient_id'
+        'patient_id',
+        'cuidadora_principal',
+        'proyecto_social'
     ];
 
     /**
@@ -112,7 +114,9 @@ class Patient_carer extends Model
         'otro_trabajo' => 'string',
         'otro_serv_apoyo' => 'string',
         'otro_contactar_para' => 'string',
-        'patient_id' => 'integer'
+        'patient_id' => 'integer',
+        'cuidadora_principal' => 'string',
+        'proyecto_social' => 'array'
     ];
 
     /**

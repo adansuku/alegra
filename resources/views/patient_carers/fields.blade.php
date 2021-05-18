@@ -494,6 +494,28 @@
         {!! Form::select('es_tutor', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
     </div>
 
+    <div class="form-group col-sm-12">
+        {!! Form::label('cuidadora_principal', '¿Cuidadora Principal?') !!} 
+        {!! Form::select('cuidadora_principal', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group col-sm-12">
+        {!! Form::label('proyecto_social', 'Participa en Proyectos de Acción Social:') !!}
+        {!! Form::select('proyecto_social[]', [
+        'ALIVIA' => 'ALIVIA',
+        'GUATA PARA TODXS' => 'GUATA PARA TODXS',
+        'TREN DE LA FELICIDAD' => 'TREN DE LA FELICIDAD',
+        'LXS MÁS VULNERABLES' => 'LXS MÁS VULNERABLES',
+        'MAYORES DIGITALES' => 'MAYORES DIGITALES',
+        'LIBERIA' => 'LIBERIA',
+        ], 
+        $patientCarer->proyecto_social,
+        [
+        'class' => 'select2 form-control',
+        'id' => 'sit_apoyo',
+        'multiple' => 'multiple'
+        ]) !!}
+
+    </div>
 
     <!-- Submit Field -->
     <div class="form-group col-sm-12">

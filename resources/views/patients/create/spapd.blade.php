@@ -4,12 +4,16 @@
         {!! Form::label('prog_spapd', 'Programa:') !!}
         <select class="form-control" id="prog_spapd" name="prog_spapd" required>
             <option value="" selected disabled hidden>Elige un programa</option>
-            <option value="Estimulación Cognitiva (EC)">Estimulación Cognitiva (EC)</option>
-            <option value="Fisioterapia">Fisioterapia</option>
-            <option value="Apoyo Emocional">Apoyo Emocional</option>
-            <option value="Terapia Ocupacional">Terapia Ocupacional</option>
+            <option value="Programa de Estimulación Cognitiva">Programa de Estimulación Cognitiva</option>
+            <option value="Programa de promoción, mantenimiento y recuperación de la autonomía funcional">Programa de promoción, mantenimiento y recuperación de la autonomía funcional</option>
+            <option value="Programa de Asesoramiento y Orientación (Apoyo Emocional)">Programa de Asesoramiento y Orientación (Apoyo Emocional)</option>
+            <option value="Programa de asistencia y formación en tecnologías de apoyo y adaptaciones">Programa de asistencia y formación en tecnologías de apoyo y adaptaciones</option>
+            <option value="Programa de Terapia Ocupacional">Programa de Terapia Ocupacional</option>
             <option value="Logopedia">Logopedia</option>
             <option value="PHAF ALIVIA">PHAF ALIVIA</option>
+            <option value="Programa de Formación en cuidados">Programa de Formación en cuidados</option>
+            <option value="Programa de Hogar Accesible y Funcional">Programa de Hogar Accesible y Funcional</option>
+            <option value="Programa de Asesoramiento Jurídico">Programa de Asesoramiento Jurídico</option>
             <option value="Otros">Otros</option>
         </select>
         <script>
@@ -87,4 +91,5 @@
     
 </div>
 <!--end row-->
+
 

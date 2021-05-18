@@ -10,6 +10,8 @@
 @include('patients.modals.doctor')
 @include('patients.modals.past') @include('patients.modals.medication')
 @include('patients.modals.spapd_dates')
+@include('patients.modals.centro')
+@include('patients.modals.centro_days')
 
 <div class="container-fluid">
 
@@ -133,6 +135,12 @@
                         </li>
                         @endif
 
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="centro-tab" data-toggle="tab" href="#centro" role="tab"
+                                aria-controls="centro" aria-selected="false">Especificaciones de Centro</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#transporte" role="tab"
                                 aria-controls="contact" aria-selected="false">Transporte</a>
@@ -164,6 +172,10 @@
                         <div class="tab-pane fade" id="especificaciones" role="tabpanel" aria-labelledby="profile-tab">
 
                             @include('patients.show.show_spapd')
+                        </div>
+
+                        <div class="tab-pane fade" id="centro" role="tabpanel" aria-labelledby="centro-tab">
+                            @include('patients.show.show_centro')
                         </div>
 
                         <div class="tab-pane fade" id="transporte" role="tabpanel" aria-labelledby="contact-tab">
@@ -309,6 +321,21 @@
         });
     })
 
+    $("#btnSubmitCentroDay").click(function() {
+        var url = $("#frm_centro_days").attr('action');
+        var data = $("#frm_centro_days").serialize();
+        $.post(url, data).done(function(response) {
+            if (response.success) {
+                alert("Dias añadidos correctamente");
+                location.reload();
+            } else {
+                alert("No se puede añadir los horarios");
+            }
+
+        });
+
+    })
+
     $("#btnSubmitSpadpDates").click(function() {
         var url = $("#frm_spapd_dates").attr('action');
         var data = $("#frm_spapd_dates").serialize();
@@ -321,6 +348,14 @@
             }
 
         });
+    })
+
+
+    $(".centro_add_day").click(function() {
+        var url = "{{ url('/patientCentroDays') }}" + "?patient_centro_id=" + $(this).attr('data-id');
+        $("#frm_centro_days").attr('action', url);
+        $("#centro_title").html($(this).attr('data-title'));
+        $("#centro_dia_modal").modal('show');
     })
 </script>
 

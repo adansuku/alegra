@@ -346,6 +346,23 @@
                 @endforeach
             </select>
         </p>
+        
+        <p>
+            {!! Form::label('proyecto_social', 'Participa en Proyectos de Acción Social:') !!}
+            <select class="form-control select2" id="proyecto_social" name="proyecto_social[]" multiple="multiple">
+                <option {{ in_array('ALIVIA', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>ALIVIA</option>
+                <option {{ in_array('GUATA PARA TODXS', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>GUATA PARA TODXS</option>
+                <option {{ in_array('TREN DE LA FELICIDAD', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>TREN DE LA FELICIDAD</option>
+                <option {{ in_array('LXS MÁS VULNERABLES', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>LXS MÁS VULNERABLES</option>
+                <option {{ in_array('MAYORES DIGITALES', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>MAYORES DIGITALES</option>
+                <option {{ in_array('LIBERIA', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>LIBERIA</option>
+                
+                @if ($patient->proyecto_social == null)
+                $patient->proyecto_social[0] = "vacio"
+                @endif
+            </select>
+        </p>
+        
     </div>
 
 </div>

@@ -30,6 +30,7 @@
             <th class="none"><strong>Cesión de imagen</strong></th>
             <th class="none"><strong>Contactar Para</strong></th>
             <th class="all"><strong>¿Es Tutor/a Legal?</strong></th>
+            <th class="all"><strong>¿Cuidadora Principal?</strong></th>
             <th>Acción</th>
           
         </tr>
@@ -120,7 +121,7 @@
             </td>
 
             <td>{!! $item->es_tutor !!}</td>
-
+            <td>{!! $item->cuidadora_principal !!}</td>
             <td>
                 <a href="{!! route('patientCarers.edit', [$item->id]) !!}" 
                     class='btn  btn-primary btn-xs'>
@@ -136,6 +137,7 @@
                 </a>
                 
             </td>
+            
         </tr>
         @endforeach
     </tbody>

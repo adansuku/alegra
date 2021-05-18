@@ -39,12 +39,47 @@
         Salud' => 'Seguimiento de Salud', 'Documentación' => 'Documentación', 'Contabilidad' => 'Contabilidad',
         'Valoraciones iniciales'=> 'Valoraciones
         iniciales', 'Incidencias'=> 'Incidencias', 'Felicitaciones'=> 'Felicitaciones', 'Quejas y reclamaciones'=>
-        'Quejas y reclamaciones', 'Otras' => 'Otras'], null, ['class' => 'form-control', 'required'=>'required', 'id' =>
+        'Quejas y reclamaciones','Valoraciones de Seguimiento'=>'Valoraciones de Seguimiento', 
+        'Seguimiento de Salud'=> 'Seguimiento de Salud',
+        'Objetivos' => 'Objetivos',
+        'Otras' => 'Otras'], null, ['class' => 'form-control', 'required'=>'required', 'id' =>
         'acc_tipo_accion']) !!}
     </div>
 
     <script>
         $('#acc_tipo_accion').on('change', function() {
+
+            if ($(this).val() === 'Objetivos') {
+                $('#objetivos').css('display', 'block');
+                $('#objetivos_opt').attr('required', 'required');
+                $('#objetivos_opt').attr('name', 'acc_subtipo_accion');
+            } else {
+                $('#objetivos').css('display', 'none');
+                $('#objetivos_opt').removeAttr('required', 'required');
+                $('#objetivos_opt').removeAttr('name', 'acc_subtipo_accion');
+            }
+
+            if ($(this).val() === 'Seguimiento de Salud') {
+                $('#seg_salud').css('display', 'block');
+                $('#seg_salud_opt').attr('required', 'required');
+                $('#seg_salud_opt').attr('name', 'acc_subtipo_accion');
+            } else {
+                $('#seg_salud').css('display', 'none');
+                $('#seg_salud_opt').removeAttr('required', 'required');
+                $('#seg_salud_opt').removeAttr('name', 'acc_subtipo_accion');
+            }
+
+            if ($(this).val() === 'Valoraciones de Seguimiento') {
+                $('#val_seguimiento').css('display', 'block');
+                $('#val_seguimiento_opt').attr('required', 'required');
+                $('#val_seguimiento_opt').attr('name', 'acc_subtipo_accion');
+            } else {
+                $('#val_seguimiento').css('display', 'none');
+                $('#val_seguimiento_opt').removeAttr('required', 'required');
+                $('#val_seguimiento_opt').removeAttr('name', 'acc_subtipo_accion');
+            }
+
+
             if ($(this).val() === 'Solicitud Demandas' || $(this).val() === 'Formalización Demandas') {
                 console.log('ok');
                 $('#solic_demandas').css('display', 'block');
@@ -132,7 +167,36 @@
         });
     </script>
 
+    <!-- Objetivos -->
+    <div class="form-group col-sm-12 subtipo_acc" id="objetivos" style="display: none">
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 
+        'Objetivos Cognitivos' => 'Objetivos Cognitivos',
+        'Objetivos Emocionales' => 'Objetivos Emocionales',
+        'Objetivos Físicos' => 'Objetivos Físicos',
+        'Objetivos Funcionales' => 'Objetivos Funcionales'
+        ], null, ['class' => 'form-control acc_subtipo_accion' , 'id' => 'objetivos_opt']) !!}
+    </div>
 
+    <!-- Seguimiento de Salud -->
+    <div class="form-group col-sm-12 subtipo_acc" id="seg_salud" style="display: none">
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 
+        'Seguimiento Sociofamiliar' => 'Seguimiento Sociofamiliar',
+        'Seguimiento Cognitivo' => 'Seguimiento Cognitivo',
+        'Seguimiento Físico' => 'Seguimiento Físico',
+        'Seguimiento Emocional' => 'Seguimiento Emocional'
+        ], null, ['class' => 'form-control acc_subtipo_accion' , 'id' => 'seg_salud_opt']) !!}
+    </div>
+
+    <!-- Valoraciones de seguimiento -->
+    <div class="form-group col-sm-12 subtipo_acc" id="val_seguimiento" style="display: none">
+        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 
+            'Seguimiento  Valoración social' => 'Seguimiento  Valoración social',
+            'Seguimiento Valoración Cognitivo' => 'Seguimiento Valoración Cognitivo',
+            'Seguimiento Valoración Emocional' => 'Seguimiento Valoración Emocional',
+            'Seguimiento Valoración Físico' => 'Seguimiento Valoración Físico',
+            'Seguimiento Valoración Funcional' => 'Seguimiento Valoración Funcional'
+        ], null, ['class' => 'form-control acc_subtipo_accion' , 'id' => 'val_seguimiento_opt']) !!}
+    </div>
 
     <!-- Tipo Subaccion solicitud demandas/formalizacion Field -->
     <div class="form-group col-sm-12 subtipo_acc" id="solic_demandas" style="display: none">
