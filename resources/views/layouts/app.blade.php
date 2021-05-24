@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }} - @yield('loginTitle')</title>
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     
 </head>
@@ -26,10 +26,10 @@
 
 
     <!-- Bootstrap core JavaScript, Core plugin JavaScript, Page level plugins -->
-    <script src="{{mix('js/app.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{mix('js/customJs/custom.js')}}"></script>
+    <script src="{{asset('js/customJs/custom.js')}}"></script>
 
 </body>
 

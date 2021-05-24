@@ -23,6 +23,10 @@ use App\Models\Patient_Services_Date;
 use App\Models\Worker;
 use Auth;
 use Carbon\Carbon;
+use App\Models\Support_product;
+use App\Models\Patient_support_product;
+use App\Models\Health_indicator_group;
+use App\Models\Patient_health_option;
 
 class PatientController extends AppBaseController
 {
@@ -155,6 +159,26 @@ class PatientController extends AppBaseController
             'patient_id' => $patient->id,
         ]);
 
+        if($request->has('producto_apoyo') && count($request->input('producto_apoyo')) > 0){
+            Patient_support_product::where('patient_id',$id)->delete();
+            foreach($request->input('producto_apoyo') as $sp){
+                $psp = new Patient_support_product();
+                $psp->patient_id = $id;
+                $psp->support_product_id = $sp;
+                $psp->save();
+            }
+        }
+
+        if($request->has('health_options') && count($request->input('health_options')) > 0){
+            Patient_health_option::where('patient_id',$id)->delete();
+            foreach($request->input('health_options') as $ho){
+                $pho = new Patient_health_option();
+                $pho->patient_id = $id;
+                $pho->health_indicator_options_id = $ho;
+                $pho->save();
+            }
+        }
+
         Flash::success('Persona atendida guardada correctamente.');
         return redirect()->route('patients.edit', $patient->id);
     }
@@ -197,6 +221,10 @@ class PatientController extends AppBaseController
         $patient = $this->patientRepository->find($id);
         $workers = Worker::all();
         $services = Patient_service::where('patient_id', $id)->get();
+        $support_products = Support_product::all();
+        $patient_sp = Patient_support_product::where('patient_id',$id)->pluck('support_product_id')->toArray();
+        $health_groups = Health_indicator_group::all();
+        $patient_health_options = Patient_health_option::where('patient_id',$id)->pluck('health_indicator_options_id')->toArray();
 
         if (empty($patient)) {
             Flash::error('Patient not found');
@@ -205,7 +233,11 @@ class PatientController extends AppBaseController
         return view('patients.edit')
             ->with('workers', $workers)
             ->with('patient', $patient)
-            ->with('services', $services);
+            ->with('services', $services)
+            ->with('support_products', $support_products)
+            ->with('patient_sp', $patient_sp)
+            ->with('health_groups',$health_groups)
+            ->with('patient_health_options',$patient_health_options);
     }
 
     /**
@@ -230,6 +262,26 @@ class PatientController extends AppBaseController
         if ($request->file('foto_paciente') != null) {
             $patient->foto_paciente = $request->file('foto_paciente')->store('foto_paciente/' . $patient->id);
             $patient->save();
+        }
+
+        if($request->has('producto_apoyo') && count($request->input('producto_apoyo')) > 0){
+            Patient_support_product::where('patient_id',$id)->delete();
+            foreach($request->input('producto_apoyo') as $sp){
+                $psp = new Patient_support_product();
+                $psp->patient_id = $id;
+                $psp->support_product_id = $sp;
+                $psp->save();
+            }
+        }
+
+        if($request->has('health_options') && count($request->input('health_options')) > 0){
+            Patient_health_option::where('patient_id',$id)->delete();
+            foreach($request->input('health_options') as $ho){
+                $pho = new Patient_health_option();
+                $pho->patient_id = $id;
+                $pho->health_indicator_options_id = $ho;
+                $pho->save();
+            }
         }
 
         if (empty($patient)) {

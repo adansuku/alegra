@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string dieta
  * @property string observ_importantes
  * @property integer patient_id
+ * @property string ocio
  */
 class Patient_health extends Model
 {
@@ -59,7 +60,8 @@ class Patient_health extends Model
         'hidratacion',
         'hidratacion_observ',
         'observ_importantes',
-        'patient_id'
+        'patient_id',
+        'ocio'
     ];
 
     /**

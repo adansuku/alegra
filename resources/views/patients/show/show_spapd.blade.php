@@ -46,14 +46,29 @@
                     {{$worker->nombre}} {{$worker->apellido}}
                     @endif
                     @endforeach
+                    @if($patientSpapd->prog_spapd == "PHAF ALIVIA")
+                        @if($patientSpapd->patient_spapd_dates->count() > 0)
+                            <br />
+                            <strong>Fecha entrada: </strong>{{ date("d/m/Y", strtotime($patientSpapd->patient_spapd_dates->first()->fecha_entrada)) }}<br />
+                            <strong>Fecha salida: </strong>{{ date("d/m/Y", strtotime($patientSpapd->patient_spapd_dates->first()->fecha_salida )) }}<br />
+                        @endif
+                    @endif
                 </div>
 
                 <div class="col-sm-6 p-0 text-right">
-                    <button type="button" class="btn btn-secondary btn-xs spapd_add_day"
-                        data-title='@if ($patientSpapd->prog_spapd == "Otros") {{ $patientSpapd->otros_programa }} @else {{ $patientSpapd->prog_spapd }} @endif'
-                        data-id="{{ $patientSpapd->id }}">
-                        <i class="fas fa-plus"></i>
-                    </button>
+                    @if($patientSpapd->prog_spapd == "PHAF ALIVIA")
+                        <button type="button" class="btn btn-secondary btn-xs spapd_add_dates"
+                            data-title='{{ $patientSpapd->prog_spapd }}'
+                            data-id="{{ $patientSpapd->id }}">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    @else
+                        <button type="button" class="btn btn-secondary btn-xs spapd_add_day"
+                            data-title='@if ($patientSpapd->prog_spapd == "Otros") {{ $patientSpapd->otros_programa }} @else {{ $patientSpapd->prog_spapd }} @endif'
+                            data-id="{{ $patientSpapd->id }}">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    @endif
                     <a href="{!! route('patientSpapds.edit', [$patientSpapd->id]) !!}" class='btn btn-primary btn-xs'><i
                             class="far fa-edit"></i></a>
 

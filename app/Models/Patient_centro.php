@@ -6,37 +6,28 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Patient_spapd
+ * Class Patient_centro
  * @package App\Models
- * @version July 31, 2019, 1:44 pm UTC
  *
- * @property \App\Models\Patient patient
- * @property string prog_spapd
- * @property string otros_programa
+ * @property \App\Models\Patient centro
+ * @property string prog_centro
  * @property integer num_sesiones
- * @property string otras_sesiones
- * @property string dur_spapd
- * @property string baja_spapd
  * @property string worker_id
  * @property integer patient_id
  */
-class Patient_spapd extends Model
+class Patient_centro extends Model
 {
     use SoftDeletes;
 
-    public $table = 'patient_spapds';
+    public $table = 'patient_centros';
     
 
     protected $dates = ['deleted_at'];
 
 
     public $fillable = [
-        'prog_spapd',
-        'otros_programa',
+        'prog_centro',
         'num_sesiones',
-        'otras_sesiones',
-        'dur_spapd',
-        'baja_spapd',
         'worker_id',
         'patient_id'
     ];
@@ -48,13 +39,9 @@ class Patient_spapd extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'prog_spapd' => 'string',
-        'otros_programa' => 'string',
+        'prog_centro' => 'string',
         'num_sesiones' => 'float',
-        'otras_sesiones' => 'string',
-        'dur_spapd' => 'string',
         'worker_id' => 'string',
-        'baja_spapd' => 'string',
         'patient_id' => 'integer'
     ];
 
@@ -75,13 +62,10 @@ class Patient_spapd extends Model
         return $this->belongsTo(\App\Models\Patient::class);
     }
 
-    public function patient_spapd_dias()
+    public function patient_centro_dias()
     {
-        return $this->hasMany(\App\Models\Patient_spapd_dia::class);
+        return $this->hasMany(\App\Models\Patient_centro_dia::class);
     }
 
-    public function patient_spapd_dates()
-    {
-        return $this->hasMany(\App\Models\Patient_spapd_date::class);
-    }
+    
 }

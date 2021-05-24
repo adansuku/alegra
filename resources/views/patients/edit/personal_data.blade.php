@@ -111,6 +111,18 @@
             {!! Form::text('bloq_piso', $patient->bloq_piso, ['class' => 'form-control']) !!}
         </p>
 
+        <p>{!! Form::label('tipo_vivienda', 'Tipo de Vivienda:') !!}
+
+            <select class="form-control select2" id="tipo_vivienda" name="tipo_vivienda">
+                <option value="">Selecciona una opción</option>
+                <option {{ str_contains(strtolower($patient->tipo_vivienda),'apartamento') ? 'selected':'' }}>Apartamento</option>
+                <option {{ str_contains(strtolower($patient->tipo_vivienda),'piso') ? 'selected':'' }}>Piso</option>
+                <option {{ str_contains(strtolower($patient->tipo_vivienda),'casa') ? 'selected':'' }}>Casa Terrera</option>
+                <option {{ str_contains(strtolower($patient->tipo_vivienda),'chalet') ? 'selected':'' }}>Chalet</option>
+                <option {{ str_contains(strtolower($patient->tipo_vivienda),'adosado') ? 'selected':'' }}>Adosado</option>
+            </select>
+        </p>
+
         <!--codigfo postal-->
         <p>
             {!! Form::label('codigo_postal', 'Código postal:') !!}
@@ -334,6 +346,23 @@
                 @endforeach
             </select>
         </p>
+        
+        <p>
+            {!! Form::label('proyecto_social', 'Participa en Proyectos de Acción Social:') !!}
+            <select class="form-control select2" id="proyecto_social" name="proyecto_social[]" multiple="multiple">
+                <option {{ in_array('ALIVIA', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>ALIVIA</option>
+                <option {{ in_array('GUATA PARA TODXS', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>GUATA PARA TODXS</option>
+                <option {{ in_array('TREN DE LA FELICIDAD', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>TREN DE LA FELICIDAD</option>
+                <option {{ in_array('LXS MÁS VULNERABLES', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>LXS MÁS VULNERABLES</option>
+                <option {{ in_array('MAYORES DIGITALES', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>MAYORES DIGITALES</option>
+                <option {{ in_array('LIBERIA', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>LIBERIA</option>
+                
+                @if ($patient->proyecto_social == null)
+                $patient->proyecto_social[0] = "vacio"
+                @endif
+            </select>
+        </p>
+        
     </div>
 
 </div>

@@ -41,7 +41,15 @@
             <option {{ $patient->patientOther->salida_externa == 'No' ? 'selected':'' }}>No</option>
         </select>
     </div>
-
-
+    
+    <div class="form-group col-sm-6">
+        {!! Form::label('producto_apoyo', 'Productos de apoyo:') !!}
+        <select class="form-control select2" id="producto_apoyo" name="producto_apoyo[]" multiple="multiple">
+            <option value="">Selecciona una opción</option>
+            @foreach ($support_products as $sp)
+                <option value="{{ $sp->id }}" {{ in_array($sp->id,$patient_sp) ? 'selected' : '' }}>{{ $sp->description }}</option>
+            @endforeach
+        </select>
+    </div>
 
 </div>

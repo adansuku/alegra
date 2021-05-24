@@ -34,6 +34,7 @@ Route::get('/servicedelete/{id}', 'Patient_serviceController@destroy');
 Route::get('/servicedate_delete/{id}', 'Patient_Services_DateController@destroy');
 Route::get('/spapddelete/{id}', 'Patient_spapdController@destroy');
 Route::get('/spapddiadelete/{id}', 'Patient_spapd_diaController@destroy');
+Route::get('/centrodiadelete/{id}', 'Patient_centro_diaController@destroy');
 Route::get('/transportdelete/{id}', 'Patient_transportController@destroy');
 Route::get('/pastdelete/{id}', 'Patient_pastController@destroy');
 Route::get('/medicationdelete/{id}', 'Patient_medicationController@destroy');
@@ -80,8 +81,10 @@ Route::resource('patientTransports', 'Patient_transportController');
 Route::resource('patientSpapds', 'Patient_spapdController');
 Route::resource('patientSpapdDays', 'Patient_spapd_diaController');
 
+Route::resource('patientSpapdDates', 'Patient_spapd_dateController');
 
-
+Route::resource('patientCentro', 'Patient_centroController');
+Route::resource('patientCentroDays', 'Patient_centro_diaController');
 
 
 Route::resource('patientDates', 'Patient_dateController');
