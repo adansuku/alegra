@@ -35,12 +35,10 @@
         {!! Form::label('acc_tipo_accion', 'Tipo Acción/Tarea:') !!} {!! Form::select('acc_tipo_accion', [ null =>
         'Selecciona una:', 'Solicitud Demandas' => 'Solicitud Demandas', 'Formalización Demandas' => 'Formalización
         Demandas', 'Intervenciones en Centro'
-        => 'Intervenciones en Centro', 'Intervenciones en Domicilio' => 'Intervenciones en Domicilio', 'Seguimiento de
-        Salud' => 'Seguimiento de Salud', 'Documentación' => 'Documentación', 'Contabilidad' => 'Contabilidad',
+        => 'Intervenciones en Centro', 'Intervenciones en Domicilio' => 'Intervenciones en Domicilio', 'Seguimiento de Salud' => 'Seguimiento de Salud', 'Documentación' => 'Documentación', 'Contabilidad' => 'Contabilidad',
         'Valoraciones iniciales'=> 'Valoraciones
         iniciales', 'Incidencias'=> 'Incidencias', 'Felicitaciones'=> 'Felicitaciones', 'Quejas y reclamaciones'=>
         'Quejas y reclamaciones','Valoraciones de Seguimiento'=>'Valoraciones de Seguimiento', 
-        'Seguimiento de Salud'=> 'Seguimiento de Salud',
         'Objetivos' => 'Objetivos',
         'Otras' => 'Otras'], null, ['class' => 'form-control', 'required'=>'required', 'id' =>
         'acc_tipo_accion']) !!}
@@ -59,15 +57,6 @@
                 $('#objetivos_opt').removeAttr('name', 'acc_subtipo_accion');
             }
 
-            if ($(this).val() === 'Seguimiento de Salud') {
-                $('#seg_salud').css('display', 'block');
-                $('#seg_salud_opt').attr('required', 'required');
-                $('#seg_salud_opt').attr('name', 'acc_subtipo_accion');
-            } else {
-                $('#seg_salud').css('display', 'none');
-                $('#seg_salud_opt').removeAttr('required', 'required');
-                $('#seg_salud_opt').removeAttr('name', 'acc_subtipo_accion');
-            }
 
             if ($(this).val() === 'Valoraciones de Seguimiento') {
                 $('#val_seguimiento').css('display', 'block');
@@ -112,15 +101,16 @@
             }
 
             if ($(this).val() === 'Seguimiento de Salud') {
+                
                 $('#seg_salud').css('display', 'block');
                 $('#seg_salud_opt').attr('required', 'required');
                 $('#seg_salud_opt').attr('name', 'acc_subtipo_accion');
-                $("#select-template").append(new Option("Valoración de vida accesible y funcional inicial","15"));
+                //$("#select-template").append(new Option("Valoración de vida accesible y funcional inicial","15"));
             } else {
                 $('#seg_salud').css('display', 'none');
                 $('#seg_salud_opt').removeAttr('required', 'required');
                 $('#seg_salud_opt').removeAttr('name', 'acc_subtipo_accion');
-                $("#select-template").find('option[value="15"]').remove();
+                //$("#select-template").find('option[value="15"]').remove();
             }
 
             if ($(this).val() === 'Documentación') {
@@ -248,19 +238,7 @@
 
 
 
-    <!-- seguimiento salud Field -->
-    <div class="form-group col-sm-12 " id="seg_salud" style="display: none">
-        {!! Form::label('', 'Subtipo Acción/Tarea:') !!} {!! Form::select('', [ null => 'Selecciona una opcion', 'Cambio
-        valoración de Indicador salud' => 'Cambio valoración de Indicador salud', 'Seguimiento Socio Familiar' =>
-        'Seguimiento Socio Familiar', 'Seguimiento
-        Cognitivo' => 'Seguimiento Cognitivo', 'Seguimiento Físico' => 'Seguimiento Físico', 'Seguimiento Emocional' =>
-        'Seguimiento Emocional', 'Seguimiento Funcional' => 'Seguimiento Funcional', 'Nuevo diagnóstico principal' =>
-        'Nuevo diagnóstico principal',
-        'Cambio importante salud' => 'Cambio importante salud', 'Ficha de seguimiento de intervención' => 'Ficha de
-        seguimiento de intervención', 'Seguimiento Vida accesible y funcional '=>'Seguimiento Vida accesible y funcional ','Otras' => 'Otras (especificar)'], null, ['class' => 'form-control
-        acc_subtipo_accion', 'id' => 'seg_salud_opt'])
-        !!}
-    </div>
+   
 
 
 
