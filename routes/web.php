@@ -108,3 +108,6 @@ Route::get('/patientHistory/{id}', 'Patient_historyController@get_all_history_by
 
 
 Route::get('/private-files/{file?}','FileController@getFile')->where('file', '(.*)');
+
+
+Route::get('/export-pia/{id}','PdfExportController@piaSimple');
