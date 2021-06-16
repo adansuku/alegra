@@ -36,14 +36,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string forma_entrega
  * @property string obs_economicas
  * @property string  patient_id
- * @property json ppc_motivo
- * @property string ppc_retirada_epi
- * @property string  ppc_epi
- * @property string ppc_retirada_mascarilla
- * @property string ppc_retirada_pantalla
- * @property string ppc_se_vacuno
- * @property string ppc_dosis_recibida
- * @property string ppc_tipo_vacuna
  */
 class Patient_other extends Model
 {
@@ -79,15 +71,7 @@ class Patient_other extends Model
         'factura',
         'forma_entrega',
         'obs_economicas',
-        'patient_id',
-        'ppc_motivo',
-        'ppc_retirada_epi',
-        'ppc_epi',
-        'ppc_retirada_mascarilla',
-        'ppc_retirada_pantalla',
-        'ppc_se_vacuno',
-        'ppc_dosis_recibida',
-        'ppc_tipo_vacuna'
+        'patient_id'
     ];
 
     /**
@@ -120,15 +104,7 @@ class Patient_other extends Model
         'factura' => 'string',
         'forma_entrega' => 'string',
         'obs_economicas' => 'string',
-        'patient_id' => 'integer',
-        'ppc_motivo' => 'array',
-        'ppc_retirada_epi' => 'string',
-        'ppc_epi' => 'string',
-        'ppc_retirada_mascarilla' => 'string',
-        'ppc_retirada_pantalla' => 'string',
-        'ppc_se_vacuno' => 'string',
-        'ppc_dosis_recibida' => 'string',
-        'ppc_tipo_vacuna' => 'string',
+        'patient_id' => 'integer'
     ];
 
     /**

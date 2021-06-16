@@ -13,12 +13,6 @@
     </div>
 </div>
 
-<div class="row pb-4">
-    <div class="col-sm-12">
-        <a class="btn btn-primary float-right" href="{{ url('/export-pia') }}/{{$patient->id}}">Exportar PIA </a>
-    </div>
-</div>
-
 
 <div class="row">
     <div class="col-sm-12 col-md-4">

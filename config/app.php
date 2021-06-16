@@ -181,7 +181,6 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         \MbM\LarAdminBs4Templates\LarAdminBs4ServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -236,7 +235,6 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

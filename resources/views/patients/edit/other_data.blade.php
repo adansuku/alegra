@@ -1,28 +1,36 @@
-<ul class="nav nav-tabs bg-light mb-4" id="myTab" role="tablist" style="margin-top:-24px;">
-    <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#otros_datos" role="tab"
-            aria-controls="home" aria-selected="true">
-             Otros Datos
-        </a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#excepciones_ppc" role="tab"
-            aria-controls="contact" aria-selected="false"> Excepciones PPC
-        </a>
-    </li>
-    
-</ul>
-
-
-<div class="tab-content" id="otrosTabContent">
-    <div class="tab-pane fade show active" id="otros_datos" role="tabpanel" aria-labelledby="otros_datos">
-        @include('patients.edit.other_data.other_data')
+<div class="row">
+    <!-- Cesion Imagen Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('cesion_imagen', 'Cesión de Imagen:') !!}
+        <select class="form-control" id="cesion_imagen" name="cesion_imagen">
+            <option value="">Selecciona una opción</option>
+            <option {{ $patient->patientOther->cesion_imagen == 'Si' ? 'selected':'' }}>Si</option>
+            <option {{ $patient->patientOther->cesion_imagen == 'No' ? 'selected':'' }}>No</option>
+        </select>
     </div>
-    <div class="tab-pane fade" id="excepciones_ppc" role="tabpanel" aria-labelledby="excepciones_ppc">
-        @include('patients.edit.other_data.exception_ppc')
-     </div>
-</div>
+
+    <!-- Salir Centro Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('salir_centro', 'Autorización Entrar y Salir Centro:') !!}
+        <select class="form-control" id="salir_centro" name="salir_centro">
+            <option value="">Selecciona una opción</option>
+            <option {{ $patient->patientOther->salir_centro == 'Si' ? 'selected':'' }}>Si</option>
+            <option {{ $patient->patientOther->salir_centro == 'No' ? 'selected':'' }}>No</option>
+        </select>
+    </div>
+
+    <!-- Riesgo Caidas Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('riesgo_caidas', 'Riesgo Caidas:') !!}
+        <select class="form-control" id="riesgo_caidas" name="riesgo_caidas">
+            <option value="">Selecciona una opción</option>
+            <option {{ $patient->patientOther->riesgo_caidas == 'Sin Riesgo' ? 'selected':'' }}>Sin Riesgo</option>
+            <option {{ $patient->patientOther->riesgo_caidas == 'Leve' ? 'selected':'' }}>Leve</option>
+            <option {{ $patient->patientOther->riesgo_caidas == 'Moderado' ? 'selected':'' }}>Moderado</option>
+            <option {{ $patient->patientOther->riesgo_caidas == 'Grave' ? 'selected':'' }}>Grave</option>
+
+        </select>
+    </div>
 
     <!-- Salida Externa Field -->
     <div class="form-group col-sm-6">

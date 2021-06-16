@@ -1,9 +1,4 @@
 <div class="row m-0 p-3">
-
-    <div class="form-group col-sm-12">
-        {!! Form::label('cuidadora_principal', '¿Cuidadora Principal?') !!} 
-        {!! Form::select('cuidadora_principal', ['' => '', 'Si' => 'Si', 'No' => 'No'], null, ['class' => 'form-control']) !!}
-    </div>
     <!-- Nombre Field -->
     <div class="form-group col-sm-12">
         {!! Form::label('nombre', 'Nombre:') !!}

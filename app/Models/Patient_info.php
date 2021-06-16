@@ -76,17 +76,7 @@ class Patient_info extends Model
         'ingresos_proced',
         'cuantia',
         'otros_ingresos',
-        'patient_id',
-        'diagnostico_social',
-        'rs_grado',
-        'rs_revision',
-        'rs_reclamacion',
-        'rs_tipo_ayuda',
-        'rs_otros',
-        'rs_ultimo_tramite',
-        'rs_fecha_registro',
-        'rs_proximo_tramite',
-        'reclamacion'
+        'patient_id'
     ];
 
     /**
@@ -122,17 +112,7 @@ class Patient_info extends Model
         'ingresos_m' => 'float',
         'ingresos_proced' => 'string',
         'otros_ingresos' => 'string',
-        'patient_id' => 'integer',
-        'diagnostico_social' => 'string',
-        'rs_grado'=> 'string',
-        'rs_revision'=> 'string',
-        'rs_reclamacion'=> 'string',
-        'rs_tipo_ayuda'=> 'array',
-        'rs_otros'=> 'string',
-        'rs_ultimo_tramite'=> 'array',
-        'rs_fecha_registro'=> 'string',
-        'rs_proximo_tramite'=> 'array',
-        'reclamacion' => 'string'
+        'patient_id' => 'integer'
     ];
 
     /**

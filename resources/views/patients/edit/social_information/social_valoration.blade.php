@@ -169,10 +169,4 @@
         </select>
     </div>
 
-    <!-- Ocupacion Field -->
-    <div class=" form-group col-sm-4">
-        {!! Form::label('diagnostico_social', 'Diagnostico Social:') !!}
-        {!! Form::text('diagnostico_social', $patient->patientInfo->diagnostico_social, ['class' => 'form-control']) !!}
-    </div>
-
 </div>
