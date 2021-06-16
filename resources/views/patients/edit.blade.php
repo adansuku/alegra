@@ -284,6 +284,21 @@
         useCurrent: false
     });
 
+    $('#rs_fecha_registro').datetimepicker({
+        format: 'DD-MM-YYYY',
+        useCurrent: false
+    });
+
+    $('#spapd_fec_entrada').datetimepicker({
+        format: 'DD-MM-YYYY',
+        useCurrent: false
+    });
+
+    $('#spapd_fec_salida').datetimepicker({
+        format: 'DD-MM-YYYY',
+        useCurrent: false
+    });
+
     $(".spapd_add_day").click(function() {
         var url = "{{ url('/patientSpapdDays') }}" + "?patient_spapd_id=" + $(this).attr('data-id');
         $("#frm_spapd_days").attr('action', url);
@@ -320,6 +335,81 @@
 
         });
     })
+
+    $("#btnSubmitCentroDay").click(function() {
+        var url = $("#frm_centro_days").attr('action');
+        var data = $("#frm_centro_days").serialize();
+        $.post(url, data).done(function(response) {
+            if (response.success) {
+                alert("Dias añadidos correctamente");
+                location.reload();
+            } else {
+                alert("No se puede añadir los horarios");
+            }
+
+        });
+
+    })
+
+    $("#btnSubmitSpadpDates").click(function() {
+        var url = $("#frm_spapd_dates").attr('action');
+        var data = $("#frm_spapd_dates").serialize();
+        $.post(url, data).done(function(response) {
+            if (response.success) {
+                alert("Fechas añadida correctamente");
+                location.reload();
+            } else {
+                alert("No se pudieron añadir las fechas");
+            }
+
+        });
+    })
+
+
+    $(".centro_add_day").click(function() {
+        var url = "{{ url('/patientCentroDays') }}" + "?patient_centro_id=" + $(this).attr('data-id');
+        $("#frm_centro_days").attr('action', url);
+        $("#centro_title").html($(this).attr('data-title'));
+        $("#centro_dia_modal").modal('show');
+    })
+
+
+    
+    $("#ppc_retirada_epi").change(function(){
+        var value = $(this).val();
+        if(value!=''){
+            if(value == 'Si'){
+                $("#div_ppc_epi").show();
+                $("#div_ppc_retirada_mascarilla").show();
+                $("#div_ppc_retirada_pantalla").show();
+            }else{
+                $("#div_ppc_epi").hide();
+                $("#div_ppc_retirada_mascarilla").hide();
+                $("#div_ppc_retirada_pantalla").hide();
+
+                $("#ppc_epi").val("");
+                $("#ppc_retirada_mascarilla").val("");
+                $("#ppc_retirada_pantalla").val("");
+            }
+        }
+    });
+
+    $("#ppc_se_vacuno").change(function(){
+        var value = $(this).val();
+        if(value!=''){
+            if(value == 'Si'){
+                $("#div_ppc_dosis_recibida").show();
+                $("#div_ppc_tipo_vacuna").show();
+            }else{
+                $("#div_ppc_dosis_recibida").hide();
+                $("#div_ppc_tipo_vacuna").hide();
+
+                $("#ppc_dosis_recibida").val("");
+                $("#ppc_tipo_vacuna").val("");
+            }
+        }
+    });
+    
 
     $("#btnSubmitCentroDay").click(function() {
         var url = $("#frm_centro_days").attr('action');

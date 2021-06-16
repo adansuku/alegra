@@ -29,8 +29,9 @@
     <div class="form-group col-sm-4">
         {!! Form::label('grado_rev', 'Revisión de Grado:') !!}
         <select class="form-control" id="grado_rev" name="grado_rev">
-            <option {{ $patient->patientInfo->grado_rev == 'SI' ? 'selected':'' }}>SI</option>
-            <option {{ $patient->patientInfo->grado_rev == 'NO' ? 'selected':'' }}>NO</option>
+            <option value="SI" {{ $patient->patientInfo->grado_rev == 'SI' ? 'selected':'' }}>SI</option>
+            <option value="NO" {{ $patient->patientInfo->grado_rev == 'NO' ? 'selected':'' }}>NO</option>
+            <option value="En trámite" {{ $patient->patientInfo->grado_rev == 'En trámite' ? 'selected':'' }}>En trámite</option>
         </select>
     </div>
 
@@ -64,7 +65,14 @@
         {!! Form::label('guarda_hecho', 'Persona Guardadora:') !!} {!! Form::text('guarda_hecho', $patient->patientInfo->guarda_hecho, ['class' => 'form-control']) !!}
     </div>
 
-
+    <div class="form-group col-sm-4">
+        {!! Form::label('reclamacion', 'Reclamación:') !!}
+        <select class="form-control" id="reclamacion" name="reclamacion">
+            <option value="">Selecciona una opción</option>
+            <option value="SI" {{ $patient->patientInfo->reclamacion == 'SI' ? 'selected':'' }}>SI</option>
+            <option value="NO" {{ $patient->patientInfo->reclamacion == 'NO' ? 'selected':'' }}>NO</option>
+        </select>
+    </div>
 
     <div class="col-sm-12 my-3">
         <div class="row">
