@@ -24,6 +24,12 @@
             <i class="fas fa-balance-scale"></i> Información legal
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#reconocimiento_social" role="tab"
+            aria-controls="contact" aria-selected="false">
+            <i class="fas fa-award"></i> Reconocimientos Sociales
+        </a>
+    </li>
 </ul>
 
 <div class="tab-content" id="myTabContent">
@@ -42,5 +48,8 @@
 
      <div class="tab-pane fade" id="informacion_legal" role="tabpanel" aria-labelledby="informacion_legal">
         @include('patients.edit.social_information.legal_information')
+     </div>
+     <div class="tab-pane fade" id="reconocimiento_social" role="tabpanel" aria-labelledby="informacion_legal">
+        @include('patients.edit.social_information.reconocimiento_social')
      </div>
 </div>
