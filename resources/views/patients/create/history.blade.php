@@ -37,8 +37,7 @@
         {!! Form::select('acc_tipo_accion', [ null =>
         'Selecciona una:', 'Solicitud Demandas' => 'Solicitud Demandas', 'Formalización Demandas' => 'Formalización
         Demandas', 'Intervenciones en Centro'
-        => 'Intervenciones en Centro', 'Intervenciones en Domicilio' => 'Intervenciones en Domicilio', 'Seguimiento de
-        Salud' => 'Seguimiento de Salud', 'Documentación' => 'Documentación', 'Contabilidad' => 'Contabilidad',
+        => 'Intervenciones en Centro', 'Intervenciones en Domicilio' => 'Intervenciones en Domicilio', 'Seguimiento de Salud' => 'Seguimiento de Salud', 'Documentación' => 'Documentación', 'Contabilidad' => 'Contabilidad',
         'Valoraciones iniciales'=> 'Valoraciones
         iniciales', 'Incidencias'=> 'Incidencias', 'Felicitaciones'=> 'Felicitaciones', 'Quejas y reclamaciones'=>
         'Quejas y reclamaciones','Valoraciones de Seguimiento'=>'Valoraciones de Seguimiento', 
@@ -114,6 +113,7 @@
             }
 
             if ($(this).val() === 'Seguimiento de Salud') {
+                
                 $('#seg_salud').css('display', 'block');
                 $('#seg_salud_opt').attr('required', 'required');
                 $('#seg_salud_opt').attr('name', 'acc_subtipo_accion');
