@@ -68,10 +68,9 @@
                     <a class="nav-link" data-toggle="tab" href="#documents" role="tab">Documentación</a>
                 </li>
 
-
-                <!--<li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#history" role="tab">Historial</a>
-                </li>-->
+                </li>
                 @endif
 
 
@@ -221,7 +220,7 @@
                 </div>
                 @endif
 
-                {{-- <div class="tab-pane @if( in_array(Auth::user()->role_id,[2]) ) active @endif" id="history" role="tabpanel">
+       <div class="tab-pane @if( in_array(Auth::user()->role_id,[2]) ) active @endif" id="history" role="tabpanel">
                     <div class="row">
                         <div class="col-lg-12">
                             <button type="button" class="btn btn-secondary my-3 float-right" data-toggle="modal" data-target="#history_modal" data-id={{$patient->id}}>
@@ -231,7 +230,7 @@
 
         </div>
         @include('patients.show.show_history')
-    </div> --}}
+    </div> 
 
 
 

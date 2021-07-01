@@ -182,16 +182,20 @@
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
+           <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Realizado con <i class="fas fa-heart"></i> para Acufade por La Isla Creativa &copy; | <i
                                 class="fas fa-grin-hearts"></i> Alegra app 2021 </span>
                     </div>
+                    
+                    <div class="bg-danger text-white px-3 py-2" style="position: fixed; bottom: 0; right: 0;">
+                	  <h5>Servidor de pruebas</h5>
+                	</div>
+                
                 </div>
             </footer>
-            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->

@@ -29,7 +29,7 @@ class PdfExportController extends AppBaseController{
         $worker = Worker::find($patient->worker_id);
 
         $worker_patient = Worker_patient_served::where('worker_id',Auth::user()->id )->pluck('patient_id')->toArray();; //130
-
+        
         if (in_array(Auth::user()->role_id , [1,3]) || in_array($patient->id , $worker_patient) ) {
 
             if (empty($patient)) {

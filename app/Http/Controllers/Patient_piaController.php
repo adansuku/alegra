@@ -59,7 +59,6 @@ class Patient_piaController extends AppBaseController
      */
     public function store(CreatePatient_piaRequest $request)
     {
-    
         $today = Carbon::parse($request->fecha_alta_paciente);
 
         $patientPia = new Patient_pia;
@@ -87,6 +86,7 @@ class Patient_piaController extends AppBaseController
             $patientPia->fecha_real = date('d-m-Y');
         }
 
+        
         $patientPia->update();
 
         Flash::success('Pia guardado correctamente');
@@ -191,14 +191,12 @@ class Patient_piaController extends AppBaseController
             $patientPia->url_pia = $request->file('url_pia')->store($patientPia->patient_id .'/patient_documents/pia_documents_');
             $today = Carbon::now();
             $patientPia->fecha_real = $today->toDateString();
-            
         }
 
         if ($request->url_recepcion != "" || $request->url_recepcion != null) {
             $patientPia->url_recepcion = $request->file('url_recepcion')->store($patientPia->patient_id .'/patient_documents/pia_documents_');
-           
         }
-        
+
         $patientPia->update();
 
         Flash::success('Pia actulizado correctamente.');

@@ -356,6 +356,7 @@
         <p>
             {!! Form::label('proyecto_social', 'Participa en Proyectos de Acción Social:') !!}
             <select class="form-control select2" id="proyecto_social" name="proyecto_social[]" multiple="multiple">
+                <option {{ in_array('PHAF', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>PHAF</option>
                 <option {{ in_array('ALIVIA', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>ALIVIA</option>
                 <option {{ in_array('GUATA PARA TODXS', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>GUATA PARA TODXS</option>
                 <option {{ in_array('TREN DE LA FELICIDAD', isset($patient->proyecto_social) ? $patient->proyecto_social : []) ? 'selected':'' }}>TREN DE LA FELICIDAD</option>

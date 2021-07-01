@@ -19,6 +19,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string fecha_real_entrega
  * @property string exito_pia
  * @property string url_recepcion  
+ * @property string plan_cognitivo
+ * @property string rec_cognitivo
+ * @property string plan_emocional
+ * @property string rec_emocional
+ * @property string plan_fisico
+ * @property string rec_fisico
+ * @property string plan_funcional
+ * @property string rec_funcional
+ * @property string obs_pia
+ * 
  * @property integer patient_id
  */
 class Patient_pia extends Model
@@ -39,7 +49,15 @@ class Patient_pia extends Model
         'fecha_real_entrega',
         'exito_pia',
         'url_recepcion',
-        'obs_pia'
+        'obs_pia',
+        'plan_cognitivo',
+        'rec_cognitivo',
+        'plan_emocional',
+        'rec_emocional',
+        'plan_fisico',
+        'rec_fisico',
+        'plan_funcional',
+        'rec_funcional'
     ];
 
     /**
@@ -57,7 +75,15 @@ class Patient_pia extends Model
         'exito_pia' => 'string',
         'url_recepcion' => 'string',
         'obs_pia' => 'string',
-        'patient_id' => 'integer'
+        'patient_id' => 'integer',
+        'plan_cognitivo' => 'string',
+        'rec_cognitivo' => 'string',
+        'plan_emocional' => 'string',
+        'rec_emocional' => 'string',
+        'plan_fisico' => 'string',
+        'rec_fisico' => 'string',
+        'plan_funcional' => 'string',
+        'rec_funcional' => 'string'
     ];
 
     /**

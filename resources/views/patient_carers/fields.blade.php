@@ -506,6 +506,7 @@
     <div class="form-group col-sm-12">
         {!! Form::label('proyecto_social', 'Participa en Proyectos de Acción Social:') !!}
         {!! Form::select('proyecto_social[]', [
+        'PHAF' => 'PHAF',
         'ALIVIA' => 'ALIVIA',
         'GUATA PARA TODXS' => 'GUATA PARA TODXS',
         'TREN DE LA FELICIDAD' => 'TREN DE LA FELICIDAD',

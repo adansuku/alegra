@@ -358,12 +358,20 @@
         {!! Form::label('', 'Selecciona una plantilla para cargar:') !!}
         <div class="row">
             <div class="col-md-7 col-lg-8">
-                {!! Form::select('', [ '' => 'Selecciona plantilla', '1' => 'Seguimiento Sociofamiliar', '2' =>
-                'Segumiento cognitivo', '3' => 'Seguimiento Físico', '4' => 'Seguimiento Emocional', '5' => 'Seguimiento
-                Funcional', '6' => 'Valoracion Inicial Emocional',
-                '7' => 'Valoración inicial coginitiva', '8' => 'Valoración Inicial TO', '10' => 'Valoración Inicial
-                Fisioterapéutica', '9' => 'Primera entrevista', '11' => 'Inicidencias', '12' => 'Felicitaciones', '13'
-                => 'Quejas y reclamaciones'], null,
+                {!! Form::select('', [ '' => 'Selecciona plantilla', 
+                '1' => 'Seguimiento Sociofamiliar', 
+                '2' => 'Segumiento cognitivo', 
+                '3' => 'Seguimiento Físico', 
+                '4' => 'Seguimiento Emocional', 
+                '5' => 'Seguimiento Funcional', 
+                '6' => 'Valoracion Emocional',
+                '7' => 'Valoración Coginitiva', 
+                '8' => 'Valoración Funcional', 
+                '9' => 'Primera entrevista', 
+                '10' => 'Valoración Física', 
+                '11' => 'Inicidencias', 
+                '12' => 'Felicitaciones', 
+                '13' => 'Quejas y reclamaciones'], null,
                 ['class' => 'form-control', 'id' => 'select-template']) !!}
             </div>
 
