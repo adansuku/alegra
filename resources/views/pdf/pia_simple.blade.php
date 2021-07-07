@@ -152,11 +152,13 @@
                         @php
                             $today = date('Y');
                             $fnac = $item->fecha_nac_care;
-                            $tmp = explode("-", $fnac);
-                            $age_carer = $today - $tmp[0];
-                            $age_carer = date('m') > $tmp[1] ? $age_carer + 1 : $age_carer;
+                            if($fnac){
+                                $tmp = explode("-", $fnac);
+                                $age_carer = $today - $tmp[0];
+                                $age_carer = date('m') > $tmp[1] ? $age_carer + 1 : $age_carer;
+                            }
                         @endphp
-                        <b>EDAD:</b> {{$age_carer }}
+                        <b>EDAD:</b> @if($age_carer) {{$age_carer }} @endif
                     </td>
                 </tr>
                 
@@ -213,6 +215,7 @@
                 </td>
             </tr>
             @foreach($patient->patientServices as $patientService)
+                
                 <tr>
                     <td style="width:100%" colspan=2>
                         @if ($patientService->es_primario == 'es_primario')
@@ -224,12 +227,20 @@
                 </tr>
                 <tr>
                     <td style="width:100%" colspan=2>
-                        <b>FECHA DE FORMALIZACIÓN:</b> {{ date('d/m/Y', strtotime($patientService->fecha_form_serv )) }}
+                        @if($patientService->fecha_form_serv)
+                            <b>FECHA DE FORMALIZACIÓN:</b> {{ date('d/m/Y', strtotime($patientService->fecha_form_serv )) }}
+                        @else
+                            <b>FECHA DE FORMALIZACIÓN:</b>
+                        @endif
                     </td>
                 </tr>
                 <tr>
                     <td style="width:50%">
-                        <b>TIPO DE PLAZA:</b> {!! implode(', ', (array)$patientService->tipo_plaza_serv) !!}
+                        @if($patientService->tipo_plaza_serv)
+                            <b>TIPO DE PLAZA:</b> {!! implode(', ', (array)$patientService->tipo_plaza_serv) !!}
+                        @else
+                            <b>TIPO DE PLAZA:</b>
+                        @endif
                     </td>
                     <td style="width:50%">
                         @if($patientService->plaza_privada_serv)
@@ -328,25 +339,25 @@
             </tr>
             <tr>
                 <td style="width:100%">
-                    <b>PRIVADA:</b> {{ $patient->patientHealth->regimen_priv }}
+                    <b>PRIVADA:</b> @if($patient->patientHealth) {{ $patient->patientHealth->regimen_priv }} @endif
                 </td>
             </tr>
             <tr>
                 <td style="width:100%">
-                    <b>Nº AFILIACIÓN:</b> {{ $patient->patientHealth->num_afiliado }}
+                    <b>Nº AFILIACIÓN:</b>@if($patient->patientHealth) {{ $patient->patientHealth->num_afiliado }} @endif
                 </td>
             </tr>
             <tr>
                 <td style="width:100%">
-                    <b>MÉDICO DE CABECERA:</b> {{ $patient->patientHealth->med_cabecera }}
+                    <b>MÉDICO DE CABECERA:</b>@if($patient->patientHealth) {{ $patient->patientHealth->med_cabecera }} @endif
                 </td>
             </tr>
             <tr>
                 <td style="width:50%">
-                    <b>CENTRO DE REFERENCIA:</b> {{ $patient->patientHealth->centro_salud }}
+                    <b>CENTRO DE REFERENCIA:</b>@if($patient->patientHealth) {{ $patient->patientHealth->centro_salud }} @endif
                 </td>
                 <td style="width:50%">
-                    <b>TFNO. CENTRO REFERENCIA:</b> {{ $patient->patientHealth->tel_centro_salud }}
+                    <b>TFNO. CENTRO REFERENCIA:</b>@if($patient->patientHealth) {{ $patient->patientHealth->tel_centro_salud }} @endif
                 </td>
             </tr>
             <tr>
@@ -444,7 +455,7 @@
             </tr>
             <tr><td><hr /></td></tr>
             <tr>
-                <td><b>MEDICACIÓN EN CENTRO:</b>{{ $patient->patientHealth->med_centro }}</td>
+                <td><b>MEDICACIÓN EN CENTRO:</b>@if($patient->patientHealth) {{ $patient->patientHealth->med_centro }} @endif</td>
             </tr>
             <tr>
                 <table style="width:100%">
@@ -472,22 +483,22 @@
             </tr>
             <tr><td><hr /></td></tr>
             <tr>
-                <td><b>INCONTINENCIA:</b>{!! implode(', ', (array)$patient->patientHealth->incontinencia_opc) !!} </td>
+                <td><b>INCONTINENCIA:</b>@if($patient->patientHealth) {!! implode(', ', (array)$patient->patientHealth->incontinencia_opc) !!} @endif</td>
             </tr>
             <tr>
-                <td><b>RIESGO DE CAÍDAS:</b> {{ $patient->patientHealth->caida }}</td>
+                <td><b>RIESGO DE CAÍDAS:</b>@if($patient->patientHealth) {{ $patient->patientHealth->caida }} @endif</td>
             </tr>
             <tr>
-                <td><b>DIETA:</b> {{ $patient->patientHealth->dieta }}</td>
+                <td><b>DIETA:</b>@if($patient->patientHealth) {{ $patient->patientHealth->dieta }} @endif</td>
             </tr>
             <tr>
-                <td><b>HIGIENE PERSONAL:</b> {{ $patient->patientHealth->higiene }}</td>
+                <td><b>HIGIENE PERSONAL:</b>@if($patient->patientHealth) {{ $patient->patientHealth->higiene }} @endif</td>
             </tr>
             <tr>
-                <td><b>ÚLCERA POR PRESIÓN:</b> {{ $patient->patientHealth->ulcera }}</td>
+                <td><b>ÚLCERA POR PRESIÓN:</b>@if($patient->patientHealth) {{ $patient->patientHealth->ulcera }} @endif</td>
             </tr>
             <tr>
-                <td><b>DEAMBULACIÓN ERRANTE:</b> {{ $patient->patientHealth->deambulacion }}</td>
+                <td><b>DEAMBULACIÓN ERRANTE:</b>@if($patient->patientHealth) {{ $patient->patientHealth->deambulacion }} @endif</td>
             </tr>
         </table>
         <hr />
@@ -507,20 +518,20 @@
             <tr><td><hr /></td></tr>
             <tr>
                 <td style="width:100%">
-                    <b>SITUACIÓN DE DEPENDENCIA:</b> {{ $patient->patientInfo->situacion_dep }}
+                    <b>SITUACIÓN DE DEPENDENCIA:</b>@if($patient->patientInfo) {{ $patient->patientInfo->situacion_dep }} @endif
                 </td>
             </tr>
             <tr>
                 <td>
-                    <b>GRADO DE DEPENDENCIA:</b> {{ $patient->patientInfo->grado_dep }}
+                    <b>GRADO DE DEPENDENCIA:</b>@if($patient->patientInfo) {{ $patient->patientInfo->grado_dep }} @endif
                 </td>
             </tr>
             <tr>
                 <td style="width:50%">
-                    <b>TIPO DE AYUDA:</b> {{ $patient->patientInfo->ayuda_dep }}
+                    <b>TIPO DE AYUDA:</b>@if($patient->patientInfo) {{ $patient->patientInfo->ayuda_dep }} @endif
                 </td>
                 <td style="width:50%">
-                    <b>CUANTÍA RESUELTA:</b> {{ $patient->patientInfo->cuantia }}
+                    <b>CUANTÍA RESUELTA:</b>@if($patient->patientInfo) {{ $patient->patientInfo->cuantia }} @endif
                 </td>
             </tr>
             <tr>
@@ -575,12 +586,12 @@
             <tr><td><hr /></td></tr>
             <tr>
                 <td style="width:100%">
-                    <b>TIPO DE AYUDAS: {!! implode(', ', (array)$patient->patientInfo->ayuda_soc) !!} </b>
+                    <b>TIPO DE AYUDAS: @if($patient->patientInfo) {!! implode(', ', (array)$patient->patientInfo->ayuda_soc) !!} @endif</b>
                 </td>
             </tr>
             <tr>
                 <td style="width:100%">
-                    <b>CERTIFICADO DE DISCAPACIDAD: </b>{!! $patient->patientInfo->cert_disc !!}
+                    <b>CERTIFICADO DE DISCAPACIDAD: </b>@if($patient->patientInfo) {!! $patient->patientInfo->cert_disc !!} @endif
                 </td>
             </tr>
             <tr>
@@ -600,7 +611,7 @@
             <tr><td><hr /></td></tr>
             <tr>
                 <td style="width:100%">
-                    <b>SITUACIÓN LEGAL: </b>{{ $patient->patientInfo->sit_legal }}
+                    <b>SITUACIÓN LEGAL: </b>@if($patient->patientInfo) {{ $patient->patientInfo->sit_legal }} @endif
                 </td>
             </tr>
             <tr>
