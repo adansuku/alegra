@@ -67,5 +67,10 @@ class Patient_centro extends Model
         return $this->hasMany(\App\Models\Patient_centro_dia::class);
     }
 
+    public function worker()
+    {
+        return $this->belongsTo(\App\Models\Worker::class);
+    }
+
     
 }
