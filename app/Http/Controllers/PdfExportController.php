@@ -29,7 +29,19 @@ class PdfExportController extends AppBaseController{
         $worker = Worker::find($patient->worker_id);
 
         $worker_patient = Worker_patient_served::where('worker_id',Auth::user()->id )->pluck('patient_id')->toArray();; //130
-        
+
+        $primaryServices = $patient->patientServices;
+        $main_service = null;
+        foreach($primaryServices as $primaryService){
+            if($primaryService->es_primario == 'es_primario'){
+                $main_service = $primaryService;
+            }
+        }
+
+        if(!$main_service){
+            $main_service = $primaryServices->first();
+        }
+
         if (in_array(Auth::user()->role_id , [1,3]) || in_array($patient->id , $worker_patient) ) {
 
             if (empty($patient)) {
@@ -48,11 +60,13 @@ class PdfExportController extends AppBaseController{
                 'worker' => $worker,
                 'patient' => $patient,
                 'age' => $edad,
-                'fecha_nac' => $fec_nac
+                'fecha_nac' => $fec_nac,
+                'main_service' => $main_service
             ];
             
             $pdf = \PDF::loadView('pdf.pia_simple', $data);
             return $pdf->download('piaSimple.pdf');
+            //return view('pdf.pia_simple', $data);
         } else {
             return redirect(route('patients.index'));
         }

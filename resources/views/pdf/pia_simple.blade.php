@@ -2,18 +2,31 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="css/app.css" rel="stylesheet">
+        <style>
+        </style>
     </head>
     <body>
 
         <table style="width:100%;">
             <tr>
-                <td style="width:80%; text-align:center;">
-                    <h4>PLAN INDIVIDUALIZADO DE ATENCIÓN (PIA)</h4>
-                    
-                </td>
-                <td style="width:20%;">
+                <td style="width:10%;">
                     <img src="img/acufade.png" />
                 </td>
+            </tr>
+            <tr>
+                <td style="width:100%; text-align:center;">
+                    <h5>
+                        PLAN INDIVIDUALIZADO DE ATENCIÓN (PIA) <br />
+                        @foreach($patient->patientServices as $patientService)
+                            @if($patientService->es_primario == 'es_primario')
+                                <strong>{{$patientService->nom_servicio}}</strong>
+                            @endif
+                        @endforeach
+                        
+                    </h5>
+                    
+                </td>
+                
             </tr>
             <tr>
                 <td style="text-align:center;" colspan="2">
@@ -36,13 +49,13 @@
                 <td style="width:100%">
                     <h6>1. DATOS PERSONALES</h6>
                     
-                    <h5>Persona Usuaria</h5>
+                    <h6>Persona Usuaria</h6>
                     <hr />
                 </td>
             </tr>
         </table>
         
-        
+        @if($patient->nombre!='')
         <table style="width:100%">
             <tr>
                 <td style="width:100%">
@@ -50,26 +63,35 @@
                 </td>
             </tr>
         </table>
-        
+        @endif
+        @if($patient->dni!='')
         <table style="width:100%">
             <tr>
                 <td style="width:100%">
-                    <b>NIF:</b> {{$patient->dni }}
+                    <b>NIF:</b>  {{$patient->dni }} 
                 </td>
             </tr>
         </table>
+        @endif
+        
         
         <table style="width:100%">
             <tr>
-                <td style="width:50%">
-                    <b>FECHA NACIMIENTO:</b> {{$fecha_nac }}
-                </td>
-                <td style="width:50%">
-                    <b>EDAD:</b> {{$age }}
-                </td>
+                @if($fecha_nac!='')
+                    <td style="width:50%">
+                        <b>FECHA NACIMIENTO:</b> {{$fecha_nac }}
+                    </td>
+                @endif
+                @if($age!='')
+                    <td style="width:50%">
+                        <b>EDAD:</b> {{$age }}
+                    </td>
+                @endif
             </tr>
         </table>
         
+        
+        @if($patient->direccion!='')
         <table style="width:100%">
             <tr>
                 <td style="width:100%">
@@ -77,7 +99,9 @@
                 </td>
             </tr>
         </table>
+        @endif
 
+        @if($patient->Municipio!='')
         <table style="width:100%">
             <tr>
                 <td style="width:100%">
@@ -85,29 +109,38 @@
                 </td>
             </tr>
         </table>
-
+        @endif
+        
         <table style="width:100%">
             <tr>
-                <td style="width:50%">
-                    <b>ESTADO CIVIL:</b> {{$patient->estado_civil }}
-                </td>
-                <td style="width:50%">
-                    <b>GENERO:</b> {{$patient->genero }}
-                </td>
+                @if($patient->estado_civil!='')
+                    <td style="width:50%">
+                        <b>ESTADO CIVIL:</b> {{$patient->estado_civil }}
+                    </td>
+                @endif
+                @if($patient->genero!='')
+                    <td style="width:50%">
+                        <b>GENERO:</b> {{$patient->genero }}
+                    </td>
+                @endif
             </tr>
         </table>
 
         <table style="width:100%">
             <tr>
-                <td style="width:50%">
-                    <b>TELÉFONO FIJO:</b> {{$patient->telefono }}
-                </td>
+                @if($patient->telefono!='')
+                    <td style="width:50%">
+                        <b>TELÉFONO FIJO:</b> {{$patient->telefono }}
+                    </td>
+                @endif
+                @if($patient->telefono_movil!='')
                 <td style="width:50%">
                     <b>MÓVIL:</b> {{$patient->telefono_movil }}
                 </td>
+                @endif
             </tr>
         </table>
-
+        @if($patient->email!='')
         <table style="width:100%">
             <tr>
                 <td style="width:100%">
@@ -115,6 +148,7 @@
                 </td>
             </tr>
         </table>
+        @endif
         <hr />
 
         <table style="width:100%">
@@ -125,168 +159,227 @@
             </tr>
 
             @foreach($patient->patientCarers as $item)
-                
+                @if($item->nombre!='')
                 <tr>
                     <td style="width:100%" colspan=2>
                         <b>NOMBRE Y APELLIDO:</b> {{$item->nombre}} {{$item->apellido}} @if($item->cuidadora_principal === 'Si') <span style="color:#FF0000"><b>(PRINCIPAL)</b></span> @endif
                     </td>
                 </tr>
+                @endif
                 <tr>
+                    @if($item->parentesco!='')
                     <td style="width:50%">
                         <b>PARENTESCO:</b> {{$item->parentesco }}
                     </td>
+                    @endif
+                    @if($item->genero_carer!='')
                     <td style="width:50%">
                         <b>GENERO:</b> {{$item->genero_carer }}
                     </td>
+                    @endif
                 </tr>
+                @if($item->dni!='')
                 <tr>
                     <td style="width:100%" colspan=2>
                         <b>NIF:</b> {{$item->dni}}
                     </td>
                 </tr>
+                @endif
                 <tr>
-                    <td style="width:50%">
-                        <b>FECHA NACIMIENTO:</b> {{$item->fecha_nac_carer }}
-                    </td>
-                    <td style="width:50%">
-                        @php
-                            $today = date('Y');
-                            $fnac = $item->fecha_nac_care;
-                            if($fnac){
-                                $tmp = explode("-", $fnac);
-                                $age_carer = $today - $tmp[0];
-                                $age_carer = date('m') > $tmp[1] ? $age_carer + 1 : $age_carer;
-                            }
-                        @endphp
-                        <b>EDAD:</b> @if($age_carer) {{$age_carer }} @endif
-                    </td>
+                    @if($item->fecha_nac_care!='')
+                        <td style="width:50%">
+                            <b>FECHA NACIMIENTO:</b> {{$item->fecha_nac_care }}
+                        </td>
+                    
+                    
+                        <td style="width:50%">
+                            @php
+                                $today = date('Y');
+                                $fnac = $item->fecha_nac_care;
+                                if($fnac){
+                                    $tmp = explode("-", $fnac);
+                                    $age_carer = $today - $tmp[0];
+                                    $age_carer = date('m') > $tmp[1] ? $age_carer + 1 : $age_carer;
+                                }
+                            @endphp
+                            <b>EDAD:</b> {{$age_carer }}
+                        </td>
+                    @endif
                 </tr>
-                
+                @if($item->direccion_cares!='')
                 <tr>
                     <td style="width:100%" colspan=2>
                         <b>DOMICILIO:</b> {{$item->direccion_care }} 
                     </td>
                 </tr>
-        
+                @endif
+                @if($item->municipio_carer!='')
                 <tr>
                     <td style="width:100%" colspan=2>
                         <b>MUNICIPIO:</b> {{$item->municipio_carer }}
                     </td>
                 </tr>
+                @endif
                 <tr>
-                    <td style="width:50%">
-                        <b>TELÉFONO FIJO:</b> {{$item->tel_care }}
-                    </td>
-                    <td style="width:50%">
-                        <b>MÓVIL:</b> {{$patient->movil_care }}
-                    </td>
+                    @if($item->tel_care!='')
+                        <td style="width:50%">
+                            <b>TELÉFONO FIJO:</b> {{$item->tel_care }}
+                        </td>
+                    @endif
+
+                    @if($item->movil_care!='')
+                        <td style="width:50%">
+                            <b>MÓVIL:</b> {{$item->movil_care }}
+                        </td>
+                    @endif
                 </tr>
+                @if($item->email_care!='')
                 <tr>
                     <td style="width:100%" colspan=2>
                         <b>EMAIL:</b> {{$item->email_care }}
                     </td>
                 </tr>
+                @endif
+                @if($item->trabajo_care!='')
                 <tr>
-                    <td style="width:50%">
-                        <b>OCUPACIÓN:</b> @if($item->trabajo_care) implode (", ", $item->trabajo_care); @endif
-                    </td>
-                    <td style="width:50%">
-                        <b>TRABAJO ACTUAL:</b> {{$patient->sit_laboral }}
-                    </td>
+                    
+                        <td style="width:100%" colspan=2>
+                            <b>OCUPACIÓN:</b> {{implode (", ", $item->trabajo_care)}} 
+                        </td>
+                    
                 </tr>
+                @endif
+                @if($item->sit_laboral!='')
+                <tr>
+                    
+                        <td style="width:100%" colspan=2>
+                            <b>TRABAJO ACTUAL:</b> {{$patient->sit_laboral }}
+                        </td>
+                    
+                </tr>
+                @endif
+                @if($item->otro_serv_apoyo!='')
                 <tr>
                     <td style="width:100%" colspan=2>
                         <b>SERVICIO DE APOYO:</b> {{$item->otro_serv_apoyo }}
                     </td>
                 </tr>
+                @endif
                 <tr>
                     <td style="width:100%" colspan=2>
                         <b>OBSERVACIÓN:</b> 
                     </td>
                 </tr>
-                <hr />
+                <tr>
+                    <td style="width:100%" colspan=2><br /></td>
+                </tr>
             @endforeach
         </table>
-
+        <hr />
         <table style="width:100%">
             <tr>
                 <td style="width:100%">
                     <h6>2. SERVICIOS Y PROGRAMAS PRESTADOS</h6>
                 </td>
             </tr>
-            @foreach($patient->patientServices as $patientService)
-                
-                <tr>
-                    <td style="width:100%" colspan=2>
-                        @if ($patientService->es_primario == 'es_primario')
-                            <b>Servicio Principal:</b> {!! $patientService->nom_servicio !!}
-                        @else
-                            <b>Servicio Secundario:</b> {!! $patientService->nom_servicio !!}
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:100%" colspan=2>
-                        @if($patientService->fecha_form_serv)
-                            <b>FECHA DE FORMALIZACIÓN:</b> {{ date('d/m/Y', strtotime($patientService->fecha_form_serv )) }}
-                        @else
-                            <b>FECHA DE FORMALIZACIÓN:</b>
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:50%">
-                        @if($patientService->tipo_plaza_serv)
-                            <b>TIPO DE PLAZA:</b> {!! implode(', ', (array)$patientService->tipo_plaza_serv) !!}
-                        @else
-                            <b>TIPO DE PLAZA:</b>
-                        @endif
-                    </td>
-                    <td style="width:50%">
-                        @if($patientService->plaza_privada_serv)
-                            <b>PLAZA PRIVADA:</b> {!! implode(', ', (array)$patientService->plaza_privada_serv) !!}
-                        @endif
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:100%" colspan=2>
-                        <b>Observación:</b> 
-                    </td>
-                </tr>
-                <hr />
+            @if($main_service->nom_servicio == 'SPAPD')
+                @foreach(   $patient->patientServices as $patientService)
+                    
+                    <tr>
+                        <td style="width:100%" colspan=2>
+                            @if ($patientService->es_primario == 'es_primario')
+                                <b>Servicio Principal:</b> {!! $patientService->nom_servicio !!}
+                            @else
+                                <b>Servicio Secundario:</b> {!! $patientService->nom_servicio !!}
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:100%" colspan=2>
+                            @if($patientService->fecha_form_serv!='')
+                                <b>FECHA DE FORMALIZACIÓN:</b> {{ date('d/m/Y', strtotime($patientService->fecha_form_serv )) }}
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%">
+                            @if($patientService->tipo_plaza_serv!='')
+                                <b>TIPO DE PLAZA:</b> {!! implode(', ', (array)$patientService->tipo_plaza_serv) !!}
+                            @endif
+                        </td>
+                        <td style="width:50%">
+                            @if($patientService->plaza_privada_serv!='')
+                                <b>PLAZA PRIVADA:</b> {!! implode(', ', (array)$patientService->plaza_privada_serv) !!}
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:100%" colspan=2>
+                            <b>Observación:</b> 
+                        </td>
+                    </tr>
+                    
+                    
 
-            @endforeach
-        </table>
-        <table style="width:100%">
-            <tr>
-                <td style="width:100%">
-                    <h6>PROGRAMAS CONTRATADOS</h6>
-                </td>
-            </tr>
-            @foreach($patient->patientSpapd as $patientSpapd)
-                <tr>
-                    <td style="width:100%" colspan=2>
-                        @if ($patientSpapd->prog_spapd == "Otros")
-                            <b>{{ strtoupper($patientSpapd->otros_programa)}} </b>
-                        @else
-                            <b>{{ strtoupper($patientSpapd->prog_spapd) }} </b>
-                        @endif 
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:100%" colspan=2>
-                        <b>Sesiones:</b> {!! $patientSpapd->num_sesiones !!}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:100%" colspan=2>
-                        <b>Observación:</b> 
-                    </td>
-                </tr>
-                <tr><td style="width:100%" colspan=2><hr /></td></tr>
-            @endforeach
-        </table>
+                @endforeach
 
+                <table style="width:100%">
+                    <tr>
+                        <td style="width:100%">
+                            <h6>PROGRAMAS CONTRATADOS</h6>
+                        </td>
+                    </tr>
+                    @foreach($patient->patientSpapd as $patientSpapd)
+                        <tr>
+                            <td style="width:100%" colspan=2>
+                                @if ($patientSpapd->prog_spapd == "Otros")
+                                    <b>{{ strtoupper($patientSpapd->otros_programa)}} </b>
+                                @else
+                                    <b>{{ strtoupper($patientSpapd->prog_spapd) }} </b>
+                                @endif 
+                            </td>
+                        </tr>
+                        @if($patientSpapd->num_sesiones!='')
+                            <tr>
+                                <td style="width:100%" colspan=2>
+                                    <b>Sesiones:</b> {!! intval($patientSpapd->num_sesiones) !!}
+                                </td>
+                            </tr>
+                        @endif
+                        <tr>
+                            <td style="width:100%" colspan=2>
+                                <b>Observación:</b> 
+                            </td>
+                        </tr>
+                        <tr><td style="width:100%" colspan=2><hr /></td></tr>
+                    @endforeach
+                </table>
+            @else
+                @foreach($patient->patientCentro as $patientCentro)
+                    <tr>
+                        <td style="width:100%" colspan=2>
+                            <b>Centro:</b> {!! $patientCentro->prog_centro !!}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%">
+                            <b>Num. Sesiones:</b> {{ $patientCentro->num_sesiones }}
+                        </td>
+                        <td style="width:50%">
+                            <b>Trabajador:</b> {{ $patientCentro->worker->nombre }} {{ $patientCentro->worker->apellido }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:100%" colspan=2>
+                            <b>Observación:</b> 
+                        </td>
+                    </tr>
+                    <hr />
+                @endforeach
+            @endif
+        </table>
+        
+        
         <table style="width:100%">
             <tr>
                 <td style="width:100%">
@@ -303,18 +396,24 @@
                     $worker = \DB::table('workers')->where('id',$wid)->get()->first();
                 @endphp
                 <tr>
+                    @if($worker->dni!='')
                     <td style="width:50%">
                         <b>NIF: {{ $worker->dni }}</b>
                     </td>
+                    @endif
                     <td style="width:50%">
                         <b>Nº COLEGIACIÓN:</b> 
                     </td>
+                    
                 </tr>
+                @if($worker->nombre!='')
                 <tr>
                     <td style="width:100%">
                         <b>NOMBRE Y APELLIDOS:</b> {{ $worker->nombre }} {{ $worker->apellido }}
                     </td>
                 </tr>
+                @endif
+
                 <tr>
                     <td style="width:100%">
                         <b>CATEGORÍA PROFESIONAL:</b>
@@ -337,42 +436,54 @@
                     <strong>COBERTURA SANITARIA</strong>
                 </td>
             </tr>
-            <tr>
-                <td style="width:100%">
-                    <b>PRIVADA:</b> @if($patient->patientHealth) {{ $patient->patientHealth->regimen_priv }} @endif
-                </td>
-            </tr>
-            <tr>
-                <td style="width:100%">
-                    <b>Nº AFILIACIÓN:</b>@if($patient->patientHealth) {{ $patient->patientHealth->num_afiliado }} @endif
-                </td>
-            </tr>
-            <tr>
-                <td style="width:100%">
-                    <b>MÉDICO DE CABECERA:</b>@if($patient->patientHealth) {{ $patient->patientHealth->med_cabecera }} @endif
-                </td>
-            </tr>
-            <tr>
-                <td style="width:50%">
-                    <b>CENTRO DE REFERENCIA:</b>@if($patient->patientHealth) {{ $patient->patientHealth->centro_salud }} @endif
-                </td>
-                <td style="width:50%">
-                    <b>TFNO. CENTRO REFERENCIA:</b>@if($patient->patientHealth) {{ $patient->patientHealth->tel_centro_salud }} @endif
-                </td>
-            </tr>
-            <tr>
-                <td style="width:50%">
-                    <b>ESPECIALISTA:</b> 
-                </td>
-                <td style="width:50%">
-                    <b>CENTRO DE ESPECIALIDADES:</b>
-                </td>
-            </tr>
-            <tr>
-                <td style="width:100%">
-                    <b>OBSERVACIONES:</b> 
-                </td>
-            </tr>
+            @if(isset($patient->patientHealth))
+                @if($patient->patientHealth->regimen_priv!='')
+                <tr>
+                    <td style="width:100%">
+                        <b>PRIVADA:</b> {{ $patient->patientHealth->regimen_priv }} 
+                    </td>
+                </tr>
+                @endif
+                @if($patient->patientHealth->num_afiliado!='')
+                <tr>
+                    <td style="width:100%">
+                        <b>Nº AFILIACIÓN:</b> {{ $patient->patientHealth->num_afiliado }}
+                    </td>
+                </tr>
+                @endif
+                @if($patient->patientHealth->med_cabecera!='')
+                <tr>
+                    <td style="width:100%">
+                        <b>MÉDICO DE CABECERA:</b> {{ $patient->patientHealth->med_cabecera }}
+                    </td>
+                </tr>
+                @endif
+                <tr>
+                    @if($patient->patientHealth->centro_salud!='')
+                        <td style="width:50%">
+                            <b>CENTRO DE REFERENCIA:</b>{{ $patient->patientHealth->centro_salud }}
+                        </td>
+                    @endif
+                    @if($patient->patientHealth->tel_centro_salud!='')
+                        <td style="width:50%">
+                            <b>TFNO. CENTRO REFERENCIA:</b>{{ $patient->patientHealth->tel_centro_salud }}
+                        </td>
+                    @endif
+                </tr>
+                <tr>
+                    <td style="width:50%">
+                        <b>ESPECIALISTA:</b> 
+                    </td>
+                    <td style="width:50%">
+                        <b>CENTRO DE ESPECIALIDADES:</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:100%">
+                        <b>OBSERVACIONES:</b> 
+                    </td>
+                </tr>
+            @endif
         </table>
         <hr />
         <table style="width:100%">
@@ -454,9 +565,11 @@
                 </td>
             </tr>
             <tr><td><hr /></td></tr>
-            <tr>
-                <td><b>MEDICACIÓN EN CENTRO:</b>@if($patient->patientHealth) {{ $patient->patientHealth->med_centro }} @endif</td>
-            </tr>
+            @if($main_service->nom_servicio != 'SPAPD' && $patient->patientCentro->count() > 0)
+                <tr>
+                    <td><b>MEDICACIÓN EN CENTRO:</b>@if($patient->patientHealth) {{ $patient->patientHealth->med_centro }} @endif</td>
+                </tr>
+            @endif
             <tr>
                 <table style="width:100%">
                     <tr>
@@ -482,24 +595,39 @@
                 </td>
             </tr>
             <tr><td><hr /></td></tr>
-            <tr>
-                <td><b>INCONTINENCIA:</b>@if($patient->patientHealth) {!! implode(', ', (array)$patient->patientHealth->incontinencia_opc) !!} @endif</td>
-            </tr>
-            <tr>
-                <td><b>RIESGO DE CAÍDAS:</b>@if($patient->patientHealth) {{ $patient->patientHealth->caida }} @endif</td>
-            </tr>
-            <tr>
-                <td><b>DIETA:</b>@if($patient->patientHealth) {{ $patient->patientHealth->dieta }} @endif</td>
-            </tr>
-            <tr>
-                <td><b>HIGIENE PERSONAL:</b>@if($patient->patientHealth) {{ $patient->patientHealth->higiene }} @endif</td>
-            </tr>
-            <tr>
-                <td><b>ÚLCERA POR PRESIÓN:</b>@if($patient->patientHealth) {{ $patient->patientHealth->ulcera }} @endif</td>
-            </tr>
-            <tr>
-                <td><b>DEAMBULACIÓN ERRANTE:</b>@if($patient->patientHealth) {{ $patient->patientHealth->deambulacion }} @endif</td>
-            </tr>
+            @if($patient->patientHealth)
+                @if($patient->patientHealth->incontinencia_opc!='')
+                    <tr>
+                        <td><b>INCONTINENCIA:</b> {!! implode(', ', (array)$patient->patientHealth->incontinencia_opc) !!}</td>
+                    </tr>
+                @endif
+                @if($patient->patientHealth->caida!='')
+                <tr>
+                    <td><b>RIESGO DE CAÍDAS:</b>{{ $patient->patientHealth->caida }}</td>
+                </tr>
+                @endif
+
+                @if($patient->patientHealth->dieta!='')
+                <tr>
+                    <td><b>DIETA:</b>{{ $patient->patientHealth->dieta }}</td>
+                </tr>
+                @endif
+                @if($patient->patientHealth->higiene!='')
+                <tr>
+                    <td><b>HIGIENE PERSONAL:</b>{{ $patient->patientHealth->higiene }} </td>
+                </tr>
+                @endif
+                @if($patient->patientHealth->ulcera!='')
+                    <tr>
+                        <td><b>ÚLCERA POR PRESIÓN:</b>{{ $patient->patientHealth->ulcera }}</td>
+                    </tr>
+                @endif
+                @if($patient->patientHealth->deambulacion!='')
+                <tr>
+                    <td><b>DEAMBULACIÓN ERRANTE:</b>{{ $patient->patientHealth->deambulacion }}</td>
+                </tr>
+                @endif
+            @endif
         </table>
         <hr />
         <table style="width:100%">
@@ -516,34 +644,50 @@
                 </td>
             </tr>
             <tr><td><hr /></td></tr>
-            <tr>
-                <td style="width:100%">
-                    <b>SITUACIÓN DE DEPENDENCIA:</b>@if($patient->patientInfo) {{ $patient->patientInfo->situacion_dep }} @endif
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>GRADO DE DEPENDENCIA:</b>@if($patient->patientInfo) {{ $patient->patientInfo->grado_dep }} @endif
-                </td>
-            </tr>
-            <tr>
-                <td style="width:50%">
-                    <b>TIPO DE AYUDA:</b>@if($patient->patientInfo) {{ $patient->patientInfo->ayuda_dep }} @endif
-                </td>
-                <td style="width:50%">
-                    <b>CUANTÍA RESUELTA:</b>@if($patient->patientInfo) {{ $patient->patientInfo->cuantia }} @endif
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>TÉCNICA DE DEPENDENCIA:</b> {{ $patient->patientInfo->tec_dependencia }}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>PERSONA GUARDADORA:</b> {{ $patient->patientInfo->guarda_hecho }}
-                </td>
-            </tr>
+            @if($patient->patientInfo)
+                @if($patient->patientInfo->situacion_dep!='')
+                    <tr>
+                        <td style="width:100%">
+                            <b>SITUACIÓN DE DEPENDENCIA:</b> {{ $patient->patientInfo->situacion_dep }}
+                        </td>
+                    </tr>
+                @endif
+                @if($patient->patientInfo->grado_dep!='')
+                <tr>
+                    <td>
+                        <b>GRADO DE DEPENDENCIA:</b>{{ $patient->patientInfo->grado_dep }} 
+                    </td>
+                </tr>
+                @endif
+                
+                <tr>
+                    @if($patient->patientInfo->ayuda_dep!='')
+                        <td style="width:50%">
+                            <b>TIPO DE AYUDA:</b>{{ $patient->patientInfo->ayuda_dep }}
+                        </td>
+                    @endif
+                    @if($patient->patientInfo->cuantia!='')
+                    <td style="width:50%">
+                        <b>CUANTÍA RESUELTA:</b>{{ $patient->patientInfo->cuantia }} 
+                    </td>
+                    @endif
+                </tr>
+                @if($patient->patientInfo->tec_dependencia!='')
+                <tr>
+                    <td>
+                        <b>TÉCNICA DE DEPENDENCIA:</b> {{ $patient->patientInfo->tec_dependencia }}
+                    </td>
+                </tr>
+                @endif
+
+                @if($patient->patientInfo->guarda_hecho!='')
+                <tr>
+                    <td>
+                        <b>PERSONA GUARDADORA:</b> {{ $patient->patientInfo->guarda_hecho }}
+                    </td>
+                </tr>
+                @endif
+            @endif
             <tr><td><hr /></td></tr>
             <tr>
                 <td>
@@ -584,21 +728,27 @@
                 </td>
             </tr>
             <tr><td><hr /></td></tr>
-            <tr>
-                <td style="width:100%">
-                    <b>TIPO DE AYUDAS: @if($patient->patientInfo) {!! implode(', ', (array)$patient->patientInfo->ayuda_soc) !!} @endif</b>
-                </td>
-            </tr>
-            <tr>
-                <td style="width:100%">
-                    <b>CERTIFICADO DE DISCAPACIDAD: </b>@if($patient->patientInfo) {!! $patient->patientInfo->cert_disc !!} @endif
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <b>OBSERVACIONES:</b>
-                </td>
-            </tr>
+            @if($patient->patientInfo)
+                @if($patient->patientInfo->ayuda_soc!='')      
+                    <tr>
+                        <td style="width:100%">
+                            <b>TIPO DE AYUDAS:  {!! implode(', ', (array)$patient->patientInfo->ayuda_soc) !!}</b>
+                        </td>
+                    </tr>
+                @endif
+                @if($patient->patientInfo->ayuda_cert_discsoc!='')      
+                <tr>
+                    <td style="width:100%">
+                        <b>CERTIFICADO DE DISCAPACIDAD: </b> {!! $patient->patientInfo->cert_disc !!}
+                    </td>
+                </tr>
+                @endif
+                <tr>
+                    <td>
+                        <b>OBSERVACIONES:</b>
+                    </td>
+                </tr>
+            @endif
         </table>
         <hr />
 
@@ -609,11 +759,13 @@
                 </td>
             </tr>
             <tr><td><hr /></td></tr>
+            @if($patient->patientInfo && $patient->patientInfo->sit_legal!='')
             <tr>
                 <td style="width:100%">
-                    <b>SITUACIÓN LEGAL: </b>@if($patient->patientInfo) {{ $patient->patientInfo->sit_legal }} @endif
+                    <b>SITUACIÓN LEGAL: </b> {{ $patient->patientInfo->sit_legal }}
                 </td>
             </tr>
+            @endif
             <tr>
                 <td>
                     <b>OBSERVACIONES:</b>
@@ -622,7 +774,7 @@
         </table>
 
         <hr />
-        <table style="width:100%">
+        <table style="width:100%;text-align:justify;">
             <tr>
                 <td style="width:100%">
                     <h6>6. PLAN DE VIDA ACUFADE</h6>
@@ -635,7 +787,7 @@
                 </td>
             </tr>
             <tr>
-                <td><b>Programa de Estimulación Cognitiva</b></td>
+                <td><b>Área Cognitiva</b></td>
             </tr>
             <tr>
                 <td>
@@ -646,37 +798,37 @@
             </tr>
             <tr><td><hr /></td></tr>
             <tr>
-                <td><b>Programa de Apoyo Emocional</b></td>
+                <td><b>Área Emocional</b></td>
             </tr>
             <tr>
                 <td>
                     <p><b>Objetivos</b></p>
                     <p><b>Valoración emocional</b></p>
-                    <p><b>Plan de Tratamiento</b></p>
+                    <p><b>Plan de Tratamiento (actividades y ejercicios)</b></p>
                     <p><b>Recomendaciones</b></p>
                 </td>
             </tr>
             <tr><td><hr /></td></tr>
             <tr>
-                <td><b>Programa de Autonomía (Fisioterapia)</b></td>
+                <td><b>Área Física(Fisioterapia)</b></td>
             </tr>
             <tr>
                 <td>
                     <p><b>Objetivos</b></p>
                     <p><b>Valoración física</b></p>
-                    <p><b>Plan de Tratamiento</b></p>
+                    <p><b>Plan de Tratamiento (actividades y ejercicios)</b></p>
                     <p><b>Recomendaciones</b></p>
                 </td>
             </tr>
             <tr><td><hr /></td></tr>
             <tr>
-                <td><b>Programa de Terapia Ocupacional</b></td>
+                <td><b>Área Funcional</b></td>
             </tr>
             <tr>
                 <td>
                     <p><b>Objetivos</b></p>
                     <p><b>Valoración funcional</b></p>
-                    <p><b>Plan de Tratamiento</b></p>
+                    <p><b>Plan de Tratamiento (actividades y ejercicios)</b></p>
                     <p><b>Recomendaciones</b></p>
                 </td>
             </tr>
@@ -684,7 +836,7 @@
 
         </table>
         <hr />
-        <table style="width:100%">
+        <table style="width:100%; text-align:justify;">
             <tr>
                 <td style="width:100%">
                     <h6>7. OTRAS CONSIDERACIONES RELEVANTES</h6>
@@ -710,7 +862,7 @@
             </tr>
         </table>
 
-        <table style="width:100%">
+        <table style="width:100%;text-align:justify;">
             <tr>
                 <td style="width:100%" colspan="2">
                     <h6>8. CONSENTIMIENTO INFORMADO</h6>
